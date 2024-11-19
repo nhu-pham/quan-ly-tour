@@ -228,49 +228,93 @@ class MyModels extends Database {
     }
 
     function delete($where = NULL) {
-        $sql = "DELETE FROM  $this->table ";
-        if ($where != NULL) {
-        $where_array = array_keys($where);
-        $value_where = array_values($where);
-        $isFields_where = true;
-        $stringWhere = 'where';
-        $string_Caculator = '=';
+        // validate dữ liệu
+        if ($where === NULL) {
+            return json_encode(
+                array(
+                    'type'      => 'Fail',
+                    'Message'   => 'No data provided',
+                )
+            );
+        }
+
+        // Kiểm tra khóa ngoại và xử lý
+        foreach ($where as $column => $value) {
+            // Kiểm tra xem column có phải là khóa ngoại hay không
+            $isForeignKey = $this->isForeignKey($column);
+        }
+
+        try 
+        {
+            $sql = "DELETE FROM  $this->table ";
+            if ($where != NULL) {
             $where_array = array_keys($where);
             $value_where = array_values($where);
             $isFields_where = true;
             $stringWhere = 'where';
-            for ($i=0; $i < count($where_array); $i++) { 
-                preg_match('/<=|>=|<|>/',$where_array[$i],$matches,PREG_OFFSET_CAPTURE);
-                if ($matches != null) {
-                    $string_Caculator = $matches[0][0];
+            $string_Caculator = '=';
+            $where_array = array_keys($where);
+                $value_where = array_values($where);
+                $isFields_where = true;
+                $stringWhere = 'where';
+                for ($i=0; $i < count($where_array); $i++) { 
+                    preg_match('/<=|>=|<|>/',$where_array[$i],$matches,PREG_OFFSET_CAPTURE);
+                    if ($matches != null) {
+                        $string_Caculator = $matches[0][0];
+                    }
+                    
+                    if (!$isFields_where) {
+                        $sql .= " and ";
+                        $stringWhere = '';
+                    }
+                    $isFields_where = false;
+                    //$sql .= "" .$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//-
+                    $sql .= "  ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//+
                 }
-                
-                if (!$isFields_where) {
-                    $sql .= " and ";
-                    $stringWhere = '';
+                $query = $this->conn->prepare($sql);
+                if ($query->execute($value_where)) {
+                    return json_encode(
+                        array(
+                            'type'      => 'Sucessfully',
+                            'Message'   => 'Delete data sucessfully',
+                        )
+                    );
                 }
-                $isFields_where = false;
-                $sql .= "" .$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//-
-                $sql .= "  ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//+
+                else{
+                    return json_encode(
+                        array(
+                            'type'      => 'Fail',
+                            'Message'   => 'Delete data fail',
+                        )
+                    );
+                }
             }
-            $query = $this->conn->prepare($sql);
-            if ($query->execute($value_where)) {
-                return json_encode(
-                    array(
-                        'type'      => 'Sucessfully',
-                        'Message'   => 'Delete data sucessfully',
-                    )
-                );
-            }
-            else{
-                return json_encode(
-                    array(
-                        'type'      => 'Fail',
-                        'Message'   => 'Delete data fail',
-                    )
-                );
+        } catch (PDOException $e) {
+            // Kiểm tra lỗi là do vi phạm ràng buộc khóa ngoại
+            if ($e->getCode() == '23000') {  // Mã lỗi SQLSTATE cho vi phạm khóa ngoại
+                echo json_encode(array(
+                    'type' => 'Error',
+                    'Message' => 'Cannot delete this tour because it is referenced by orders in the system.'
+                ));
+            } else {
+                // Nếu lỗi khác, hiển thị thông báo lỗi chung
+                echo json_encode(array(
+                    'type' => 'Error',
+                    'Message' => 'An error occurred: ' . $e->getMessage()
+                ));
             }
         }
+        
+    }
+
+    // Hàm kiểm tra xem column có phải là khóa ngoại không
+    private function isForeignKey($column) {
+        // Truy vấn thông tin về khóa ngoại từ cơ sở dữ liệu
+        $sql = "SELECT COUNT(*) FROM information_schema.key_column_usage WHERE table_name = :table AND column_name = :column AND referenced_table_name IS NOT NULL";
+        $query = $this->conn->prepare($sql);
+        $query->execute([':table' => $this->table, ':column' => $column]);
+
+        return $query->fetchColumn() > 0;
     }
 
     function select_row($data='*',$where){

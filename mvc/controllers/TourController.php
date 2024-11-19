@@ -57,22 +57,19 @@ class TourController extends Controller
         }
     }
 
-    public function delete()
+    public function delete($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-            $data = json_decode(file_get_contents("php://input"), true);
-
-            if ($data) {
-                $response = $this->tourModel->delete($data);
-                echo $response;
-            } else {
-                echo json_encode([
-                    'type' => 'Fail',
-                    'message' => 'Invalid input data'
-                ]);
-            }
+            $response = $this->tourModel->delete(['id' => $id]);
+            echo $response;
+        } else {
+            echo json_encode([
+                'type' => 'Fail',
+                'message' => 'Invalid request method'
+            ]);
         }
     }
+
 }
 ?>
 

@@ -106,7 +106,7 @@ class Routes {
 }
 // Định nghĩa các route cho Tour
 Routes::addRoute('/tour/add', 'TourController/add');   // Route cho thêm tour
-Routes::addRoute('/tour/edit/(:num)', 'TourController/edit/$1'); // Route cho sửa tour, với tham số là ID
+Routes::addRoute('/tour/update/(:num)', 'TourController/update/$1'); // Route cho sửa tour, với tham số là ID
 Routes::addRoute('/tour/delete/(:num)', 'TourController/delete/$1'); // Route cho xóa tour, với tham số là ID
 Routes::addRoute('/tours', 'TourController/index'); 
 ?>
