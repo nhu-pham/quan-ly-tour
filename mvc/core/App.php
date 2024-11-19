@@ -3,7 +3,7 @@
 class App
 {
     protected $controller = "TourController";
-    protected $action = "delete";
+    protected $action = "put";
     protected $params = [];
     protected $Routes__;
 

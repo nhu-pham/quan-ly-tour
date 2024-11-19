@@ -40,22 +40,44 @@ class TourController extends Controller
         }
     }
 
-    public function update()
+    public function update($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+            // Kiểm tra ID hợp lệ
+            if (empty($id) || !is_numeric($id)) {
+                echo json_encode([
+                    'type' => 'Fail',
+                    'message' => 'Invalid ID provided'
+                ]);
+                return;
+            }
+
+            // Lấy dữ liệu JSON từ body
             $data = json_decode(file_get_contents("php://input"), true);
 
-            if ($data) {
-                $response = $this->tourModel->update($data);
-                echo $response;
-            } else {
+            // Kiểm tra dữ liệu JSON hợp lệ
+            if (!$data || !is_array($data)) {
                 echo json_encode([
                     'type' => 'Fail',
                     'message' => 'Invalid input data'
                 ]);
+                return;
             }
+
+            // Chuyển ID thành mảng điều kiện
+            $where = ['id' => $id];
+
+            // Gọi model update
+            $response = $this->tourModel->update($data, $where);
+            echo $response;
+        } else {
+            echo json_encode([
+                'type' => 'Fail',
+                'message' => 'Invalid request method'
+            ]);
         }
     }
+
 
     public function delete($id)
     {

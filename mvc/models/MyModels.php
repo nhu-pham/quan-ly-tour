@@ -178,6 +178,30 @@ class MyModels extends Database {
 
     function update($data = NULL,$where = NULL){
         if ($data != NULL && $where != NULL) {
+            // Kiểm tra đầu vào
+            if ($data === NULL || $where === NULL) {
+                return json_encode([
+                    'type' => 'Error',
+                    'Message' => 'Data and Where clause cannot be NULL'
+                ]);
+            }
+
+            if (!is_array($data) || !is_array($where)) {
+                return json_encode([
+                    'type' => 'Error',
+                    'Message' => 'Data or Where clause must be an array'
+                ]);
+            }
+
+            if (empty($data) || empty($where)) {
+                return json_encode([
+                    'type' => 'Error',
+                    'Message' => 'Data or Where clause cannot be empty'
+                ]);
+            }
+
+
+            
             $fields = array_keys($data);
             $values = array_values($data);
             $where_array = array_keys($where);
@@ -207,6 +231,12 @@ class MyModels extends Database {
                $isFields_where = false;
                $sql .= "  ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." '".$value_where[$i]."'";
             }
+
+            // Tự động thêm updated_at
+            if (in_array('updated_at', $fields)) {
+                $sql .= ", updated_at = NOW()";
+            }
+
             $query = $this->conn->prepare($sql);
             if ($query->execute($values)) {
                 return json_encode(
