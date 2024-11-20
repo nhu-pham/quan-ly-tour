@@ -109,4 +109,11 @@ Routes::addRoute('/tour/add', 'TourController/add');   // Route cho thêm tour
 Routes::addRoute('/tour/update/(:num)', 'TourController/update/$1'); // Route cho sửa tour, với tham số là ID
 Routes::addRoute('/tour/delete/(:num)', 'TourController/delete/$1'); // Route cho xóa tour, với tham số là ID
 Routes::addRoute('/tours', 'TourController/index'); 
+
+// Định nghĩa các route cho Service
+Routes::addRoute('/service/add', 'ServiceController/add');   
+Routes::addRoute('/service/update/(:num)', 'ServiceController/update/$1'); // Route cho sửa tour, với tham số là ID
+Routes::addRoute('/service/delete/(:num)', 'ServiceController/delete/$1'); // Route cho xóa tour, với tham số là ID
+Routes::addRoute('/services', 'ServiceController/index'); 
+
 ?>

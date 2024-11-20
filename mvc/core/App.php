@@ -2,8 +2,8 @@
 
 class App
 {
-    protected $controller = "TourController";
-    protected $action = "put";
+    protected $controller = "ServiceController";
+    protected $action = "add";
     protected $params = [];
     protected $Routes__;
 
