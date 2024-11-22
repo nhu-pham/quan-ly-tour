@@ -1,0 +1,92 @@
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box {
+    position: relative;
+    margin-top: 0%;
+    width: 800px;
+    height: 60%;
+    padding: 30px;
+    background-color: rgba(2,155,197, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    border: none;
+    padding: 5px 10px;
+    background-color: var(--white) ;
+    cursor: pointer;
+}
+
+.login-box h1 {
+    font-size: 24px;
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid white;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: 20%;
+}
+
+label {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none; /* Loại bỏ tất cả các viền */
+    border-bottom: 1px solid #fff; /* Chỉ viền phía dưới */
+    background-color: transparent;
+    color: #fff;
+}
+.title-login{
+    text-align: left;
+}
+.login-btn {
+    width: 30%;
+    margin-left: 35% ;
+    padding: 10px;
+    background-color: #00bfff;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #009acc;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.options a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}

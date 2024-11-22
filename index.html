@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dangNhap.css">
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/thanhToan.css">
+    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <header class="header" id="header" data-header>
+
+        <div class="overlay " data-overlay></div>
+
+            <div class="container">
+
+                <ul class="social-list">
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>   
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+
+                <nav class="navbar" data-navbar>
+
+                    <ul class="navbar-list">
+
+                        <li>
+                            <a href="#home" class="navbar-link" data-nav-link>Trang chủ</a>
+                        </li>
+
+                        <li>
+                            <a href="#aboutus" class="navbar-link" data-nav-link>Giới thiệu</a>
+                        </li>
+
+                        <li>
+                            <div class="dropdown-des">
+                                <a href="#destination" class="navbar-link desdrop" data-nav-link>Điểm đến</a>
+                                <div class="dropdown-content">
+                                    <a href="#mienbac">Miền Bắc</a>
+                                    <a href="#mientrung">Miền Trung</a>
+                                    <a href="#miennam">Miền Nam</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#package" class="navbar-link" data-nav-link>Tour</a>
+                        </li>
+
+                        <li>
+                            <a href="#review" class="navbar-link" data-nav-link>Đánh giá</a>
+                        </li>
+
+                        <li>
+                            <a href="#contact" class="navbar-link" data-nav-link>Liên hệ</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="btn btn-primary" id="btn-dn">Đăng nhập</button>
+                    <div id="user-profile" class="user-profile">
+                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                        <button id="user-name">User <i class="fa-solid fa-caret-down"></i></button></div> 
+                        <div class="user-options">
+                            <a href="#qlThongTin">
+                                <i class="fas fa-cog"></i>
+                                Quản lý thông tin
+                            </a>
+                            <a href="#">
+                                <i class="fas fa-sync-alt"></i>
+                                Đổi mật khẩu
+                            </a>
+                            <a href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+            </div>     
+    </header>  
+
+    <main>
+        <article>
+            <!-- hero  -->
+        <section id="trangchu">
+            <section class="hero" id="home" id="login-modal">
+                <div class="container">
+
+                    <h2 class="h1 hero-title">
+                        Khám phá những địa điểm mới
+                    </h2>
+                                    
+                </div>
+                <section class="tour-search">
+                    <div class="container">    
+                        <form action="" class="tour-search-form">    
+                            <div class="input-wrapper">
+                                <label for="destination" class="input-label des">Điểm đến </label>
+    
+                                <input type="text" name="destination" id="destination" required placeholder="Nhập điểm đến" 
+                                class="input-field">
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="checkin" class="input-label">Ngày đi</label>
+    
+                                <input type="date" name="checkin" id="checkin" required
+                                class="input-field">
+                            </div>  
+                            <div class="input-wrapper">
+                                <label for="checkin" class="input-label">Ngày về </label>
+
+                                <input type="date" name="checkout" id="checkout" required
+                                class="input-field">
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Tìm Kiếm</button>
+                        </form>
+                    </div>
+                 </section>
+            </section>
+
+            
+             <!-- popular -->
+            <div class="header-popular">
+                <h2 class = "popular_title">Điểm đến nổi bật trong tháng</h2>
+                <div class="icon-group">
+                    <button id="nextButton"><i class="fa-solid fa-chevron-left icon-p"></i></button>
+                    <button id="prevButton"><i class="fa-solid fa-chevron-right icon-p"></i></button>
+                </div>
+            </div>
+            <div class="slider-popular slider1 active-p">
+                <div class="responsive">
+                    <div class="gallery">
+                    <a target="_blank" href="assets/images/tournb_halong.jpg">
+                        <img src="assets/images/tournb_halong.jpg">
+                    </a>
+                    <div class="desc">
+                        <div id="province"> Quảng Ninh</div><br>
+                        <div id="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
+                        <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br> 
+                        <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="responsive">
+                    <div class="gallery">
+                    <a target="_blank" href="assets/images/tournb_hoian.jpg">
+                        <img src="assets/images/tournb_hoian.jpg">
+                    </a>
+                    <div class="desc">
+                        <div id="province"> Quảng Nam</div><br>
+                        <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
+                        <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br> 
+                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="responsive">
+                    <div class="gallery">
+                    <a target="_blank" href="assets/images/tournb_hue.jpg">
+                        <img src="assets/images/tournb_hue.jpg">
+                    </a>
+                    <div class="desc">
+                        <div id="province"> Thừa Thiên Huế</div><br>
+                        <div id="dest">Đại Nội - Đồi Thiên An - Làng Sình</div><br>
+                        <div id="price"><i class="fa fa-dollar"></i>900.000VND</div><br> 
+                        <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="responsive">
+                    <div class="gallery">
+                    <a target="_blank" href="assets/images/tournb_ho-hoan-kiem.jpg">
+                        <img src="assets/images/tournb_ho-hoan-kiem.jpg">
+                    </a>
+                    <div class="desc">
+                        <div id="province"> Hà Nội</div><br>
+                        <div id="dest">Hồ Hoàn Kiếm - Hoàng Thành Thăng Long</div><br>
+                        <div id="price"><i class="fa fa-dollar"></i>550.000VND</div><br> 
+                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <div class="slider-popular slider2">
+            <div class="responsive">
+                <div class="gallery">
+                <a target="_blank" href="assets/images/tournb_halong.jpg">
+                    <img src="assets/images/tournb_halong.jpg">
+                </a>
+                <div class="desc">
+                    <div id="province"> Quảng Ninh</div><br>
+                    <div id="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
+                    <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br> 
+                    <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                    <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                </div>
+                </div>
+            </div>
+            
+            <div class="responsive">
+                <div class="gallery">
+                <a target="_blank" href="assets/images/tournb_hoian.jpg">
+                    <img src="assets/images/tournb_hoian.jpg">
+                </a>
+                <div class="desc">
+                    <div id="province"> Quảng Nam</div><br>
+                    <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
+                    <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br> 
+                    <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                    <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                </div>
+                </div>
+            </div>
+        </div>
+            <div class="clearfix"></div>
+
+
+              <!-- package  -->
+
+            <h2 class="tour-list">Danh sách các tour</h2>
+            <div class="gallery-container">
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/One_Pillar_Pagoda_Hanoi.jpg" alt="Hà Nội - Hải Phòng - Nghệ An">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Hà Nội - Hải Phòng - Nghệ An</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/longan.jpg" alt="Long An - Tiền Giang - Kiên Giang">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Long An - Tiền Giang - Kiên Giang</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/hue-nhatrang.jpg" alt="Huế - Nha Trang">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Huế - Nha Trang</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/hue-saigon.jpg" alt="Huế - Sài Gòn">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Huế - Sài Gòn</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/caobang-hatinh.jpg" alt="Cao Bằng - Hà Tĩnh">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Cao Bằng - Hà Tĩnh</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="gallery2">
+                        <img class="picture" src="assets/images/nghean-danang.jpg" alt="Nghệ An - Đà Nẵng - Quảng Nam">
+                        <i class="fa-solid fa-heart"></i>
+                        <div class="desc">
+                            <div>Nghệ An - Đà Nẵng - Quảng Nam</div>
+                            <a href="link_to_detail_page_2.html" class="chi-tiet-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+            </div>
+                <div class="see-more">
+                    <button id="xemthem">Xem thêm</button>
+                </div>
+
+                <!-- gallery  -->
+                <h2 class="review">Đánh giá</h2>
+                <div class="tour-container">
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Cao Bằng - 3 ngày/2 đêm - 3.000.000 VND</button>
+                            </div>
+                            <img src="assets/images/homestay-.jpg" alt="Cao Bằng" class="tour-image">
+                            <div class="tour-review">
+                                <img src="assets/images/anh1.jpg" alt="Lý Sang Hiếc" class="tour-avatar">
+                                <div>
+                                    <strong>Lý Sang Hiếc</strong><br>
+                                </div>
+                            </div>
+                            <h3 class="tour-evaluate">Chỗ ở rất đẹp, tôi có thể nhìn ngắm cảnh núi rừng hùng vĩ. Nếu có cơ hội tôi nhất định sẽ đặt lại tour du lịch này.</h3>
+                        </div>
+                    </div>
+            
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Huế - Vũng Tàu</button>        
+                            </div>
+                            <img src="assets/images/monan.jpg" alt="Huế - Vũng Tàu" class="tour-image">
+                            <div class="tour-review">
+                                <img src="assets/images/anh2.jpg" alt="Nguyễn Minh Tuấn" class="tour-avatar">
+                                <div>
+                                    <strong>Nguyễn Minh Tuấn</strong><br>
+                                </div>                        
+                            </div>
+                            <h3 class="tour-evaluate">Đây là tour tuyệt vời nhất mà tôi từng được đi. Món ăn ở Huế rất tuyệt vời.</h3>
+                        </div>
+                    </div>
+            
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Hà Nội - Nghệ An</button>                                
+                            </div>
+                            <img src="assets/images/ho-hoan-kiem-7185.jpg" alt="Hà Nội - Nghệ An" class="tour-image">
+                            <div class="tour-review">
+                                <img src="assets/images/anh3.jpg" alt="Lê Phúc Kiệt" class="tour-avatar">
+                                <div>
+                                    <strong>Lê Phúc Kiệt</strong><br>
+                                </div>
+                            </div>
+                            <h3 class="tour-evaluate"> Buổi đêm ở đây rất tuyệt vời.</h3>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+                 <!-- cta  -->
+                <!-- <section class="cta" id="contact">
+                    <div class="container">
+
+                        <div class="cta-content">
+                            <p class="section-subtitle">
+                                Call To Action
+                            </p>
+
+                            <h2 class="h2 setcion-title">
+                                Ready For Unforgatable Travel. Remember Us!
+                            </h2>
+
+                            <p class="section-text">
+                                Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur, aptent.
+                            </p>
+                        </div>
+
+                        <button class="btn btn-secondary">
+                            Contact Us!
+                        </button>
+                    </div>
+                  </section> -->
+    <!-- Trang giới thiệu -->
+    <section id="about">
+        <section class="hero" id="home">
+            <div class="container">
+
+                <h2 class="h1 hero-title">
+                    Giới thiệu
+                </h2>
+                                
+            </div>
+        </section>
+
+
+        <div class="about-container">
+            <div class="section">
+                <div class="text-container">
+                    <h2>Về chúng tôi</h2>
+                    <p>Chào mừng bạn đến với [Tên Công Ty], nơi mang đến cho bạn những trải nghiệm du lịch đáng nhớ và phong phú nhất! Với đam mê và nhiều năm kinh nghiệm trong lĩnh vực du lịch, chúng tôi tự hào là đối tác đáng tin cậy của hàng ngàn du khách trên khắp thế giới.</p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/images/office.jpg" alt="Về chúng tôi">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="image-container">
+                    <img src="assets/images/mission.jpg" alt="Sứ mệnh">
+                </div>
+                <div class="text-container">
+                    <h2>Sứ mệnh của chúng tôi</h2>
+                    <p>Chúng tôi không chỉ cung cấp các tour du lịch, mà còn mong muốn mang đến những hành trình khám phá, kết nối văn hóa và trải nghiệm chân thực tại mỗi điểm đến. Sứ mệnh của chúng tôi là tạo nên những chuyến đi ý nghĩa, giúp du khách thư giãn, học hỏi và lưu giữ những kỷ niệm khó quên.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="text-container">
+                    <h2>Dịch vụ của chúng tôi</h2>
+                    <p>Từ các tour khám phá thiên nhiên hoang dã, đến các hành trình văn hóa đậm chất địa phương, chúng tôi cung cấp đa dạng các loại hình tour du lịch phù hợp với mọi nhu cầu. Bạn có thể chọn các gói du lịch trọn gói, tour cá nhân hoá, hoặc những chuyến phiêu lưu mạo hiểm dành riêng cho người yêu thích khám phá.</p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/images/service.jpg" alt="Dịch vụ">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="image-container">
+                    <img src="assets/images/commitment.jpg" alt="Cam kết chất lượng">
+                </div>
+                <div class="text-container">
+                    <h2>Cam kết chất lượng</h2>
+                    <p>Chúng tôi cam kết mang đến dịch vụ du lịch an toàn, tiện lợi và chất lượng cao với mức giá hợp lý nhất. Đội ngũ hướng dẫn viên giàu kinh nghiệm và am hiểu sẽ đồng hành cùng bạn trong suốt chuyến đi, mang lại những khoảnh khắc đáng nhớ nhất.</p>
+                </div>
+            </div>
+        </div> 
+    </section>
+    <!-- Trang đăng nhập -->
+    <section class="hero" id="login-modal">
+    <div class="login-container">
+        <div class="login-box" id="modal">
+            <button class="close-btn">X</button>
+            <h1>Chào mừng đến với Tourly</h1>
+            <form>
+                <div class="input-group">
+                    <label class="title-login" for="username">Tên đăng nhập</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="input-group">
+                    <label class="title-login" for="password">Mật khẩu</label>
+                    <input type="password" id="password">
+                </div>
+                <button type="submit" id="login-btn" class="login-btn">Đăng nhập</button>
+            </form>
+            <div class="options">
+                <a href="#forget-pass">Quên mật khẩu</a><br>
+                <a href="#dangky">Chưa có tài khoản? Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    </section>
+                <!-- Quên mật khẩu -->
+                <section class="hero" id="forget-model">
+                    <div class="login-container">
+                        <div class="login-box" id="modal">
+                            <button class="close-btn">X</button>
+                            <h1>Quên mật khẩu</h1>
+                            <form>
+                                <div class="input-group">
+                                    <label class="email-login" for="useremail">Nhập Email</label>
+                                    <input type="text" id="useremail">
+                                </div>
+                                <button type="submit" id="next1" class="next">Tiếp theo</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Nhập mã xác nhận -->
+                <section class="hero" id="confirm-modal">
+                    <div class="login-container">
+                        <div class="login-box" id="modal">
+                            <button class="close-btn">X</button>
+                            <h1>Quên mật khẩu</h1>
+                            <form>
+                                <div class="input-group">
+                                    <label class="email-login" for="useremail">Nhập mã xác nhận</label>
+                                    <input type="text" id="useremail">
+                                </div>
+                                <button type="submit" id="next2" class="next">Tiếp theo</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- Nhập lại mật khẩu -->
+                <section class="hero" id="newpass-modal">
+                    <div class="login-container">
+                        <div class="login-box" id="modal">
+                            <button class="close-btn">X</button>
+                            <h1>Quên mật khẩu</h1>
+                            <form>
+                                <div id="newpass-content">
+                                    <div class="input-group">
+                                        <label class="change-login" for="useremail">Mật khẩu mới</label>
+                                        <input type="text" id="useremail">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="change-login" for="useremail">Nhập lại mật khẩu</label>
+                                        <input type="text" id="useremail">
+                                    </div>
+                                </div>
+                                <div class="modal-overlay" id="notification-modal">
+                                    <div class="modal">
+                                        <div class="modal-header">
+                                            <h2>Thông báo</h2>
+                                            <button class="close-btn" id="close-btn">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Đổi mật khẩu thành công!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="change-pass" class="change-pass">Đổi mật khẩu</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- Thông báo -->
+
+    <!-- Trang đăng ký-->
+<section class="hero" id="dang-ky" >
+    <div class="register-container" id="register-modal">
+        <div class="register-box" id="register-modal-box">
+            <button class="close-btn" id="close-register-modal">×</button>
+            <h1>Đăng Ký</h1>
+            <form>
+                <div class="input-group-dk">
+                    <label class="title-register" for="fullname">Họ và tên</label>
+                    <input type="text" id="fullname">
+                </div>
+                <div class="input-group-dk">
+                    <label class="title-register" for="username">Tên đăng nhập</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="input-group-dk">
+                    <label class="title-register" for="password">Mật khẩu</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="input-group-dk">
+                    <label class="title-register" for="confirm-password">Nhập lại mật khẩu</label>
+                    <input type="password" id="confirm-password">
+                </div>
+                <div class="input-group-dk">
+                    <label class="title-register" for="phone">Điện thoại</label>
+                    <input type="text" id="phone">
+                </div>
+                <div class="input-group-dk">
+                    <label class="title-register" for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <button type="submit" class="register-btn">Đăng Ký</button>
+            </form>
+        </div>
+    </div>
+</section> 
+    
+    <!-- Trang Tour Miền Bắc-->
+    <section id="mienBacModal">
+        <section class="page-North" id="home">
+            <section class="content">
+            <h1>Miền Bắc</h1>
+                <p>
+                    Miền Bắc Việt Nam là một điểm đến hấp dẫn, nơi bạn sẽ được trải nghiệm vẻ đẹp thiên nhiên kỳ vĩ, văn hóa phong phú và lịch sử lâu đời. Từ những ngọn núi trùng điệp của Sa Pa, những cánh đồng xanh mướt ở Mộc Châu đến những di sản văn hóa thế giới như Vịnh Hạ Long, miền Bắc tỏa sáng với cảnh sắc hùng vĩ và sự đa dạng trong nền văn hóa dân tộc. Bên cạnh đó, con người miền Bắc nổi tiếng với sự thân thiện và hiếu khách, khiến du khách cảm thấy như ở nhà. Đến miền Bắc, bạn không chỉ được khám phá những địa danh nổi tiếng mà còn có cơ hội trải nghiệm ẩm thực đặc sắc, tham gia vào các lễ hội truyền thống và tìm hiểu về những phong tục tập quán độc đáo của các dân tộc nơi đây. Hãy cùng lên đường và khám phá miền Bắc Việt Nam, một thiên đường du lịch không thể bỏ lỡ!
+                </p>         
+            </section>
+        </section> 
+
+        <!-- Danh sách các tour -->
+
+            <div class="dstour"> 
+            <!-- Bộ lọc tìm kiếm -->
+            <div class="filter">
+                <h2>Bộ lọc tìm kiếm</h2>
+                <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
+                <form>
+                    <label for="budget">Ngân sách</label>
+                    <div class="budget-options">
+                        <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
+                        <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
+                        <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20 triệu</button>
+                        <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
+                    </div>
+
+                    <label for="departure">Điểm khởi hành</label>
+                    <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
+
+                    <label for="destination">Điểm đến</label>
+                    <input type="text" id="destination" placeholder="Nhập điểm đến">
+
+                    <div class="date-group">
+                        <label for="date">Ngày đi</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <button type="submit" class="filter-btn">Lọc</button>
+                </form>
+            </div> 
+
+            <!-- Kết quả tìm kiếm -->
+            <div id="page1" class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR2</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR3</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR4</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR5</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page2" class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR6</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR7</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR8</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR9</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR10</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page3" class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR11</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR12</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR13</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR14</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR15</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page4" class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR16</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR17</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR18</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR19</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR20</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page5" class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR21</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR22</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR23</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR24</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR25</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pagination" class="pagination">
+            <a href="#prevpage">&laquo;</a>
+            <a class="activate" href="#1">1</a>
+            <a href="#2">2</a>
+            <a href="#3">3</a>
+            <a href="#4">4</a>
+            <a href="#5">5</a>
+            <a href="#nextpage">&raquo;</a>
+        </div>
+    </section>
+    
+
+    <!-- Trang Tour Miền Trung-->
+    <section id="mienTrungModal">
+        <section class="page-Central" id="home">
+            <section class="content">
+
+            <h1>Miền Trung</h1>
+                <p>
+                    Miền Trung Việt Nam là một vùng đất quyến rũ với những bãi biển tuyệt đẹp, di sản văn hóa phong phú và cảnh quan thiên nhiên đa dạng. Từ thành phố Đà Nẵng hiện đại với bãi biển Mỹ Khê xanh mướt, đến cố đô Huế trầm mặc với những công trình kiến trúc cổ kính, miền Trung mang đến cho du khách những trải nghiệm thú vị và độc đáo. Bạn có thể khám phá phố cổ Hội An với những ngôi nhà cổ và ánh đèn lồng lung linh, hay tham gia vào các hoạt động thể thao mạo hiểm tại các khu nghỉ dưỡng ven biển. Không chỉ nổi tiếng với cảnh đẹp, miền Trung còn chinh phục du khách bằng ẩm thực đặc sắc, từ bún bò Huế đậm đà đến cao lầu Hội An thơm ngon. Hãy cùng khám phá miền Trung Việt Nam, nơi hội tụ của văn hóa, lịch sử và vẻ đẹp thiên nhiên tuyệt vời!
+                </p>         
+            </section>
+        </section> 
+
+        <!-- Danh sách các tour -->
+
+            <div class="dstour"> 
+            <!-- Bộ lọc tìm kiếm -->
+            <div class="filter">
+                <h2>Bộ lọc tìm kiếm</h2>
+                <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
+                <form>
+                    <label for="budget">Ngân sách</label>
+                    <div class="budget-options">
+                        <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
+                        <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
+                        <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20 triệu</button>
+                        <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
+                    </div>
+
+                    <label for="departure">Điểm khởi hành</label>
+                    <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
+
+                    <label for="destination">Điểm đến</label>
+                    <input type="text" id="destination" placeholder="Nhập điểm đến">
+
+                    <div class="date-group">
+                        <label for="date">Ngày đi</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <button type="submit" class="filter-btn">Lọc</button>
+                </form>
+            </div> 
+
+            <!-- Kết quả tìm kiếm -->
+            <div class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </section>
+
+    <!-- Trang Tour Miền Nam-->
+    <section id="mienNamModal">
+        <section class="page-South" id="home">
+            <section class="content">
+
+            <h1>Miền Nam</h1>
+                <p>
+                    Miền Nam Việt Nam là vùng đất tràn đầy sức sống, nổi bật với vẻ đẹp thiên nhiên tươi mát, văn hóa đa dạng và ẩm thực phong phú. Từ những bãi biển tuyệt đẹp của Phú Quốc đến những con kênh xanh mát của miền Tây sông nước, nơi đây mang đến cho du khách những trải nghiệm thú vị và độc đáo. Bạn sẽ được khám phá thành phố Hồ Chí Minh nhộn nhịp với những khu chợ sôi động, các công trình lịch sử như Dinh Độc Lập và Nhà thờ Đức Bà. Miền Tây mang đến khung cảnh yên bình với những vườn trái cây sai trĩu, cùng những hoạt động như đi thuyền trên các kênh rạch. Ẩm thực miền Nam cũng vô cùng hấp dẫn, từ phở, hủ tiếu đến các món đặc sản như cá lóc nướng trui và bánh xèo. Hãy đến miền Nam Việt Nam để trải nghiệm sự hiếu khách của người dân, khám phá những nét văn hóa độc đáo và thưởng thức những món ăn ngon tuyệt!
+                </p>         
+            </section>
+        </section> 
+
+        <!-- Danh sách các tour -->
+
+            <div class="dstour"> 
+            <!-- Bộ lọc tìm kiếm -->
+            <div class="filter">
+                <h2>Bộ lọc tìm kiếm</h2>
+                <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
+                <form>
+                    <label for="budget">Ngân sách</label>
+                    <div class="budget-options">
+                        <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
+                        <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
+                        <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20 triệu</button>
+                        <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
+                    </div>
+
+                    <label for="departure">Điểm khởi hành</label>
+                    <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
+
+                    <label for="destination">Điểm đến</label>
+                    <input type="text" id="destination" placeholder="Nhập điểm đến">
+
+                    <div class="date-group">
+                        <label for="date">Ngày đi</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <button type="submit" class="filter-btn">Lọc</button>
+                </form>
+            </div> 
+
+            <!-- Kết quả tìm kiếm -->
+            <div class="search-results">
+                <h2>50 kết quả được tìm thấy</h2>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="https://via.placeholder.com/150" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</h3>
+                        <p>Mã Tour: MB_TOUR1</p>
+                        <p>Khởi hành: Thủ đô Hà Nội</p>
+                        <p>Ngày khởi hành: Thủ đô Hà Nội</p>
+                        <p>Thời gian: 3N2D</p>
+                        <div class="price-and-button"> <p class="price">Giá từ: 4.990.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a class="active" href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </section>
+    <!-- Chi tiết tour -->
+    <div id="chitiet-tour">
+        <div class="chitiet-tour">
+            <h4>
+                <label class="mienbac-chitiet">
+                    <a href="#mienbac">Miền Bắc</a> >
+                    <a href="#caobang-langson"><strong>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</strong></a> 
+                </label>
+            </h4>
+            <h3>Thông tin chi tiết về chuyến đi</h3>
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="Slide fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="assets/images/sliderB1.jpg" style="width:100%; height: 400px;">
+                  <div class="text-slide">Chùa Phật Tích Trúc Lâm</div>
+                </div>
+              
+                <div class="Slide fade s1">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="assets/images/sliderB2.jpg" style="width:100%; height: 400px;">
+                  <div class="text-slide">Thác Bản Giốc</div>
+                </div>
+              
+                <div class="Slide fade s2">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="assets/images/lang-da-khuoi-ky.jpg" style="width:100%; height: 400px;">
+                  <div class="text-slide">Làng đá cổ Khuổi Kỵ</div>
+                </div>
+                <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+                <a class="next-slide" onclick="plusSlides(1)">❯</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
+            <ul class="chuyendi-chitiet">
+                <div class="column1">
+                    <li><strong>Ẩm thực</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                    <li><strong>Đối tượng thích hợp</strong> Cặp đôi, Gia đình nhiều thế hệ, Thanh niên</li>
+                </div>
+                <div class="column2">
+                    <li><strong>Thời gian lý tưởng</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                    <li><strong>Khuyến mãi</strong> Giảm 20%</li>
+                </div>
+            </ul>
+            <h3>Lịch trình</h3>
+            <ul class="lichtrinh">
+                <li><strong>Ngày 1</strong> Tham quan <strong>Chùa Phật Tích Trúc Lâm </strong></li>
+                <li><strong>Ngày 2</strong> Tham quan <strong>Làng đá cổ Khuổi Kỵ</strong></li>
+                <li><strong>Ngày 3</strong> Tham quan <strong>Thác Bản Giốc</strong></li>
+            </ul>
+            <button id="bt" class="bt">Đặt tour</button>
+        </div>
+    </div>
+    <!-- Thông tin đặt tour -->
+
+
+    <div id="chitiet-dattour" class="chitiet-tour">
+        <h4>
+            <label class="mienbac-chitiet">
+                <a href="#mienbac">Miền Bắc</a> >
+                <a href="#caobang-langson">Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</a> > 
+                <a href="#dattour"><strong>Đặt tour</strong></a>
+            </label>          
+        </h4>
+        <h3>Thông tin đặt tour</h3>
+
+        <div class="booking-form">
+
+            
+            <div class="gender">
+                <label><input type="radio" name="gender" value="male"> Nam</label>
+                <label><input type="radio" name="gender" value="female"> Nữ</label>
+                <label><input type="radio" name="gender" value="other"> Khác</label>
+            </div>
+
+            
+            <div class="form-row1">
+                <div class="form-group">
+                    <label for="name"><strong>Họ và tên</strong></label>
+                    <input type="text" id="name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="date"><strong>Ngày sinh</strong></label>
+                    <input type="date" id="date" class="form-control">
+                </div>
+            </div>
+            <div class="form-row2">
+                <div class="form-group">
+                    <label for="phone"><strong>Số điện thoại</strong></label>
+                    <input type="text" id="phone" class="form-control">
+                </div>
+            
+                <div class="form-group">
+                    <label for="email"><strong>Email</strong></label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+            </div>
+            
+            
+            <div class="full-width">
+                <label for="address"><strong>Nơi ở hiện tại</strong></label>
+                <input type="text" id="address" class="form-control">
+            </div>
+
+            
+            <div class="form-row1">
+                <h3>Thông tin tour</h3>
+                <button class="bt dv">Dịch vụ khác</button></div>
+            <div class="tour-info">
+                <p><b>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</b></p>
+                <p class="tttour">Giá tour: <span class="price">0VND</span></p>
+                <p class="tttour">Dịch vụ khác:<span class="price-service">0VND</span></p>
+            </div>
+
+            
+            <div class="total">
+                <p class="tttour"><strong>Tổng tiền: </strong><span class="price total-price">0VND</span></p>
+            </div>
+
+            
+            <div class="buttons">
+                <button class="bt back">Quay lại</button>
+                <button class="bt pay">Thanh toán</button>
+            </div>
+        </div>
+    </div> 
+    
+    
+    <!-- Thanh toán -->
+
+    <div id="thanhtoanTour" class="chitiet-tour">
+        <h4>
+            <label class="mienbac-chitiet">
+                <a href="#mienbac">Miền Bắc</a> >
+                <a href="#caobang-langson">Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</a> > 
+                <a href="#dattour">Đặt tour</a> >
+                <a href="#thanhtoan"><strong>Thanh toán</strong></a>
+            </label>        
+        </h4>
+        <h3>Thanh toán</h3>
+        <div class="pay-form">
+            <label class="text price">5.000.000VND</label>
+            <h2 class="text">QUÉT MÃ ĐỂ THANH TOÁN</h2>
+            <img class="qrcode" src="assets/images/qr.png" alt="QR">
+            <label class="text company">Công ty A</label>
+            <label class="text acc">Số tài khoản: XXXXX-XXXXX</label>
+        </div>
+    </div>
+    
+    <!-- Dịch vụ -->
+
+    <div id="dichVu" class="chitiet-tour">
+            <h4>
+                <label class="mienbac-chitiet">
+                    <a href="#mienbac">Miền Bắc</a> >
+                    <a href="#caobang-langson">Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</a> > 
+                    <a href="#dattour">Đặt tour</a> >
+                    <a href="#thanhtoan">Thanh toán</a> >
+                    <a href="#dichvu"><strong>Dịch vụ</strong></a>
+                </label>        
+            </h4>
+            <div class="title-cart">
+                <h3>Thuê dịch vụ du lịch</h3>
+                <button class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></button><label id="quantity">0</label>
+            </div>
+
+            <!-- Xe máy -->
+            <label class="product-rent">
+                <a href="#xemay"><strong>Xe máy/</strong></a>
+                <a href="#oto">Ô tô/</a>
+                <a href="#camtrai">Combo cắm trại</a></label>
+            <div id="xemay" class="product-grid">
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>    
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/xemay.jpg" alt="Xe máy" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>     
+    
+            <!-- Xe ô tô -->
+            <div id="oto" class="product-grid">
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>    
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/oto.jpg" alt="Ô tô" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Cắm trại -->
+            <div id="camtrai" class="product-grid">
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>    
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/camtrai.jpg" alt="Lều trại" class="product-img">
+                    <div class="product-info">
+                        <p>1.550.000 VND</p>
+                        <div class="product-controls">
+                            <button class="quantity-btn text">-</button>
+                            <input type="text" value="0" class="quantity-input">
+                            <button class="quantity-btn text">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons dichvu-btn">
+                <button class="bt back">Quay lại</button>
+                <button class="bt pay cont">Tiếp tục</button>
+            </div>
+    </div>
+    
+    <!-- Quản lý thông tin cá nhân -->
+
+    <div id="account-information" class="account-container">
+        <!-- Sidebar -->
+        <div class="info-sidebar">
+            <div class="header-info">
+                <img src="assets/images/anh3.jpg" alt="User Avatar" class="avatar-large">
+                <h3>Tên tài khoản</h3>
+            </div>
+            <ul class="menu">
+                <li><a href="#tabTT" class="active">Quản lý thông tin</a></li>
+                <li><a href="#tabMK">Đổi mật khẩu</a></li>
+                <li><a href="#tabDM">Đơn mua</a></li>
+                <li><a href="#tabKM">Khuyến mãi</a></li>
+            </ul>
+        </div>
+
+        <!-- Account Information -->
+        <div id="thongTinTK" class="account-info">
+            <h2>Thông tin tài khoản</h2>
+            <form>
+                <div class="form-tt">
+                    <label for="fullname">Họ tên</label>
+                    <input type="text" id="fullname" placeholder="">
+                    
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" placeholder="">
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="">
+                    
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" id="phone" placeholder="">
+
+                    <button type="submit">Lưu</button>
+                </div>
+                <img src="assets/images/anh3.jpg" alt="User Avatar" class="avatar-large1">
+            </form>
+        </div>
+        <!-- Change Password -->
+        <div id="doiMK" class="account-info">
+            <h2>Đổi mật khẩu</h2>
+            <form>
+                <div class="form-tt">
+                    <div class="form-mk">
+                        <label for="fullname">Mật khẩu cũ</label>
+                        <input type="text" id="fullname" placeholder="">
+                   
+                        <label for="username">Mật khẩu mới</label>
+                        <input type="text" id="username" placeholder="">
+                    
+                    
+                        <label for="email">Nhập lại mật khẩu</label>
+                        <input type="email" id="email" placeholder="">
+                    </div>
+
+                    <button type="submit">Lưu</button>
+                </div>
+            </form>
+        </div>
+        <!-- Bill -->
+        <div id="donMua" class="order-container">
+            
+            <!-- Tabs -->
+            <div class="tabs">
+                <a href="#all" class="tab active">Tất cả</a>
+                <a href="#wait" class="tab">Chờ thanh toán</a>
+                <a href="#finish" class="tab">Hoàn thành</a>
+                <a href="#cancel" class="tab">Đã hủy</a>
+            </div>
+
+            <!-- Tất cả -->
+
+            <div id="all-order">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm đơn hàng của bạn tại đây">
+                </div>
+            
+                <!-- Order Card -->
+                <div class="order-card">
+                    <img src="assets/images/tournb_halong.jpg" alt="Tour Image" class="order-image">
+                    <div class="order-details">
+                        <div><h4>Quảng Ninh – Hải Phòng (Vịnh Hạ Long, Đảo Cát Bà, Chùa Hương)</h4></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">3.990.000VND</label></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="waitforpay"><span class="status">CHỜ THANH TOÁN</span></div>
+                        <p>Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                        <button class="btn pay-btn">Thanh toán</button>
+                        <button class="btn cancel-btn">Hủy</button>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <img src="assets/images/caobang-hatinh.jpg" alt="Tour Image" class="order-image">
+                    <div class="order-details">
+                        <div><h4>Lào Cai - Yên Bái - Phú Thọ (Suối nước nóng Minh Quân, Mù Cang Chải, Sapa)</h4></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">3.990.000VND</label></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="waitforpay"><span class="status">CHỜ THANH TOÁN</span></div>
+                        <p>Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                        <button class="btn pay-btn">Thanh toán</button>
+                        <button class="btn cancel-btn">Hủy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chờ thanh toán-->
+
+            <div id="waitforpay">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm đơn hàng của bạn tại đây">
+                </div>
+            
+                <!-- Order Card -->
+                <div class="order-card">
+                    <img src="assets/images/caobang-hatinh.jpg" alt="Tour Image" class="order-image">
+                    <div class="order-details">
+                        <div><h4>Lào Cai - Yên Bái - Phú Thọ (Suối nước nóng Minh Quân, Mù Cang Chải, Sapa)</h4></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">3.990.000VND</label></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="waitforpay"><span class="status">CHỜ THANH TOÁN</span></div>
+                        <p>Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                        <button class="btn pay-btn">Thanh toán</button>
+                        <button class="btn cancel-btn">Hủy</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hoàn thành -->
+
+            <div id="finish-order">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm đơn hàng của bạn tại đây">
+                </div>
+            
+                <!-- Order Card -->
+                <div class="order-card">
+                    <img src="assets/images/tournb_halong.jpg" alt="Tour Image" class="order-image">
+                    <div class="order-details">
+                        <div><h4>Quảng Ninh – Hải Phòng (Vịnh Hạ Long, Đảo Cát Bà, Chùa Hương)</h4></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">3.990.000VND</label></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="finish"><span class="status" style="color: var(--bright-navy-blue);">HOÀN THÀNH</span></div>
+                        <p>Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                        <button class="btn pay-btn">Đánh giá</button>
+                        <button class="btn cancel-btn">Đặt lại</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hủy -->
+
+            <div id="cancel-order">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm đơn hàng của bạn tại đây">
+                </div>
+            
+                <!-- Order Card -->
+                <div class="order-card">
+                    <img src="assets/images/tournb_halong.jpg" alt="Tour Image" class="order-image">
+                    <div class="order-details">
+                        <div><h4>Quảng Ninh – Hải Phòng (Vịnh Hạ Long, Đảo Cát Bà, Chùa Hương)</h4></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">3.990.000VND</label></div>
+                        <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="finish"><span class="status">ĐÃ HỦY</span></div>
+                        <p class="cancel-price">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                        <button class="btn pay-btn">Chi tiết hủy</button>
+                        <button class="btn cancel-btn">Đặt lại</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="khuyenMai" class="promotional-info">
+            <h2>Khuyến mãi của bạn</h2>
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm đơn hàng của bạn tại đây">
+            </div>
+            <div class="pcard">
+                <div class="promotional-card">
+                    <img src="assets/images/khuyenmai.png" alt="Tour Image" class="order-image">
+                    <div class="promotional-details">
+                        <div><h3>Giảm 10% Đơn Tối Thiểu ₫2tr</h3></div>
+                        <div><h4 style="font-weight: normal; color: red;">Áp dụng cho hình thức chuyển khoản</h4></div>
+                        <button class="apply">Áp dụng ngay</button>
+                    </div>
+                </div>
+                <div class="promotional-card">
+                    <img src="assets/images/khuyenmai.png" alt="Tour Image" class="order-image">
+                    <div class="promotional-details">
+                        <div><h3>Giảm 10% Đơn Tối Thiểu ₫1tr5</h3></div>
+                        <div><h4 style="font-weight: normal; color: red;">Áp dụng cho hình thức chuyển khoản</h4></div>
+                        <button class="apply">Áp dụng ngay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Liên Hệ -->
+
+    <div id="contact-container" class="contact-container">
+        <h2 class="title">Thông tin liên hệ</h2>
+        <p class="desc">
+            Để có thể đáp ứng được các yêu cầu và đóng góp ý kiến của quý khách, xin vui lòng gửi thông tin hoặc 
+            gọi đến hotline các chi nhánh bên dưới để liên hệ một cách nhanh chóng.
+        </p>
+        <div class="contact-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <h3>Thông tin liên lạc</h3>
+                <form action="#">
+                    <label for="contact-type">Loại thông tin <span style="color: red;">*</span></label>
+                    <select id="contact-type" required>
+                        <option value="">Chọn loại thông tin</option>
+                        <option value="">Du lịch</option>
+                        <option value="">Chăm sóc khách hàng</option>
+                        <option value="">Liên hệ thông tin khác</option>
+                    </select>
+
+                    <label for="name">Họ tên <span style="color: red;">*</span></label>
+                    <input type="text" id="name" placeholder="Nhập họ tên" required>
+
+                    <label for="phone">Số điện thoại <span style="color: red;">*</span></label>
+                    <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
+
+                    <label for="address">Địa chỉ <span style="color: red;">*</span></label>
+                    <input type="text" id="address" placeholder="Nhập địa chỉ" required>
+
+                    <label for="title">Tiêu đề <span style="color: red;">*</span></label>
+                    <input type="text" id="title" placeholder="Nhập tiêu đề" required>
+
+                    <label for="message">Nội dung <span style="color: red;">*</span></label>
+                    <textarea id="message" rows="5" placeholder="Nhập nội dung" required></textarea>
+
+                    <button type="sent-btn">Gửi ngay</button>
+                </form>
+            </div>
+
+            <!-- Branch Section -->
+            <div class="branch-section">
+                <h3>Mạng lưới chi nhánh</h3>
+                <div class="parts">
+                    <button class="part active">Miền Bắc</button>
+                    <button class="part">Miền Trung</button>
+                    <button class="part">Miền Nam</button>
+                </div>
+                <hr style="border-bottom: 1px solid black;">
+                <div class="info-branch">
+                    <h4>CHI NHÁNH HÀ NỘI</h4>
+                    <p><i class="fa-solid fa-location-dot"></i>03 Hai Bà Trưng, Hà Nội - Tel: 024. 3933 1978 | VPDL khách đoàn: Tầng 7, tòa nhà Hồng Hà - Số 37 Ngô Quyền, Hà Nội </p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: hn1@vietcharm.com</p>
+                    <p><i class="fa-solid fa-phone"></i>Hotline: (024) 3933 1978 | 0989 37 00 33</p>
+
+                    <h4>CHI NHÁNH HẢI PHÒNG</h4>
+                    <p><i class="fa-solid fa-location-dot"></i>04 Trần Hưng Đạo, P. Hoàng Văn Thụ, Q.Hồng Bàng, TP. Hải Phòng</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: hp2@vietcharm.com</p>
+                    <p><i class="fa-solid fa-phone"></i>Hotline: (0225) 3842 888 | 0936 900 085</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer  -->
+    <footer>
+        <div id="footer" class="footer-container">
+            <div class="footer-left">
+                <h2>Nếu bạn có bất kỳ câu hỏi gì hãy liên hệ với chúng tôi</h2>
+                <p>Chúng tôi sẽ nhiệt tình giúp bạn có trải nghiệm tuyệt vời nhất</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Input your email here">
+                    <button type="submit">></button>
+                </div>
+                <p class="copyright">Copyright Tanah Air Studio</p>
+            </div>
+            <div class="footer-right">
+                <div class="logo-section">
+                    <img src="logoipsum.png" alt="logoipsum" class="logo">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <a href="#">Home</a>
+                        <a href="#">Room & Suites</a>
+                        <a href="#">Packages</a>
+                        <a href="#">Voucher</a>
+                        <a href="#">Promo</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">About Us</a>
+                        <a href="#">Restaurant & Bar</a>
+                        <a href="#">Events</a>
+                        <a href="#">Gallery</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">Our Team</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/dangNhap.js"></script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

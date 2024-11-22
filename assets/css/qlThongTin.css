@@ -1,0 +1,301 @@
+
+#doiMK, #donMua,#khuyenMai, #waitforpay, #finish-order, #cancel-order{
+    display: none;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Main Container */
+.account-container {
+    position: relative;
+    display: flex;
+    top: 100px;
+    max-width: 1200px;
+    height: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Sidebar */
+
+.header-info{
+    display: flex;
+    border-bottom: 2px solid var(--bright-navy-blue);
+}
+.header-info h3{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.info-sidebar {
+    width: 30%;
+    height: 100%;
+    background-color: #f7f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.avatar-large1{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: -50%;
+    margin-left: 450px;
+}
+.info-sidebar h3 {
+    margin-bottom: 20px;
+}
+
+.account-container .menu {
+    margin-top: 20px;
+    list-style: none;
+}
+
+.account-container .menu li {
+    margin: 10px 0;
+}
+
+.account-container .menu li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.account-container .menu li a.active {
+    border-left: 3px solid #02799d;
+    padding-left: 10px;
+    color: var(--bright-navy-blue);
+}
+
+/* Account Info */
+.account-container .account-info {
+    padding: 20px;
+    width: 680px;
+    margin-left: 40%;
+    margin-top: -45.5%;
+}
+
+.account-container .account-info h2 {
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 13px;
+    border-bottom: 2px solid var(--bright-navy-blue);
+    padding-bottom: 10px;
+}
+
+.account-container .account-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-container .account-info form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.account-container .account-info form input {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.account-container .account-info form button {
+    padding: 10px 30px;
+    background-color: var(--bright-navy-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.account-container .account-info form button:hover {
+    background-color: var(--bright-navy-blue);
+}
+.account-container .account-info form .form-mk input {
+    width: 100%;
+}
+
+/*Đơn mua*/
+
+.order-container {
+    max-width: 800px;
+    margin-top: -50%;
+    margin-left: 32%;
+    padding: 20px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+}
+
+.tab.active {
+    color: var(--bright-navy-blue);
+    border-bottom: 3px solid var(--bright-navy-blue);
+}
+
+/* Search Bar */
+.search-bar {
+    margin: 15px 0;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Order Card */
+.order-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.order-details {
+    display: flex;
+    flex: 2;
+}
+
+.order-details h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.order-details .fa-tag{
+    color: red;
+}
+
+.order-card .price {
+    font-size: 14px;
+}
+
+.status {
+    display: block;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.order-summary {
+    text-align: right;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.order-details {
+    display: flex;
+    flex-direction: column;   
+}
+.order-details i{
+    margin-right: 10px;
+}
+.order-details div{
+    display: flex;
+}
+.order-summary p{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.order-summary .cancel-price{
+    margin-left: 42px;
+}
+.order-summary p span{
+    padding-left: 10px;
+}
+.order-summary .pay-btn {
+    background-color: var(--bright-navy-blue);
+    color: white;
+}
+
+.order-summary .cancel-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+/*KHUYẾN MÃI*/
+#khuyenMai .pcard{
+    display: flex;
+}
+.promotional-card{
+    display: flex;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promotional-info {
+    padding: 20px;
+    width: 800px;
+    margin-left: 32%;
+    margin-top: -45.5%;
+}
+.promotional-info h2 {
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 13px;
+    border-bottom: 2px solid var(--bright-navy-blue);
+    padding-bottom: 10px;
+}
+#khuyenMai .apply{
+    font-size: 14px;
+    height: 30px;
+    width: 120px;
+    border-radius: 8px;
+    color: var(--white);
+    margin-left: 80px;
+    margin-top: 10px;
+    background-color: var(--bright-navy-blue);
+}
