@@ -4,7 +4,7 @@ class Database
     protected $hostName = "localhost";
     protected $username = "root";
     protected $password = "";
-    protected $dbName = "user_management";
+    protected $dbName = "quan-ly-tour";
     protected $conn;
     function __construct()
     {

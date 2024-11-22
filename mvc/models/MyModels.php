@@ -135,17 +135,14 @@ class MyModels extends Database {
     }
 
     function delete($where = NULL) {
-        $sql = "DELETE FROM  $this->table ";
+        $sql = "DELETE FROM $this->table ";
         if ($where != NULL) {
-        $where_array = array_keys($where);
-        $value_where = array_values($where);
-        $isFields_where = true;
-        $stringWhere = 'where';
-        $string_Caculator = '=';
             $where_array = array_keys($where);
             $value_where = array_values($where);
             $isFields_where = true;
             $stringWhere = 'where';
+            $string_Caculator = '=';
+    
             for ($i=0; $i < count($where_array); $i++) { 
                 preg_match('/<=|>=|<|>/',$where_array[$i],$matches,PREG_OFFSET_CAPTURE);
                 if ($matches != null) {
@@ -157,9 +154,9 @@ class MyModels extends Database {
                     $stringWhere = '';
                 }
                 $isFields_where = false;
-                $sql .= "" .$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//-
-                $sql .= "  ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//+
+                $sql .= " ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";
             }
+    
             $query = $this->conn->prepare($sql);
             if ($query->execute($value_where)) {
                 return json_encode(
@@ -179,6 +176,7 @@ class MyModels extends Database {
             }
         }
     }
+    
 
     function select_row($data='*',$where){
         $sql ="SELECT $data FROM $this->table ";
@@ -351,14 +349,14 @@ class MyModels extends Database {
                 if ($query->execute($values)) {
                     return 
                     array(
-                        'type'      => 'sucessFully',
+                        'type'      => 'Sucessfully',
                         'Message'   => 'Insert data sucessfully',
                     );
                 }
                 else{
                     return 
                     array(
-                        'type'      => 'fail',
+                        'type'      => 'Fail',
                         'Message'   => 'Insert data fail',
                     );
                 }

@@ -2,12 +2,13 @@
 class Controller
 {
     function view($view, $data = [])
-    {
-        foreach ($data as $key => $value) {
-            $$key = $value;
-        }
-        require_once "./mvc/views/" . $view . ".php";
+{
+    foreach ($data as $key => $value) {
+        $$key = $value;
     }
+    require_once "./mvc/views/" . $view . ".php";
+}
+
     function models($models)
     {
         require_once "./mvc/models/" . $models . ".php";

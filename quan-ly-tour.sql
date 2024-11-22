@@ -7,20 +7,25 @@ CREATE TABLE users(
     phone_number VARCHAR(10) NOT NULL,
     email VARCHAR(100) DEFAULT '',
     password VARCHAR(100) NOT NULL DEFAULT '',
-    activeToken VARCHAR(100) NOT NULL DEFAULT '',
+    -- activeToken VARCHAR(100) NOT NULL DEFAULT '',
     forgotToken VARCHAR(100) NOT NULL DEFAULT '',
     created_at DATETIME,
     updated_at DATETIME,
-    status TINYINT(1) DEFAULT 0,
-    role_id INT,
+    -- status TINYINT(1) DEFAULT 0,
+    role_id INT
 );
 
---Bảng phân loại user (Role) => customer 0 , admin 1, employee 2, manager 3
+ALTER TABLE users ADD COLUMN username VARCHAR(100) DEFAULT '';
+ALTER TABLE users ADD COLUMN avatar_url VARCHAR(300);
+
+--Bảng phân loại user (Role) => customer 0, admin 1, employee 2, manager 3
 CREATE TABLE roles(
     id INT PRIMARY KEY,
     position VARCHAR(20) NOT NULL 
 );
+
 ALTER TABLE users ADD FOREIGN KEY (role_id) REFERENCES roles (id);
+INSERT INTO roles (id, position) VALUES (1, 'CUSTOMER'), (2, 'ADMIN'), (3, 'EMPLOYEE'), (4,'MANAGER');
 
 CREATE TABLE tokenlogin(
     id int PRIMARY KEY AUTO_INCREMENT,
@@ -29,11 +34,15 @@ CREATE TABLE tokenlogin(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+ALTER TABLE tokenlogin ADD COLUMN created_at DATETIME;
+
 --Bảng danh mục tour (Category)
 CREATE TABLE categories(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name varchar(100) NOT NULL DEFAULT '' COMMENT 'Tên danh mục: Miền Nam, Miền Bắc, Miền Trung'
 );
+
+INSERT INTO categories (id, name) VALUES (1, 'Miền Nam'), (2, 'Miền Bắc'), (3, 'Miền Trung');
 
 --Bảng chứa thông tin cơ bản của tour/combo
 CREATE TABLE tours (
@@ -42,7 +51,7 @@ CREATE TABLE tours (
     price FLOAT NOT NULL CHECK (price >= 0),
     destination VARCHAR(200) DEFAULT '',
     pick_up VARCHAR(200) DEFAULT '',
-    duration VARCHAR(100) CHECK,
+    duration VARCHAR(100),
     itinerary VARCHAR(300),
     date_start DATETIME NOT NULL,
     thumbnail VARCHAR(300) DEFAULT '' COMMENT 'Ảnh preview tour/combo',
@@ -76,7 +85,7 @@ CREATE TABLE services(
     price FLOAT NOT NULL CHECK (price >= 0),
     service_category_id INT,
     FOREIGN KEY (service_category_id) REFERENCES service_categories(id)
-)
+);
 
 --Đặt tour - orders
 CREATE TABLE orders(
@@ -84,7 +93,7 @@ CREATE TABLE orders(
     user_id int,
     FOREIGN KEY (user_id) REFERENCES users(id),
     fullname VARCHAR(100) DEFAULT '',
-    gender ENUM('Male', 'Female', 'Other') NOT NULL
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
     birthday DATETIME,
     email VARCHAR(100) DEFAULT '',
     phone_number VARCHAR(20) NOT NULL,
@@ -93,7 +102,7 @@ CREATE TABLE orders(
     number_of_children INT NOT NULL,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('pending', 'completed', 'cancelled'),
-    total_money FLOAT CHECK(total_money >= 0),
+    total_money FLOAT NOT NULL CHECK (total_money >= 0),
     --xóa 1 đơn hàng => xóa mềm => thêm trường active
     active TINYINT(1) DEFAULT 1
 );
@@ -103,13 +112,13 @@ CREATE TABLE order_details(
     order_id INT,
     FOREIGN KEY (order_id) REFERENCES orders (id),
     tour_id INT,
-    FOREIGN KEY (tour_id) REFERENCES tour(id),
-    tour_price FLOAT CHECK(price >= 0),
+    FOREIGN KEY (tour_id) REFERENCES tours (id),
+    tour_price FLOAT NOT NULL CHECK (tour_price >= 0),
     service_id INT,
-    FOREIGN KEY (service_id) REFERENCES services(id),
-    service_price FLOAT CHECK(price >= 0),
-    number_of_service INT CHECK(number_of_products > 0),
-    total_money_service FLOAT CHECK(total_money >= 0),
+    FOREIGN KEY (service_id) REFERENCES services (id),
+    service_price FLOAT NOT NULL CHECK (service_price >= 0),
+    number_of_services INT NOT NULL CHECK (number_of_services > 0),
+    total_money_service FLOAT CHECK(total_money_service >= 0)
 );
 
 --Bảng chứa thông tin đánh giá của khách hàng

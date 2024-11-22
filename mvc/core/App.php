@@ -10,9 +10,9 @@ class App
     function __construct()
     {
         $array = $this->urlProcess();
-        echo '<pre>'; 
-        print_r($array);
-        echo '</pre>';
+        // echo '<pre>'; 
+        // print_r($array);
+        // echo '</pre>';
         $urlParam = '';
         if ($array != NULL) {
             foreach ($array as $key => $val) {
