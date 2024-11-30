@@ -19,7 +19,7 @@
         }
         function index()
         {
-        'auth';
+         'auth';
         }
         function register()
         {
@@ -50,7 +50,7 @@
                         'password' => password_hash(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS), PASSWORD_BCRYPT),
                         'activeToken' => $activeToken,
                         'created_at' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-                        'role_id' => 1,
+                        'role_id' => 3,
                         'username' => filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_FULL_SPECIAL_CHARS),
                     ];
 
@@ -69,7 +69,7 @@
 
                         // Tiến hành gửi mail
                         $sendMail = $this->SendMail->send($subject, $dataInsert['email'], $content);
-                        if ($sendMail) {
+                        if ($sendMail) { 
                             $redirect = new redirect('auth/register');
                             $redirect->setFlash('sucess', 'Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản!');
                         } else {
@@ -83,7 +83,7 @@
                     $redirect = new redirect('auth/register');
                     $redirect->setFlash('error', 'Đăng ký không thành công!');
                 }
-            }
+            } 
             $this->view('user/register/index', [
                 'title'         => 'Đăng ký'
             ]);
@@ -147,8 +147,8 @@
                             'time'      => time() + 3600 * 24,
                             'keys'      => KEYS,
                             'info'      => [
-                            'id'        => $data['id'],
-                            'email'  => $data['email']
+                                'id'        => $data['id'],
+                                'email'  => $data['email']
                             ]
                         ];
                         $jwt = $this->Jwtoken->CreateToken($array);
@@ -160,7 +160,27 @@
                         $result = $this->TokenLoginModels->add($dataInsert);
                         if ($result) {
                             $_SESSION['user'] = $jwt;
-                            $redirect = new redirect('/');
+                            switch ($data['role_id']) {
+                                case 1:
+                                    $_SESSION['customer'] = $jwt .'customer';
+                                    $redirect = new redirect('/'); 
+                                    break;
+                                case 2:
+                                    $_SESSION['admin'] = $jwt . 'admin';
+                                    $redirect = new redirect('admin/'); 
+                                    break;
+                                case 3:
+                                    $_SESSION['employee'] = $jwt . 'employee';
+                                    $redirect = new redirect('employee/'); 
+                                    break;
+                                case 4:
+                                    $_SESSION['manager'] = $jwt . 'manager';
+                                    $redirect = new redirect('manager/'); 
+                                    break;
+                                default:
+                                    $redirect = new redirect('/'); 
+                                    break;
+                            }
                         } else {
                             $redirect = new redirect('auth/login');
                             $redirect->setFlash('error', 'Sai email hoặc mật khẩu!');
@@ -175,6 +195,7 @@
                 }
             }
             // $data_index = $this->MyController->indexCustomers();
+
             $this->view('user/login/index', [
                 'title'         => 'Đăng nhập',
                 // 'data_index' => $data_index
@@ -188,6 +209,11 @@
                 $dataDelete = $this->TokenLoginModels->select_row('*',['token' => $token]);
                 $this->TokenLoginModels->delete(['token' => $dataDelete['token']]);
                 unset($_SESSION['user']);
+                unset($_SESSION['customer']); 
+                unset($_SESSION['employee']);
+                unset($_SESSION['admin']);
+                unset($_SESSION['manager']);
+               
             }
             $redirect = new redirect('/');
         }

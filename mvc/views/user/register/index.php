@@ -13,7 +13,7 @@ $data = isset($_SESSION['data']) ? $_SESSION['data'] : [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/register.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/register.css">
 </head>
 
 <body>

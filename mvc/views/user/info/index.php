@@ -7,14 +7,14 @@ if (isset($_SESSION['errors'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <meta http-equiv="content-security-policy|content-type|default-style|refresh">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/info.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/info.css">
 </head>
 
 <body class="info-body">

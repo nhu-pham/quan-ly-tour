@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/home.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
 </head>
 
 <body class="home-body">

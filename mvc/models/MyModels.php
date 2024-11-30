@@ -176,6 +176,38 @@ class MyModels extends Database {
             }
         }
     }
+
+    public function search_array($data = '*', 
+    $searchFields = [], 
+    $searchTerm = '', 
+    $orderby = NULL, 
+    $start = NULL, 
+    $limit = NULL) {
+        $sql = "SELECT $data FROM $this->table";
+        $values = [];
+    
+        if (!empty($searchTerm) && !empty($searchFields)) {
+            $conditions = [];
+            foreach ($searchFields as $field) {
+                $conditions[] = "$field LIKE ?";
+                $values[] = '%' . $searchTerm . '%';  
+            }
+            
+            $sql .= " WHERE " . implode(' OR ', $conditions);
+        }
+    
+        if ($orderby != NULL) {
+            $sql .= " ORDER BY $orderby";
+        }
+        if ($limit != NULL) {
+            $sql .= " LIMIT $start, $limit";
+        }
+    
+        $query = $this->conn->prepare($sql); 
+        $query->execute($values);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     
 
     function select_row($data='*',$where){
@@ -280,7 +312,7 @@ class MyModels extends Database {
         $limit = NULL,
         $table_join = NULL,
         $query_join = NULL,
-        $type_join  = NULL
+        $type_join  = NULL 
         ){
         $sql ="SELECT $data FROM $this->table";
         if (isset($where) && $where != NULL) {
@@ -324,44 +356,81 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    function addMultiple($data){
-        if ($data != NULL){
-                $fields = array_keys($data[0]);
-                $fields_list = implode(",",$fields);
-                $qr = str_repeat("?,", count($fields) - 1);
-                $sql = "INSERT INTO `".$this->table."` (".$fields_list.") VALUES";
-                $values = [];
-                foreach($data as $key => $val){
-                    $fields_for = array_keys($val);
-                    $fields_list_for = implode(",",$fields_for);
-                    $qr_for = str_repeat("?,", count($fields_for) - 1);
-                    if (count($data) - 1 > $key) {
-                        $sql .= " (${qr_for}?),";
-                    }
-                    else
-                    {
-                        $sql .= " (${qr_for}?) ";
-                    }
-                    $values = array_merge($values, array_values($val));
-                }
-        
-                $query = $this->conn->prepare($sql);
-                if ($query->execute($values)) {
-                    return 
-                    array(
-                        'type'      => 'Sucessfully',
-                        'Message'   => 'Insert data sucessfully',
-                    );
-                }
-                else{
-                    return 
-                    array(
-                        'type'      => 'Fail',
-                        'Message'   => 'Insert data fail',
-                    );
-                }
+
+    function search_array_join_table(
+        $data = '*',
+        $search_fields = [], 
+        $search_value = '', 
+        $where = NULL,
+        $orderby = NULL,
+        $start = NULL,
+        $limit = NULL,
+        $table_join = NULL,
+        $query_join = NULL,
+        $type_join = NULL
+    ) {
+        $sql = "SELECT $data FROM $this->table";
+    
+        // Thêm JOIN nếu có
+        if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
+            $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
         }
+    
+        $conditions = [];
+        $values = [];
+    
+        // Nếu có điều kiện `WHERE`
+        if ($where != NULL) {
+            foreach ($where as $field => $value) {
+                // Thêm tiền tố bảng vào cột
+                $conditions[] = "{$this->table}.$field = ?";
+                $values[] = $value;
+            }
+        }
+    
+        // Thêm điều kiện tìm kiếm với tên bảng khác (ví dụ: tours.name)
+        if (!empty($search_fields) && $search_value !== '') {
+            $search_conditions = [];
+            foreach ($search_fields as $field) {
+                // Kiểm tra xem cột tìm kiếm có thuộc bảng khác không (ví dụ tours.name)
+                if (strpos($field, '.') !== false) {
+                    // Nếu có, giữ nguyên tên bảng và cột (e.g., tours.name)
+                    $search_conditions[] = "$field LIKE ?";
+                } else {
+                    // Nếu không, mặc định tìm kiếm trong bảng chính
+                    $search_conditions[] = "{$this->table}.$field LIKE ?";
+                }
+                $values[] = "%$search_value%";
+            }
+            // Kết hợp các điều kiện tìm kiếm bằng OR
+            $conditions[] = '(' . implode(' OR ', $search_conditions) . ')';
+        }
+    
+        // Kết hợp các điều kiện WHERE
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(' AND ', $conditions);
+        }
+    
+        // Thêm ORDER BY nếu có
+        if ($orderby != '' && $orderby != NULL) {
+            $sql .= " ORDER BY $orderby";
+        }
+    
+        // Thêm LIMIT nếu có (phân trang)
+        if ($limit != NULL) {
+            $sql .= " LIMIT $start, $limit";
+        }
+    
+        // Chuẩn bị và thực thi câu lệnh
+        $query = $this->conn->prepare($sql);
+        $query->execute($values);
+    
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    
+    
+    
      function select_array_join_multi_table($data = '*',
         $where = NULL,
         $orderby = NULL,

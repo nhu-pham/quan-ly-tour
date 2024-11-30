@@ -7,16 +7,16 @@ CREATE TABLE users(
     phone_number VARCHAR(10) NOT NULL,
     email VARCHAR(100) DEFAULT '',
     password VARCHAR(100) NOT NULL DEFAULT '',
-    -- activeToken VARCHAR(100) NOT NULL DEFAULT '',
+    activeToken VARCHAR(100) NOT NULL DEFAULT '',
     forgotToken VARCHAR(100) NOT NULL DEFAULT '',
     created_at DATETIME,
     updated_at DATETIME,
-    -- status TINYINT(1) DEFAULT 0,
+    status TINYINT(1) DEFAULT 0,
     role_id INT
 );
 
 ALTER TABLE users ADD COLUMN username VARCHAR(100) DEFAULT '';
-ALTER TABLE users ADD COLUMN avatar_url VARCHAR(300);
+ALTER TABLE users ADD COLUMN avatar_url VARCHAR(300) DEFAULT 'public/uploads/images/user/avt-default.png';
 
 --Bảng phân loại user (Role) => customer 0, admin 1, employee 2, manager 3
 CREATE TABLE roles(
@@ -92,6 +92,8 @@ CREATE TABLE orders(
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id int,
     FOREIGN KEY (user_id) REFERENCES users(id),
+    tour_id INT,
+    FOREIGN KEY (tour_id) REFERENCES tours (id),
     fullname VARCHAR(100) DEFAULT '',
     gender ENUM('Male', 'Female', 'Other') NOT NULL,
     birthday DATETIME,
@@ -106,6 +108,8 @@ CREATE TABLE orders(
     --xóa 1 đơn hàng => xóa mềm => thêm trường active
     active TINYINT(1) DEFAULT 1
 );
+
+
 
 CREATE TABLE order_details(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -131,3 +135,6 @@ CREATE TABLE reviews(
     rating INT CHECK(rating >= 0 AND rating <= 5),
     note LONGTEXT DEFAULT '',
 )
+
+INSERT INTO orders(user_id, fullname, gender, birthday, email, phone_number, address, number_of_adults, number_of_children, order_date, status, total_money) 
+VALUES('42', 'Thảo Như', 'Nữ', '13/11/2004', '22521055@gm.uit.edu.vn', '0365398625', 'TPHCM', '4', '2', '20/11/2024', 'pending', '4000000đ' )

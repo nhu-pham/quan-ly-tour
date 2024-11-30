@@ -8,61 +8,72 @@ class App
     protected $Routes__;
 
     function __construct()
-    {
-        $array = $this->urlProcess();
-        // echo '<pre>'; 
-        // print_r($array);
-        // echo '</pre>';
-        $urlParam = '';
-        if ($array != NULL) {
-            foreach ($array as $key => $val) {
-                $val = $this->toCamelCase($val);
-                $urlParam .= $val . '/';
-                $fileCheck = trim($urlParam, '/');
-                $fileArray = explode('/', $fileCheck);
+{
+    $array = $this->urlProcess(); // Chuyển URL thành mảng
+    $subFolder = ''; // Thư mục con
+    $controllerName = ''; // Tên controller
+    $actionName = ''; // Tên action
 
-                if (!empty($fileArray[$key - 1])) {
-                    unset($array[$key - 1]);
-                }
-
-                if (file_exists("./mvc/controllers/" . $fileCheck . ".php")) {
-                    $urlParam = $fileCheck;
-                    break;
-                }
-            }
-        }
-
-        $array = array_values($array);
-
-        if ($array != NULL) {
-            $controllerName = $this->toCamelCase($array[0]);
-            $controllerPath = "./mvc/controllers/" . $controllerName . ".php";
-
-            if (file_exists($controllerPath)) {
-                $this->controller = $controllerName;
-                require_once $controllerPath;
-                if (class_exists($this->controller)) {
-                    $this->controller = new $this->controller;
-                    unset($array[0]);
-                }
-            } else {
-                $this->controller = $this->controller;
-                require_once "./mvc/controllers/" . $this->controller . ".php";
-            }
-        } else {
-            require_once "./mvc/controllers/" . $this->controller . ".php";
-        }
-
-        $this->controller = new $this->controller;
-        if (isset($array[1])) {
-            if (method_exists($this->controller, $array[1])) {
-                $this->action = $array[1];
-                unset($array[1]);
-            }
-        }
-        $this->params = $array ? array_values($array) : [];
-        call_user_func_array([$this->controller, $this->action], $this->params);
+    // Bước 1: Xử lý thư mục con
+    if (isset($array[0]) && is_dir("./mvc/controllers/" . $array[0])) {
+        $subFolder = $array[0]; // Lấy tên thư mục con
+        unset($array[0]); // Xóa phần tử khỏi mảng URL
+        $array = array_values($array); // Reset mảng URL
     }
+
+    // Bước 2: Xử lý controller
+    if (isset($array[0])) {
+        $controllerName = $this->toCamelCase($array[0]); // Lấy tên controller
+        unset($array[0]); // Xóa phần tử khỏi mảng URL
+        $array = array_values($array); // Reset mảng URL
+    } else {
+        $controllerName = $this->controller; // Controller mặc định
+    }
+
+    // Đường dẫn file controller
+    $controllerPath = !empty($subFolder)
+        ? "./mvc/controllers/$subFolder/" . $controllerName . ".php"
+        : "./mvc/controllers/" . $controllerName . ".php";
+
+    // Bước 3: Kiểm tra và load controller
+    if (file_exists($controllerPath)) {
+        require_once $controllerPath;
+        if (class_exists($controllerName)) {
+            $this->controller = new $controllerName();
+        } else {
+            die("Controller class `$controllerName` không tồn tại.");
+        }
+    } else {
+        die("File controller `$controllerPath` không tồn tại.");
+    }
+
+    // Bước 4: Xử lý action
+    if (isset($array[0])) {
+        $actionName = $array[0]; // Lấy tên action
+        unset($array[0]); // Xóa phần tử khỏi mảng URL
+        $array = array_values($array); // Reset mảng URL
+    } else {
+        $actionName = $this->action; // Action mặc định
+    }
+
+    // Kiểm tra action
+    if (method_exists($this->controller, $actionName)) {
+        $this->action = $actionName;
+    } else {
+        die("Action `$actionName` không tồn tại trong controller `$controllerName`.");
+    }
+
+    // Bước 5: Gán params
+    $this->params = $array;
+
+    // Bước 6: Gọi controller, action và truyền params
+    call_user_func_array([$this->controller, $this->action], $this->params);
+}
+
+
+    
+
+
 
     function getUrl()
     {

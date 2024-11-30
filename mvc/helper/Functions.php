@@ -1,5 +1,4 @@
 <?php
-//file chưa xử lý
 class Functions extends Controller
 {
     public $CategoryModels;
@@ -85,55 +84,21 @@ class Functions extends Controller
         }
         return $prev_link . $page_link . $next_link;
     }
-    function getCate($type, $parentID = 0, $selectedID = NULL)
-    {
-        $menu = $this->CategoryModels->select_array('*', ['type' => $type, 'parentID' => $parentID]);
-        $data = '';
-
-        if ($menu != NULL) {
-            $data .= '<select class="form-control" name="data_post[cateID]">';
-            foreach ($menu as $key => $val) {
-                $selected = '';
-
-                if ($selectedID == $val['id']) {
-                    $selected = 'selected';
-                }
-                $data .= '<option value="' . $val['id'] . '" ' . $selected . '>';
-                $data .= $val['name'];
-                $data .= '</option>';
-
-                $child = $this->CategoryModels->select_array('*', ['type' => $type, 'parentID' => $val['id']]);
-                if ($child != NULL) {
-                    foreach ($child as $key_child => $val_Child) {
-                        $selected_Child = '';
-                        if ($selectedID == $val_Child['id']) {
-                            $selected_Child = 'selected';
-                        }
-                        $data .= '<option value="' . $val_Child['id'] . '" ' . $selected_Child . '>';
-                        $data .= '---------| ' . $val_Child['name'];
-                        $data .= '</option>';
-                    }
-                }
-            }
-            $data .= '</select>';
-        }
-        return $data;
-    }
+    
     function checkingStatusOrder($number)
     {
         switch ($number) {
             case 1:
-                return ['type' => '#545b62', 'text' => 'Đang xử lý'];
+                return ['type' => '#0062cc', 'text' => 'Chờ xác nhận'];
                 break;
             case 2:
-                return ['type' => '#0062cc', 'text' => 'Đã xác nhận'];
-            case 3:
-                return ['type' => '#ffc107', 'text' => 'Đã gửi'];
+                return ['type' => '#ffc107', 'text' => 'Đã thanh toán'];
+                break;
             case 4:
                 return ['type' => '#1e7e34', 'text' => 'Đã hoàn thành'];
                 break;
             default:
-                return ['type' => '#545b62', 'text' => 'Đang xử lý'];
+                return ['type' => '#545b62', 'text' => 'Chờ xác nhận'];
                 break;
         }
     }
