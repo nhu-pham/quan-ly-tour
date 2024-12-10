@@ -58,59 +58,95 @@ class MyModels extends Database {
         
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    function add($data = NULL, $unique_column = NULL){
-        // Kiểm tra xem có dữ liệu không
-        if ($data === NULL) {
+
+    public function checkDuplicate($data) {
+        // Kiểm tra nếu không có dữ liệu
+        if (empty($data)) {
             return json_encode(
                 array(
-                    'type'      => 'Fail',
-                    'Message'   => 'No data provided',
+                    'type'    => 'Fail',
+                    'Message' => 'No data provided',
                 )
             );
         }
-
-        // Kiểm tra cột duy nhất cần kiểm tra trùng lặp
-        if ($unique_column === NULL) {
+    
+        // Lấy tất cả các cột trong bảng
+        $columns = $this->getTableColumns();
+    
+        // Câu lệnh SQL để kiểm tra trùng lặp cho tất cả các cột
+        $whereClauses = [];
+        $params = [];
+        
+        // Xây dựng các điều kiện WHERE cho tất cả các cột
+        foreach ($columns as $column) {
+            if (isset($data[$column])) {
+                $whereClauses[] = "$column = ?";
+                $params[] = $data[$column];
+            }
+        }
+    
+        // Nếu không có cột nào để kiểm tra, trả về lỗi
+        if (empty($whereClauses)) {
             return json_encode(
                 array(
-                    'type'      => 'Fail',
-                    'Message'   => 'No unique column specified',
+                    'type'    => 'Fail',
+                    'Message' => 'No matching columns to check',
                 )
             );
         }
-
-        // Kiểm tra trùng lặp
-        $check_query = "SELECT COUNT(*) as count FROM ".$this->table." WHERE ".$unique_column." = ?";
+    
+        // Tạo câu lệnh WHERE
+        $whereSql = implode(" AND ", $whereClauses);
+    
+        // Câu lệnh SQL kiểm tra trùng lặp
+        $check_query = "SELECT COUNT(*) as count FROM ".$this->table." WHERE ".$whereSql;
         $stmt = $this->conn->prepare($check_query);
-        $stmt->execute(array($data[$unique_column]));
+        $stmt->execute($params);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Kiểm tra nếu dữ liệu đã tồn tại
+    
+        // Nếu có bản ghi trùng lặp, trả về lỗi
         if ($row && $row['count'] > 0) {
             return json_encode(
                 array(
-                    'type'      => 'Fail',
-                    'Message'   => 'Data already exists',
+                    'type'    => 'Fail',
+                    'Message' => 'Data already exists for the provided values',
+                )
+            );
+        }
+    
+        return null;  // Nếu không có lỗi, trả về null
+    }    
+    
+    public function getTableColumns() {
+        // Lấy tất cả các cột trong bảng bằng câu lệnh DESCRIBE
+        $sql = "DESCRIBE ".$this->table;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Chỉ lấy tên các cột
+        return array_map(function($column) {
+            return $column['Field'];
+        }, $columns);
+    }
+    
+    function add($data = NULL){
+        if ($data === NULL) {
+            return json_encode(
+                array(
+                    'type'    => 'Fail',
+                    'Message' => 'No data provided',
                 )
             );
         }
 
-        // Xử lý dữ liệu ảnh thumbnail nếu có
-        if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === 0) {
-            $thumbnailPath = $this->processThumbnail($_FILES['thumbnail']);
-            if ($thumbnailPath) {
-                $data['thumbnail'] = $thumbnailPath;  // Lưu đường dẫn ảnh vào dữ liệu
-            } else {
-                return json_encode(
-                    array(
-                        'type'      => 'Fail',
-                        'Message'   => 'Failed to upload thumbnail',
-                    )
-                );
-            }
+       // Kiểm tra trùng lặp trước khi thêm dữ liệu
+        $duplicateCheckResult = $this->checkDuplicate($data);
+        if ($duplicateCheckResult) {
+            return $duplicateCheckResult;
         }
-
-
+        
+        // Chuyển đổi các trường dữ liệu thành danh sách và các giá trị
         $fields = array_keys($data);
         $fields_list = implode(",",$fields);
         $values = array_values($data);
@@ -118,13 +154,6 @@ class MyModels extends Database {
         $sql = "INSERT INTO `".$this->table."`(".$fields_list.") VALUES ($qr)";
         $query = $this->conn->prepare($sql);
         if ($query->execute($values)) {
-            $lastInsertId = $this->conn->lastInsertId();  // Lấy ID của bản ghi vừa thêm
-
-            // Nếu có ảnh thumbnail, thêm vào bảng tour_images (hoặc bảng tương ứng)
-            if (isset($data['thumbnail']) && !empty($data['thumbnail'])) {
-                $this->addThumbnailToImages($lastInsertId, $data['thumbnail']);
-            }
-
             return json_encode(
                 array(
                     'type'      => 'Sucessfully',
@@ -141,39 +170,6 @@ class MyModels extends Database {
                 )
             );
         }
-    }
-
-    // Xử lý ảnh thumbnail
-    private function processThumbnail($file)
-    {
-        // Kiểm tra loại file (chỉ cho phép ảnh)
-        $allowed_types = ['image/jpeg', 'image/png'];
-        $file_type = $file['type'];
-
-        if (in_array($file_type, $allowed_types)) {
-            // Tạo đường dẫn lưu ảnh
-            $upload_dir = "uploads/thumbnails/";
-            $file_name = time() . "_" . basename($file['name']);
-            $target_file = $upload_dir . $file_name;
-
-            // Di chuyển ảnh vào thư mục lưu trữ
-            if (move_uploaded_file($file['tmp_name'], $target_file)) {
-                return $target_file;  // Trả về đường dẫn ảnh
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    // Thêm ảnh vào bảng tour_images (hoặc bảng liên quan)
-    private function addThumbnailToImages($tourId, $thumbnailPath)
-    {
-        // Câu lệnh thêm ảnh vào bảng tour_images
-        $sql = "INSERT INTO `tour_images` (`tour_id`, `image_url`) VALUES (?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([$tourId, $thumbnailPath]);
     }
 
     function update($data = NULL,$where = NULL){
@@ -199,9 +195,6 @@ class MyModels extends Database {
                     'Message' => 'Data or Where clause cannot be empty'
                 ]);
             }
-
-
-            
             $fields = array_keys($data);
             $values = array_values($data);
             $where_array = array_keys($where);
@@ -267,85 +260,114 @@ class MyModels extends Database {
                 )
             );
         }
-
-        // Kiểm tra khóa ngoại và xử lý
-        foreach ($where as $column => $value) {
-            // Kiểm tra xem column có phải là khóa ngoại hay không
-            $isForeignKey = $this->isForeignKey($column);
-        }
-
-        try 
-        {
-            $sql = "DELETE FROM  $this->table ";
-            if ($where != NULL) {
+        // xóa cứng bình thường
+        $sql = "DELETE FROM $this->table ";
+        if ($where != NULL) {
             $where_array = array_keys($where);
             $value_where = array_values($where);
             $isFields_where = true;
             $stringWhere = 'where';
             $string_Caculator = '=';
-            $where_array = array_keys($where);
-                $value_where = array_values($where);
-                $isFields_where = true;
-                $stringWhere = 'where';
-                for ($i=0; $i < count($where_array); $i++) { 
-                    preg_match('/<=|>=|<|>/',$where_array[$i],$matches,PREG_OFFSET_CAPTURE);
-                    if ($matches != null) {
-                        $string_Caculator = $matches[0][0];
-                    }
-                    
-                    if (!$isFields_where) {
-                        $sql .= " and ";
-                        $stringWhere = '';
-                    }
-                    $isFields_where = false;
-                    //$sql .= "" .$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//-
-                    $sql .= "  ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";//+
+    
+            for ($i=0; $i < count($where_array); $i++) { 
+                preg_match('/<=|>=|<|>/',$where_array[$i],$matches,PREG_OFFSET_CAPTURE);
+                if ($matches != null) {
+                    $string_Caculator = $matches[0][0];
                 }
-                $query = $this->conn->prepare($sql);
-                if ($query->execute($value_where)) {
-                    return json_encode(
-                        array(
-                            'type'      => 'Sucessfully',
-                            'Message'   => 'Delete data sucessfully',
-                        )
-                    );
+                
+                if (!$isFields_where) {
+                    $sql .= " and ";
+                    $stringWhere = '';
                 }
-                else{
-                    return json_encode(
-                        array(
-                            'type'      => 'Fail',
-                            'Message'   => 'Delete data fail',
-                        )
-                    );
-                }
+                $isFields_where = false;
+                $sql .= " ".$stringWhere." ".preg_replace('/<=|>=|<|>/','',$where_array[$i])." ".$string_Caculator." ?";
             }
-        } catch (PDOException $e) {
-            // Kiểm tra lỗi là do vi phạm ràng buộc khóa ngoại
-            if ($e->getCode() == '23000') {  // Mã lỗi SQLSTATE cho vi phạm khóa ngoại
-                echo json_encode(array(
-                    'type' => 'Error',
-                    'Message' => 'Cannot delete this tour because it is referenced by orders in the system.'
-                ));
-            } else {
-                // Nếu lỗi khác, hiển thị thông báo lỗi chung
-                echo json_encode(array(
-                    'type' => 'Error',
-                    'Message' => 'An error occurred: ' . $e->getMessage()
-                ));
+    
+            $query = $this->conn->prepare($sql);
+            if ($query->execute($value_where)) {
+                return json_encode(
+                    array(
+                        'type'      => 'Sucessfully',
+                        'Message'   => 'Delete data sucessfully',
+                    )
+                );
+            }
+            else{
+                return json_encode(
+                    array(
+                        'type'      => 'Fail',
+                        'Message'   => 'Delete data fail',
+                    )
+                );
             }
         }
-        
     }
-
-    // Hàm kiểm tra xem column có phải là khóa ngoại không
-    private function isForeignKey($column) {
-        // Truy vấn thông tin về khóa ngoại từ cơ sở dữ liệu
-        $sql = "SELECT COUNT(*) FROM information_schema.key_column_usage WHERE table_name = :table AND column_name = :column AND referenced_table_name IS NOT NULL";
+    protected function isForeignKey($column) {
+        // Lấy danh sách tất cả các khóa ngoại tham chiếu tới bảng hiện tại
+        $sql = "SELECT table_name, column_name 
+                FROM information_schema.key_column_usage 
+                WHERE table_schema = :database
+                  AND referenced_table_name = :referenced_table
+                  AND referenced_column_name = :column";
         $query = $this->conn->prepare($sql);
-        $query->execute([':table' => $this->table, ':column' => $column]);
-
-        return $query->fetchColumn() > 0;
+        $query->execute([
+            ':database' => $this->conn->query("SELECT DATABASE()")->fetchColumn(),
+            ':referenced_table' => $this->table,
+            ':column' => $column
+        ]);
+        
+        $foreignKeys = $query->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Nếu tìm thấy khóa ngoại
+        if (!empty($foreignKeys)) {
+            echo "Foreign keys referencing '{$this->table}({$column})':\n";
+            print_r($foreignKeys);
+            return true;
+        }
+        return false;
     }
+    
+    function search_array($data = '*', 
+    $searchFields = [], 
+    $searchTerm = '', 
+    $orderby = NULL, 
+    $start = NULL, 
+    $limit = NULL) {
+        $sql = "SELECT $data FROM $this->table";
+        $values = [];
+
+        
+        if (!empty($searchTerm) && !empty($searchFields)) {
+            $conditions = [];
+            foreach ($searchFields as $field) {
+                $conditions[] = "$field LIKE ?";
+                $values[] = '%' . $searchTerm . '%'; 
+            }
+            $sql .= " WHERE " . implode(' OR ', $conditions);
+        }
+    
+        if ($orderby != NULL) {
+            $sql .= " ORDER BY $orderby";
+        }
+        if ($limit != NULL) {
+            $sql .= " LIMIT $start, $limit";
+        }
+    
+        // $query = $this->conn->prepare($sql); 
+        // $query->execute($values);
+        // return $query->fetchAll(PDO::FETCH_ASSOC);
+        // Chuẩn bị và thực thi câu lệnh SQL
+        try {
+            $query = $this->conn->prepare($sql); 
+            $query->execute($values);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return [];
+        }
+    }
+    
+    
 
     function select_row($data='*',$where){
         $sql ="SELECT $data FROM $this->table ";
@@ -449,7 +471,7 @@ class MyModels extends Database {
         $limit = NULL,
         $table_join = NULL,
         $query_join = NULL,
-        $type_join  = NULL
+        $type_join  = NULL 
         ){
         $sql ="SELECT $data FROM $this->table";
         if (isset($where) && $where != NULL) {
@@ -493,46 +515,84 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    function addMultiple($data){
-        if ($data != NULL){
-                $fields = array_keys($data[0]);
-                $fields_list = implode(",",$fields);
-                $qr = str_repeat("?,", count($fields) - 1);
-                $sql = "INSERT INTO `".$this->table."` (".$fields_list.") VALUES";
-                $values = [];
-                foreach($data as $key => $val){
-                    $fields_for = array_keys($val);
-                    $fields_list_for = implode(",",$fields_for);
-                    $qr_for = str_repeat("?,", count($fields_for) - 1);
-                    if (count($data) - 1 > $key) {
-                        $sql .= " (${qr_for}?),";
-                    }
-                    else
-                    {
-                        $sql .= " (${qr_for}?) ";
-                    }
-                    $values = array_merge($values, array_values($val));
-                }
-        
-                $query = $this->conn->prepare($sql);
-                if ($query->execute($values)) {
-                    return 
-                    array(
-                        'type'      => 'sucessFully',
-                        'Message'   => 'Insert data sucessfully',
-                    );
-                }
-                else{
-                    return 
-                    array(
-                        'type'      => 'fail',
-                        'Message'   => 'Insert data fail',
-                    );
-                }
-        }
-    }
-     function select_array_join_multi_table($data = '*',
+
+    function search_array_join_table(
+        $data = '*',
+        $search_fields = [], 
+        $search_value = '', 
         $where = NULL,
+        $orderby = NULL,
+        $start = NULL,
+        $limit = NULL,
+        $table_join = NULL,
+        $query_join = NULL,
+        $type_join = NULL
+    ) {
+        $sql = "SELECT $data FROM $this->table";
+    
+        // Thêm JOIN nếu có
+        if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
+            $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
+        }
+    
+        $conditions = [];
+        $values = [];
+    
+        // Nếu có điều kiện `WHERE`
+        if ($where != NULL) {
+            foreach ($where as $field => $value) {
+                // Kiểm tra xem cột đã có tiền tố hay chưa
+                if (strpos($field, '.') !== false) {
+                    // Nếu có tiền tố, giữ nguyên
+                    $conditions[] = "$field = ?";
+                } else {
+                    // Nếu không, thêm tiền tố bảng chính
+                    $conditions[] = "{$this->table}.$field = ?";
+                }
+                $values[] = $value;
+            }
+        }
+    
+        // Thêm điều kiện tìm kiếm với tên bảng khác (ví dụ: tours.name)
+        if (!empty($search_fields) && $search_value !== '') {
+            $search_conditions = [];
+            foreach ($search_fields as $field) {
+                // Kiểm tra xem cột tìm kiếm có thuộc bảng khác không 
+                if (strpos($field, '.') !== false) {
+                    // Nếu có, giữ nguyên tên bảng và cột 
+                    $search_conditions[] = "$field LIKE ?";
+                } else {
+                    // Nếu không, mặc định tìm kiếm trong bảng chính
+                    $search_conditions[] = "{$this->table}.$field LIKE ?";
+                }
+                $values[] = "%$search_value%";
+            }
+            // Kết hợp các điều kiện tìm kiếm bằng OR
+            $conditions[] = '(' . implode(' OR ', $search_conditions) . ')';
+        }
+    
+        // Kết hợp các điều kiện WHERE
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(' AND ', $conditions);
+        }
+    
+        // Thêm ORDER BY nếu có
+        if ($orderby != '' && $orderby != NULL) {
+            $sql .= " ORDER BY $orderby";
+        }
+    
+        // Thêm LIMIT nếu có (phân trang)
+        if ($limit != NULL) {
+            $sql .= " LIMIT $start, $limit";
+        }
+        // Chuẩn bị và thực thi câu lệnh
+        $query = $this->conn->prepare($sql);
+        $query->execute($values);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    function select_array_join_multi_table($data = '*',
+        $where = NULL,
+        $groupBy = NULL,
         $orderby = NULL,
         $start = NULL,
         $limit = NULL,
@@ -548,7 +608,6 @@ class MyModels extends Database {
             foreach ($joinTable as $key => $value) {
                $sql .= ' '.$this->join_table(trim($value[0]),trim($value[1]),trim($value[2])).' ';
             }
-           
             $stringWhere = 'where';
             for ($i=0; $i < count($fields); $i++) { 
                 if (!$isFields) {
@@ -556,13 +615,16 @@ class MyModels extends Database {
                   $stringWhere = '';
                 }
                $isFields = false;
-               $sql .= "  ".$stringWhere." ".$fields[$i]." = ? ";
+               $sql .= "  ".$stringWhere." ".$fields[$i]."= ? ";
             }
-            if ($limit != NULL) {
-                $sql .= " LIMIT ".$start." , ".$limit."";
+            if (isset($groupBy) && $groupBy != '') {
+                $sql .= " GROUP BY " . $groupBy;
             }
             if ($orderby !='' && $orderby != NULL) {
                 $sql .= " ORDER BY ".$orderby."";
+            }
+            if ($limit != NULL) {
+                $sql .= " LIMIT ".$start." , ".$limit."";
             }
             $query = $this->conn->prepare($sql);
             $query->execute($values);
