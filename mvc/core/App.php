@@ -2,8 +2,8 @@
 
 class App
 {
-    protected $controller = "RevenueController";
-    protected $action = "getMonthlyRevenue";
+    protected $controller = "ServiceController";
+    protected $action = "update";
     protected $params = [];
     protected $Routes__;
 

@@ -529,11 +529,13 @@ class MyModels extends Database {
         $type_join = NULL
     ) {
         $sql = "SELECT $data FROM $this->table";
+        
     
         // Thêm JOIN nếu có
         if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
             $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
         }
+        
     
         $conditions = [];
         $values = [];
@@ -585,9 +587,13 @@ class MyModels extends Database {
         if ($limit != NULL) {
             $sql .= " LIMIT $start, $limit";
         }
+
         // Chuẩn bị và thực thi câu lệnh
         $query = $this->conn->prepare($sql);
+        
+        
         $query->execute($values);
+        
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
     function select_array_join_multi_table($data = '*',
