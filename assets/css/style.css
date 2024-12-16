@@ -232,24 +232,8 @@
   .header-chitiet{
     background-color: var(--bright-navy-blue-blur);
   }
-.tour-search {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
-    padding: 20px; /* Optional: Add padding for better appearance */
-    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
-    width: 80%; /* Adjust width as needed */
-}
-.tour-search-form { 
-  display: flex; 
-  flex-wrap: nowrap; 
-  justify-content: space-between; 
-  align-items: center; 
-  width: 100%; 
-}
+
+
 .input-wrapper { margin-left: 13px;  text-align: center; }
 .hero-title {
   color: white; 
@@ -263,6 +247,9 @@
   margin-right: 100px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
 }
 
 .input-wrapper {
@@ -454,6 +441,7 @@
 .dropdown-des .dropdown-content a:hover {
     background-color: #f1f1f1; /* Màu nền khi rê chuột vào */
     border-radius: 10px;
+    margin-right: -10px;
     color: var(--bright-navy-blue);
 }
 
@@ -746,10 +734,18 @@
     background: var(--white);
     padding-block: var(--section-padding); 
     border-radius: 30px;
-    height: 136px;
+    height: 126px;
     width: 890px;
     padding-top: 35px;
   }
+  .tour-search {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px; 
+}
   .search-section{
     display: flex;
   }
@@ -869,7 +865,7 @@
     margin-bottom: 30px;
     padding: 0 6px;
     float: left;
-    width: 24.99999%;
+    width: 330px;
   }
   
   
@@ -1460,7 +1456,9 @@
    */
   
   @media (min-width: 580px) {
-  
+    .responsive {
+      flex: 0 1 calc(50% - 20px); /* 2 cột */
+  }
     /**
      * REUSED STYLE
      */
@@ -1545,9 +1543,6 @@
     /**
      * POPULAR
      */
-     .responsive {
-      flex: 1 1 calc(50% - 20px); /* 2 cột */
-  }
     .popular-card .card-content { right: auto; }
   
     .header-popular{
@@ -1576,7 +1571,6 @@
     .slider-popular {
       margin-left: 50px;
       margin-right: 50px;
-      max-width: 1400px;
       transform: translateX(100%);
       transition: opacity 0.5s ease, transform 0.5s ease;
   }
@@ -1585,6 +1579,7 @@
       opacity: 1;
       transform: translateX(0);
   }
+  
     /**
      * FOOTER
      */
@@ -1619,6 +1614,9 @@
      * CUSTOM PROPERTY
      */
   
+     .responsive {
+      flex: 0 1 calc(50% - 20px); /* 2 cột */
+  }
     :root {
   
       /**
@@ -1774,6 +1772,9 @@
      * REUSED STYLE
      */
   
+     .responsive {
+      flex: 0 1 calc(33.333% - 20px); /* 3 cột */
+  }
     .container { max-width: 1050px; }
   
   
@@ -1917,6 +1918,9 @@
      * CUSTOM PROPERTY
      */
   
+     .responsive {
+      flex: 0 1 calc(25% - 20px); /* 4 cột */
+  }
     :root {
   
       /**
