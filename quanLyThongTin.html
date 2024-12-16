@@ -10,22 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/dangNhap.css">
-    <link rel="stylesheet" href="./assets/css/dangKy.css">
-    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
-    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
-    <link rel="stylesheet" href="./assets/css/chiTiet.css">
-    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
-    <link rel="stylesheet" href="./assets/css/thanhToan.css">
-    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
-    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/trangChu.css">
     <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
-    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
-    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
-    <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
-    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
-    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <style>
         .navbar-link:hover { color: var(--bright-navy-blue); }
@@ -50,65 +36,7 @@
 </head>
 
 <body id="top">
-    <!-- header section  -->
-    <!-- <header class="header-background" id="header" data-header>
-
-
-        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px;"></a>
-            <div class="container">
-
-                
-                <div class="navbar-header ">
-                    <nav class="navbar" data-navbar>
-
-                        <ul class="navbar-list">
-
-                            <li>
-                                <a href="trangChu.html" class="navbar-link " data-nav-link>Trang chủ</a>
-                            </li>
-
-                            <li>
-                                <a href="gioiThieu.html" class="navbar-link" data-nav-link>Giới thiệu</a>
-                            </li>
-
-                            <li>
-                                <div class="dropdown-des">
-                                    <a href="#destination" class="navbar-link desdrop active-header" data-nav-link>Điểm đến</a>
-                                    <div class="dropdown-content">
-                                        <a href="mienBac.html">Miền Bắc</a>
-                                        <a href="mienTrung.html">Miền Trung</a>
-                                        <a href="mienNam.html">Miền Nam</a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="tour.html" class="navbar-link" data-nav-link>Tour</a>
-                            </li>
-
-                            <li>
-                                <a href="lienHe.html" class="navbar-link" data-nav-link>Liên hệ</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                    <a href="dangNhap.html" class="btn btn-primary" id="btn-dn">Đăng nhập</a>
-                    <div id="user-profile" class="user-profile">
-                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
-                        <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
-                        <div class="user-options">
-                            <a href="#qlThongTin">
-                                <i class="fas fa-cog"></i>
-                                Quản lý thông tin
-                            </a>
-                            <a href="#dangXuat">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Đăng xuất
-                            </a>
-                        </div>
-                    </div>   
-            </div> 
-    </header>   -->
+    
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="trangChu.html">
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
@@ -200,7 +128,7 @@
                             <label for="phone">Số điện thoại</label>
                             <input type="text" id="phone" placeholder="">
         
-                            <a href="#save" type="submit" id="login-btn" class="login-btn">Lưu</a>
+                            <a href="#save" type="submit" id="save-btn" class="save-btn">Lưu</a>
                         </div>
                         <img src="assets/images/anh3.jpg" alt="User Avatar" class="avatar-large1">
                     </form>
@@ -237,7 +165,7 @@
                                 </div>
                             </div>
         
-                            <a href="#save-information" type="submit" id="login-btn" class="login-btn">Lưu</a>
+                            <a href="#save-information" type="submit" id="save-btn" class="save-btn">Lưu</a>
                         </div>
                     </form>
                 </div>
@@ -274,7 +202,7 @@
                                 <div class="waitforpay"><i class="fa-solid fa-check"></i><span class="status" style="color:#18AB2E;">HOÀN THÀNH</span></div>
                                 <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
                                 <button id="cancel-button" class="btn cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
-                                <a href="thongTinDatTour.html" class="btn pay-btn">Đặt lại</a>
+                                <a href="thongTinDatTour.html" class="btn rebook-btn">Đặt lại</a>
                                 <a href="#reviewtour"  class="btn review-btn">Đánh giá</a>
                             </div>
                         </div>
@@ -288,7 +216,7 @@
                             <div class="order-summary">
                                 <div class="waitforpay"><i class="fa-solid fa-xmark"></i><span class="status" style="color: red;">ĐÃ HỦY</span></div>
                                 <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold; margin-left: 10px;">5.540.000VND</span></p>
-                                <a href="thongTinDatTour.html" class="btn pay-btn">Đặt lại</a>
+                                <a href="thongTinDatTour.html" class="btn rebook-btn">Đặt lại</a>
                             </div>
                         </div>
                     </div>
@@ -574,7 +502,7 @@
     <hr class="footer-line">
     <div class="below">
             <div class="logo"> 
-                <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                <img src="assets/images/LOGO-removebg-preview.png" alt="VietCharm Logo"> 
                 <h3>VietCharm</h3> 
             </div> 
             
@@ -595,15 +523,8 @@
 
 
     <!-- custom js link  -->
-    <script src="./assets/js/phanTrangMB.js"></script>
-    <script src="./assets/js/phanTrangMT.js"></script>
-    <script src="./assets/js/phanTrangMN.js"></script>
-    <script src="./assets/js/phanTrangDB.js"></script>
-    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
-    <script src="./assets/js/chiTietLichTrinh.js"></script>
-    <script src="./assets/js/thueDichVu.js"></script>
     <script src="./assets/js/quanLyThongTin.js"></script>
-    <script src="./assets/js/dangKy-dangNhap.js"></script>
+
     <script>
 
     function togglePassword(id, button) {

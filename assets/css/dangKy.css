@@ -1,7 +1,14 @@
 #popup{
     display: none;
 }
-
+.header-background .navbar-link{
+    color: black;
+  }
+  .header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 .register-btn {
     padding: 10px 20px;
     font-size: 18px;
@@ -32,7 +39,7 @@ h1{
     margin-left: 28%;
     text-align: center;
 }
-.loginbtn{
+.loginbtn, .save-btn{
     width: 25%;
     padding: 10px;
     font-size: 16px;
@@ -46,7 +53,7 @@ h1{
     text-align: center;
 }
 /* Modal (khung đăng ký) */
-.register-container {
+/* .register-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -98,7 +105,7 @@ h1{
     border-radius: 4px;
     cursor: pointer;
     margin-left: 30%;
-}
+} */
 /*Popup đăng ký thành công*/
 .popup {
     position: fixed;

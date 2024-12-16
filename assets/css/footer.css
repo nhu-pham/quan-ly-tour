@@ -108,6 +108,9 @@ body {
     color: white;
     padding: 40px 0;
     text-align: center;
+    height: 450px;
+    margin-top: 200px;
+    width: 1423px;
 }
 
 .footer .container {
@@ -201,9 +204,9 @@ body {
 
 .footer-line {
     border: none;
-    border-top: 1px solid white; /* Thin white line */
-    margin: 10px 0; /* Reduced space between sections */
-    width: 100%; /* Full width within the container */
+    border-top: 1px solid white; 
+    margin: 10px 0; 
+    width: 100%; 
 }
 .below { 
     display: flex; 

@@ -10,22 +10,8 @@
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/dangNhap.css">
-    <link rel="stylesheet" href="./assets/css/dangKy.css">
-    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
-    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
-    <link rel="stylesheet" href="./assets/css/chiTiet.css">
-    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
-    <link rel="stylesheet" href="./assets/css/thanhToan.css">
-    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
-    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
-    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
-    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
-    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
+    <link rel="stylesheet" href="./assets/css/trangChu.css">
     <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
-    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
-    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <style>
         .navbar-link:hover { color: var(--bright-navy-blue); }
@@ -40,50 +26,7 @@
 
 <body id="top">
     <!-- header section  -->
-    <!-- <header class="header-background" id="header" data-header>
-
-        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px;"></a>
-
-            <div class="container">
-
-               
-                <div class="navbar-header navbar-login">
-                    <nav class="navbar" data-navbar>
-
-                        <ul class="navbar-list">
-
-                            <li>
-                                <a href="trangChu.html" class="navbar-link navbar-link-login" data-nav-link>Trang chủ</a>
-                            </li>
-
-                            <li>
-                                <a href="gioiThieu.html" class="navbar-link navbar-link-login" data-nav-link>Giới thiệu</a>
-                            </li>
-
-                            <li>
-                                <div class="dropdown-des">
-                                    <a href="#destination" class="navbar-link desdrop navbar-link-login" data-nav-link>Điểm đến</a>
-                                    <div class="dropdown-content">
-                                        <a href="mienBac.html">Miền Bắc</a>
-                                        <a href="mienTrung.html">Miền Trung</a>
-                                        <a href="mienNam.html">Miền Nam</a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="tour.html" class="navbar-link navbar-link-login" data-nav-link>Tour</a>
-                            </li>
-
-                            <li>
-                                <a href="lienHe.html" class="navbar-link navbar-link-login" data-nav-link>Liên hệ</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <a href="dangNhap.html" class="btn btn-primary" data-nav-link>Đăng nhập</a> 
-            </div> 
-    </header>   -->
+    
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="trangChu.html">
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
@@ -166,39 +109,50 @@
                             <label for="contactInfo"><strong>Thông tin liên hệ</strong></label>
                             <input type="text" id="contactInfo" name="contactInfo" value="0947568156">
                         </div>
-                        <div class="ds-dv">
-                            <label><strong>Dịch vụ đã thuê</strong></label>
-                            <table>
+                        <div class="ds-dv chitiet-dsdv">
+                            <label style="width: 120px; margin-right: -27px;"><strong>Dịch vụ đã thuê</strong></label>
+                            <table class="tablechititiet" style="width: 330px; margin-left: 90px;">
                                 <thead>
                                     <tr>
                                         <th>Tên dịch vụ</th>
                                         <th>Số lượng</th>
+                                        <th>Giá</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Xe máy SH</td>
                                         <td>1</td>
+                                        <td class="gia">500.000đ</td>
                                     </tr>
                                     <tr>
                                         <td>Ô tô Hyundai</td>
                                         <td>1</td>
+                                        <td class="gia">500.000đ</td>
                                     </tr>
                                     <tr>
                                         <td>Ô tô Vinfast</td>
                                         <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><div class="tienDV"><strong>Tổng tiền</strong><label style="color: red; font-weight: bold;">1.000.000 VND</label></div></td>
+                                        <td class="gia">500.000đ</td>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="tong-tien" style="width: 300px; display: flex;">
+                                                <strong>Tổng tiền</strong>
+                                                <span class="tong-gia" style="margin-left: 100px;">1.550.000VND</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <div class="sokhach">
                             <strong>Số khách</strong> <input type="number" value="1">
                         </div>
                         <div>
-                            <div class="tongtien"><strong>Tổng hóa đơn</strong> <label style="color: red; font-weight: bold; font-size: 25px;">4.000.000 VND</label></div>
+                            <div class="tongtien" style="display: flex;"><strong>Tổng hóa đơn</strong><label style="color: red; font-weight: bold; font-size: 25px; margin-left: 75px;">4.000.000 VND</label></div>
                         </div>
                     </div>
             
@@ -209,7 +163,7 @@
                             <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-location-dot"></i>Khởi hành: Thủ đô Hà Nội</li>
                             <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-calendar-days"></i>Ngày khởi hành: 20/11/2024</li>
                             <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-clock"></i>Thời gian: 3N2Đ</li>
-                            <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-money-check-dollar"></i>Giá: 3.000.000 VND / 1 người</li>
+                            <li style=" margin-left: 15px; color: red; font-weight: bold;">Giá: 3.000.000 VND / người</li>
                         </ul>
                     </div>
                 </div>
@@ -261,7 +215,7 @@
         <hr class="footer-line">
         <div class="below">
                 <div class="logo"> 
-                    <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                    <img src="assets/images/LOGO-removebg-preview.png" alt="VietCharm Logo"> 
                     <h3>VietCharm</h3> 
                 </div> 
                 
@@ -282,13 +236,7 @@
 
 
     <!-- custom js link  -->
-    <script src="./assets/js/phanTrangMB.js"></script>
-    <script src="./assets/js/phanTrangMT.js"></script>
-    <script src="./assets/js/phanTrangMN.js"></script>
-    <script src="./assets/js/phanTrangDB.js"></script>
-    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
-    <script src="./assets/js/chiTietLichTrinh.js"></script>
-    <script src="./assets/js/dangKy-dangNhap.js"></script>
+
     <!-- ionicon link  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

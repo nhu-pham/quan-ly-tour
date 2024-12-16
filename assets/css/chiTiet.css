@@ -1,6 +1,21 @@
 .header-background .navbar-link{
   color: black;
 }
+.header-background{
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.mienbac-chitiet{
+  color: var(--bright-navy-blue)
+}
+.mienbac-chitiet a{
+  color: var(--bright-navy-blue);
+  display: inline;
+}
+.mienbac-chitiet a:hover{
+  text-decoration: underline;
+}
 .chitiet-general{
   display: flex;
   gap: 30px;

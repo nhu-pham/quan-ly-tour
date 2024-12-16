@@ -1,6 +1,35 @@
 #oto, #camtrai{
     display: none;
 }
+.header-background .navbar-link{
+    color: black;
+  }
+.header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-header{
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.page-header div{
+    display: flex;
+    margin-left: 140px;
+}
+.mienbac-chitiet{
+    color: var(--bright-navy-blue)
+}
+.mienbac-chitiet a{
+    color: var(--bright-navy-blue);
+    display: inline;
+}
+.mienbac-chitiet a:hover{
+    text-decoration: underline;
+}
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(250px, 1fr));
@@ -117,7 +146,7 @@
     cursor: pointer;
     border-radius: 20px;
     font-size: 16px;
-    margin-left: 51px;
+    margin-left: 90px;
 }
 .product-card .add-to-cart-btn{
     font-size: 12px;
@@ -139,3 +168,4 @@
 .bt:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+

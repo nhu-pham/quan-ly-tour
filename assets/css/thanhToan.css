@@ -1,16 +1,76 @@
-/* .pay-form{
-    background-color: rgb(154,211,226);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    margin-left: 100px;
+
+.header-background .navbar-link{
+    color: black;
+  }
+.header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .page-header{
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
-.pay-form .text{
+.page-header div{
+    display: flex;
+    margin-left: 140px;
+}
+.mienbac-chitiet{
+    color: var(--bright-navy-blue)
+}
+.mienbac-chitiet a{
+    color: var(--bright-navy-blue);
+    display: inline;
+}
+.mienbac-chitiet a:hover{
+    text-decoration: underline;
+}
+.chitiet-tour {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+}
+.chitiet-tour h4{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    color: rgb(2,155,197);
+}
+.chitiet-tour h3{
+    margin-top: 100px;
     text-align: center;
-    color: var(--black);
-    padding-bottom: 20px;
-} */
+    margin-bottom: 50px;
+    color: rgb(2,155,197);
+}
+.chitiet-tour, .mienbac-chitiet{
+    font-weight: normal;
+}
+.chitiet-tour img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.chitiet-tour .chuyendi-chitiet {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    display: flex; /* Sắp xếp các phần tử theo hàng ngang */
+    align-items: center; 
+}
+.chitiet-tour .chuyendi-chitiet .column1, .column2{
+    margin-top: 100px;
+    padding-left: 50px;
+    margin-bottom: 100px;
+    width: 48%;
+}
+
+.chitiet-tour .chuyendi-chitiet .column1{
+    border-right: 1px solid black;
+}
 .pay-section .payment-container {
     display: flex;
     width: 780px;

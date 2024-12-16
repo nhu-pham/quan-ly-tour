@@ -1,11 +1,5 @@
-/*-----------------------------------*\
- * #CUSTOM PROPERTY
-\*-----------------------------------*/
 
-.vietcharm-logo{
-  width: 500px;
-  height: 100px;
-}
+
 :root {
 
     /**
@@ -122,7 +116,16 @@
   /*-----------------------------------*\
    * #REUSED STYLE
   \*-----------------------------------*/
-  
+  .main-container {
+    display: flex;
+    flex-direction: column; 
+    gap:30px; 
+    width: 100%; 
+  }
+  .vietcharm-logo{
+    width: 500px;
+    height: 100px;
+  }
   .container { 
     padding-inline: 15px; 
   }
@@ -137,12 +140,14 @@
     transition: var(--transition);
   }
   
-  .btn-primary {
+  .btn-primary{
     background: var(--bright-navy-blue);
     border-color: var(--bright-navy-blue);
     position: fixed;
-    top: 15px;
+    top: 5px;
     right: 90px;
+    text-align: center;
+    width: 140px;
   }
   
   .btn-primary:is(:hover, :focus) {
@@ -182,31 +187,7 @@
     font-weight: var(--fw-700);
   }
   
-  .section-subtitle {
-    color: var(--bright-navy-blue);
-    font-size: var(--fs-5);
-    text-transform: uppercase;
-    font-family: var(--ff-montserrat);
-    margin-bottom: 8px;
-  }
-  
-  .section-title { margin-bottom: 15px; }
-  
-  .section-text {
-    color: var(--black-coral);
-    margin-bottom: 30px;
-  }
-  
-  .card-text {
-    color: var(--black-coral);
-    font-size: var(--fs-5);
-  }
-  
-   /*-----------------------------------*\
-   * #NOT DISPLAY
-  \*-----------------------------------*/
-  
-  
+   
   /*-----------------------------------*\
    * #HEADER
   \*-----------------------------------*/
@@ -224,14 +205,14 @@
     transition: background-color 0.3s ease;
     z-index: 1000;
   }
-  
-  /* Khi cuộn xuống, thêm lớp "sticky" để thay đổi màu nền */
+  .header { border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); }
   nav, header.sticky{
     background-color: var(--bright-navy-blue-blur); /* Màu xanh cho header */
   }
   .header-chitiet{
     background-color: var(--bright-navy-blue-blur);
   }
+  
 
 
 .input-wrapper { margin-left: 13px;  text-align: center; }
@@ -266,67 +247,27 @@
 }
 
 .hero-title {
-    color: white; /* Ensure the title text is readable against the background */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow for better visibility */
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 
-  /* .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 61px;
-    z-index: 4;
-  } */
   
-  /* .header-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: var(--transition);
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
-    padding-block: 15px;
-    z-index: 1;
-  } */
   
   .header.active .header-top {
     position: fixed;
     background: var(--gunmetal);
   } 
   
-  /* .header-top .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: flex-start;
-    align-items: center;
-  } */
-  
-  
-/*   
-  .header-top .logo { margin-inline: auto; }
-  
-  .header-top .logo img { max-width: 100px; } */
-  
-  /* .header-btn-group {
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--white);
-  } */
+
   
   .search-btn,
-  .nav-open-btn {
-    font-size: 30px;
-    color: inherit;
-  }
+  
   
   .search-btn { font-size: 20px; }
 
-  /* boder bên dưới header */
-  .header { border-bottom: 1px solid hsla(0, 0%, 100%, 0.1); }
+
+  
   
   .header .container {
     display: flex;
@@ -343,19 +284,7 @@
     top: 14px; /* Cách mép trên 20px */
     left: 25%; 
   }
-  .header .navbar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 100%;
-    max-width: 700px;
-    height: 100%;
-    background: var(--white);
-    visibility: hidden;
-    pointer-events: none;
-    transition: 0.15s ease-in;
-    z-index: 3;
-  }
+  
   .navbar.active {
     right: 0;
     visibility: visible;
@@ -366,21 +295,14 @@
     color: var(--bright-navy-blue); /* Màu của mục active */
     font-weight: bold; /* Tăng độ đậm */
 }
-  /* .navbar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 15px;
-  }
+
   
-  .navbar-top .logo img { width: 150px; } */
-  
-  .nav-close-btn {
+  /* .nav-close-btn {
     font-size: 20px;
     color: var(--bright-navy-blue);
   }
   
-  .nav-close-btn ion-icon { --ionicon-stroke-width: 80px; }
+  .nav-close-btn ion-icon { --ionicon-stroke-width: 80px; } */
   
   .navbar-list { 
     border-top: 1px solid hsla(0, 0%, 0%, 0.1); 
@@ -398,9 +320,7 @@
     transition: var(--transition);
     text-transform: capitalize;
   }
-  #header.scrolled .navbar-link:hover {
-    color: var(--bright-navy-blue);
-}
+
   .navbar-link:hover { color: var(--bright-navy-blue); }
   
   .navbar-link:focus{
@@ -448,21 +368,7 @@
 .dropdown-des:hover .dropdown-content {
     display: block; /* Hiển thị dropdown khi rê chuột vào */
 }
-/*END DROPDOWN DESTINATION*/
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transition: var(--transition);
-  }
-  
-  .overlay.active {
-    opacity: 0.7;
-    pointer-events: all;
-  }
+
    
 
 /* USER PROFILE   */
@@ -500,12 +406,12 @@
 }
 
 .user-options {
-  display: none; /* Ẩn dropdown */
-  position: absolute; /* Đặt vị trí tuyệt đối */
-  background-color: var(--white); /* Màu nền dropdown */
-  min-width: 170px; /* Độ rộng tối thiểu */
-  box-shadow: 0px 8px 16px 0px rgba(36, 228, 221, 0.2); /* Bóng đổ */
-  z-index: 1; /* Độ ưu tiên */
+  display: none; 
+  position: absolute; 
+  background-color: var(--white); 
+  min-width: 170px; 
+  box-shadow: 0px 8px 16px 0px rgba(36, 228, 221, 0.2); 
+  z-index: 1; 
   border-radius: 10px;
   margin-top: 16px;
   margin-left: 330px;
@@ -530,7 +436,7 @@
   margin-right: 5px;
 }
   /*-----------------------------------*\
-   * #HERO
+   * #HERO(ảnh nền trang chủ,..)
   \*-----------------------------------*/
   
   .hero {
@@ -550,12 +456,7 @@
   
   .hero-title { margin-bottom: 20px; }
   
-  /* .hero-text {
-    color: var(--white);
-    font-size: var(--fs-5);
-    margin-bottom: 40px;
-  }
-   */
+
   .btn-group {
     display: flex;
     flex-wrap: wrap;
@@ -563,168 +464,6 @@
     align-items: center;
     gap: 10px;
   }
-  
-  
-  /* .box {
-    width: 804px;
-    height: 136px;
-  }
-  
-  .box .group {
-    position: fixed;
-    width: 820px;
-    height: 136px;
-    top: 0;
-    left: 0;
-  }
-  
-  .box .overlap-group {
-    position: relative;
-    width: 804px;
-    height: 136px;
-  }
-  
-  .box .rectangle {
-    position: absolute;
-    width: 790px;
-    height: 136px;
-    top: 0;
-    left: 14px;
-    background-color: #ffffff;
-    border-radius: 30px;
-  }
-  
-  .box .text-wrapper {
-    position: absolute;
-    width: 188px;
-    top: 19px;
-    left: 0;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0.06px;
-    line-height: 24px;
-  }
-  
-  .box .div {
-    position: absolute;
-    width: 188px;
-    top: 19px;
-    left: 171px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0.06px;
-    line-height: 24px;
-  }
-  
-  .box .text-wrapper-2 {
-    position: absolute;
-    width: 188px;
-    top: 20px;
-    left: 361px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0.06px;
-    line-height: 24px;
-  }
-  
-  .box .rectangle-2 {
-    position: absolute;
-    width: 119px;
-    height: 68px;
-    top: 34px;
-    left: 653px;
-    background-color: #0f9cc2;
-    border-radius: 20px;
-  }
-  
-  .box .text-wrapper-3 {
-    position: absolute;
-    width: 117px;
-    top: 53px;
-    left: 655px;
-    font-family: "Open Sans-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #ffffff;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0.06px;
-    line-height: 24px;
-  }
-  
-  .box .text-wrapper-4 {
-    position: absolute;
-    width: 52px;
-    top: 61px;
-    left: 54px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #918e8e;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0.05px;
-    line-height: 19.2px;
-  }
-  
-  .box .text-wrapper-5 {
-    position: absolute;
-    width: 85px;
-    top: 58px;
-    left: 241px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #918e8e;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0.05px;
-    line-height: 19.2px;
-  }
-  
-  .box .text-wrapper-6 {
-    position: absolute;
-    width: 197px;
-    top: 58px;
-    left: 392px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #918e8e;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0.05px;
-    line-height: 19.2px;
-  }
-  
-  .box .text-wrapper-7 {
-    position: absolute;
-    width: 197px;
-    top: 93px;
-    left: 397px;
-    font-family: "Open Sans-Regular", Helvetica;
-    font-weight: 400;
-    color: #918e8e;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0.05px;
-    line-height: 19.2px;
-  }
-  
-  .box .img {
-    position: absolute;
-    width: 220px;
-    height: 90px;
-    top: 16px;
-    left: 207px;
-  } */
-  
-  
   
   /*-----------------------------------*\
    * #TOUR SEARCH
@@ -734,7 +473,7 @@
     background: var(--white);
     padding-block: var(--section-padding); 
     border-radius: 30px;
-    height: 126px;
+    min-height: 126px;
     width: 890px;
     padding-top: 35px;
   }
@@ -745,6 +484,7 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     padding: 20px; 
+    width: 80%; 
 }
   .search-section{
     display: flex;
@@ -790,31 +530,27 @@
     height: 45px;
     width: 150px;
   }
-  
-  
-  
-  
-  
+   
   /*-----------------------------------*\
    * #POPULAR
   \*-----------------------------------*/
   
   #dest {
-    font-size: 20px; /* Tăng kích thước chữ cho "Vịnh Hạ Long" */
+    font-size: 20px; 
     font-weight: bold;
   }
   #price {
-  display: flex; /* Sử dụng flexbox để căn chỉnh icon và giá */
-  align-items: center; /* Căn giữa icon và giá theo chiều dọc */
+  display: flex; 
+  align-items: center; 
   }
 
   #date {
-  display: flex; /* Sử dụng flexbox để căn chỉnh icon và thời gian */
-  align-items: center; /* Căn giữa icon và thời gian theo chiều dọc */
+  display: flex; 
+  align-items: center;
   }
 
   .fa-dollar, .fa-calendar-days{
-  margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
+  margin-right: 15px; 
   }
 
   .xem-chi-tiet-btn{
@@ -851,8 +587,8 @@
   }
   .desc {
     padding-top: 15px;
-    padding-left: 30px; /* Thêm khoảng cách giữa nội dung và viền của .desc */
-    text-align: left; /* Canh lề phải cho nội dung */
+    padding-left: 30px; 
+    text-align: left; 
 }
 
   
@@ -865,25 +601,25 @@
     margin-bottom: 30px;
     padding: 0 6px;
     float: left;
-    width: 330px;
+    width: 325px;
   }
   
   
   
   /*-----------------------------------*\
-   * #PACKAGE
+   * #PACKAGE (tour đặc biệt)
   \*-----------------------------------*/
  
   .tour-list {
-    text-align: center; /* Canh giữa tiêu đề */
-    margin-top: 800px;
-    margin-bottom: 50px; /* Khoảng cách dưới tiêu đề */
+    text-align: center; 
+    margin-top: 150px;
+    margin-bottom: 50px; 
 }
 
 .gallery-container{
     display: flex; 
     flex-wrap: wrap; 
-    justify-content: space-between; /* Phân bố không gian đều giữa các phần tử */
+    justify-content: space-between; 
     height: 800px;
     margin-left: 65px;
     max-width: 1290px;
@@ -893,10 +629,10 @@
 .gallery2 {
   display: inline-block;
   position: relative;
-  width: calc(33.33% - 10px); /* Mỗi ảnh chiếm 50% chiều rộng container, trừ khoảng cách */
-  height: 50%; /* Chiếm 50% chiều cao container, tạo thành hai hàng */
-  overflow: hidden; /* Ẩn phần thừa nếu ảnh vượt quá */
-  margin-bottom: 10px; /* Khoảng cách giữa các hàng */
+  width: calc(33.33% - 10px); 
+  height: 50%; 
+  overflow: hidden; 
+  margin-bottom: 10px;
   border-radius: 10px; 
   padding-right: 20px;
   padding-left: 20px;
@@ -904,13 +640,13 @@
 
 .gallery2 img {
     position: relative;
-    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng của khung chứa */
-    height: 100%; /* Giữ tỷ lệ ảnh */
-    display: block; /* Ngăn cách ảnh và phần tử khác */
+    width: 100%; 
+    height: 100%; 
+    display: block; 
 }
 
 .gallery2 .desc {
-    position: absolute; /* Đặt vị trí tuyệt đối cho mô tả */
+    position: absolute; 
     bottom: 20px;
     right: 20px;
     left: 40px;
@@ -939,7 +675,7 @@
 }
 
 .chi-tiet-btn:hover {
-  background-color: #0056b3; /* Màu chữ khi hover */
+  background-color: #0056b3;
 }
 .see-more{
   margin-left: 50%;
@@ -957,130 +693,20 @@
 }
 .gallery2 .fa-heart {
   position: absolute;
-  top: 10px; /* Điều chỉnh khoảng cách từ phía trên */
-  right: 40px; /* Điều chỉnh khoảng cách từ bên phải */
-  color: white; /* Màu biểu tượng, có thể đổi theo ý thích */
-  font-size: 24px; /* Kích thước biểu tượng */
-  padding: 5px; /* Khoảng cách bên trong nền */
-  border-radius: 50%; /* Làm tròn nền */
+  top: 10px; 
+  right: 40px; 
+  color: white; 
+  font-size: 24px; 
+  padding: 5px; 
+  border-radius: 50%; 
 }
 
-  /* .package { padding-block: var(--section-padding); }
-  
-  .package-list { margin-bottom: 40px; }
-  
-  .package-list > li:not(:last-child) { margin-bottom: 30px; }
-  
-  .package-card {
-    background: var(--cultured);
-    overflow: hidden;
-    border-radius: 15px;
-  }
-  
-  .package-card .card-banner { height: 250px; }
-  
-  .package-card .card-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .package-card .card-content { padding: 30px 20px; }
-  
-  .package-card .card-title { margin-bottom: 15px; }
-  
-  .package-card .card-text {
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .card-meta-list {
-    background: var(--white);
-    max-width: max-content;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.15);
-    border-radius: 50px;
-  }
-  
-  .card-meta-item { position: relative; }
-  
-  .card-meta-item:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 4px;
-    right: -1px;
-    bottom: 4px;
-    width: 1px;
-    background: hsla(0, 0%, 0%, 0.3);
-  }
-  
-  .meta-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding-inline: 9px;
-    color: var(--black-coral);
-    font-size: var(--fs-8);
-  }
-  
-  .meta-box > ion-icon {
-    color: var(--bright-navy-blue);
-    font-size: 13px;
-  }
-  
-  .package-card .card-price {
-    background: var(--united-nations-blue);
-    color: var(--white);
-    padding: 25px 20px;
-    text-align: center;
-  }
-  
-  .package-card .card-price .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 5px 15px;
-    margin-bottom: 10px;
-  }
-  
-  .package-card .card-price .reviews { font-size: var(--fs-5); }
-  
-  .package-card .card-rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1px;
-    font-size: 14px;
-  }
-  
-  .package-card .card-rating ion-icon:last-child { color: hsl(0, 0%, 80%); }
-  
-  .package-card .price {
-    font-size: var(--fs-2);
-    font-family: var(--ff-montserrat);
-    font-weight: var(--fw-800);
-    margin-bottom: 20px;
-  }
-  
-  .package-card .price span {
-    font-size: var(--fs-7);
-    font-weight: initial;
-  }
-  
-  .package .btn { margin-inline: auto; } */
-  
   
   
   
   
   /*-----------------------------------*\
-   * #GALLERY
+   * #REVIEW
   \*-----------------------------------*/
 
   
@@ -1159,293 +785,6 @@
 }
   
   
-  /*-----------------------------------*\
-   * #CTA
-  \*-----------------------------------*/
-  
-  .cta {
-    background: var(--bright-navy-blue);
-    padding-block: var(--section-padding);
-  }
-  
-  .cta :is(.section-subtitle, .section-title, .section-text) { color: var(--white); }
-  
-  .cta .section-text { font-size: var(--fs-5); }
-  
-
-
-  /*-----------------------------------*\
-   * #FOOTER
-  \*-----------------------------------*/
-  
-  /* .footer-top {
-    background: var(--gunmetal);
-    padding-block: var(--section-padding);
-    color: var(--gainsboro);
-  }
-  
-  .footer-brand { margin-bottom: 30px; }
-  
-  .footer-brand img { width: 180px; }
-  
-  .footer-brand .logo { margin-bottom: 20px; }
-  
-  .footer-text {
-    font-size: var(--fs-5);
-    line-height: 1.7;
-  }
-  
-  .footer-contact { margin-bottom: 30px; }
-  
-  .contact-title {
-    position: relative;
-    font-family: var(--ff-montserrat);
-    font-weight: var(--fw-500);
-    margin-bottom: 30px;
-  }
-  
-  .contact-title::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--bright-navy-blue);
-  }
-  
-  .contact-text {
-    font-size: var(--fs-5);
-    margin-bottom: 15px;
-    max-width: 200px;
-  }
-  
-  .contact-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .contact-item ion-icon { --ionicon-stroke-width: 40px; }
-  
-  .contact-link,
-  address {
-    font-style: normal;
-    color: var(--gainsboro);
-    font-size: var(--fs-5);
-  }
-  
-  .contact-link:is(:hover, :focus) { color: var(--white); }
-  
-  .form-text {
-    font-size: var(--fs-5);
-    margin-bottom: 20px;
-  }
-  
-  .footer-form .input-field {
-    background: var(--white);
-    font-size: var(--fs-5);
-    padding: 15px 20px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .footer-form .btn { width: 100%; }
-  
-  .footer-bottom {
-    --gunmetal: hsl(205, 36%, 17%);
-    background: var(--gunmetal);
-    padding-block: 20px;
-    text-align: center;
-  }
-  
-  .copyright {
-    color: var(--gainsboro);
-    font-size: var(--fs-5);
-    margin-bottom: 10px;
-  }
-  
-  .copyright a {
-    color: inherit;
-    display: inline-block;
-  }
-  
-  .copyright a:is(:hover, :focus) { color: var(--white); }
-  
-  .footer-bottom-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 21px;
-  }
-  
-  .footer-bottom-list > li { position: relative; }
-  
-  .footer-bottom-list > li:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    right: -10px;
-    bottom: 3px;
-    width: 1px;
-    background: hsla(0, 0%, 100%, 0.2);
-  }
-  
-  .footer-bottom-link {
-    color: var(--gainsboro);
-    font-size: var(--fs-7);
-    transition: var(--transition);
-  }
-  
-  .footer-bottom-link:is(:hover, :focus) { color: var(--white); } */
-  
-  footer {
-    margin-top: 200px;
-    width: 1423px;
-}
-
-.footer-container {
-
-      display: flex;
-      justify-content: space-between;
-      margin: 0;
-      padding: 0; /* Loại bỏ khoảng trống */
-      width: 100%; /* Đảm bảo phần container chiếm toàn bộ chiều rộng */
-}
-
-
-.footer-left {
-  width: 70%; /* Điều chỉnh chiều rộng để cân đối */
-  background-color: #0A7795; /* Màu xanh nhạt */
-  padding: 40px;
-  margin: 0; /* Xóa khoảng trống giữa các cạnh */
-}
-
-
-.footer-left h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    line-height: 1.4;
-    color: white;
-}
-
-.footer-left p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: 16px;
-    color: white;
-}
-
-.email-input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.email-input input {
-    padding: 10px;
-    border:hsl(0, 0%, 100%);
-    width: 300px;
-    border-radius: 5px 0 0 5px;
-    font-size: 14px;
-}
-
-.email-input button {
-    padding: 10px;
-    background-color: white;
-    border: none;
-    color: #1BA3A2;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    font-size: 18px;
-}
-
-.copyright {
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-.footer-right {
-  width: 100%; /* Điều chỉnh chiều rộng của phần phải */
-  display: flex;
-  justify-content: space-between;
-  padding: 40px;
-  background-color: #063865; /* Màu xanh đậm */
-}
-
-.logo-section {
-    width: 35%;
-}
-
-.logo-section img {
-    max-width: 120px;
-    margin-bottom: 10px;
-}
-
-.logo-section p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: white;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.footer-column a {
-    display: block;
-    margin-bottom: 15px;
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-.footer-column a:hover {
-    opacity: 1;
-}
-  
-  
-  
-  /*-----------------------------------*\
-   * #GO TO TOP
-  \*-----------------------------------*/
-  
-  .go-top {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
-    background: var(--bright-navy-blue);
-    color: var(--white);
-    display: grid;
-    place-items: center;
-    font-size: 18px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
-    opacity: 0;
-    transform: translateY(10px);
-    visibility: hidden;
-    transition: var(--transition);
-  }
-  
-  .go-top.active {
-    opacity: 0.8;
-    transform: translateY(0);
-    visibility: visible;
-  }
-  
-  .go-top:is(:hover, :focus) { opacity: 1; }
-  
-  
-  
-  
   
   /*-----------------------------------*\
    * #MEDIA QUERIES
@@ -1457,8 +796,10 @@
   
   @media (min-width: 580px) {
     .responsive {
-      flex: 0 1 calc(50% - 20px); /* 2 cột */
+      flex: 0 1 calc(50% - 20px); 
   }
+  .gallery2 { flex: 1 1 100%; max-width: 100%;  }
+  
     /**
      * REUSED STYLE
      */
@@ -1617,6 +958,10 @@
      .responsive {
       flex: 0 1 calc(50% - 20px); /* 2 cột */
   }
+  .gallery2 {
+    flex: 1 1 calc(50% - 20px); 
+    max-width: calc(50% - 20px);
+}
     :root {
   
       /**
@@ -1678,9 +1023,7 @@
   
     .popular-card .card-content { right: 20px; } */
     
-    .responsive {
-      flex: 1 1 calc(33.333% - 20px); /* 3 cột */
-  }
+    
   
   
   
@@ -1761,7 +1104,6 @@
   
   
   
-  
   /**
    * responsive for larger than 992px screen
    */
@@ -1775,6 +1117,7 @@
      .responsive {
       flex: 0 1 calc(33.333% - 20px); /* 3 cột */
   }
+  .gallery2 { flex: 1 1 35%; /* Three items per row */ max-width: 35%; /* Ensure items don't exceed 30% width */}
     .container { max-width: 1050px; }
   
   
@@ -1921,6 +1264,7 @@
      .responsive {
       flex: 0 1 calc(25% - 20px); /* 4 cột */
   }
+  .gallery2 { flex: 1 1 33%; /* Three items per row */ max-width: 33%; /* Ensure items don't exceed 30% width */}
     :root {
   
       /**

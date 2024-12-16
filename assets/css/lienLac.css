@@ -1,6 +1,4 @@
-/* #contact-container{
-    display: none;
-} */
+
 
 .contact-container {
     position: relative;
@@ -125,6 +123,9 @@
 .info-branch i{
     margin-right: 10px;
 }
+.header-background .navbar-link{
+    color: black;
+  }
 .header-background{
     background-color: white;
     color: black;
