@@ -223,11 +223,4 @@ th {
     color: white;
 }
 
-.btn {
-    width: 40px; /* Đặt chiều rộng cố định */
-    height: 40px; /* Đặt chiều cao cố định */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0; /* Xóa padding mặc định */
-}
+
