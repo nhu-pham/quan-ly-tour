@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dangNhap.css">
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/thanhToan.css">
+    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
+    <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
+    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
+    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <!-- <header class="header" id="header" data-header>
+
+        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px; display: none;"></a>
+        <a href="trangChu.html"><img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;"></a>
+
+            <div class="container">
+
+                
+                <div class="navbar-header">
+                    <nav class="navbar" data-navbar>
+
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="trangChu.html" class="navbar-link change-color" data-nav-link>Trang chủ</a>
+                            </li>
+
+                            <li>
+                                <a href="gioiThieu.html" class="navbar-link change-color" data-nav-link>Giới thiệu</a>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-des">
+                                    <a href="#destination" class="navbar-link change-color desdrop active-header" data-nav-link>Điểm đến</a>
+                                    <div class="dropdown-content">
+                                        <a href="mienBac.html">Miền Bắc</a>
+                                        <a href="mienTrung.html">Miền Trung</a>
+                                        <a href="mienNam.html">Miền Nam</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="tour.html" class="navbar-link change-color" data-nav-link>Tour</a>
+                            </li>
+
+                            <li>
+                                <a href="lienHe.html" class="navbar-link change-color" data-nav-link>Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <a href="dangNhap.html" class="btn btn-primary" id="btn-dn">Đăng nhập</a>
+                    <div id="user-profile" class="user-profile">
+                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                        <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                        <div class="user-options">
+                            <a href="#qlThongTin">
+                                <i class="fas fa-cog"></i>
+                                Quản lý thông tin
+                            </a>
+                            <a href="#dangXuat">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>   
+            </div> 
+    </header>   -->
+
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
+        <a href="trangChu.html">
+            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
+            <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
+        </a>
+    
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color">Giới thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown-des">
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle active-header" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
+                                <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
+                                <li><a class="dropdown-item" href="mienNam.html">Miền Nam</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item" style="display: none;">
+                        <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
+                        <div id="user-profile" class="user-profile">
+                            <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                            <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                            <div class="user-options">
+                                <a href="quanLyThongTin.html">
+                                    <i class="fas fa-cog"></i>
+                                    Quản lý thông tin
+                                </a>
+                                <a href="quanLyThongTin.html">
+                                    <i class="fa-solid fa-key"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a href="#qlThongTin">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    Đơn mua
+                                </a>
+                                <a href="#dangxuat">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+    
+
+    <!-- Trang Tour Miền Trung-->
+    <section id="mienTrungModal">
+        <section class="page-Central" id="home">
+            <section class="content">
+
+            <h1>Miền Trung</h1>
+                <p>
+                    Miền Trung Việt Nam là một vùng đất quyến rũ với những bãi biển tuyệt đẹp, di sản văn hóa phong phú và cảnh quan thiên nhiên đa dạng. Từ thành phố Đà Nẵng hiện đại với bãi biển Mỹ Khê xanh mướt, đến cố đô Huế trầm mặc với những công trình kiến trúc cổ kính, miền Trung mang đến cho du khách những trải nghiệm thú vị và độc đáo. Bạn có thể khám phá phố cổ Hội An với những ngôi nhà cổ và ánh đèn lồng lung linh, hay tham gia vào các hoạt động thể thao mạo hiểm tại các khu nghỉ dưỡng ven biển. Không chỉ nổi tiếng với cảnh đẹp, miền Trung còn chinh phục du khách bằng ẩm thực đặc sắc, từ bún bò Huế đậm đà đến cao lầu Hội An thơm ngon. Hãy cùng khám phá miền Trung Việt Nam, nơi hội tụ của văn hóa, lịch sử và vẻ đẹp thiên nhiên tuyệt vời!
+                </p>         
+            </section>
+        </section> 
+
+       
+
+        <div class="dstour"> 
+           
+            <div class="filter">
+                <h2>Bộ lọc tìm kiếm</h2>
+                <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
+                <form>
+                    <label for="budget">Ngân sách</label>
+                    <div class="budget-options">
+                        <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
+                        <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
+                        <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20 triệu</button>
+                        <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
+                    </div>
+
+                    <label for="departure">Điểm khởi hành</label>
+                    <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
+
+                    <label for="destination">Điểm đến</label>
+                    <input type="text" id="destination" placeholder="Nhập điểm đến">
+
+                    <div class="date-group">
+                        <label for="date">Ngày đi</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <button type="submit" class="filter-btn">Lọc</button>
+                </form>
+            </div> 
+
+            <!-- Kết quả tìm kiếm -->
+            <div class="search-results page_MT">
+                <div class="page-header">
+                    <label for="">Chúng tôi tìm thấy</label><input type="text" id="number-tour" style="width: 40px; text-align: center; "><label for="">cho quý khách</label> 
+                    <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp theo:</label>
+                    <select id="combobox-sapxep">
+                        <option value="option1">Tất cả</option>
+                        <option value="option2">Giá từ cao đến thấp</option>
+                        <option value="option3">Giá từ thấp đến cao</option>
+                    </select></div>
+                </div>
+                <hr style="margin-top: 10px; margin-bottom: 20px;">
+                <div class="result-item">
+                    <img src="assets/images/db_quangngai.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Quảng Nam - Quảng Ngãi - Bình Định (Cù Lao Chàm, Thánh địa Mỹ Sơn, Biển Mỹ Khê, Khu di tích lịch sử Chăm Pa)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Quảng Nam</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/05/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/db_hue.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Đà Nẵng - Hội An - Huế (Bà Nà Hills, Phá Tam Giang, Chùa Cầu, Phố cổ Hội An)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tỉnh Thừa Thiên Huế</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/db_quangbinh.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Quảng Trị - Quảng Bình (Địa đạo Vịnh Mốc, Vườn quốc gia Phong Nha - Kẻ Bàng, Hang Sơn Đoòng)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Quảng Bình</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.200.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/db_phuyen.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Phú Yên (Bãi Xếp, Gành Đá Đĩa, Mũi Điện, Hồ Tuy Hòa, Đầm Ô Loan)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Đà Nẵng</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 2.100.000 VNĐ</p>
+                            <button class="detail-btn">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/db_muine.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Bình Thuận - Ninh Thuận (Vịnh Vĩnh Hy, Đồi Cát Nam Cương, Mũi Né, Lâu đài rượu vang)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bình Thuận</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-culaocham.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Huế (Cố đô Huế, Chùa Thiên Mụ, Bãi biển Lăng Cô)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP Hồ Chí Minh</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-results page_MT">
+                <div class="page-header">
+                    <label for="">Chúng tôi tìm thấy</label><input type="text" id="number-tour" style="width: 40px; text-align: center; "><label for="">cho quý khách</label> 
+                    <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp theo:</label>
+                    <select id="combobox-sapxep">
+                        <option value="option1">Tất cả</option>
+                        <option value="option2">Giá từ cao đến thấp</option>
+                        <option value="option3">Giá từ thấp đến cao</option>
+                    </select></div>
+                </div>
+                <hr style="margin-top: 10px; margin-bottom: 20px;">
+                <div class="result-item">
+                    <img src="assets/images/tourMT-daclac.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>ĐắK Nông - ĐắK LắK (Thác Lưu Ly, Hang động núi lửa Chư Bluk, Bảo tàng Thế giới Cà phê, Vườn quốc gia Yok Đôn)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Quảng Nam</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/05/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-binhdinh.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Bình Định - Phú Yên (Kỳ Co, Eo Gió, Ghềnh Đá Đĩa, Vịnh Xuân Đài)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tỉnh Thừa Thiên Huế</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-nghean.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Quảng Bình - Nghệ An (Bãi Đá Nhảy, Biển Nhật Lệ, Hang Pác Bó, Đền Hoàng Mười)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Quảng Bình</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.200.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-ninhthuan.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Bình Thuận - Ninh Thuận (Làng Chài Mũi Né, Tháp Chàm Po Klong Garai, Cồn Cát Nam Cương)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Đà Nẵng</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 2.100.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-CauVang.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Đà Nẵng - Quảng Nam (Cầu Vàng, Bãi biển Mỹ Khê, Rừng dừa Bảy Mẫu, Làng Gốm Thanh Hà)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bình Thuận</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <img src="assets/images/tourMT-khanhhoa.jpg" alt="Cao Bằng" class="result-image">
+                    <div class="result-details">
+                        <h3>Khánh Hòa - Ninh Thuận (Hòn Tằm, Nha Phu, Mỹ Nương, Cà Ná)</h3>
+                        <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP Hồ Chí Minh</p></div>
+                        <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 06/07/2024</p></div>
+                        <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                        <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                            <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        <div id="pagination_MT" class="pagination">
+            <a id="prevpage_MT" class="inactive" href="#">&laquo;</a>
+            <a class="page-link-MT active" href="#">1</a>
+            <a class="page-link-MT" href="#">2</a>
+            <a id="nextpage_MT" class="inactive" href="#">&raquo;</a>
+        </div> 
+    </section>
+
+
+
+    <!-- Footer  -->
+    <footer class="footer"> 
+        <div class="container"> 
+                <div class="newsletter"> 
+                    <h3>ĐĂNG KÝ NHẬN BẢN TIN MỚI NHẤT</h3>
+                    <div class="nhapemail">
+                    <input type="email" placeholder="Nhập email của bạn ở đây!"> 
+                    <button>Gửi</button>  
+                    </div> 
+                    <h3>CHẤP NHẬN THANH TOÁN</h3>
+                    <div class="payment-methods"> 
+                        <div><img src="assets/images/vimomo.png" alt="MoMo"></div>
+                        <div><img src="assets/images/zalopay.png" alt="Zalo Pay"></div> 
+                        <div><img src="assets/images/vnpay.png" alt="VNPay"></div> 
+                        <div><img src="assets/images/thevisa.png" alt="VISA"></div> 
+                    </div> 
+                </div> 
+                <div class="links"> 
+                    <h3>ĐIỂM ĐẾN</h3> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links">
+                    <h3>TOUR</h3> 
+                    <a href="tourDacBiet.html">Tour đặc biệt</a> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links"> 
+                        <h3>THÔNG TIN</h3> 
+                        <a href="gioiThieu.html">Về chúng tôi</a> 
+                        <a href="lienHe.html">Liên hệ</a> 
+                </div> 
+        </div>
+        <hr class="footer-line">
+        <div class="below">
+                <div class="logo"> 
+                    <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                    <h3>VietCharm</h3> 
+                </div> 
+                
+                <div class="contact-info"> 
+                    <p> <i class="fa-solid fa-location-dot"></i>  Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ Đức, Hồ Chí Minh</p> 
+                    <div id="email-phone-fax">
+                    <p><i class="fa-regular fa-envelope"></i>  Email: vietcham.contact@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>  Phone: 0324561235</p> 
+                    <p><i class="fa-solid fa-fax"></i>  Fax: 19006067</p> 
+                </div>
+        </div>         
+        </div>
+            
+            </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/phanTrangMB.js"></script>
+    <script src="./assets/js/phanTrangMT.js"></script>
+    <script src="./assets/js/phanTrangMN.js"></script>
+    <script src="./assets/js/phanTrangDB.js"></script>
+    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
+    <script src="./assets/js/chiTietLichTrinh.js"></script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

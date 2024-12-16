@@ -39,29 +39,107 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     //CHUYỂN ĐỔI GIỮA CÁC SECTION//
-    const header = document.querySelector("header"); // Lấy phần tử header
-    let originalHeaderColor = getComputedStyle(header).backgroundColor; // Lấy màu gốc của header  
+    //const header = document.queryAllSelector("header"); // Lấy phần tử header
+
+
+    const header = document.getElementById('header'); // Lấy header
+const navbarLinks = document.querySelectorAll('.navbar-link.change-color');
+const activeLink = document.querySelector('.navbar-link.active-header');
+const logo = document.querySelector('.logo');
+const logoScroll = document.querySelector('.logo2');
+
+// Lấy màu sắc ban đầu của header
+let originalHeaderColor = header.style.backgroundColor = 'transparent';
+let originalHeaderShadow = getComputedStyle(header).boxShadow;
+
+// Sự kiện lắng nghe scroll
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 50) {
+        // Khi cuộn xuống
+        header.style.backgroundColor = 'white';
+        header.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.3)';
+        header.classList.add('scrolled');
+
+        logoScroll.style.display = 'block';
+        logo.style.display = 'none';
+
+        navbarLinks.forEach(link => {
+            link.style.color = 'black'; // Đổi màu chữ navbar thành đen
+        });
+        if (activeLink) {
+            activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
+        }
+    } else {
+        // Khi cuộn về đầu trang
+        header.style.backgroundColor = originalHeaderColor;
+        header.style.boxShadow = originalHeaderShadow;
+
+        logoScroll.style.display = 'none';
+        logo.style.display = 'block';
+
+        navbarLinks.forEach(link => {
+            link.style.color = 'white'; // Quay lại màu chữ ban đầu
+        });
+
+        if (activeLink) {
+            activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
+        }
+    }
+});
+
+    /*const header = document.querySelector('header');
+    let originalHeaderColor = getComputedStyle(header).backgroundColor; // Lấy màu gốc của header
+    let originalHeaderShadowColor = getComputedStyle(header).boxShadow; // Lấy màu gốc của header
+    const navbar_header = document.querySelectorAll('header .change-color');
+    const active_Link = document.querySelector('.navbar-link.active-header');
+    const logo = document.querySelector('.logo');
+    const logo_scroll = document.querySelector('.logo2');
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'white';
+            header.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.3)';
+            logo_scroll.style.display='block';
+            logo.style.display='none';
+            navbar_header.forEach(link => {
+                link.style.color = "black";
+            });
+            active_Link.style.color = ' rgb(0, 225, 255)';
+        } else {
+            header.style.backgroundColor = originalHeaderColor; // Quay lại màu gốc
+            header.style.boxShadow = originalHeaderShadowColor;
+            logo_scroll.style.display='none';
+            logo.style.display='block';
+            navbar_header.forEach(link => {
+                link.style.color = "white"; // Đổi màu chữ thành đen
+            });
+            active_Link.style.color = ' rgb(0, 225, 255)';
+        }
+    });*/
+
+
     let isLienHeVisible = false; // Biến cờ kiểm tra nếu đang ở trong "Chi tiết tour"
     let isThongTinVisible = false; 
     let isChiTietVisible = false;
     let isChiTietDTVisible = false;
     let isThanhToanVisible = false;
+    let isDanhGia = false;
+    let isTour = false;
 
 
     // Function to scroll smoothly to a section
-    function scrollToSection(id) {
+    /*function scrollToSection(id) {
         const section = document.querySelector(id);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
-    }
+    }*/
 
     // Trang chủ
-    const homeLink = document.querySelector('[href="#home"]');
+    /*const homeLink = document.querySelector('[href="#home"]');
     homeLink.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default link behavior
         scrollToSection('#home'); // Scroll to the home section
-    });
+    });*/
 
     // Điểm đến
     //const destinationLink = document.querySelector('[href="#destination"]');
@@ -76,19 +154,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     // Liên hệ
-    const contactLink = document.querySelector('[href="#contact"]');
+    //const contactLink = document.querySelector('[href="#contact"]');
 
 
     ////////////////////////////////////////////////////////////////////////////
 
-    const aboutusLink = document.querySelector('[href="#aboutus"]');
+    //const aboutusLink = document.querySelector('[href="#aboutus"]');
     const trangChuSection = document.getElementById("trangchu");
-    const aboutSection = document.getElementById("about");
+    //const aboutSection = document.getElementById("about");
 
     const userProfile = document.getElementById('user-profile'); // Phần user profile
     const loginButton = document.getElementById('login-btn'); // Modal đăng nhập
 
-    const mienBacLink = document.querySelector('[href="#mienbac"]');
+    /*const mienBacLink = document.querySelector('[href="#mienbac"]');
     const mienBacSection = document.getElementById('mienBacModal');
 
 
@@ -97,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     const mienNamLink = document.querySelector('[href="#miennam"]');
-    const mienNamSection = document.getElementById('mienNamModal');
+    const mienNamSection = document.getElementById('mienNamModal');*/
 
 
     const chitietSection = document.getElementById('chitiet-tour');
@@ -114,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const tratien = document.querySelector('.pay');
 
     const qlThongTin = document.querySelector('[href="#qlThongTin"]');
+    const dangXuat = document.querySelector('[href="#dangXuat"]');
     const qlThongTinSection = document.getElementById('account-information');
 
     const loginModal = document.getElementById('login-modal');
@@ -121,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeLoginBtn = document.querySelector('.close-btn');
     const headerSection = document.getElementById("header");
 
-    const lienLacSection = document.getElementById('contact-container');
+    //const lienLacSection = document.getElementById('contact-container');
 
     const tabThongTin = document.querySelector('[href="#tabTT"]');
     const tabMK = document.querySelector('[href="#tabMK"]');
@@ -140,20 +219,46 @@ document.addEventListener("DOMContentLoaded", function() {
         const cancelSection = document.getElementById("cancel-order");
     const khuyenMaiSection = document.getElementById("khuyenMai");
 
+
+    /*const tourdsLink = document.querySelector('[href="#package"]');
+    const tourdsSection = document.getElementById("tourModel");*/
+
+    const customerLink = document.querySelector('[href="#review"]');
+    const customerSection = document.getElementById("customer-container");
+    const updateLink = document.querySelector(".update-btn");
+    const backLink = document.getElementById("cancel-customer");
+    const updateSection = document.getElementById("customer-update-container");
+
+    const xemthemMBLink = document.querySelector('[href="#xemthemMB"]');
+    const xemthemMTLink = document.querySelector('[href="#xemthemMT"]');
+    const xemthemMNLink = document.querySelector('[href="#xemthemMN"]');
+    /*const xemthemDBLink = document.querySelector('[href="#xemthemDB"]');
+    const tourdbSection = document.getElementById("tourdbModel");*/
+
+    /*const billTourLink = document.querySelector(".chitiet-btn");
+    const billTourSection = document.getElementById("dontour-container");
+    const tourListLink = document.querySelector('[href="#package"]');
+    const tourListSection = document.getElementById("tourlist-container");*/
+
     const sections = [
         trangChuSection,
         dichVuSection,
         thanhToanSection,
         chitietdtSection,
-        mienBacSection,
+        /*mienBacSection,
         mienTrungSection,
-        mienNamSection,
-        aboutSection,
+        mienNamSection,*/
+        //aboutSection,
         chitietSection,
         loginModal,
         qlThongTinSection,
-        lienLacSection
-
+        //lienLacSection,
+        customerSection,
+        updateSection,
+        //tourdsSection,
+        //tourdbSection,
+        //billTourSection,
+        //tourListSection
     ];
 
     function resetVisibility() {
@@ -162,9 +267,11 @@ document.addEventListener("DOMContentLoaded", function() {
         isThongTinVisible = false;
         isLienHeVisible = false;
         isChiTietVisible = false;
+        isDanhGia = false;
+        isTour = false;
     }
 
-    function showSection(activeSection) {
+    /*function showSection(activeSection) {
         // Ẩn tất cả các sections
         sections.forEach(section => {
             section.style.display = 'none';
@@ -172,27 +279,67 @@ document.addEventListener("DOMContentLoaded", function() {
     
         // Hiển thị section được chọn
         activeSection.style.display = 'block';
-    }
+
+        const sectionTop = activeSection.offsetTop;
+        window.scrollTo({
+            top: sectionTop,
+            behavior: "smooth"
+        });
+    }*/
     // SECTION GIỚI THIỆU//
 
-    aboutusLink.addEventListener("click", function (){
+    /*aboutusLink.addEventListener("click", function (){
         showSection(aboutSection);
         resetVisibility();
     });
     homeLink.addEventListener("click", function (){
         showSection(trangChuSection);
         resetVisibility();
+    });*/
+
+    //ĐÁNH GIÁ//
+
+    customerLink.addEventListener("click", function (){
+        showSection(customerSection);
+        resetVisibility();
+        isDanhGia = true;
     });
-    
+    updateLink.addEventListener("click", function (){
+        showSection(updateSection);
+        resetVisibility();
+        isDanhGia = true;
+    });
+    backLink.addEventListener("click", function (){
+        showSection(customerSection);
+        resetVisibility();
+        isDanhGia = true;
+    });
+
+    //TOUR
+    /*tourdsLink.addEventListener("click", function (){
+        showSection(tourdsSection);
+        resetVisibility();
+    });*/
+        /*Tour đặc biệt*/
+        /*xemthemDBLink.addEventListener("click", function (){
+            showSection(tourdbSection);
+            resetVisibility();
+        });*/
+    /*tourListLink.addEventListener("click", function (){
+        showSection(tourListSection);
+        resetVisibility();
+        isTour = true;
+    });
+    billTourLink.addEventListener("click", function (){
+        showSection(billTourSection);
+        resetVisibility();
+        isTour = true;
+    });*/
     //MỞ ĐĂNG NHẬP//
-
-
+    
     openLoginBtn.addEventListener('click', function() {
         
-        //trangChuSection.style.display = "none";
-        sections.forEach(section => {
-            section.style.display = 'none';
-        });
+        trangChuSection.style.display = "none";
         loginModal.style.display = 'flex'; // Hiển thị modal
         headerSection.style.display = "none";
     });
@@ -229,10 +376,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //LIÊN LẠC//
 
-    contactLink.addEventListener("click", function (){
-        showSection(lienLacSection);
-        isLienHeVisible = true;
-    });
+    // contactLink.addEventListener("click", function (){
+    //     showSection(lienLacSection);
+    //     isLienHeVisible = true;
+    // });
 
 
     //ĐĂNG NHẬP//
@@ -243,6 +390,14 @@ document.addEventListener("DOMContentLoaded", function() {
         loginModal.style.display = 'none';
         userProfile.style.display = 'block';
         trangChuSection.style.display = 'block';
+        header.style.backgroundColor = originalHeaderColor;
+    });
+    //ĐĂNG XUẤT
+    dangXuat.addEventListener('click', function() {
+        headerSection.style.display = 'flex';
+        openLoginBtn.style.display = 'block';
+        userProfile.style.display = 'none';
+        showSection(trangChuSection);
         header.style.backgroundColor = originalHeaderColor;
     });
 
@@ -267,24 +422,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //SECTION MIỀN BẮC//
     
-    mienBacLink.addEventListener("click", function (){
+    /*mienBacLink.addEventListener("click", function (){
+        showSection(mienBacSection);
+        resetVisibility();
+    });*/
+    xemthemMBLink.addEventListener("click", function (){
         showSection(mienBacSection);
         resetVisibility();
     });
-
     //SECTION MIỀN TRUNG//
     
-    mienTrungLink.addEventListener("click", function (){
+    /*mienTrungLink.addEventListener("click", function (){
+        showSection(mienTrungSection);
+        resetVisibility();
+    });*/
+    xemthemMTLink.addEventListener("click", function (){
         showSection(mienTrungSection);
         resetVisibility();
     });
     //SECTION MIỀN NAM//
     
-    mienNamLink.addEventListener("click", function (){
+    /*mienNamLink.addEventListener("click", function (){
+        showSection(mienNamSection);
+        resetVisibility();
+    });*/
+    xemthemMNLink.addEventListener("click", function (){
         showSection(mienNamSection);
         resetVisibility();
     });
-
 
 
     //QUÊN MẬT KHẨU
@@ -425,40 +590,40 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     tabThongTin.addEventListener('click', function(){
-        tabThongTin.classList.add('active'); // Thêm class "active" cho tab được chọn
-        tabMK.classList.remove('active'); 
-        tabDM.classList.remove('active');
-        tabKM.classList.remove('active');
+        tabThongTin.classList.add('active_tt'); // Thêm class "active" cho tab được chọn
+        tabMK.classList.remove('active_tt'); 
+        tabDM.classList.remove('active_tt');
+        tabKM.classList.remove('active_tt');
         thongTinTKSection.style.display = 'block';
         doiMKSection.style.display = 'none';
         donMuaSection.style.display = 'none';
         khuyenMaiSection.style.display = 'none';
     })
     tabMK.addEventListener('click', function(){
-        tabMK.classList.add('active'); // Thêm class "active" cho tab được chọn
-        tabThongTin.classList.remove('active'); 
-        tabDM.classList.remove('active');
-        tabKM.classList.remove('active');
+        tabMK.classList.add('active_tt'); // Thêm class "active" cho tab được chọn
+        tabThongTin.classList.remove('active_tt'); 
+        tabDM.classList.remove('active_tt');
+        tabKM.classList.remove('active_tt');
         doiMKSection.style.display = 'block';
         thongTinTKSection.style.display = 'none';
         donMuaSection.style.display = 'none';
         khuyenMaiSection.style.display = 'none';
     })
     tabDM.addEventListener('click', function(){
-        tabDM.classList.add('active'); // Thêm class "active" cho tab được chọn
-        tabThongTin.classList.remove('active'); 
-        tabMK.classList.remove('active');
-        tabKM.classList.remove('active');
+        tabDM.classList.add('active_tt'); // Thêm class "active" cho tab được chọn
+        tabThongTin.classList.remove('active_tt'); 
+        tabMK.classList.remove('active_tt');
+        tabKM.classList.remove('active_tt');
         donMuaSection.style.display = 'block';
         doiMKSection.style.display = 'none';
         thongTinTKSection.style.display = 'none';
         khuyenMaiSection.style.display = 'none';
     })
     tabKM.addEventListener('click', function(){
-        tabKM.classList.add('active');
-        tabDM.classList.remove('active'); // Thêm class "active" cho tab được chọn
-        tabThongTin.classList.remove('active'); 
-        tabMK.classList.remove('active');
+        tabKM.classList.add('active_tt');
+        tabDM.classList.remove('active_tt'); // Thêm class "active" cho tab được chọn
+        tabThongTin.classList.remove('active_tt'); 
+        tabMK.classList.remove('active_tt');
         khuyenMaiSection.style.display = 'block';
         donMuaSection.style.display = 'none';
         doiMKSection.style.display = 'none';
@@ -470,10 +635,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function activateTab(index) {
         tabs.forEach((tab, i) => {
             if (i === index) {
-                tab.classList.add('active');
+                tab.classList.add('active_bill');
                 tabsections[i].style.display = 'block';
             } else {
-                tab.classList.remove('active');
+                tab.classList.remove('active_bill');
                 tabsections[i].style.display = 'none';
             }
         });
@@ -558,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    window.addEventListener("scroll", function() {
+    /*window.addEventListener("scroll", function() {
         if (window.scrollY > 100) {
             header.classList.add("sticky"); // Thêm lớp "sticky" khi cuộn
             header.style.backgroundColor = 'hsla(193.073, 85%, 41%, 0.8)';
@@ -566,138 +731,16 @@ document.addEventListener("DOMContentLoaded", function() {
             header.style.backgroundColor = originalHeaderColor;
             header.classList.remove("sticky"); // Gỡ bỏ lớp "sticky" khi trở lại trên đầu trang
         }
-        if (isChiTietDTVisible||isThanhToanVisible||isThongTinVisible||isLienHeVisible||isChiTietVisible)
+        if (isChiTietDTVisible||isThanhToanVisible||isThongTinVisible||isLienHeVisible||isChiTietVisible||isDanhGia||isTour)
         {
             header.style.backgroundColor = 'hsla(193.073, 85%, 41%, 0.8)';
         }
-    });
+    });*/
+    
+
+// Gắn sự kiện cuộn
+
      
-
-    //PHÂN TRANG
-    /*const pages = [
-        { link: document.querySelector('[href="#1"]'), content: document.getElementById('page1') },
-        { link: document.querySelector('[href="#2"]'), content: document.getElementById('page2') },
-        { link: document.querySelector('[href="#3"]'), content: document.getElementById('page3') },
-        { link: document.querySelector('[href="#4"]'), content: document.getElementById('page4') },
-        { link: document.querySelector('[href="#5"]'), content: document.getElementById('page5') }
-    ];
-    
-    // Lặp qua từng trang và gán sự kiện
-    pages.forEach((page, index) => {
-        page.link.addEventListener('click', function() {
-            // Ẩn tất cả các trang và xóa lớp 'activate' khỏi tất cả các liên kết
-            pages.forEach(p => {
-                p.content.style.display = 'none';
-                p.link.classList.remove('activate');
-            });
-    
-            // Hiển thị trang được chọn và thêm lớp 'activate' cho liên kết tương ứng
-            page.content.style.display = 'block';
-            page.link.classList.add('activate');
-        });
-    });
-    const p1 = document.querySelector('[href="#1"]');
-    const p2 = document.querySelector('[href="#2"]');
-    const page1 = document.getElementById('page1');
-    const page2 = document.getElementById('page2');
-    const page3 = document.getElementById('page3');
-    const page4 = document.getElementById('page4');
-    const page5 = document.getElementById('page5');
-
-    p1.addEventListener('click', function() {
-        page1.style.display = 'block';
-        page2.style.display = 'none';
-        page3.style.display = 'none';
-        page4.style.display = 'none';
-        page5.style.display = 'none';
-    
-        // Thêm và loại bỏ lớp active
-        p1.classList.add('activate');
-        p2.classList.remove('activate');
-        p3.classList.remove('activate');
-        p4.classList.remove('activate');
-        p5.classList.remove('activate');
-
-    });
-    
-    p2.addEventListener('click', function() {
-        page2.style.display = 'block';
-        page1.style.display = 'none';
-        page3.style.display = 'none';
-        page4.style.display = 'none'
-        page5.style.display = 'none';
-    
-        // Thêm và loại bỏ lớp active
-        p2.classList.add('activate');
-        p1.classList.remove('activate');
-        p3.classList.remove('activate');
-        p4.classList.remove('activate');
-        p5.classList.remove('activate');
-
-    });
-    p3.addEventListener('click', function() {
-        page3.style.display = 'block';
-        page1.style.display = 'none';
-        page2.style.display = 'none';
-        page4.style.display = 'none';
-        page5.style.display = 'none';
-    
-        // Thêm và loại bỏ lớp active
-        p3.classList.add('activate');
-        p1.classList.remove('activate');
-        p2.classList.remove('activate');
-        p4.classList.remove('activate');
-        p5.classList.remove('activate');
-    });
-    
-    p4.addEventListener('click', function() {
-        page4.style.display = 'block';
-        page1.style.display = 'none';
-        page2.style.display = 'none';
-        page3.style.display = 'none';
-        page5.style.display = 'none';
-
-    
-        // Thêm và loại bỏ lớp active
-        p4.classList.add('activate');
-        p1.classList.remove('activate');
-        p2.classList.remove('activate');
-        p3.classList.remove('activate');
-        p5.classList.remove('activate');
-    });
-    p5.addEventListener('click', function() {
-        page5.style.display = 'block';
-        page1.style.display = 'none';
-        page2.style.display = 'none';
-        page3.style.display = 'none';
-        page4.style.display = 'none';
-
-    
-        // Thêm và loại bỏ lớp active
-        p5.classList.add('activate');
-        p1.classList.remove('activate');
-        p2.classList.remove('activate');
-        p3.classList.remove('activate');
-        p4.classList.remove('activate');
-    });*/
-
-    /*SLIDER-POPULAR
-    const slider1 = document.querySelector('.slider1');
-    const slider2 = document.querySelector('.slider2');
-    const nextButton = document.getElementById('nextButton');
-    const prevButton = document.getElementById('prevButton');
-
-    // Bắt sự kiện click cho nút Next
-    nextButton.addEventListener('click', () => {
-        slider1.classList.remove('active-p');
-        slider2.classList.add('active-p');
-    });
-
-    // Bắt sự kiện click cho nút Prev
-    prevButton.addEventListener('click', () => {
-        slider2.classList.remove('active-p');
-        slider1.classList.add('active-p');
-    });*/
 });
     /*SLIDER*/
     let slideIndex = 1;
@@ -735,4 +778,4 @@ document.addEventListener("DOMContentLoaded", function() {
     dots[slideIndex-1].className += " active-slide";
     }
 
-    
+  

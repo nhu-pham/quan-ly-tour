@@ -1,4 +1,4 @@
-#mienBacModal, #mienTrungModal, #mienNamModal, #chitiet-tour, #chitiet-dattour, #thanhtoanTour, #dichVu, #page2, #page3, #page4, #page5{
+#thanhtoanTour{
     display: none;
 }
 
@@ -64,7 +64,27 @@
 .mienbac-chitiet a:hover{
     text-decoration: underline;
 }
-.activate {
+.page-header{
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.page-header div{
+    display: flex;
+    margin-left: 140px;
+}
+.page-header #number-tour{
+    height: 30px;
+}
+.page-header #combobox-sapxep{
+    height: 30px;
+
+}
+#mienBacModal, #mienNamModal, #mienTrungModal, #tourdbModel{
+    height: 2900px;
+}
+/* .active{
     background-color: var(--bright-navy-blue);
     color: white;
-}
+} */

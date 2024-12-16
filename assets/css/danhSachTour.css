@@ -41,8 +41,7 @@
     display: flex;
     flex-wrap: wrap; /* Cho phép các nút tự động xuống dòng */
     justify-content: space-between; /* Căn đều các nút trong hàng */
-    width: 100%;
-    max-width: 600px; /* Đặt chiều rộng tối đa cho vùng chứa các nút */
+    width: 300px; /* Đặt chiều rộng tối đa cho vùng chứa các nút */
     margin: 0 auto; /* Canh giữa khối chứa các nút */
 }
 
@@ -81,10 +80,12 @@
     padding: 15px;
     margin-bottom: 20px;
 }
-
+.result-item .price{
+    width: 300px;
+}
 .result-image {
-    width: 50%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
     border-radius: 8px;
     margin-right: 20px;
 }
@@ -131,6 +132,7 @@
     display: flex;
     align-items: center; /* Căn giữa dọc các phần tử */
     justify-content: space-between; /* Tạo khoảng cách đều giữa các phần tử */
+    width: 200px;
     margin-bottom: 15px;
 }
 .date-group label {
@@ -154,11 +156,25 @@
     padding: 10px 50px;
     border-radius: 10px;
 }
-
+.price-and-button a{
+    text-align: center;
+}
+.price-and-button .price{
+    font-size: 20px;
+    font-weight: bold;
+}
+.result-details i{
+    color: var(--bright-navy-blue); margin-right: 19px;
+}
+.result-details div{
+    display: flex;
+    align-items: center;
+}
 .pagination {
     display: inline-block;
-    margin-top: 63%;
-    margin-left: 55%;
+    position: relative;
+    top: 42%;
+    margin-left: 60%;
   }
   
   .pagination a {
@@ -169,13 +185,17 @@
     border: 1px solid #ddd;
   }
   
-  .pagination a.active {
+  .pagination .active {
     background-color: rgb(16,156,195);
     color: white;
     border: 1px solid rgb(16,156,195);
   }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .inactive{
+    background-color: #d3cece;       /* Màu nhạt hơn */
+    pointer-events: none; /* Không cho phép bấm */
+    cursor: not-allowed;  /* Thay đổi con trỏ chuột */
+}
+  .pagination a:hover:not(.active) {background-color: var(--bright-navy-blue);}
   
   .pagination a:first-child {
     border-top-left-radius: 5px;

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dangNhap.css">
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/thanhToan.css">
+    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
+    <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
+    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
+    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <!-- <header class="header" id="header" data-header>
+
+        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px; display: none;"></a>
+        <a href="trangChu.html"><img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;"></a>
+            <div class="container">
+                <div class="navbar-header">
+                    <nav class="navbar" data-navbar>
+
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="trangChu.html" class="navbar-link change-color" data-nav-link>Trang chủ</a>
+                            </li>
+
+                            <li>
+                                <a href="gioiThieu.html" class="navbar-link change-color" data-nav-link>Giới thiệu</a>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-des">
+                                    <a href="#destination" class="navbar-link change-color desdrop" data-nav-link>Điểm đến</a>
+                                    <div class="dropdown-content">
+                                        <a href="mienBac.html">Miền Bắc</a>
+                                        <a href="mienTrung.html">Miền Trung</a>
+                                        <a href="mienNam.html">Miền Nam</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="tour.html" class="navbar-link change-color active-header" data-nav-link>Tour</a>
+                            </li>
+
+                            <li>
+                                <a href="lienHe.html" class="navbar-link change-color" data-nav-link>Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <a href="dangNhap.html" class="btn btn-primary" id="btn-dn">Đăng nhập</a>
+                    <div id="user-profile" class="user-profile">
+                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                        <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                        <div class="user-options">
+                            <a href="#qlThongTin">
+                                <i class="fas fa-cog"></i>
+                                Quản lý thông tin
+                            </a>
+                            <a href="#dangXuat">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>   
+            </div> 
+    </header>   -->
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
+        <a href="trangChu.html">
+            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
+            <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
+        </a>
+    
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color">Giới thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown-des">
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
+                                <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
+                                <li><a class="dropdown-item" href="mienNam.html">Miền Nam</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="tour.html" class="navbar-link change-color active-header">Tour</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item" style="display: none;">
+                        <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
+                        <div id="user-profile" class="user-profile">
+                            <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                            <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                            <div class="user-options">
+                                <a href="quanLyThongTin.html">
+                                    <i class="fas fa-cog"></i>
+                                    Quản lý thông tin
+                                </a>
+                                <a href="quanLyThongTin.html">
+                                    <i class="fa-solid fa-key"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a href="#qlThongTin">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    Đơn mua
+                                </a>
+                                <a href="#dangxuat">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <article>
+    <!-- Trang Tour Miền Bắc -->
+    <section id="tourModel">
+        <section class="page-tour" id="home">
+            <section class="content">
+            <h1>Khám phá thế giới, chỉ một cú click
+                Đặt tour, mở ra hành trình!</h1>        
+            </section>
+        </section>   
+
+        <div class="specialtour-container">
+            <section class="special-tours">
+                <h2>Gói tour đặc biệt</h2>
+                <div class="slider-popular-ds">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/tournb_halong.jpg">
+                                <img src="assets/images/sapa-laocai.jpg">
+                            </a>
+                            <div class="price-tag">Giá từ 4.900.000đ</div>
+                            <div class="desc">
+                                <div id="province"> Sapa - Lào Cai</div>
+                                <div id="dest">Cát Cát, Mường Hoa, Xã Y Tý</div>
+                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div> 
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/tournb_hoian.jpg">
+                                <img src="assets/images/saigon-mientay.jpg">
+                            </a>
+                            <div class="price-tag">Giá từ 4.900.000đ</div>
+                            <div class="desc">
+                                <div id="province"> Sài Gòn - Miền Tây</div>
+                                <div id="dest">Châu Đốc, Long Xuyên, Cánh đồng điện gió</div>
+                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/tournb_hue.jpg">
+                                <img src="assets/images/phuquoc-rachgia.jpg">
+                            </a>
+                            <div class="price-tag">Giá từ 4.900.000đ</div>
+                            <div class="desc">
+                                <div id="province"> Phú Quốc -Rạch Giá</div>
+                                <div id="dest">Hòn Thơm, Rạch Giá, VinWonders Phú Quốc</div>
+                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                        <a target="_blank" href="assets/images/tournb_ho-hoan-kiem.jpg">
+                            <img src="assets/images/hagiang-dongvan.jpg">
+                        </a>
+                        <div class="price-tag">Giá từ 4.900.000đ</div>
+                        <div class="desc">
+                            <div id="province"> Hà Giang - Đồng Văn</div>
+                            <div id="dest">Mã Pí Lèng, Đồng Văn, Hoàng Su Phì</div>
+                            <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="tourDacBiet.html" class="view-more">Xem thêm</a>
+        </div>
+        <div class="specialtour-container">
+            <section class="special-tours">
+                <h2>Tour miền bắc</h2>
+                <div class="slider-popular-ds">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/maichau-hoabinh.png">
+                                <img src="assets/images/maichau-hoabinh.png">
+                            </a>
+                            <div class="desc">
+                                <div id="province"> Mai Châu - Hòa Bình</div>
+                                <div id="dest">Bản Lác, Hang Chiều, Hồ Suối Hai, Thung Nai</div>
+                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/caobang-langson.jpg">
+                                <img src="assets/images/caobang-langson.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province">Cao Bằng - Lạng Sơn</div>
+                                <div id="dest">Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Ky</div>
+                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div> 
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/laocai-yenbai.jpg">
+                                <img src="assets/images/laocai-yenbai.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province"> Lào Cai - Yên Bái - Phú Thọ</div>
+                                <div id="dest">Suối nước nóng Minh Quân, Mù Cang Chải, Sapa</div>
+                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                        <a target="_blank" href="assets/images/tuyenquang-phutho.jpg">
+                            <img src="assets/images/tuyenquang-phutho.jpg">
+                        </a>
+                        <div class="desc">
+                            <div id="province">Tuyên Quang - Phú Thọ</div>
+                            <div id="dest">Khu di tích Tân Trào,Thác Khuôn Tát, Hồ Gia Thanh</div>
+                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
+                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="mienBac.html" class="view-more">Xem thêm</a>
+        </div>
+        <div class="specialtour-container">
+            <section class="special-tours">
+                <h2>Tour miền trung</h2>
+                <div class="slider-popular-ds">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/quangnam1.jp">
+                                <img src="assets/images/quangnam1.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province"> Quảng Nam - Quảng Ngãi</div>
+                                <div id="dest">Cù Lao Chàm, Thánh địa Mỹ Sơn, Biển Mỹ Khê</div>
+                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/danang1.jpg">
+                                <img src="assets/images/danang1.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province">Đà Nẵng - Hội An - Huế</div>
+                                <div id="dest">Bà Nà Hills, Chùa Cầu, Phố cổ Hội An</div>
+                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/quangtri.jpg">
+                                <img src="assets/images/quangtri.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province">Quảng Trị - Quảng Bình</div>
+                                <div id="dest">Địa đạo Vịnh Mốc, Vườn quốc gia Phong Nha - Kẻ Bàng</div>
+                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                        <a target="_blank" href="assets/images/phuyen.jpg">
+                            <img src="assets/images/phuyen.jpg">
+                        </a>
+                        <div class="desc">
+                            <div id="province">Phú Yên</div>
+                            <div id="dest">Bãi Xếp, Gành Đá Đĩa, Đầm Ô Loan</div>
+                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
+                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="mienTrung.html" class="view-more">Xem thêm</a>
+        </div>
+        <div class="specialtour-container">
+            <section class="special-tours">
+                <h2>Tour miền nam</h2>
+                <div class="slider-popular-ds">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/vungtau.jpg">
+                                <img src="assets/images/vungtau.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province"> TP.Hồ Chí Minh - Cần Giờ</div>
+                                <div id="dest">Dinh Độc Lập, Khu sinh quyển Cần Giờ</div>
+                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/phuquoc.jpg">
+                                <img src="assets/images/phuquoc.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province">Phú Quốc - Tây Ninh</div>
+                                <div id="dest">Vinpearl Phú Quốc, Vườn quốc gia Phú Quốc, Chùa Bà Đen</div>
+                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="assets/images/binhduong.jpg">
+                                <img src="assets/images/binhduong.jpg">
+                            </a>
+                            <div class="desc">
+                                <div id="province"> Bình Dương - Bình Phước</div>
+                                <div id="dest">Khu du lịch Đại Nam, Chùa Bà Châu Đốc, Chùa Côn Sơn</div>
+                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
+                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive">
+                        <div class="gallery">
+                        <a target="_blank" href="assets/images/soctrang.jpg">
+                            <img src="assets/images/soctrang.jpg">
+                        </a>
+                        <div class="desc">
+                            <div id="province"> Cà Mau - Sóc Trăng</div>
+                            <div id="dest">Vườn quốc gia Cà Mau, Chùa Dơi, Rừng U Minh Hạ</div>
+                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
+                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="mienNam.html" class="view-more">Xem thêm</a>
+        </div>
+    </section>
+    
+
+
+    <!-- Footer  -->
+    <footer class="footer"> 
+        <div class="container"> 
+                <div class="newsletter"> 
+                    <h3>ĐĂNG KÝ NHẬN BẢN TIN MỚI NHẤT</h3>
+                    <div class="nhapemail">
+                    <input type="email" placeholder="Nhập email của bạn ở đây!"> 
+                    <button>Gửi</button>  
+                    </div> 
+                    <h3>CHẤP NHẬN THANH TOÁN</h3>
+                    <div class="payment-methods"> 
+                        <div><img src="assets/images/vimomo.png" alt="MoMo"></div>
+                        <div><img src="assets/images/zalopay.png" alt="Zalo Pay"></div> 
+                        <div><img src="assets/images/vnpay.png" alt="VNPay"></div> 
+                        <div><img src="assets/images/thevisa.png" alt="VISA"></div> 
+                    </div> 
+                </div> 
+                <div class="links"> 
+                    <h3>ĐIỂM ĐẾN</h3> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links">
+                    <h3>TOUR</h3> 
+                    <a href="tourDacBiet.html">Tour đặc biệt</a> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links"> 
+                        <h3>THÔNG TIN</h3> 
+                        <a href="gioiThieu.html">Về chúng tôi</a> 
+                        <a href="lienHe.html">Liên hệ</a> 
+                </div> 
+        </div>
+        <hr class="footer-line">
+        <div class="below">
+                <div class="logo"> 
+                    <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                    <h3>VietCharm</h3> 
+                </div> 
+                
+                <div class="contact-info"> 
+                    <p> <i class="fa-solid fa-location-dot"></i>  Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ Đức, Hồ Chí Minh</p> 
+                    <div id="email-phone-fax">
+                    <p><i class="fa-regular fa-envelope"></i>  Email: vietcham.contact@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>  Phone: 0324561235</p> 
+                    <p><i class="fa-solid fa-fax"></i>  Fax: 19006067</p> 
+                </div>
+        </div>         
+        </div>
+            
+            </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/phanTrangMB.js"></script>
+    <script src="./assets/js/phanTrangMT.js"></script>
+    <script src="./assets/js/phanTrangMN.js"></script>
+    <script src="./assets/js/phanTrangDB.js"></script>
+    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
+    <script src="./assets/js/chiTietLichTrinh.js"></script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,3 +1,42 @@
+.header-background .navbar-link{
+  color: black;
+}
+.chitiet-general{
+  display: flex;
+  gap: 30px;
+  width: 1000px;
+  margin-left: -10%;
+}
+.right-detail-tour{
+  width: 400px;
+  height: 400px;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+}
+.right-detail-tour div{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.right-detail-tour .fa-code{
+  margin-left: 0px;
+}
+.right-detail-tour li{
+  margin-top: 30px;
+}
+.right-detail-tour i{
+  margin-right: 20px;
+}
+.right-detail-tour .xemngay{
+  margin-top: 30px;
+  margin-right: 20px;
+}
+.price-from{
+  margin-top: 30px;
+  margin-left: 4px;
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}
 .chitiet-tour {
     max-width: 800px;
     margin: 100px auto;
@@ -15,7 +54,7 @@
     margin-bottom: 50px;
     color: rgb(2,155,197);
 }
-.chitiet-tour .mienbac-chitiet{
+.chitiet-tour, .mienbac-chitiet{
     font-weight: normal;
 }
 .chitiet-tour img {
@@ -42,7 +81,13 @@
 .chitiet-tour .chuyendi-chitiet .column1{
     border-right: 1px solid black;
 }
-
+.review-detail{
+  max-width: 700px;
+  margin-left: 230px;
+}
+.review-detail .tour-card{
+  max-height: 250px;
+}
 .chitiet-tour .chuyendi-chitiet .column1 li, .column2 li{
     padding-top: 50px;
 }
@@ -81,8 +126,56 @@
   margin-bottom: 5px;
 }
 
+.dropdown-schedule {
+  display: none; /* Ẩn dropdown */
+  position: relative;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
 
 
+.schedule {
+  font-family: Arial, sans-serif;
+  width: 600px;
+}
+
+.day {
+  background-color: #e3f3f9;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #b5dfe7;
+}
+
+.day-header {
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: #d1ecf3;
+}
+
+.day-content {
+  display: none; /* Ẩn nội dung mặc định */
+  padding: 15px;
+  font-size: 14px;
+  background-color: #fff;
+  border-top: 1px solid #b5dfe7;
+}
+
+.day-header:hover {
+  background-color: #c1e3ec;
+}
+
+.dropdown-icon {
+  font-size: 14px;
+  color: #333;
+}
 /* SLIDER */
 
 
@@ -167,7 +260,12 @@
 .active-slide, .dot:hover {
   background-color: #717171;
 }
-
+.right-section { 
+  position: -webkit-sticky; 
+  position: sticky; 
+  top: 200px; 
+  max-width: 1000px; 
+}
 /* Fading animation */
 .fade {
   animation-name: fade;
@@ -177,5 +275,76 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+/*Đánh giá của khách hàng*/
+
+.review-section {
+  font-family: Arial, sans-serif;
+  background-color: #9AD3E2; /* Nền xanh nhạt */
+  padding: 20px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; /* Nền trắng cho ô đánh giá */
+  border: 1px solid #00a2ff; /* Viền xanh */
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* Phần header chứa avatar và user */
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc; /* Placeholder avatar */
+  margin-right: 10px;
+}
+
+.user-info .username {
+  font-weight: bold;
+  margin: 0;
+}
+
+.stars {
+  color: #f5c518; /* Màu vàng cho sao */
+  font-size: 16px;
+}
+
+/* Phần nội dung */
+.review-content {
+  color: #333;
+  font-size: 14px;
+  text-align: left;
+}
+
+.review-date {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.review-service, .review-care {
+  color: #ff6666; /* Màu đỏ */
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.review-service span, .review-care span {
+  font-weight: bold;
+  color: #666; /* Màu xám cho nhãn */
+}
+
+.review-message {
+  margin-top: 5px;
+  color: #333;
 }
 

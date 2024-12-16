@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <style>
+        .navbar-link:hover { color: var(--bright-navy-blue); }
+    </style>
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <!-- <header class="header-background" id="header" data-header>
+
+        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px;"></a>
+
+            <div class="container">
+
+                
+                <div class="navbar-header ">
+                    <nav class="navbar" data-navbar>
+
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="trangChu.html" class="navbar-link " data-nav-link>Trang chủ</a>
+                            </li>
+
+                            <li>
+                                <a href="gioiThieu.html" class="navbar-link" data-nav-link>Giới thiệu</a>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-des">
+                                    <a href="#destination" class="navbar-link desdrop active-header" data-nav-link>Điểm đến</a>
+                                    <div class="dropdown-content">
+                                        <a href="mienBac.html">Miền Bắc</a>
+                                        <a href="mienTrung.html">Miền Trung</a>
+                                        <a href="mienNam.html">Miền Nam</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="tour.html" class="navbar-link" data-nav-link>Tour</a>
+                            </li>
+
+                            <li>
+                                <a href="lienHe.html" class="navbar-link" data-nav-link>Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <a href="dangNhap.html" class="btn btn-primary" id="btn-dn">Đăng nhập</a>
+                    <div id="user-profile" class="user-profile">
+                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                        <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                        <div class="user-options">
+                            <a href="#qlThongTin">
+                                <i class="fas fa-cog"></i>
+                                Quản lý thông tin
+                            </a>
+                            <a href="#dangXuat">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>   
+            </div> 
+    </header>   -->
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
+        <a href="trangChu.html">
+            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
+        </a>
+    
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link">Giới thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown-des">
+                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: var(--bright-navy-blue); font-weight: bold;">Điểm đến</a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
+                                <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
+                                <li><a class="dropdown-item" href="mienNam.html">Miền Nam</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item" style="display: none;">
+                        <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
+                        <div id="user-profile" class="user-profile">
+                            <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                            <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                            <div class="user-options">
+                                <a href="quanLyThongTin.html">
+                                    <i class="fas fa-cog"></i>
+                                    Quản lý thông tin
+                                </a>
+                                <a href="quanLyThongTin.html">
+                                    <i class="fa-solid fa-key"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a href="#qlThongTin">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    Đơn mua
+                                </a>
+                                <a href="#dangxuat">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+    <!-- Trang Tour Miền Bắc -->
+    <div id="chitiet-tour">
+        <div class="chitiet-tour">
+            <h4>
+                <label class="mienbac-chitiet">
+                    <a href="mienBac.html">Miền Bắc</a> >
+                    <a href="chiTietTour.html"><strong>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</strong></a> 
+                </label>
+            </h4>
+            <h3>Thông tin chi tiết về chuyến đi</h3>
+            
+            <div class="chitiet-general">
+                <div>
+                    <div class="slideshow-container">
+    
+                        <div class="Slide fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="assets/images/sliderB1.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Chùa Phật Tích Trúc Lâm</div>
+                        </div>
+                    
+                        <div class="Slide fade s1">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="assets/images/sliderB2.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Thác Bản Giốc</div>
+                        </div>
+                    
+                        <div class="Slide fade s2">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="assets/images/lang-da-khuoi-ky.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Làng đá cổ Khuổi Kỵ</div>
+                        </div>
+                        <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+                        <a class="next-slide" onclick="plusSlides(1)">❯</a>
+                    </div>
+                    <br>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                    <ul class="chuyendi-chitiet">
+                        <div class="column1">
+                            <li><strong>Ẩm thực</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                            <li><strong>Đối tượng thích hợp</strong> Cặp đôi, Gia đình nhiều thế hệ, Thanh niên</li>
+                        </div>
+                        <div class="column2">
+                            <li><strong>Thời gian lý tưởng</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                            <li><strong>Khuyến mãi</strong> Giảm 20%</li>
+                        </div>
+                    </ul>
+                    <h3>Lịch trình</h3>
+                    <div class="schedule">
+                        <div class="day" id="day1">
+                            <div class="day-header">
+                                <div><strong>Ngày 1</strong> Tham quan <strong>Chùa Phật Tích Trúc Lâm</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Trường đoàn Vietravel đến Quý khách tại Ga đi quốc nội sân bay Tân Sơn Nhất đáp
+                                    chuyến bay đến sân bay Nội Bài. Xe đưa quý khách đến khách sạn Muong Thanh Luxury
+                                    làm thủ tục check in phòng, cất hành lý.
+                                </p>
+                                <p>
+                                    1 tiếng sau, hướng dẫn viên sẽ đến và hướng dẫn quý khách các quy tắc trong khi
+                                    trên đường đi đến chùa Phật Tích Trúc Lâm. Tại đây, quý khách sẽ được trải nghiệm
+                                    1 khóa tu ngày vô cùng thú vị.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="day" id="day2">
+                            <div class="day-header">
+                                <div><strong>Ngày 2</strong> Tham quan <strong>Làng đá cổ Khuổi Ky</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Sáng 6:00 AM – 10:00 AM: 
+                                    Ăn sáng tại homestay hoặc khu nghỉ dưỡng. Thưởng thức món ăn sáng đặc trưng của vùng như phở, bún, hoặc các món ăn dân dã từ gạo nếp, bánh chưng, bánh dày, kết hợp với các loại gia vị của đồng bào dân tộc Tày, H'mông.
+                                    Sau đó, di chuyển bằng xe ô tô hoặc xe máy từ nơi lưu trú đến Làng đá cổ Khuổi Ky. Quá trình di chuyển sẽ mất khoảng 30-45 phút tùy vào địa điểm xuất phát.
+                                    Tại đây, bạn sẽ được tham quan các ngôi nhà đá cổ, chiêm ngưỡng những công trình kiến trúc độc đáo của người Tày. Tìm hiểu về lịch sử, văn hóa và các truyền thống của người dân bản địa.
+                                    Chiều: Trở lại nơi lưu trú, nghỉ ngơi và thư giãn sau một ngày dài khám phá.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="day" id="day3">
+                            <div class="day-header">
+                                <div><strong>Ngày 3</strong> Tham quan <strong>Thác Bản Giốc</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Sáng 6:00 AM – 9:00 AM
+                                    Ăn sáng tại homestay hoặc khách sạn.
+                                    Khởi hành từ Cao Bằng đi Thác Bản Giốc. Di chuyển từ trung tâm thành phố Cao Bằng đến Thác Bản Giốc, khoảng cách là khoảng 80 km và mất khoảng 2 giờ di chuyển bằng ô tô hoặc xe máy. Dọc đường có thể thưởng ngoạn cảnh núi rừng xanh mát. Đến Thác Bản Giốc, tham quan và chụp ảnh
+                                    Trưa 9:00 AM – 12:30 PM
+                                    Tham quan thác và khu vực xung quanh. Ăn trưa tại khu vực gần thác.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Đánh giá của khách hàng</h3>
+                    <div class="review-section">
+                        <!-- Đánh giá 1 -->
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="user-avatar"></div>
+                                <div class="user-info">
+                                    <p class="username">anguyengiaba236</p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p class="review-date" style="display: flex;">28/05/2024 09:29 | <span> Phân loại: Miền Bắc</span></p>
+                                <p class="review-service" style="display: flex;"><span>Dịch vụ:</span> Tốt</p>
+                                <p class="review-care" style="display: flex;"><span>Chăm sóc khách hàng:</span> Chu đáo và nhiệt tình</p>
+                                <p class="review-message">
+                                    Cảm ơn VietCharm đã hỗ trợ vợ chồng chú trong chuyến đi lần này. Cao Bằng thật tuyệt.
+                                    Chú rất thích trải nghiệm khi đến với thác Bản Giốc.
+                                </p>
+                            </div>
+                        </div>
+                    
+                        <!-- Đánh giá 2 -->
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="user-avatar"></div>
+                                <div class="user-info">
+                                    <p class="username">bnguyenhan4644</p>
+                                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p class="review-date" style="display: flex;">28/06/2024 19:30 | <span> Phân loại: Miền Bắc</span></p>
+                                <p class="review-service" style="display: flex;"><span>Dịch vụ:</span> Mình muốn công ty hỗ trợ thêm nhiều loại xe đa dạng...</p>
+                                <p class="review-care" style="display: flex;">
+                                    <span>Chăm sóc khách hàng:</span> Chị Nhi hướng dẫn viên rất dễ thương luôn.
+                                </p>
+                                <p class="review-message">
+                                    Tour này mình được trải nghiệm cầu duyên tại chùa Phật Tích, rất thú vị. Các bạn trẻ nên ghé thăm nha 😊
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="right-section right-detail-tour">
+                    <h3 style="text-align: left;margin-top: 20px;margin-left: 20px;margin-right: 10px;">Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Ky, Thác Bản Giốc)</h3>
+                    <div>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-location-dot"></i>Khởi hành: Thủ đô Hà Nội</li>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-calendar-days"></i>Ngày khởi hành: 20/11/2024</li>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-clock"></i>Thời gian: 3N2Đ</li>
+                        <li class="price-from">Giá từ: 4.000.000 VND / người</li>
+                    </div>
+                    <a href="thongTinDatTour.html" class="chi-tiet-btn xemngay" style="margin-top: 45px;">ĐẶT NGAY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer  -->
+    <footer class="footer"> 
+        <div class="container"> 
+                <div class="newsletter"> 
+                    <h3>ĐĂNG KÝ NHẬN BẢN TIN MỚI NHẤT</h3>
+                    <div class="nhapemail">
+                    <input type="email" placeholder="Nhập email của bạn ở đây!"> 
+                    <button>Gửi</button>  
+                    </div> 
+                    <h3>CHẤP NHẬN THANH TOÁN</h3>
+                    <div class="payment-methods"> 
+                        <div><img src="assets/images/vimomo.png" alt="MoMo"></div>
+                        <div><img src="assets/images/zalopay.png" alt="Zalo Pay"></div> 
+                        <div><img src="assets/images/vnpay.png" alt="VNPay"></div> 
+                        <div><img src="assets/images/thevisa.png" alt="VISA"></div> 
+                    </div> 
+                </div> 
+                <div class="links"> 
+                    <h3>ĐIỂM ĐẾN</h3> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links">
+                    <h3>TOUR</h3> 
+                    <a href="tourDacBiet.html">Tour đặc biệt</a> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links"> 
+                        <h3>THÔNG TIN</h3> 
+                        <a href="gioiThieu.html">Về chúng tôi</a> 
+                        <a href="lienHe.html">Liên hệ</a> 
+                </div> 
+        </div>
+        <hr class="footer-line">
+        <div class="below">
+                <div class="logo"> 
+                    <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                    <h3>VietCharm</h3> 
+                </div> 
+                
+                <div class="contact-info"> 
+                    <p> <i class="fa-solid fa-location-dot"></i>  Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ Đức, Hồ Chí Minh</p> 
+                    <div id="email-phone-fax">
+                    <p><i class="fa-regular fa-envelope"></i>  Email: vietcham.contact@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>  Phone: 0324561235</p> 
+                    <p><i class="fa-solid fa-fax"></i>  Fax: 19006067</p> 
+                </div>
+        </div>         
+        </div>
+            
+            </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/phanTrangMB.js"></script>
+    <script src="./assets/js/phanTrangMT.js"></script>
+    <script src="./assets/js/phanTrangMN.js"></script>
+    <script src="./assets/js/phanTrangDB.js"></script>
+    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
+    <script src="./assets/js/chiTietLichTrinh.js"></script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+ 

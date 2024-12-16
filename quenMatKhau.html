@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dangNhap.css">
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/thanhToan.css">
+    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
+    <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
+    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
+    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <!-- <header class="header-background" id="header" data-header>
+
+        <a href="trangChu.html"><img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px;margin-top: -20px;"></a>
+
+            <div class="container">
+
+                
+                <div class="navbar-header navbar-login">
+                    <nav class="navbar" data-navbar>
+
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="trangChu.html" class="navbar-link navbar-link-login" data-nav-link>Trang chủ</a>
+                            </li>
+
+                            <li>
+                                <a href="gioiThieu.html" class="navbar-link navbar-link-login" data-nav-link>Giới thiệu</a>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-des">
+                                    <a href="#destination" class="navbar-link desdrop navbar-link-login" data-nav-link>Điểm đến</a>
+                                    <div class="dropdown-content">
+                                        <a href="mienBac.html">Miền Bắc</a>
+                                        <a href="mienTrung.html">Miền Trung</a>
+                                        <a href="mienNam.html">Miền Nam</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="tour.html" class="navbar-link navbar-link-login" data-nav-link>Tour</a>
+                            </li>
+
+                            <li>
+                                <a href="lienHe.html" class="navbar-link navbar-link-login" data-nav-link>Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <a href="dangNhap.html" class="btn btn-primary" data-nav-link>Đăng nhập</a> 
+            </div> 
+    </header>   -->
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
+        <a href="trangChu.html">
+            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
+        </a>
+    
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link">Giới thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <div class="dropdown-des">
+                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" >Điểm đến</a>
+                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
+                                <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
+                                <li><a class="dropdown-item" href="mienNam.html">Miền Nam</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item" style="display: none;">
+                        <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
+                        <div id="user-profile" class="user-profile">
+                            <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                            <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                            <div class="user-options">
+                                <a href="quanLyThongTin.html">
+                                    <i class="fas fa-cog"></i>
+                                    Quản lý thông tin
+                                </a>
+                                <a href="quanLyThongTin.html">
+                                    <i class="fa-solid fa-key"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a href="#qlThongTin">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    Đơn mua
+                                </a>
+                                <a href="#dangxuat">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+    </section>
+                <!-- Quên mật khẩu -->
+        <div >
+                <section class="login-container" id="rechange-passwword">
+                        <div class="login-box">
+                                    <h1>Đặt lại mật khẩu</h1>
+                                    <form>
+                                        <div class="input-group">
+                                            <label class="title-login" for="username">Email <label class="required">(*)</label>
+                                            <input type="text" placeholder="Nhập email" id="username">
+                                        </div>
+                                        <a href="trangChu.html" style="color: var(--bright-navy-blue); margin-left: 58%; margin-top: 8px; text-decoration: underline;">Quay lại trang chủ</a><br>
+                                        <a href="#sendemail" type="submit" id="login-btn" class="login-btn">Gửi</a>
+                                    </form>
+                        </div>
+                </section>
+
+                <!-- Nhập mã xác nhận -->
+                <section class="login-container" id="email-confirm">
+                    <div class="login-box">
+                                <h1>Đặt lại mật khẩu</h1>
+                                <form>
+                                    <div class="input-group">
+                                        <label class="notification"> Vui lòng kiểm tra email để đặt lại mật khẩu của bạn.</label><br>
+                                        <label class="title-login" for="username">Email <label class="required">(*)</label>
+                                        <input type="text" placeholder="Nhập email" id="username">
+                                    </div>
+                                    <a href="trangChu.html" style="color: var(--bright-navy-blue); margin-left: 58%; margin-top: 8px; text-decoration: underline;">Quay lại trang chủ</a><br>
+                                    <a href="#sendemail-2" type="submit" id="login-btn" class="login-btn">Gửi</a>
+                                </form>
+                            </div>
+                </section>
+
+                <!-- Nhập lại mật khẩu -->
+                <div class="login-container">
+                    <div class="login-box" id="rewrite-pass">
+                        <h1>Thiết lập mật khẩu</h1>
+                        <form>
+                            <div class="input-group">
+                                <label class="title-login" for="username">Mật khẩu mới <label class="required">(*)</label></label>
+                                <div class="change-psw">
+                                    <input type="password" id="new-password" placeholder="Nhập mật khẩu mới">
+                                    <button type="button" onclick="togglePassword('new-password', this)">
+                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label class="title-login" for="password">Nhập lại mật khẩu <label class="required">(*)</label></label>
+                                <div class="change-psw">
+                                    <input type="password" id="confirm-password" placeholder="Nhập mật khẩu mới">
+                                    <button type="button" onclick="togglePassword('confirm-password', this)">
+                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="#doimatkhau" type="submit" id="login-btn" class="login-btn">Đổi mật khẩu</a>
+                        </form>
+                        
+                    </div>
+                </div>
+                <!-- Thông báo -->
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <div class="popup-header">
+                            <h3>Thông báo</h3>
+                            <span id="close-btn" class="close-btn">&times;</span>
+                        </div>
+                        <div class="popup-body">
+                            <div class="icon-success">
+                                &#10004;
+                            </div>
+                            <p>Thiết lập mật khẩu mới thành công!</p>
+                        </div>
+                        <div class="popup-footer">
+                            <button id="confirm-btn" class="confirm-btn">Đã hiểu</button>
+                        </div>
+                    </div>
+                </div>
+
+
+    <!-- Footer  -->
+    <footer class="footer"> 
+        <div class="container"> 
+                <div class="newsletter"> 
+                    <h3>ĐĂNG KÝ NHẬN BẢN TIN MỚI NHẤT</h3>
+                    <div class="nhapemail">
+                    <input type="email" placeholder="Nhập email của bạn ở đây!"> 
+                    <button>Gửi</button>  
+                    </div> 
+                    <h3>CHẤP NHẬN THANH TOÁN</h3>
+                    <div class="payment-methods"> 
+                        <div><img src="assets/images/vimomo.png" alt="MoMo"></div>
+                        <div><img src="assets/images/zalopay.png" alt="Zalo Pay"></div> 
+                        <div><img src="assets/images/vnpay.png" alt="VNPay"></div> 
+                        <div><img src="assets/images/thevisa.png" alt="VISA"></div> 
+                    </div> 
+                </div> 
+                <div class="links"> 
+                    <h3>ĐIỂM ĐẾN</h3> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links">
+                    <h3>TOUR</h3> 
+                    <a href="tourDacBiet.html">Tour đặc biệt</a> 
+                    <a href="mienBac.html">Miền Bắc</a> 
+                    <a href="mienTrung.html">Miền Trung</a> 
+                    <a href="mienNam.html">Miền Nam</a> 
+                </div> 
+                <div class="links"> 
+                        <h3>THÔNG TIN</h3> 
+                        <a href="gioiThieu.html">Về chúng tôi</a> 
+                        <a href="lienHe.html">Liên hệ</a> 
+                </div> 
+        </div>
+        <hr class="footer-line">
+        <div class="below">
+                <div class="logo"> 
+                    <img src="assets/images/logo.png" alt="VietCharm Logo"> 
+                    <h3>VietCharm</h3> 
+                </div> 
+                
+                <div class="contact-info"> 
+                    <p> <i class="fa-solid fa-location-dot"></i>  Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ Đức, Hồ Chí Minh</p> 
+                    <div id="email-phone-fax">
+                    <p><i class="fa-regular fa-envelope"></i>  Email: vietcham.contact@gmail.com</p> 
+                    <p><i class="fa-solid fa-phone"></i>  Phone: 0324561235</p> 
+                    <p><i class="fa-solid fa-fax"></i>  Fax: 19006067</p> 
+                </div>
+        </div>         
+        </div>
+            
+            </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/phanTrangMB.js"></script>
+    <script src="./assets/js/phanTrangMT.js"></script>
+    <script src="./assets/js/phanTrangMN.js"></script>
+    <script src="./assets/js/phanTrangDB.js"></script>
+    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
+    <script src="./assets/js/chiTietLichTrinh.js"></script>
+    <script src="./assets/js/dangKy-dangNhap.js"></script>
+    <script> 
+    function togglePassword(id, button) {
+        const input = document.getElementById(id); // Lấy input tương ứng
+        const eyeIcon = button.querySelector('.fa-regular'); // Lấy biểu tượng mắt trong button được bấm
+    
+        if (input.type === 'password') {
+            input.type = 'text'; // Hiển thị mật khẩu
+            eyeIcon.classList.remove('fa-eye-slash'); // Xóa icon mắt có dấu gạch chéo
+            eyeIcon.classList.add('fa-eye'); // Thêm icon mắt mở
+        } else {
+            input.type = 'password'; // Ẩn mật khẩu
+            eyeIcon.classList.remove('fa-eye'); // Xóa icon mắt mở
+            eyeIcon.classList.add('fa-eye-slash'); // Thêm icon mắt có dấu gạch chéo
+        }
+    }
+    document.querySelector('[href="#doimatkhau"]').addEventListener("click", function () {
+    document.getElementById("popup").style.display = "flex";
+    });
+    document.getElementById("close-btn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+    window.location.href = "dangNhap.html";
+    });
+
+    document.getElementById("confirm-btn").addEventListener("click", function () {
+    document.getElementById("popup").style.display = "none";
+    window.location.href = "dangNhap.html";
+    });
+
+    </script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+

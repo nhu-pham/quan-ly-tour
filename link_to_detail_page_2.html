@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourly - Travel agancy</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dangNhap.css">
+    <link rel="stylesheet" href="./assets/css/dangKy.css">
+    <link rel="stylesheet" href="./assets/css/tourMienBac.css">
+    <link rel="stylesheet" href="./assets/css/danhSachTour.css">
+    <link rel="stylesheet" href="./assets/css/chiTiet.css">
+    <link rel="stylesheet" href="./assets/css/ttDatTour.css">
+    <link rel="stylesheet" href="./assets/css/thanhToan.css">
+    <link rel="stylesheet" href="./assets/css/thueDichVu.css">
+    <link rel="stylesheet" href="./assets/css/quenMatKhau.css">
+    <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
+    <link rel="stylesheet" href="./assets/css/lienLac.css"> 
+    <link rel="stylesheet" href="./assets/css/qlKhachHang.css">
+    <link rel="stylesheet" href="./assets/css/qlHoaDonTour.css">
+    <link rel="stylesheet" href="./assets/css/tourDacBiet.css">
+    <link rel="stylesheet" href="./assets/css/gioiThieu.css">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <!-- header section  -->
+    <header class="header" id="header" data-header>
+
+
+            <div class="container">
+
+                <ul class="social-list">
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>   
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-header">
+                    <nav class="navbar" data-navbar>
+
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="trangChu.html" class="navbar-link active-header" data-nav-link>Trang chủ</a>
+                            </li>
+
+                            <li>
+                                <a href="gioiThieu.html" class="navbar-link" data-nav-link>Giới thiệu</a>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-des">
+                                    <a href="#destination" class="navbar-link desdrop" data-nav-link>Điểm đến</a>
+                                    <div class="dropdown-content">
+                                        <a href="#mienbac">Miền Bắc</a>
+                                        <a href="#mientrung">Miền Trung</a>
+                                        <a href="#miennam">Miền Nam</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#package" class="navbar-link" data-nav-link>Tour</a>
+                            </li>
+
+                            <li>
+                                <a href="#contact" class="navbar-link" data-nav-link>Liên hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <button class="btn btn-primary" id="btn-dn">Đăng nhập</button>
+                    <div id="user-profile" class="user-profile">
+                        <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                        <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                        <div class="user-options">
+                            <a href="#qlThongTin">
+                                <i class="fas fa-cog"></i>
+                                Quản lý thông tin
+                            </a>
+                            <a href="#dangXuat">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>   
+            </div> 
+    </header>  
+
+    <main>
+        <article>
+            <!-- hero  -->
+
+    <!-- Chi tiết tour -->
+    <div id="chitiet-tour-hanoi">
+        <div class="chitiet-tour">
+            <h4>
+                <label class="mienbac-chitiet">
+                    <a href="#mienbac">Miền Bắc</a> >
+                    <a href="#caobang-langson"><strong>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</strong></a> 
+                </label>
+            </h4>
+            <h3>Thông tin chi tiết về chuyến đi</h3>
+            
+            <div class="chitiet-general">
+                <div>
+                    <div class="slideshow-container">
+
+                        <div class="Slide fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="assets/images/sliderB1.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Chùa Phật Tích Trúc Lâm</div>
+                        </div>
+                    
+                        <div class="Slide fade s1">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="assets/images/sliderB2.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Thác Bản Giốc</div>
+                        </div>
+                    
+                        <div class="Slide fade s2">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="assets/images/lang-da-khuoi-ky.jpg" style="width:100%; height: 400px;">
+                        <div class="text-slide">Làng đá cổ Khuổi Kỵ</div>
+                        </div>
+                        <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+                        <a class="next-slide" onclick="plusSlides(1)">❯</a>
+                    </div>
+                    <br>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                    <ul class="chuyendi-chitiet">
+                        <div class="column1">
+                            <li><strong>Ẩm thực</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                            <li><strong>Đối tượng thích hợp</strong> Cặp đôi, Gia đình nhiều thế hệ, Thanh niên</li>
+                        </div>
+                        <div class="column2">
+                            <li><strong>Thời gian lý tưởng</strong> Buffet sáng, Theo thực đơn, Đặc sản địa phương</li>
+                            <li><strong>Khuyến mãi</strong> Giảm 20%</li>
+                        </div>
+                    </ul>
+                    <h3>Lịch trình</h3>
+                    <div class="schedule">
+                        <div class="day" id="day1">
+                            <div class="day-header">
+                                <div><strong>Ngày 1</strong> Tham quan <strong>Chùa Phật Tích Trúc Lâm</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Trường đoàn Vietravel đến Quý khách tại Ga đi quốc nội sân bay Tân Sơn Nhất đáp
+                                    chuyến bay đến sân bay Nội Bài. Xe đưa quý khách đến khách sạn Muong Thanh Luxury
+                                    làm thủ tục check in phòng, cất hành lý.
+                                </p>
+                                <p>
+                                    1 tiếng sau, hướng dẫn viên sẽ đến và hướng dẫn quý khách các quy tắc trong khi
+                                    trên đường đi đến chùa Phật Tích Trúc Lâm. Tại đây, quý khách sẽ được trải nghiệm
+                                    1 khóa tu ngày vô cùng thú vị.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="day" id="day2">
+                            <div class="day-header">
+                                <div><strong>Ngày 2</strong> Tham quan <strong>Làng đá cổ Khuổi Ky</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Sáng 6:00 AM – 10:00 AM: 
+                                    Ăn sáng tại homestay hoặc khu nghỉ dưỡng. Thưởng thức món ăn sáng đặc trưng của vùng như phở, bún, hoặc các món ăn dân dã từ gạo nếp, bánh chưng, bánh dày, kết hợp với các loại gia vị của đồng bào dân tộc Tày, H'mông.
+                                    Sau đó, di chuyển bằng xe ô tô hoặc xe máy từ nơi lưu trú đến Làng đá cổ Khuổi Ky. Quá trình di chuyển sẽ mất khoảng 30-45 phút tùy vào địa điểm xuất phát.
+                                    Tại đây, bạn sẽ được tham quan các ngôi nhà đá cổ, chiêm ngưỡng những công trình kiến trúc độc đáo của người Tày. Tìm hiểu về lịch sử, văn hóa và các truyền thống của người dân bản địa.
+                                    Chiều: Trở lại nơi lưu trú, nghỉ ngơi và thư giãn sau một ngày dài khám phá.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="day" id="day3">
+                            <div class="day-header">
+                                <div><strong>Ngày 3</strong> Tham quan <strong>Thác Bản Giốc</strong></div>
+                                <div><span class="dropdown-icon">▼</span></div>
+                            </div>
+                            <div class="day-content">
+                                <p>
+                                    Sáng 6:00 AM – 9:00 AM
+                                    Ăn sáng tại homestay hoặc khách sạn.
+                                    Khởi hành từ Cao Bằng đi Thác Bản Giốc. Di chuyển từ trung tâm thành phố Cao Bằng đến Thác Bản Giốc, khoảng cách là khoảng 80 km và mất khoảng 2 giờ di chuyển bằng ô tô hoặc xe máy. Dọc đường có thể thưởng ngoạn cảnh núi rừng xanh mát. Đến Thác Bản Giốc, tham quan và chụp ảnh
+                                    Trưa 9:00 AM – 12:30 PM
+                                    Tham quan thác và khu vực xung quanh. Ăn trưa tại khu vực gần thác.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="bt" class="bt">Đặt tour</button>
+                </div>
+                <div class="right-section right-detail-tour">
+                    <h3>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Ky, Thác Bản Giốc)</h3>
+                    <ul>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-code"></i>Mã Tour: MB_TOUR1</li>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-location-dot"></i>Khởi hành: Thủ đô Hà Nội</li>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-calendar-days"></i>Ngày khởi hành: 20/11/2024</li>
+                        <li><i style="color: var(--bright-navy-blue);" class="fa-solid fa-clock"></i>Thời gian: 3N2Đ</li>
+                        <li class="price-from">Giá từ: 4.000.000 VND / 1 người</li>
+                    </ul>
+                    <a href="link_to_detail_page_2.html" class="chi-tiet-btn xemngay">XEM NGAY</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    
+    
+
+
+
+
+
+
+
+    <!-- Footer  -->
+    <footer>
+        <div id="footer" class="footer-container">
+            <div class="footer-left">
+                <h2>Nếu bạn có bất kỳ câu hỏi gì hãy liên hệ với chúng tôi</h2>
+                <p>Chúng tôi sẽ nhiệt tình giúp bạn có trải nghiệm tuyệt vời nhất</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Input your email here">
+                    <button type="submit">></button>
+                </div>
+                <p class="copyright">Copyright Tanah Air Studio</p>
+            </div>
+            <div class="footer-right">
+                <div class="logo-section">
+                    <img src="logoipsum.png" alt="logoipsum" class="logo">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <a href="#">Home</a>
+                        <a href="#">Room & Suites</a>
+                        <a href="#">Packages</a>
+                        <a href="#">Voucher</a>
+                        <a href="#">Promo</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">About Us</a>
+                        <a href="#">Restaurant & Bar</a>
+                        <a href="#">Events</a>
+                        <a href="#">Gallery</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="#">Our Team</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+        </article>
+    </main>
+
+
+
+    <!-- custom js link  -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/phanTrangMB.js"></script>
+    <script src="./assets/js/phanTrangMT.js"></script>
+    <script src="./assets/js/phanTrangMN.js"></script>
+    <script src="./assets/js/phanTrangDB.js"></script>
+    <script src="./assets/js/tourNoiBacTrongThang.js"></script>
+    <script src="./assets/js/chiTietLichTrinh.js"></script>
+    <!-- ionicon link  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
-#contact-container{
+/* #contact-container{
     display: none;
-}
+} */
 
 .contact-container {
     position: relative;
@@ -9,7 +9,6 @@
     background: #fff;
     padding: 20px;
 }
-
 .title {
     text-align: center;
     color: #02799d;
@@ -125,4 +124,9 @@
 }
 .info-branch i{
     margin-right: 10px;
+}
+.header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

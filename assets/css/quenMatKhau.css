@@ -74,7 +74,6 @@
 }
 
 
-
-#forget-model, #confirm-modal, #newpass-modal, #notification-modal{
+#confirm-modal, #newpass-modal, #notification-modal{
     display: none;
 }
