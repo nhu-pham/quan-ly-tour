@@ -50,7 +50,7 @@
                         'password' => password_hash(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS), PASSWORD_BCRYPT),
                         'activeToken' => $activeToken,
                         'created_at' => gmdate('Y-m-d H:i:s', time() + 7 * 3600),
-                        'role_id' => 3,
+                        'role_id' => 1,
                         'username' => filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_FULL_SPECIAL_CHARS),
                     ];
 

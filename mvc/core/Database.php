@@ -4,7 +4,7 @@ class Database
     protected $hostName = "localhost";
     protected $username = "root";
     protected $password = "";
-    protected $dbName = "quan-ly-tour";
+    protected $dbName = "vietcharm";
     protected $conn;
     function __construct()
     {
