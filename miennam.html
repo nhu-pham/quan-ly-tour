@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Chi Nhánh Miền Nam</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <div class="header-left">
+                <h1>VIETCHARM - Miền Nam</h1>
+            </div>
+            <div class="header-right">
+                <img src="img/admin_nam.jpg" alt="Admin Avatar">
+                <span> Chi nhánh Miền Nam</span>
+            </div>
+        </header>
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="admin-info">
+                    <img src="img/admin_nam.jpg" alt="Admin Avatar">
+                    <span>Miền Nam</span>
+                </div>
+                <nav>
+                    <ul>
+                        
+                        <li><a href="#" onclick="showSection('tours')">Tour</a></li>
+                        <li><a href="#" onclick="showSection('bookings')">Đơn đặt tour</a></li>
+                        <li><a href="#" onclick="showSection('services')">Dịch vụ</a></li>
+                        <li><a href="#" onclick="showSection('reviews')">Nhận xét</a></li>
+                        <li><a href="#" onclick="showSection('statistics')">Thống kê</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="content" id="content">
+                <div id="statistics" class="container mt-4" style="display: block;">
+                    <h2 class="text-center mb-4">Thống kê Tổng quan</h2>
+                    <!-- Thông tin tóm tắt -->
+                    <div class="row text-center mb-4">
+                        <div class="col-md-3">
+                            <div class="card bg-primary text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Doanh thu</h5>
+                                    <h2>190 triệu</h2>
+                                    <p class="mb-0">Trong tháng này</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-success text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Số lượng Tour</h5>
+                                    <h2>45</h2>
+                                    <p class="mb-0">Trong tháng này</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-info text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nhận xét</h5>
+                                    <h2>120</h2>
+                                    <p class="mb-0">Trong tháng này</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-warning text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dịch vụ thuê</h5>
+                                    <h2>65</h2>
+                                    <p class="mb-0">Trong tháng này</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Biểu đồ -->
+                    <div class="container">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="revenueChart" style="height: 200px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="reviewsChart" style="height: 200px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="toursChart" style="height: 200px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <canvas id="servicesChart" style="height: 200px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="tour.js"></script>
+    <script src="dichvu.js"></script>
+    <script src="dondattour.js"></script>
+    <script src="nhanxet.js"></script>
+    <script src="thongke.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
