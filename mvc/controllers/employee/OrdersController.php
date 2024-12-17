@@ -6,7 +6,7 @@ class OrdersController extends Controller
 {
     public $ordersData;
     var $template = 'employee/orders';
-    const limit = 1;
+    const limit = 6;
     const type = 1;
     function __construct()
     {
@@ -48,25 +48,35 @@ class OrdersController extends Controller
             $ordersData = $this->OrderModels->select_array_join_table('orders.*, tours.name as name',NULL,'order_date desc',
             $start,$limit,
             'tours','orders.tour_id = tours.id', 'LEFT'
-        );
+        );   
+    }       
+        $data = [
+            'page' => 'orders',
+            'title' => 'Danh sách đơn hàng', 
+            'ordersData' => $ordersData,
+            'button_pagination' => $button_pagination,
+            'searchTerm' => $searchTerm
+        ];
+        $this->view('employee/index', $data);
+    }
 
+    function updateOrder() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors = [];
-            $order_id = $_POST['edit'];
+            // $order_id = $_POST['edit'];
             
             $dataUpdate = [
-                'fullname' => trim($_POST['fullname'][$order_id-1]),
-                'phone_number' => trim($_POST['phone_number'][$order_id-1]),
-                'email' => trim($_POST['email'][$order_id-1]),
-                'gender' => trim($_POST['gender'][$order_id-1]),
-                'address' => trim($_POST['address'][$order_id-1]),
-                'number_of_adults' => trim($_POST['number_of_adults'][$order_id-1]),
-                'number_of_children' => trim($_POST['number_of_children'][$order_id-1]),
+                'fullname' => trim($_POST['fullname']),
+                'phone_number' => trim($_POST['phone_number']),
+                'email' => trim($_POST['email']),
+                'gender' => trim($_POST['gender']),
+                'address' => trim($_POST['address']),
+                'number_of_people' => trim($_POST['number_of_people']),
             ];
             
             if (empty($dataUpdate['fullname']) || empty($dataUpdate['phone_number']) || empty($dataUpdate['email']
             || empty($dataUpdate['gender']) || empty($dataUpdate['address'])
-            || empty($dataUpdate['number_of_adults']) || empty($dataUpdate['number_of_children']))) {
+            || empty($dataUpdate['number_of_people']))) {
                 $errors[] = "Vui lòng nhập đầy đủ thông tin.";
             }
 
@@ -88,18 +98,13 @@ class OrdersController extends Controller
                 $redirect->setFlash('error', implode(', ', $errors));
             }
         } 
-        }          
+
         $data = [
             'page' => 'orders',
             'title' => 'Danh sách đơn hàng', 
-            'ordersData' => $ordersData,
-            'button_pagination' => $button_pagination,
-            'searchTerm' => $searchTerm
-            // 'checkStatus' => $this->Functions
         ];
-        $this->view('employee/index', $data);
+        $this->view('employee/index', $data); 
     }
-
     function pagination_page(){
         $rows = $this->OrderModels->select_array('*');
         $limit = self::limit;
@@ -127,18 +132,27 @@ class OrdersController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'] ?? null;
             if ($id) {
+                $data = $this->OrderModels->select_row('*', ['id' => trim($id)]);
                 $updated = $this->OrderModels->update(['status' => 'completed'], ['id' => $id]);
                 $decodeResults = json_decode($updated, true);
     
                 if ($decodeResults['type'] === 'Sucessfully') {
+                    $link = base_url .'employee/orders/invoice?invoice_id=' . $id;
+
                     $subject = 'Xác nhận đơn hàng';
-                    $content = 'Chào bạn'.'<br>';
-                    $content .= 'Bạn đã đặt tour thành công '.'<br>';
+                    $content = 'Kính gửi quý khách hàng,'.'<br>';
+                    $content = 'VietCharm xin trân trọng cảm ơn Quý khách hàng đã tin dùng dịch vụ của chúng tôi.'.'<br>';
+                    $content = 'VietCharm xin gửi hoá đơn đến quý khách với thông tin chi tiết như sau:'.'<br>';
+                    $content .= 'Số hoá đơn :'. $id .'<br>';   
+                    $content .= 'Tổng tiền: '. $data['total_money'] .'<br>';   
+                    $content .= 'Quý khách vui lòng truy cập link bên dưới để xem và kiểm tra hoá đơn gốc:' .'<br>'; 
+                    $content .= $link .'<br>'; 
+                    $content .= 'Chúc quý khách có một chuyến đi đáng nhớ!' .'<br>'; 
                     $content .= 'Trân trọng cảm ơn!';
 
-                    $sendEmail = $this->SendMail->send($subject, $email, $content);
+                    $sendEmail = $this->SendMail->send($subject, $data['email'], $content);
                     if($sendEmail) {
-                        echo json_encode(['success' => false]);
+                        echo json_encode(['success' => true]);
                     } 
                 } else {
                     echo json_encode(['success' => false]);
@@ -149,4 +163,29 @@ class OrdersController extends Controller
         }
     }
     
+    function invoice() {
+        $invoice_id = $_GET['invoice_id']?? null;
+        if ($invoice_id) {
+            $invoiceData = $this->OrderModels->select_array_join_multi_table('orders.*, order_details.*, tours.name as tourName, tours.date_start as tourDateStart, tours.duration as tourDuration, services.name as serviceName', ['orders.id' => trim($invoice_id)], 'order_details.id desc',
+        NULL, NULL, 
+        [
+            ['order_details','orders.id = order_details.order_id','LEFT'],
+            ['tours','tours.id = order_details.tour_id','LEFT'],
+            ['services','services.id = order_details.service_id','LEFT']
+         ]);
+        } else {
+            $redirect = new redirect('employee/orders');
+            $redirect->setFlash('error', 'Mã đơn đặt tour không hợp lệ');
+        }
+            $data = [
+                'title' => 'Hoá đơn đặt tour',
+                'invoiceData' => $invoiceData,
+            ];
+            $this->view('employee/invoice', $data);
+    
+    }
+
+    function exportPDF() {
+        
+    }
 }

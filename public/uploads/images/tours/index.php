@@ -23,6 +23,7 @@
 
 <body id="top">
     <!-- header section  -->
+
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
         <a href="/quan-ly-tour/">
             <img src="/quan-ly-tour/public/uploads/images/logo-white.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
@@ -135,6 +136,8 @@
                         </div>
                     </section>
                 </section>
+
+
                 <!-- popular -->
                 <section class="tournoibat">
                     <div class="header-popular">
@@ -205,7 +208,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="slider-popular slider1 active-p">
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="/quan-ly-tour/public/uploads/images/tours/tournb_halong.jpg">
+                                    <img src="/quan-ly-tour/public/uploads/images/tours/tournb_halong.jpg">
+                                </a>
+                                <div class="desc">
+                                    <div id="province"> Quảng Ninh</div><br>
+                                    <div id="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
+                                    <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br>
+                                    <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                    <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="responsive">
+                            <div class="gallery">
+                                <a target="_blank" href="/quan-ly-tour/public/uploads/images/tours/tournb_hoian.jpg">
+                                    <img src="/quan-ly-tour/public/uploads/images/tours/tournb_hoian.jpg">
+                                </a>
+                                <div class="desc">
+                                    <div id="province"> Quảng Nam</div><br>
+                                    <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
+                                    <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br>
+                                    <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                    <button class="xem-chi-tiet-btn">Xem chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="slider-popular slider2">
                         <div class="responsive">
                             <div class="gallery">
@@ -238,6 +272,8 @@
                         </div>
                     </div>
                 </section>
+
+
 
                 <!-- package  -->
                 <section class="tourdacbiet">
@@ -274,7 +310,7 @@
                             </div>
                         </div>
                         <div class="gallery2">
-                            <img class="picture" src="/quan-ly-tour/public/uploads/images/tours/hue-saigon.jpg" alt="Huế - Sài Gòn">
+                            <img class="picture" src="./quan-ly-tour/public/uploads/images/tours/hue-saigon.jpg" alt="Huế - Sài Gòn">
                             <i class="fa-solid fa-heart"></i>
                             <div class="price-tag-db">Giá từ 4.900.000đ</div>
                             <div class="desc">
@@ -307,61 +343,62 @@
                     <div class="see-more">
                         <a href="tourDacBiet.html" id="xemthem">Xem thêm</a>
                     </div>
-                </section>
-                <!--Các đánh giá -->
-                <section class="danhgia">
-                    <h2 style="text-align: center; margin-bottom: 50px;">Đánh giá</h2>
-                    <div class="tour-container">
-                        <div class="tour-card">
-                            <div class="tour-info">
-                                <div class="tour-header">
-                                    <button class="tour-details">Cao Bằng - 3 ngày/2 đêm - 3.000.000 VND</button>
-                                </div>
-                                <img src="/quan-ly-tour/public/uploads/images/tours/homestay-.jpg" alt="Cao Bằng" class="tour-image">
-                                <div class="tour-review">
-                                    <img src="/quan-ly-tour/public/uploads/images/tours/anh1.jpg" alt="Lý Sang Hiếc" class="tour-avatar">
-                                    <div>
-                                        <strong>Lý Sang Hiếc</strong><br>
-                                    </div>
-                                </div>
-                                <h3 class="tour-evaluate">Chỗ ở rất đẹp, tôi có thể nhìn ngắm cảnh núi rừng hùng vĩ. Nếu có cơ hội tôi nhất định sẽ đặt lại tour du lịch này.</h3><br>
-                                <hr style="width: 60%;">
+            </div>
+            </section>
+            <!--Các đánh giá -->
+            <section class="danhgia">
+                <h2 style="text-align: center; margin-bottom: 50px;">Đánh giá</h2>
+                <div class="tour-container">
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Cao Bằng - 3 ngày/2 đêm - 3.000.000 VND</button>
                             </div>
-                        </div>
-
-                        <div class="tour-card">
-                            <div class="tour-info">
-                                <div class="tour-header">
-                                    <button class="tour-details">Huế - Vũng Tàu</button>
+                            <img src="/quan-ly-tour/public/uploads/images/tours/homestay-.jpg" alt="Cao Bằng" class="tour-image">
+                            <div class="tour-review">
+                                <img src="/quan-ly-tour/public/uploads/images/tours/anh1.jpg" alt="Lý Sang Hiếc" class="tour-avatar">
+                                <div>
+                                    <strong>Lý Sang Hiếc</strong><br>
                                 </div>
-                                <img src="/quan-ly-tour/public/uploads/images/tours/monan.jpg" alt="Huế - Vũng Tàu" class="tour-image">
-                                <div class="tour-review">
-                                    <img src="/quan-ly-tour/public/uploads/images/tours/anh2.jpg" alt="Nguyễn Minh Tuấn" class="tour-avatar">
-                                    <div>
-                                        <strong>Nguyễn Minh Tuấn</strong><br>
-                                    </div>
-                                </div>
-                                <h3 class="tour-evaluate">Đây là tour tuyệt vời nhất mà tôi từng được đi. Món ăn ở Huế rất tuyệt vời.</h3><br>
-                                <hr style="width: 60%;">
                             </div>
-                        </div>
-
-                        <div class="tour-card">
-                            <div class="tour-info">
-                                <div class="tour-header">
-                                    <button class="tour-details">Hà Nội - Nghệ An</button>
-                                </div>
-                                <img src="/quan-ly-tour/public/uploads/images/tours/ho-hoan-kiem-7185.jpg" alt="Hà Nội - Nghệ An" class="tour-image">
-                                <div class="tour-review">
-                                    <img src="/quan-ly-tour/public/uploads/images/tours/anh3.jpg" alt="Lê Phúc Kiệt" class="tour-avatar">
-                                    <div>
-                                        <strong>Lê Phúc Kiệt</strong><br>
-                                    </div>
-                                </div>
-                                <h3 class="tour-evaluate"> Buổi đêm ở đây rất tuyệt vời.</h3><br>
-                                <hr style="width: 60%;">
-                            </div>
+                            <h3 class="tour-evaluate">Chỗ ở rất đẹp, tôi có thể nhìn ngắm cảnh núi rừng hùng vĩ. Nếu có cơ hội tôi nhất định sẽ đặt lại tour du lịch này.</h3><br>
+                            <hr style="width: 60%;">
                         </div>
                     </div>
-                </section>
+
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Huế - Vũng Tàu</button>
+                            </div>
+                            <img src="/quan-ly-tour/public/uploads/images/tours/monan.jpg" alt="Huế - Vũng Tàu" class="tour-image">
+                            <div class="tour-review">
+                                <img src="/quan-ly-tour/public/uploads/images/tours/anh2.jpg" alt="Nguyễn Minh Tuấn" class="tour-avatar">
+                                <div>
+                                    <strong>Nguyễn Minh Tuấn</strong><br>
+                                </div>
+                            </div>
+                            <h3 class="tour-evaluate">Đây là tour tuyệt vời nhất mà tôi từng được đi. Món ăn ở Huế rất tuyệt vời.</h3><br>
+                            <hr style="width: 60%;">
+                        </div>
+                    </div>
+
+                    <div class="tour-card">
+                        <div class="tour-info">
+                            <div class="tour-header">
+                                <button class="tour-details">Hà Nội - Nghệ An</button>
+                            </div>
+                            <img src="/quan-ly-tour/public/uploads/images/tours/ho-hoan-kiem-7185.jpg" alt="Hà Nội - Nghệ An" class="tour-image">
+                            <div class="tour-review">
+                                <img src="/quan-ly-tour/public/uploads/images/tours/anh3.jpg" alt="Lê Phúc Kiệt" class="tour-avatar">
+                                <div>
+                                    <strong>Lê Phúc Kiệt</strong><br>
+                                </div>
+                            </div>
+                            <h3 class="tour-evaluate"> Buổi đêm ở đây rất tuyệt vời.</h3><br>
+                            <hr style="width: 60%;">
+                        </div>
+                    </div>
+                </div>
+            </section>
             </div>

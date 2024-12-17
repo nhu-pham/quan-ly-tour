@@ -1,103 +1,164 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
+.header-background .navbar-link{
+    color: black;
+  }
+  .header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+.email-login{
+    margin-top: 100px;
+    text-align: left;
+}
+.next{
+    color: var(--white);
+    margin-top: 100px;
+    text-decoration: underline;
+    font-style: italic;
+    float: right;
+}
+.change-login{
+    margin-top: 50px;
+    text-align: left;
+}
+.change-pass{
+    color: var(--black);
+    margin-top: 40px;
+    text-decoration: underline;
+    font-style: italic;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    float: right;
+}
+
+.modal-overlay .modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    margin-left: 10%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.modal-header h2 {
+    color: hsl(193.073, 85%, 41%);
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 230px;
+}
+
+/* Close button */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Modal body */
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body p {
+    font-size: 18px;
+    color: hsl(193.073, 85%, 41%);
+    margin-top: 30px;
+}
+
+
+#confirm-modal, #newpass-modal, #notification-modal{
+    display: none;
+}
+/* #popup{
+    display: none;
+} */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
-.forgot-container {
-    background-color: #fff;
-    padding: 30px;
+.popup-content {
+    background: #fff;
+    width: 500px;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: relative;
 }
 
-/* Title Styles */
-.fogot-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--bright-navy-blue);
+    margin-bottom: 25px;
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.form-input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
-}
-
-/* Button Styles */
-.btn-submit {
-    width: 100%;
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
+.popup-header h3 {
+    color: var(--bright-navy-blue);
+    text-align: center;
+    margin-left: 40%;
     font-size: 18px;
+}
+.close-btn {
+    font-size: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: #888;
 }
 
-.btn-submit:hover {
-    background-color: #0056b3;
+.close-btn:hover {
+    color: #000;
 }
 
-/* Success and Error Messages */
-.forgot-sucess {
-    color: #28a745;
-    background-color: #e6ffe6;
-    padding: 10px;
-    border-radius: 5px;
+.popup-body {
+    color: var(--bright-navy-blue);
+}
+
+.icon-success {
+    font-size: 40px;
+    color: white;
     margin-bottom: 10px;
+    width: 50px;
+    background-color: green;;
+    border-radius: 50%;;
+    margin-left: 45%;
 }
 
-.forgot-error {
-    color: #dc3545;
-    background-color: #ffe6e6;
-    padding: 10px;
+.popup-footer {
+    margin-top: 20px;
+}
+
+.confirm-btn {
+    background-color: var(--bright-navy-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Links */
-.forgot-link {
-    margin-top: 15px;
-}
-
-.link {
-    text-decoration: none;
-    color: #007bff;
-    transition: color 0.3s;
-}
-
-.link:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 78%;
 }

@@ -26,8 +26,7 @@
                             <input name="email[]" type="text" value="<?php echo htmlspecialchars($data['email']); ?>">
                             <input name="phone_number[]" type="text" value="<?php echo htmlspecialchars($data['phone_number']); ?>">
                             <input name="address[]" type="text" value="<?php echo htmlspecialchars($data['address']); ?>">
-                            <input name="number_of_adults[]" type="text" value="<?php echo htmlspecialchars($data['number_of_adults']); ?>">
-                            <input name="number_of_children[]" type="text" value="<?php echo htmlspecialchars($data['number_of_children']); ?>">
+                            <input name="number_of_adults[]" type="text" value="<?php echo htmlspecialchars($data['number_of_people']); ?>">
                         </td>
                         <td>
                             <?php if ($data['status'] == 'pending'): ?>
@@ -62,6 +61,7 @@
         let data;
         let page = 1;
         $('.pagination li a.page-link').click(function() {
+            alert("Click");
             page = $(this).attr('num-page')
             data = {
                 page: page
@@ -101,3 +101,4 @@
         });
     });
 </script>
+

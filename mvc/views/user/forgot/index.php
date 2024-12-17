@@ -1,44 +1,33 @@
 <?php
+require "./mvc/views/user/include/header.php";
 require_once "./mvc/core/redirect.php";
 require_once "./mvc/core/constant.php";
 $redirect = new redirect();
 ?>
+        </section>
+        <!-- Quên mật khẩu -->
+        <div>
+            <section class="login-container" id="rechange-passwword">
+                <div class="login-box">
+                    <h1>Đặt lại mật khẩu</h1>
+                    <?php if (isset($_SESSION['sucess'])) { ?>
+                        <p class="sucess-message"><?= $redirect->setFlash('sucess'); ?></p>
+                    <?php } ?>
 
-<!DOCTYPE html>
-<html lang="en">
+                    <?php if (isset($_SESSION['error'])) { ?>
+                        <p class="error-message"><?= $redirect->setFlash('error'); ?></p>
+                    <?php } ?>
+                    <form action="forgot" method="post">
+                        <div class="input-group">
+                            <label class="title-login" for="username">Email <label class="required">(*)</label>
+                                <input name="email" type="text" placeholder="Nhập email" id="username" required style="font-weight: 500;">
+                        </div>
+                        <a href="../" style="color: var(--bright-navy-blue); margin-left: 58%; margin-top: 8px; text-decoration: underline;">Quay lại trang chủ</a><br>
+                        <button type="submit" id="login-btn" class="login-btn">Gửi</button>
+                    </form>
+                </div>
+            </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title?></title>
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/forgot.css"> 
-
-<body>
-    <div class="forgot-container">
-        <h2 class="fogot-title">Quên mật khẩu</h2>
-
-        <?php if (isset($_SESSION['sucess'])) { ?>
-            <p class="forgot-sucess"><?= $redirect->setFlash('sucess'); ?></p>
-        <?php } ?>
-
-        <?php if (isset($_SESSION['error'])) { ?>
-            <p class="forgot-error"><?= $redirect->setFlash('error'); ?></p>
-        <?php } ?>
-
-        <form action="" method="post" class="forgot-form">
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input name="email" id="email" type="email" class="form-input" placeholder="Địa chỉ email" required="">
-            </div>
-            <button type="submit" class="btn btn-submit">Gửi</button>
-            <p class="forgot-link">
-                <a href="login" class="link">Đăng nhập</a>
-            </p>
-            <p class="forgot-link">
-                <a href="register" class="link">Đăng ký</a>
-            </p>
-        </form>
-    </div>
-</body>
-
-</html>
+            <?php
+            require "./mvc/views/user/include/footer.php"
+            ?>

@@ -1,5 +1,6 @@
 <?php
 require_once "./mvc/core/redirect.php";
+
 $redirect = new redirect();
 if (isset($_SESSION['errors'])) {
     $errors = $_SESSION['errors'];
@@ -20,13 +21,12 @@ if (isset($_SESSION['errors'])) {
 
 <body>
     <div class="employee-container">
-        <!-- Sidebar -->
-        <nav class="sidebar">
+        <!-- <nav class="sidebar">
             <ul>
                 <li><a href="./orders" class="sidebar-link">Đơn đặt tour</a></li>
                 <li><a href="./customer" class="sidebar-link">Khách hàng</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
         <div class="content">
             <div class="search-form">

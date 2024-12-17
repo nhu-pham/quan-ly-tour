@@ -2,7 +2,7 @@
 require_once 'MyController.php';
 require_once "./mvc/core/redirect.php";
 
-class HomeController extends Controller
+class AboutController extends Controller
 {
 
     function __construct()
@@ -14,8 +14,8 @@ class HomeController extends Controller
     {
         $data= $this->MyController->indexCustomers();
         $data = [
-            'page' => 'home/index',
-            'title' => 'Trang chủ',
+            'page' => 'about/index',
+            'title' => 'Giới thiệu',
             'data' => $data
         ];
         $this->view('user/index', $data);

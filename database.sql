@@ -552,48 +552,51 @@ CREATE TABLE orders(
     active TINYINT(1) DEFAULT 1
 );
 
-CREATE TABLE order_details(
+CREATE TABLE order_details (
     id INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT,
-    FOREIGN KEY (order_id) REFERENCES orders (id),
     tour_id INT,
-    FOREIGN KEY (tour_id) REFERENCES tours (id),
     tour_price FLOAT NOT NULL CHECK (tour_price >= 0),
+    number_of_people INT NOT NULL CHECK (number_of_people > 0),
+    total_money_tour FLOAT CHECK (total_money_tour >= 0),
     service_id INT,
-    FOREIGN KEY (service_id) REFERENCES services (id),
     service_price FLOAT NOT NULL CHECK (service_price >= 0),
     number_of_services INT NOT NULL CHECK (number_of_services > 0),
-    total_money_service FLOAT CHECK(total_money_service >= 0)
+    total_money_service FLOAT CHECK (total_money_service >= 0),
+    FOREIGN KEY (order_id) REFERENCES orders (id),
+    FOREIGN KEY (tour_id) REFERENCES tours (id),
+    FOREIGN KEY (service_id) REFERENCES services (id)
 );
+
 
 -- user_id từ 1->5 là admin,..
 -- Insert into orders table
 INSERT INTO orders (user_id, tour_id, fullname, gender, birthday, email, phone_number, address, number_of_people, order_date, status, total_money, active)
 VALUES
-    (6, 2, 'Trần Minh Hòa', 'Male', '1985-05-15', 'tranminhhoa@gmail.com', '0357111123', 'Quận 1, TP. Hồ Chí Minh', 2, '2024-12-01 08:00:00', 'completed', 5000000, 1),
-    (7, 4, 'Nguyễn Thị Lan', 'Female', '1990-08-22', 'nguyenlan@gmail.com', '0357222234', 'Quận 3, TP. Hồ Chí Minh', 4, '2024-12-02 10:00:00', 'completed', 7000000, 1),
-    (8, 6, 'Lê Hoàng Anh', 'Male', '1988-12-05', 'hoanganh@gmail.com', '0357333345', 'Quận 7, TP. Hồ Chí Minh', 1, '2024-12-03 09:00:00', 'pending', 3500000, 1),
-    (9, 8, 'Phạm Văn Đức', 'Male', '1982-03-19', 'phamduc@gmail.com', '0357444456', 'Quận 5, TP. Hồ Chí Minh', 3, '2024-12-04 14:00:00', 'cancelled', 8000000, 1),
-    (10, 10, 'Đỗ Thị Hương', 'Female', '1995-06-30', 'huongdo@gmail.com', '0357555567', 'Quận 10, TP. Hồ Chí Minh', 5, '2024-12-05 16:00:00', 'completed', 12000000, 1),
-    (11, 12, 'Ngô Đức Thịnh', 'Male', '1980-09-25', 'ngothinh@gmail.com', '0357666678', 'Quận Bình Thạnh, TP. Hồ Chí Minh', 2, '2024-12-06 08:00:00', 'pending', 6000000, 1),
-    (12, 14, 'Vũ Hải Yến', 'Female', '1989-11-11', 'yenhai@gmail.com', '0357777789', 'Quận Gò Vấp, TP. Hồ Chí Minh', 4, '2024-12-07 11:00:00', 'completed', 9000000, 1),
-    (13, 16, 'Phan Anh Tú', 'Male', '1992-02-28', 'tuanh@gmail.com', '0357888890', 'Quận Phú Nhuận, TP. Hồ Chí Minh', 3, '2024-12-08 13:00:00', 'completed', 8000000, 1),
-    (14, 18, 'Bùi Minh Ngọc', 'Female', '1997-04-18', 'ngocbui@gmail.com', '0357999911', 'Quận Tân Bình, TP. Hồ Chí Minh', 1, '2024-12-09 15:00:00', 'pending', 4500000, 1),
-    (15, 20, 'Trịnh Thùy Linh', 'Female', '1993-07-07', 'linhthuy@gmail.com', '0357111012', 'Quận 12, TP. Hồ Chí Minh', 2, '2024-12-10 09:30:00', 'completed', 5500000, 1);
+    (6, 2, 'Trần Minh Hòa', 'Male', '1985-05-15', 'tranminhhoa@gmail.com', '0357111123', 'Quận 1, TP. Hồ Chí Minh', 2, '2024-10-01 08:00:00', 'completed', 5500000, 1),
+    (7, 4, 'Nguyễn Thị Lan', 'Female', '1990-08-22', 'nguyenlan@gmail.com', '0357222234', 'Quận 3, TP. Hồ Chí Minh', 4, '2024-10-02 10:00:00', 'completed', 7500000, 1),
+    (8, 6, 'Lê Hoàng Anh', 'Male', '1988-12-05', 'hoanganh@gmail.com', '0357333345', 'Quận 7, TP. Hồ Chí Minh', 1, '2024-10-08 09:00:00', 'pending', 4000000, 1),
+    (9, 8, 'Phạm Văn Đức', 'Male', '1982-03-19', 'phamduc@gmail.com', '0357444456', 'Quận 5, TP. Hồ Chí Minh', 3, '2024-11-04 14:00:00', 'cancelled', 8500000, 1),
+    (10, 10, 'Đỗ Thị Hương', 'Female', '1995-06-30', 'huongdo@gmail.com', '0357555567', 'Quận 10, TP. Hồ Chí Minh', 5, '2024-11-05 16:00:00', 'completed', 12500000, 1),
+    (11, 12, 'Ngô Đức Thịnh', 'Male', '1980-09-25', 'ngothinh@gmail.com', '0357666678', 'Quận Bình Thạnh, TP. Hồ Chí Minh', 2, '2024-11-06 08:00:00', 'pending', 6500000, 1),
+    (12, 14, 'Vũ Hải Yến', 'Female', '1989-11-11', 'yenhai@gmail.com', '0357777789', 'Quận Gò Vấp, TP. Hồ Chí Minh', 4, '2024-11-07 11:00:00', 'completed', 9500000, 1),
+    (13, 16, 'Phan Anh Tú', 'Male', '1992-02-28', 'tuanh@gmail.com', '0357888890', 'Quận Phú Nhuận, TP. Hồ Chí Minh', 3, '2024-12-08 13:00:00', 'completed', 8500000, 1),
+    (14, 18, 'Bùi Minh Ngọc', 'Female', '1997-04-18', 'ngocbui@gmail.com', '0357999911', 'Quận Tân Bình, TP. Hồ Chí Minh', 1, '2024-12-09 15:00:00', 'pending', 5000000, 1),
+    (15, 20, 'Trịnh Thùy Linh', 'Female', '1993-07-07', 'linhthuy@gmail.com', '0357111012', 'Quận 12, TP. Hồ Chí Minh', 2, '2024-12-10 09:30:00', 'completed', 6000000, 1);
 
 -- Insert into order_details table
-INSERT INTO order_details (order_id, tour_id, tour_price, service_id, service_price, number_of_services, total_money_service)
+INSERT INTO order_details (order_id, tour_id, tour_price, number_of_people, total_money_tour, service_id, service_price, number_of_services, total_money_service)
 VALUES
-    (1, 2, 4000000, 1, 500000, 2, 1000000), -- Order 1, total 5000000 (tour_price = 4000000, total_money_service = 1000000)
-    (2, 4, 5600000, 2, 350000, 4, 1400000), -- Order 2, total 7000000 (tour_price = 5600000, total_money_service = 1400000)
-    (3, 6, 2800000, 3, 700000, 1, 700000), -- Order 3, total 3500000 (tour_price = 2800000, total_money_service = 700000)
-    (4, 8, 6400000, 4, 533333, 3, 1600000), -- Order 4, total 8000000 (tour_price = 6400000, total_money_service = 1600000)
-    (5, 10, 9600000, 5, 400000, 5, 2000000), -- Order 5, total 12000000 (tour_price = 9600000, total_money_service = 2000000)
-    (6, 12, 4800000, 2, 600000, 2, 1200000), -- Order 6, total 6000000 (tour_price = 4800000, total_money_service = 1200000)
-    (7, 14, 7200000, 3, 450000, 4, 1800000), -- Order 7, total 9000000 (tour_price = 7200000, total_money_service = 1800000)
-    (8, 16, 6400000, 4, 533333, 3, 1600000), -- Order 8, total 8000000 (tour_price = 6400000, total_money_service = 1600000)
-    (9, 18, 3600000, 1, 900000, 1, 900000), -- Order 9, total 4500000 (tour_price = 3600000, total_money_service = 900000)
-    (10, 20, 4400000, 5, 550000, 2, 1100000); -- Order 10, total 5500000 (tour_price = 4400000, total_money_service = 1100000)
+    (1, 2, 2000000, 2, 4000000, 3, 500000, 3, 1500000),
+    (2, 4, 3000000, 4, 6000000, 5, 750000, 2, 1500000), 
+    (3, 6, 3500000, 1, 3500000, 6, 500000, 1, 500000),
+    (4, 8, 2500000, 3, 7500000, 7, 250000, 2, 1000000), 
+    (5, 10, 2000000, 5, 10000000, 8, 500000, 5, 2500000), 
+    (6, 12, 3000000, 2, 6000000, 9, 250000, 2, 500000), 
+    (7, 14, 2000000, 4, 8000000, 10, 375000, 4, 1500000), 
+    (8, 16, 2500000, 3, 7500000, 11, 250000, 4, 1000000), 
+    (9, 18, 4000000, 1, 4000000, 12, 1000000, 1, 1000000), 
+    (10, 20, 2000000, 2, 4000000, 13, 1000000, 2, 2000000); 
 
 --Bảng chứa thông tin đánh giá của khách hàng
 CREATE TABLE reviews(

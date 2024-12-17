@@ -191,14 +191,12 @@
                     }
                 } else {
                     $redirect = new redirect('auth/login');
-                    $redirect->setFlash('error', 'Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email!');
+                    $redirect->setFlash('error', 'Tài khoản không tồn tại trong hệ thống!');
                 }
             }
-            // $data_index = $this->MyController->indexCustomers();
 
             $this->view('user/login/index', [
-                'title'         => 'Đăng nhập',
-                // 'data_index' => $data_index
+                'title'         => 'Đăng nhập'
             ]);
         }
 
@@ -417,13 +415,13 @@
                         if (empty($errors)) {
                             $dataUpdate = [
                                 'password' => password_hash(trim(filter_input(INPUT_POST, 'newPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS)), PASSWORD_BCRYPT),
-                                'forgotToken' => null,
+                                
                                 'updated_at' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
                             ];
                             $result = $this->UserModels->update($dataUpdate, ['id' => $userId]);
                             $decodeResults = json_decode($result, true);
                             if ($decodeResults['type'] === 'Sucessfully') {
-                                $redirect = new redirect('auth/login');
+                                $redirect = new redirect('auth/reset?&token=' . $forgotToken);
                                 $redirect->setFlash('sucess', 'Thiết lập mật khẩu thành công!');
                             }
                         } else {
