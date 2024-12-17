@@ -148,6 +148,7 @@
     right: 90px;
     text-align: center;
     width: 140px;
+    font-size: 14px;
   }
   
   .btn-primary:is(:hover, :focus) {
@@ -292,7 +293,7 @@
     transition: 0.25s ease-out;
   }
   .navbar-link.active-header {
-    color: var(--bright-navy-blue); /* Màu của mục active */
+    color: rgb(0, 225, 255); /* Màu của mục active */
     font-weight: bold; /* Tăng độ đậm */
 }
 
@@ -376,9 +377,6 @@
   position: absolute;
   display: inline-block;
 }
-#user-profile{
-  display: none;
-}
 .user-account {
   position: fixed;
   display: flex;
@@ -406,26 +404,29 @@
 }
 
 .user-options {
-  display: none; 
-  position: absolute; 
+  display: none;
+  position: relative; 
   background-color: var(--white); 
   min-width: 170px; 
-  box-shadow: 0px 8px 16px 0px rgba(36, 228, 221, 0.2); 
+  box-shadow: 0px 2px 4px 0px #26EF69; 
   z-index: 1; 
   border-radius: 10px;
-  margin-top: 16px;
-  margin-left: 330px;
+  top: 16px;
+  right: 100px;
 }
 
 .user-options a {
   display: block;
   padding: 10px;
-  color: #333;
+  color: black;
   text-decoration: none;
 }
-
-.user-options a:first-child {
-  border-bottom: 1px solid #ccc;
+.user-options a i {
+  color: var(--bright-navy-blue);
+  margin-right: 8px;
+}
+.user-options .fa-file-invoice-dollar{
+  margin-left: 4px;
 }
 .user-options a:hover {
   background-color: #e0e0e0;

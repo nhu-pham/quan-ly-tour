@@ -156,7 +156,7 @@
     align-items: center;
     gap: 10px;
 }
-
+/*Dropdown dịch vụ đã thuê*/
 .service-dropdown {
     padding: 10px;
     margin-left: 10px;
@@ -164,8 +164,68 @@
     width: 200px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+#dichvu-container{
+    display: none;
+
+} 
+.dichvu-container {
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    box-shadow: 0px 3px 2px #029BC5;
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 6px;
 }
 
+.dichvu-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dichvu-container th, td {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.dichvu-container th {
+    font-weight: bold;
+    border-bottom: 3px solid white;
+}
+
+.dichvu-container tr {
+    border-bottom: 3px solid white;
+}
+
+.dichvu-container tr:last-child {
+    border-bottom: none;
+}
+
+.dichvu-container .update-btn {
+    display: block;
+    margin-left: 150px;
+    background-color: var(--bright-navy-blue);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dichvu-container .update-btn:hover {
+    background-color: #007bb5;
+}
+
+
+
+
+/*--------------------------------------------------*/
 .form-row3{
     width: 78%;
 }
@@ -217,7 +277,8 @@
 .booking-form .price-service{
     color: red;
     font-weight: bold;
-    padding-left: 43.5%;
+    margin-left: 20px;
+
 }
 .booking-form .total {
     margin-top: -10px;

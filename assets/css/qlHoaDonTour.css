@@ -33,9 +33,9 @@
     border: 1px solid rgb(16,156,195);
   }
   .inactive{
-    background-color: #d3cece;       /* Màu nhạt hơn */
-    pointer-events: none; /* Không cho phép bấm */
-    cursor: not-allowed;  /* Thay đổi con trỏ chuột */
+    background-color: #d3cece;       
+    pointer-events: none; 
+    cursor: not-allowed;  
 }
   .pagination a:hover:not(.active) {background-color: var(--bright-navy-blue);}
   
@@ -48,7 +48,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-.customer-container {
+.tourlist-container {
     max-width: 900px;
     margin: 100px auto;
     background-color: #fff;
@@ -57,13 +57,13 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.customer-container h1 {
+.tourlist-container h1 {
     text-align: center;
     color: var(--bright-navy-blue);
     margin-bottom: 20px;
 }
 
-.customer-container .search-bar {
+.tourlist-container .search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,7 @@
     position: relative;
 }
 
-.customer-container .search-bar input {
+.tourlist-container .search-bar input {
     width: 100%;
     max-width: 400px;
     padding: 10px 40px 10px 10px;
@@ -81,45 +81,50 @@
     outline: none;
 }
 
-.customer-container .search-bar i {
+.tourlist-container .search-bar i {
     position: absolute;
     right: 15px;
     color: #aaa;
     font-size: 16px;
 }
 
-.customer-list {
+.tour-list {
     margin-top: 20px;
 }
 
-.customer-item {
+.last-tour-item{
+    border-bottom: 20px solid var(--bright-navy-blue);
+}
+.tour-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #f9f9f9;
-    border: 1px solid var(--bright-navy-blue);
-    border-radius: 8px;
+    border-top: 20px solid var(--bright-navy-blue);
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    height: 140px;
 }
 
-.customer-item img {
+.tour-item img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.customer-info {
-    flex: 1;
-    margin-left: 15px;
-}
 
-.customer-info p {
-    margin: 5px 0;
+.tour-info p:first-child{
+    margin-left: -20px;
+    margin-bottom: 20px;
 }
-
-.customer-container .update-btn {
+.ngay-gia{
+    display: flex;
+    gap: 30px;
+    margin-bottom: -37px;
+}
+.tourlist-container .update-btn {
     background-color: var(--bright-navy-blue);
     color: #fff;
     border: none;
@@ -127,23 +132,24 @@
     padding: 10px 15px;
     cursor: pointer;
     font-weight: bold;
+    margin-bottom: -12px;
 }
 
-.customer-container .update-btn:hover {
+.tourlist-container .update-btn:hover {
     background-color: var(--bright-navy-blue);
 }
 
-.customer-container .pagination {
+.tourlist-container .pagination {
     display: flex;
     text-align: justify;
     margin-left: 85%;
     margin-top: 20px;
 }
-.customer-container .pagination span {
+.tourlist-container .pagination span {
     padding: 5px 10px;
     border: 2px solid var(--bright-navy-blue);
 }
-.customer-container .pagination .page-btn {
+.tourlist-container .pagination .page-btn {
     background-color: var(--bright-navy-blue);
     color: #fff;
     border: none;
@@ -154,118 +160,13 @@
     font-weight: bold;
 }
 
-.customer-container .pagination span {
+.tourlist-container .pagination span {
     font-size: 18px;
     font-weight: bold;
     margin: 0 10px;
 }
 
-/*Cập nhật thông tin khách hàng*/
-.customer-update-container {
-    max-width: 600px;
-    margin: 200px auto;
-    background-color: #fff;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-.customer-update-container h1 {
-    text-align: center;
-    color: var(--bright-navy-blue);
-    margin-bottom: 20px;
-}
-
-.divider {
-    border: none;
-    height: 3px;
-    background-color: var(--bright-navy-blue);
-    margin: 10px 0 20px;
-}
-
-.customer-update-container .customer-info {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-bottom: 20px;
-}
-
-.customer-update-container .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-    object-fit: cover;
-}
-
-.customer-update-container .info p {
-    margin: 0;
-    font-size: 16px;
-}
-
-.customer-update-container .update-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.customer-update-container .form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.customer-update-container label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.customer-update-container input {
-    padding: 10px;
-    font-size: 14px;
-    color: var(--black);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-}
-
-.customer-update-container input:focus {
-    border-color: var(--bright-navy-blue);
-}
-
-.customer-update-container .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-left: 50%;
-}
-
-.customer-update-container .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.customer-update-container .cancel-btn {
-    background-color: #ff4d4d;
-    color: #fff;
-}
-
-.customer-update-container .cancel-btn:hover {
-    background-color: #e60000;
-}
-
-.customer-update-container .save-btn {
-    background-color: var(--bright-navy-blue);
-    color: #fff;
-}
-
-.customer-update-container .save-btn:hover {
-    background-color: var(--bright-navy-blue);
-}
 .price-row {
     display: flex; 
     gap: 5px; 
@@ -305,19 +206,13 @@
     font-style: italic;
     margin-bottom: 30px;
 }
-
+/*Chi tiết đơn hàng*/
 .dontour-container .booking-info {
     display: flex;
     justify-content: space-between;
     gap: 50px;
 }
-/* .ds-dv{
-    display: flex;
-}
-.ds-dv label{
-    color: var(--black);
-    width: 180px;
-} */
+
 
 .dontour-container .left-section,.dontour-container .right-section {
     flex: 1;
@@ -385,26 +280,6 @@
     background-color: #C8EBF5;
 }
 
-/* .dontour-container .left-section table, .left-section th, .left-section td {
-    border: 2px solid var(--bright-navy-blue);
-}
-
-.dontour-container .left-section th, .left-section td {
-    padding: 10px;
-    text-align: left;
-} 
- .tienDV, .tongtien{
-    display: flex;
-}
-.tongtien label{
-    margin-left: 14%;
-}
-.tienDV label{
-    margin-left: 100px;
-}
-.dontour-container .left-section th {
-    background-color: #C8EBF5;
-} */
 
 .dontour-container .buttons {
     margin-left: 64%;
@@ -465,3 +340,4 @@
 .dontour-container .confirm {
     background-color: var(--bright-navy-blue);
 }
+/*--------------------------------------------------------------*/

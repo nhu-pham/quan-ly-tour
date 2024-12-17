@@ -153,14 +153,34 @@
                         <p><b>Cao Bằng - Lạng Sơn (Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Kỵ, Thác Bản Giốc)</b></p>
                         <p class="tttour">Giá tour: <span class="price">0VND</span></p>
                         <div class="tttour"><div>Dịch vụ khác:</div>
-                            <div><select class="service-dropdown">
-                                <option>Các dịch vụ đã thuê</option>
-                                <option>Dịch vụ A</option>
-                                <option>Dịch vụ B</option>
-                                <option>Dịch vụ C</option>
-                            </select>
+                                <div class="service-dropdown"><div>Các dịch vụ đã thuê</div> <button id="dropdown-btn"><i class="fa-solid fa-caret-down"></i></button></div>
+                                <div><span class="price-service">0VND</span></div>
                         </div>
-                        <div><span class="price-service">0VND</span></div></div>
+                        <div id="dichvu-container" class="dichvu-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Tên dịch vụ</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Xe máy SH</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ô tô Hyundai</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ô tô Vinfast</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="gioHang.html" class="update-btn">Cập nhật</a>
+                        </div>
                     </div>
             
                     
@@ -236,7 +256,18 @@
 
 
     <!-- custom js link  -->
+    <script>
+        const serviceButton = document.getElementById('dropdown-btn');
+        const serviceOptions = document.getElementById('dichvu-container');
 
+        serviceButton.addEventListener('click', function() {
+            if (serviceOptions.style.display === "block") {
+                serviceOptions.style.display = "none";
+            } else {
+                serviceOptions.style.display = "block";
+            }
+        });
+    </script>
     <!-- ionicon link  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
