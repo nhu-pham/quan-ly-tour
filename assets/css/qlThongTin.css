@@ -55,6 +55,10 @@
     padding: 20px;
     position: relative;
 }
+.popup-content{
+    margin-left: 35%;
+    margin-top: 20%;
+}
 
 .popup-header {
     display: flex;
@@ -325,7 +329,7 @@
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.waitforpay{
+.waitforpay, .finish{
     display: flex;
 }
 .order-card .fa-check{
@@ -390,14 +394,14 @@
 }
 
 
-.btn {
+ .btngroup {
     display: inline-block;
     padding: 10px 15px;
     margin-top: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} 
 .order-details {
     display: flex;
     flex-direction: column;   
@@ -645,10 +649,13 @@ textarea::placeholder {
     background: #007acc;
 }
 
+/* popup lưu thay đổi thông tin */
+
 
 /* Yêu thích */
 .order-details .giatu{
     color: red; font-weight: bold;
+    margin-top: 10px;
 }
 .order-summary .fa-heart{
     color: red; margin-left: 100px; margin-top: -10px;

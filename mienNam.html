@@ -11,6 +11,7 @@
     <!-- custom css link  -->
     <link rel="stylesheet" href="./assets/css/trangChu.css">
     <link rel="stylesheet" href="./assets/css/tourMienNam.css">
+    <link rel="stylesheet" href="./assets/css/responsiveTour.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <!-- google font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,22 +25,22 @@
     <!-- header section  -->
 
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
-        <a href="trangChu.html">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
             <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle active-header" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle active-header" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -49,6 +50,7 @@
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
                     <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
                     <li class="nav-item" style="display: none;">
                         <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
@@ -76,13 +78,11 @@
                         </div>    
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
-
+    </nav> 
     <main>
         <article>
-            <section id="mienNamModal">
+            <div id="mienNamModal">
                 <section class="page-South" id="home">
                     <section class="content">
         
@@ -96,7 +96,9 @@
                 <!-- Danh sách các tour -->
         
                 <div class="dstour"> 
-                    <!-- Bộ lọc tìm kiếm -->
+                    <button class="filter-toggler">
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
                     <div class="filter">
                         <h2>Bộ lọc tìm kiếm</h2>
                         <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
@@ -128,83 +130,84 @@
                     <div class="search-results page_MN">
                         <div class="page-header">
                             <label for="">Chúng tôi tìm thấy</label><input type="text" id="number-tour" style="width: 40px; text-align: center; "><label for="">cho quý khách</label> 
-                            <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp theo:</label>
+                            <div><label>Sắp xếp theo:</label>
                             <select id="combobox-sapxep">
                                 <option value="option1">Tất cả</option>
                                 <option value="option2">Giá từ cao đến thấp</option>
                                 <option value="option3">Giá từ thấp đến cao</option>
                             </select></div>
                         </div>
-                        <hr style="margin-top: 10px; margin-bottom: 20px;">
-                        <div class="result-item">
-                            <img src="assets/images/vungtau.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>TP.Hồ Chí Minh - Cần Giờ - Vũng Tàu (Dinh Độc Lập, Khu dự trữ sinh quyển Cần Giờ, Ngọn Hải Đăng Vũng Tàu)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP.Hồ Chí Minh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        <div class="result-item-list">
+                            <div class="result-item">
+                                <img src="assets/images/vungtau.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>TP.Hồ Chí Minh - Cần Giờ - Vũng Tàu (Dinh Độc Lập, Khu dự trữ sinh quyển Cần Giờ, Ngọn Hải Đăng Vũng Tàu)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP.Hồ Chí Minh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/db_tayninh.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Phú Quốc - Tây Ninh (Vinpearl Safari Phú Quốc, Vườn quốc gia Phú Quốc, Chùa Bà Đen)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tây Ninh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 03/06/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.500.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/db_tayninh.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Phú Quốc - Tây Ninh (Vinpearl Safari Phú Quốc, Vườn quốc gia Phú Quốc, Chùa Bà Đen)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tây Ninh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 03/06/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.500.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/db_binhduong.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Bình Dương - Bình Phước - Tây Ninh (Khu du lịch Đại Nam, Chùa Bà Châu Đốc, Chùa Côn Sơn)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/db_binhduong.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Bình Dương - Bình Phước - Tây Ninh (Khu du lịch Đại Nam, Chùa Bà Châu Đốc, Chùa Côn Sơn)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/db_camau.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Cà Mau - Sóc Trăng (Vườn quốc gia Mũi Cà Mau, Chùa Dơi, Rừng U Minh Hạ)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 10/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.490.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/db_camau.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Cà Mau - Sóc Trăng (Vườn quốc gia Mũi Cà Mau, Chùa Dơi, Rừng U Minh Hạ)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 10/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.490.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/db_bentre.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Vĩnh Long - Bến Tre (Vườn trái cây Cái Mơn, Khu du lịch Vinh Sang, Làng nghề dừa Bến Tre)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/db_bentre.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Vĩnh Long - Bến Tre (Vườn trái cây Cái Mơn, Khu du lịch Vinh Sang, Làng nghề dừa Bến Tre)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-baclieu.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Bạc Liêu - Cà Mau (Tháp Cổ Vĩnh Hưng, Chùa Ghositaram, Mũi Cà Mau, Rừng U Minh Thượng)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 2.890.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-baclieu.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Bạc Liêu - Cà Mau (Tháp Cổ Vĩnh Hưng, Chùa Ghositaram, Mũi Cà Mau, Rừng U Minh Thượng)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 2.890.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -212,83 +215,84 @@
                     <div class="search-results page_MN">
                         <div class="page-header">
                             <label for="">Chúng tôi tìm thấy</label><input type="text" id="number-tour" style="width: 40px; text-align: center; "><label for="">cho quý khách</label> 
-                            <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp theo:</label>
+                            <div><label>Sắp xếp theo:</label>
                             <select id="combobox-sapxep">
                                 <option value="option1">Tất cả</option>
                                 <option value="option2">Giá từ cao đến thấp</option>
                                 <option value="option3">Giá từ thấp đến cao</option>
                             </select></div>
                         </div>
-                        <hr style="margin-top: 10px; margin-bottom: 20px;">
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-mytho.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Thăm Quan Đồng Bằng Sông Cửu Long (chùa Vĩnh Tràng, thuyền dạo tại Mỹ Tho)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Vũng Tàu</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                        <div class="result-item-list">
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-mytho.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Thăm Quan Đồng Bằng Sông Cửu Long (chùa Vĩnh Tràng, thuyền dạo tại Mỹ Tho)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Vũng Tàu</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 11/04/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 2.990.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-scl.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Địa Đạo Củ Chi và Đồng Bằng Sông Cửu Long (du thuyền trên sông, thăm làng nghề, trại dừa)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tây Ninh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 03/06/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.500.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-scl.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Địa Đạo Củ Chi và Đồng Bằng Sông Cửu Long (du thuyền trên sông, thăm làng nghề, trại dừa)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Tây Ninh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 03/06/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 2N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.500.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-namcattien.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Vườn Quốc gia Nam Cát Tiên (đi bộ trong rừng, thăm cổ thụ ngàn năm, xem thú đêm)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-namcattien.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Vườn Quốc gia Nam Cát Tiên (đi bộ trong rừng, thăm cổ thụ ngàn năm, xem thú đêm)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.990.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-binhhung.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Bình Ba - Bình Hưng (ngắm san hô, thưởng thức hải sản tươi sống)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 3.490.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-binhhung.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Bình Ba - Bình Hưng (ngắm san hô, thưởng thức hải sản tươi sống)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: TP. Hồ Chí Minh</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 3.490.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-conphung.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Mỹ Tho - Cồn Phụng (sông Tiền, thưởng thức trái cây tươi, thăm làng nghề truyền thống)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-conphung.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Mỹ Tho - Cồn Phụng (sông Tiền, thưởng thức trái cây tươi, thăm làng nghề truyền thống)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="result-item">
-                            <img src="assets/images/tourMN-tramtrasu.jpg" alt="Cao Bằng" class="result-image">
-                            <div class="result-details">
-                                <h3>Tour Rừng Tràm Trà Sư - An Giang (quan sát hệ sinh thái động vật, thăm làng nghề truyền thống)</h3>
-                                <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
-                                <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
-                                <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
-                                <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
-                                    <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                            <div class="result-item">
+                                <img src="assets/images/tourMN-tramtrasu.jpg" alt="Cao Bằng" class="result-image">
+                                <div class="result-details">
+                                    <h3>Tour Rừng Tràm Trà Sư - An Giang (quan sát hệ sinh thái động vật, thăm làng nghề truyền thống)</h3>
+                                    <div><i class="fa-solid fa-location-dot"></i><p>Khởi hành: Bến Tre</p></div>
+                                    <div><i class="fa-solid fa-calendar-days"></i><p>Ngày khởi hành: 22/11/2024</p></div>
+                                    <div><i class="fa-solid fa-clock"></i><p>Thời gian: 3N2D</p></div>
+                                    <div class="price-and-button"> <p class="price">Giá từ: 4.890.000 VNĐ</p>
+                                        <a href="chiTietTour.html" class="detail-btn">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -300,7 +304,7 @@
                     <a class="page-link-MN" href="#">2</a>
                     <a id="nextpage_MN" class="inactive" href="#">&raquo;</a>
                 </div>
-            </section>
+            </div>
         
         <!-- Footer  -->
         <footer class="footer"> 

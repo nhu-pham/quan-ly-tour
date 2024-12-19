@@ -1,6 +1,4 @@
-/* #about {
-    display: none; 
-} */
+
 
 .about-container {
     display: flex;
@@ -31,7 +29,7 @@
 
 .image-container img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -46,3 +44,50 @@ p {
     line-height: 1.6;
 }
   
+
+
+
+
+
+
+/* Responsive Styles */
+/* General Styles */
+
+
+/* Responsive Styles */
+@media (min-width: 576px) {
+    .image-container img {
+        width: 100%;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 768px) {
+    .image-container img {
+        width: 100%;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 992px) {
+    .image-container img {
+        width: 100%;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1200px) {
+    .image-container img {
+        width: 100%;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+

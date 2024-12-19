@@ -131,3 +131,20 @@
     color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+/* Responsive */
+@media (min-width: 576px) {
+    .form-section button {
+        width: 300px;
+    }
+}
+@media (min-width: 768px) {
+    .form-section button {
+        width: 200px;
+    }
+}
+@media (min-width: 992px) {
+    .form-section button {
+        width: 150px;
+    }
+}

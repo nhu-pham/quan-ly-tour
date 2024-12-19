@@ -54,9 +54,14 @@
     margin-right: 30px;
     color: var(--bright-navy-blue);
 } 
-.specialtour-container .xem-chi-tiet-btn{
+.specialtour-container .desc .xem-chi-tiet-btn{
     margin-right: 15px;
+    margin-top: 470px;
+    width: 150px;
+    height: 36px;
+    align-items: center;
 }
+
 .specialtour-container .view-more:hover{
     color:  #74D8F4;
 } 

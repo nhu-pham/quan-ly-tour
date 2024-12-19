@@ -20,26 +20,26 @@
         rel="stylesheet">
 </head>
 
-<body id="top">
+<body>
     <!-- header section  -->
     
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
-        <a href="trangChu.html">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
             <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color active-header">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -49,18 +49,42 @@
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
                     <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item" style="display: none;">
+                        <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
+                        <div id="user-profile" class="user-profile">
+                            <div class="user-account"><img src="assets/images/anh3.jpg" alt="Avatar" class="user-image">
+                            <button id="user-name"><i class="fa-solid fa-caret-down"></i></button></div> 
+                            <div class="user-options">
+                                <a href="quanLyThongTin.html">
+                                    <i class="fas fa-cog"></i>
+                                    Quản lý thông tin
+                                </a>
+                                <a href="quanLyThongTin.html">
+                                    <i class="fa-solid fa-key"></i>
+                                    Đổi mật khẩu
+                                </a>
+                                <a href="#qlThongTin">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                    Đơn mua
+                                </a>
+                                <a href="#dangxuat">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>    
+                    </li>
                 </ul>
-            </div>
         </div>
-    </nav>
-
+    </nav> 
     <main>
         <article>
             <!-- hero  -->
 
     <!-- Chi tiết tour -->
-    <section id="about">
+ 
         <section class="hero" id="home">
             <div class="container">
 
@@ -113,7 +137,7 @@
                 </div>
             </div>
         </div> 
-    </section>
+  
 
     
     

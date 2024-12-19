@@ -1,116 +1,15 @@
-/* 
 
-.footer {
-    background-color: #0099cc;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
 
-.footer .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 20px; 
-}*/
 
-/*.footer .container > div {
-    flex: 1 1 200px;
-    margin: 10px;
-    padding: 10px;
-
-}
-.nhapemail{
-    display: flex;
-    width: 400px;
-    margin-bottom: 20px;
-}
-.footer .newsletter {
-    flex: 1 1 100%; 
-}
-
-.footer .newsletter h3,
-.footer .links h3,
-.footer .contact-info h3,
-.footer .logo h3 {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: left;
-}
-
-.footer .newsletter input[type="email"] {
-    padding: 10px;
-    border: none;
-    background-color: white;
-    border-radius: 5px;
-    margin-right: 10px;
-    width: calc(100% - 110px); 
-}
-
-.footer .newsletter button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: #0099cc;
-    cursor: pointer;
-}
-
-.footer .payment-methods {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 250px;
-}
-
-.footer .payment-methods img {
-    width: 50px;
-    margin: 5px;
-}
-
-.footer .links a,
-.footer .contact-info p {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin: 5px 0;
-    text-align: left;
-}
-
-.footer .contact-info {
-    text-align: left;
-}
-#email-phone-fax{
-    display: flex;
-}
-.footer .logo {
-    display: flex;
-    align-items: center;
-    border-right: 1px solid white;
-}
-.footer-line { border: none; border-top: 1px solid white;  width: 100%; }
-.footer .logo img {
-    width: 50px;
-    margin-right: 10px;
-} 
-*/
-
-body {
-    font-family: Arial, sans-serif;
-}
 
 .footer {
     background-color: #0099cc;
     color: white;
     padding: 40px 0;
     text-align: center;
-    height: 450px;
+    min-height: 450px;
     margin-top: 200px;
-    width: 1423px;
+
 }
 
 .footer .container {
@@ -235,3 +134,62 @@ body {
     margin-left: 30px;
 } 
 #email-phone-fax p { margin: 10px 0;  } 
+
+/* RESPONSIVE CHO FOOTER */
+@media (max-width: 768px) {
+    .below {
+        flex-direction: column; /* Chuyển thành dạng dọc */
+        text-align: center; /* Căn giữa nội dung */
+        margin-left: 20px;
+    }
+
+    .below .logo {
+        justify-content: center; /* Logo nằm giữa */
+        border-right: none; /* Ẩn border bên phải */
+        border-bottom: 1px solid white; /* Thêm border bên dưới */
+        width: 80%;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+   
+    #email-phone-fax {
+        flex-direction: column; /* Xếp dọc */
+        align-items: flex-start; /* Căn trái các mục */
+        gap: 5px; /* Thu nhỏ khoảng cách giữa các mục */
+    }
+
+    #email-phone-fax p {
+        margin: 5px 0; /* Tăng khoảng cách giữa các dòng */
+        text-align: left; /* Căn trái nội dung */
+    }
+}
+
+@media (max-width: 576px) {
+    .below {
+        flex-direction: column; /* Chuyển thành dạng dọc */
+        text-align: center; /* Căn giữa nội dung */
+        margin-left: 20px;
+    }
+    .below .logo img {
+        width: 80px; /* Logo nhỏ hơn */
+    }
+
+    .below .logo h3 {
+        font-size: 1.2em;
+    }
+    .below .logo {
+        justify-content: center; /* Logo nằm giữa */
+        border-right: none; /* Ẩn border bên phải */
+        border-bottom: 1px solid white; /* Thêm border bên dưới */
+        width: 80%;
+    }
+    #email-phone-fax p {
+        font-size: 0.9em; /* Thu nhỏ chữ */
+    }
+    .contact-info p {
+        font-size: 0.9em; /* Thu nhỏ chữ */
+    }
+}

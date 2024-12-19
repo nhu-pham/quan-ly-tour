@@ -7,7 +7,7 @@
      */
   
     --united-nations-blue: hsl(214, 56%, 58%);
-    --bright-navy-blue: hsl(193.073, 85%, 41%);
+    --bright-navy-blue: #109CC3;
     --bright-navy-blue-blur: hsla(193.073, 85%, 41%, 0.8);
     --spanish-gray: hsl(0, 0%, 60%);
     --black-coral: hsl(225, 8%, 42%);
@@ -187,8 +187,7 @@
     font-size: var(--fs-3);
     font-weight: var(--fw-700);
   }
-  
-   
+
   /*-----------------------------------*\
    * #HEADER
   \*-----------------------------------*/
@@ -490,10 +489,14 @@
   .search-section{
     display: flex;
   }
-  .tour-search-form{
+
+  .tour-search-form {
     display: flex;
-    gap: 20px;
+    display: grid;
     margin-left: -30px;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    gap: 20px;
   }
   .tour-search-form label {
     color: var(--black);
@@ -520,7 +523,7 @@
     text-transform: uppercase;
   }
   
-  .tour-search-form .input-wrapper { margin-bottom: 0px; float: left;   }
+
   
   .tour-search .btn {
     width: 100%;
@@ -530,39 +533,61 @@
     color: var(--white);
     height: 45px;
     width: 150px;
+    grid-column: span 2;
+    margin-top: 20px;
   }
+
+  
+
+  .tour-search-form .input-wrapper { margin-bottom: 0; float: left; }
+
    
   /*-----------------------------------*\
    * #POPULAR
   \*-----------------------------------*/
+  /**
+     * POPULAR
+     */
+     .popular-card .card-content { right: auto; }
   
-  #dest {
-    font-size: 20px; 
-    font-weight: bold;
-  }
-  #price {
-  display: flex; 
-  align-items: center; 
-  }
+     .header-popular{
+       display: flex;
+       margin-left: 40%;
+       gap: 320px;
+     }
+     .icon-group{
 
-  #date {
-  display: flex; 
-  align-items: center;
-  }
+       width: 100px;
+       display: flex;
+     }
+     .icon-group button{
+       margin-right: 10px;
+       margin-top: 100px;
+       height: 30px;
+     }
+     .icon-group .fa-solid{
+       padding: 5px 10px;
+       color: var(--bright-navy-blue);
+       border: 2px solid var(--bright-navy-blue);
+       height: 30px;
+     }
+ 
+     .slider2{
+       display: none;
+     }
+     .slider-popular {
+       margin-left: 50px;
+       margin-right: 50px;
+       transform: translateX(100%);
+       transition: opacity 0.5s ease, transform 0.5s ease;
+   }
+   .slider-popular.active-p {
+       display: block;
+       opacity: 1;
+       transform: translateX(0);
+   }
+ 
 
-  .fa-dollar, .fa-calendar-days{
-  margin-right: 15px; 
-  }
-
-  .xem-chi-tiet-btn{
-  float: right;
-  background-color: var(--bright-navy-blue);
-  color: var(--white);
-  padding: 10px;
-  border-radius: 20px;
-  margin-right: 10px;
-
-  }
   .popular_title{
     margin-top: 100px;
     text-align: center;
@@ -589,10 +614,41 @@
   .desc {
     padding-top: 15px;
     padding-left: 30px; 
+    margin-left: -15px;
     text-align: left; 
+    height: fit-content;
 }
+.desc div{
+margin-top: -7px;
+}
+.slider2 .desc div{
+  margin-top: -3px;
+  height: fit-content;
+  }
+.desc .dest{
+  font-size: 15px;
+  text-align: left; 
+  font-weight: bold;
+}
+.desc .price{
+  display: flex;
+}
+.desc label{
+  color: red;
+}
+.xem-chi-tiet-btn{
+  position: relative;
+  background-color: var(--bright-navy-blue);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 20px;
+  top: 6px;
+  left: 115px;
 
-  
+  }
+  .fa-dollar, .fa-calendar-days{
+    margin-right: 15px; 
+    }
   * {
     box-sizing: border-box;
   }
@@ -621,17 +677,16 @@
     display: flex; 
     flex-wrap: wrap; 
     justify-content: space-between; 
-    height: 800px;
     margin-left: 65px;
     max-width: 1290px;
+    margin-bottom: 50px;
     gap: 5px;
 }
-
 .gallery2 {
   display: inline-block;
   position: relative;
   width: calc(33.33% - 10px); 
-  height: 50%; 
+  height: 400px; 
   overflow: hidden; 
   margin-bottom: 10px;
   border-radius: 10px; 
@@ -646,7 +701,7 @@
     display: block; 
 }
 
-.gallery2 .desc {
+.gallery2 .desc-special {
     position: absolute; 
     bottom: 20px;
     right: 20px;
@@ -656,12 +711,28 @@
     background-color: var(--white);
     color: var(--black);
     margin-right: 100px;
+    padding-top: 15px;
+    margin-left: 5px;
+    text-align: left; 
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 0px 20px 20px 20px;
     
 }
-
+.gallery2 .desc-special div{
+margin-top: -5px;
+  
+}
+.gallery2 .price-tag-db{
+  position: absolute;
+  bottom: 30%;
+  font-weight: bold;
+  left: 45px;
+  background-color: red;
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 10px 10px 0px 0px;
+}
 .chi-tiet-btn {
   color: var(--white);
   background-color: var(--bright-navy-blue);
@@ -680,7 +751,6 @@
 }
 .see-more{
   margin-left: 50%;
-  margin-top: 50px;
   margin-bottom: 200px;
 
 }
@@ -755,8 +825,8 @@
 .tour-image {
     position: absolute;
     border-radius: 10px;
-    width: 380px;
-    height: 250px;
+    width: 30%;
+    height: 80%;
     object-fit: cover;
     left: 68%;
     top: 30px;
@@ -785,8 +855,22 @@
   padding-bottom: 50px;
 }
   
+
   
-  
+  /*-----------Hamburger icon------------------------*/
+
+  .navbar-toggler { 
+    left: 220px;
+    top: 25px;
+    position: fixed;
+    display: none; 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    color: white;
+  }
+  .navbar-collapse.show { display: flex; /* Show the navbar when toggled */}
   /*-----------------------------------*\
    * #MEDIA QUERIES
   \*-----------------------------------*/
@@ -794,18 +878,114 @@
   /**
    * responsive for larger than 580px screen
    */
-  
-  @media (min-width: 580px) {
+   @media (max-width: 575px) {
+    .navbar-toggler { display: block;} 
+    .navbar-collapse {
+      display: none; 
+      flex-direction: column; 
+      background-color: var(--bright-navy-blue-blur);
+      position: absolute; 
+      top: 75px; 
+      width: 250px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  .dropdown .dropdown-toggle{
+      margin-left: 7px;
+  }
+  .tour-search .form-control{
+    width: 150px;
+  }
+  .tour-search .btn-secondary{
+    margin-left: 25px;
+  }
+  /* Tour phổ biến */
+  .header-popular h2{
+    font-size: 1.1rem;
+  }
+  .header-popular{
+    margin-left: -15px;
+    display: block;
+    text-align: center;
+  }
+  .header-popular .icon-group{
+    margin-top: -80px;
+    margin-left: 190px;
+    margin-bottom: -30px;
+  }
+}
+  @media (min-width: 576px) {
+    .navbar-toggler { display: block;} 
+    .navbar-collapse {
+      display: none; 
+      flex-direction: column; 
+      padding-left: 0px;
+      background-color: var(--bright-navy-blue-blur);
+      position: absolute; 
+      top: 75px; 
+      width: 250px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  .dropdown .dropdown-toggle{
+    margin-left: 7px;
+}
+.tour-search .btn-secondary{
+  margin-left: 30px;
+}
+  /* Tour phổ biến */
     .responsive {
       flex: 0 1 calc(50% - 20px); 
   }
-  .gallery2 { flex: 1 1 100%; max-width: 100%;  }
-  
+  .header-popular h2{
+    font-size: 1.1rem;
+  }
+  .header-popular{
+    margin-left: -100px;
+    display: block;
+    text-align: center;
+  }
+  .header-popular .icon-group{
+    margin-top: -80px;
+    margin-left: 280px;
+    margin-bottom: -30px;
+  }
+  /* Tour đặc biệt */
+  .gallery2 {
+    flex: 0 1 100%;
+}
+.tourdacbiet h2.tour-list {
+    font-size: 1.1rem;
+}
+.desc {
+    font-size: 1rem;
+}
+#xemthem {
+    padding: 8px 15px;
+    font-size: 1.1rem;
+}
+  /* Đánh giá */
+
+ .danhgia h2 {
+    font-size: 1.1rem; /* Giảm kích thước tiêu đề */
+}
+.tour-details {
+    font-size: 1rem;
+    width: 200px;
+    padding: 6px 8px;
+}
+.tour-evaluate {
+    font-size: 0.8rem;
+}
+.tour-avatar {
+    width: 20px;
+    height: 20px;
+}
     /**
      * REUSED STYLE
      */
   
-     .container {
+     /* .container {
       max-width: 580px;
       margin-inline: auto;
     }
@@ -821,7 +1001,7 @@
   
     .section-text { margin-bottom: 40px; }
   
-    .card-text { --fs-5: 15px; }
+    .card-text { --fs-5: 15px; } */
    
   
     
@@ -830,7 +1010,7 @@
      * HEADER
      */
   
-    .header { padding-top: 0px; }
+    /* .header { padding-top: 0px; }
   
     .helpline-box .icon-box { padding: 14px; }
   
@@ -843,7 +1023,7 @@
     .header .btn {
       --fs-5: 14px;
       --padding: 6px 20px;
-    } 
+    }  */
   
   
     /**
@@ -861,76 +1041,9 @@
   
    */
   
-    /*TOUR SEARCH*/
-     
+    
   
-    .tour-search-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: flex-end;
-      gap: 15px;
-    }
-  
-    .tour-search-form .input-wrapper { margin-bottom: 0; }
-  
-    .tour-search-form .input-field { padding: 10px 20px; }
-  
-    .tour-search .btn {
-      grid-column: span 2;
-      margin-top: 20px;
-    } 
-  
-  
-  
-    /**
-     * POPULAR
-     */
-    .popular-card .card-content { right: auto; }
-  
-    .header-popular{
-      display: flex;
-      margin-left: 40%;
-    }
-    .icon-group{
-      margin-left: 350px;
-      display: flex;
-    }
-    .icon-group button{
-      margin-right: 10px;
-      margin-top: 100px;
-      height: 30px;
-    }
-    .icon-group .fa-solid{
-      padding: 5px 10px;
-      color: var(--bright-navy-blue);
-      border: 2px solid var(--bright-navy-blue);
-      height: 30px;
-    }
-
-    .slider2{
-      display: none;
-    }
-    .slider-popular {
-      margin-left: 50px;
-      margin-right: 50px;
-      transform: translateX(100%);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .slider-popular.active-p {
-      display: block;
-      opacity: 1;
-      transform: translateX(0);
-  }
-  
-    /**
-     * FOOTER
-     */
-  
-    .footer .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
+    
   
     /* .footer-form { grid-column: span 2; }
   
@@ -955,14 +1068,77 @@
     /**
      * CUSTOM PROPERTY
      */
-  
+     .navbar-toggler { display: block;} 
+     .navbar-collapse {
+      display: none; 
+      flex-direction: column; 
+      background-color: var(--bright-navy-blue-blur);
+      padding-left: 0px;
+      position: absolute; 
+      border-bottom: none;
+      top: 75px; 
+      width: 250px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  .dropdown .dropdown-toggle{
+    margin-left: 7px;
+}
+
+.tour-search .btn-secondary{
+  margin-left: 30px;
+}
+.tour-search .form-control{
+  width: 200px;
+}
      .responsive {
       flex: 0 1 calc(50% - 20px); /* 2 cột */
   }
+  /* Tour nổi bật */
+  .header-popular h2{
+    font-size: 1.5rem;
+    align-items: center;
+  }
+  .header-popular{
+    display: flex;
+    margin-left: 150px;
+    width: 400px;
+    gap: 10px;
+    align-items: center;
+  }
+  .header-popular .icon-group{
+    margin-left: 30px;
+  }
+  /* Tour đặc biệt */
   .gallery2 {
-    flex: 1 1 calc(50% - 20px); 
-    max-width: calc(50% - 20px);
+    flex: 0 1 calc(100% - 20px); /* Hiển thị 1 cột */
+  }
+  .tourdacbiet h2.tour-list {
+      font-size: 1.5rem;
+  }
+  .chi-tiet-btn {
+      padding: 6px 10px;
+      font-size: 1.2rem;
+  }
+  /* Đánh giá */
+
+  .danhgia .tour-card {
+    flex: 1 1 100%; /* Chuyển thành 1 cột */
+    max-width: 100%;
 }
+.danhgia h2 {
+  font-size: 1.3rem; /* Giảm kích thước tiêu đề */
+}
+.tour-details {
+  font-size: 1.2rem;
+  width: 400px;
+  padding: 6px 8px;
+}
+.tour-evaluate {
+  font-size: 1.1rem;
+}
+
+
     :root {
   
       /**
@@ -979,20 +1155,20 @@
      * REUSED STYLE
      */
   
-    .container { max-width: 800px; }
+    /* .container { max-width: 800px; }
   
     .section-text {
       max-width: 60ch;
       margin-inline: auto;
     }
-  
+   */
   
   
     /**
      * HEADER
      */
   
-    .helpline-box {
+    /* .helpline-box {
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -1005,7 +1181,7 @@
       font-size: var(--fs-6);
     }
   
-    .social-list { gap: 10px; }
+    .social-list { gap: 10px; } */
   
   
   
@@ -1032,7 +1208,7 @@
      * PACKAGE
      */
   
-    .package-list { margin-bottom: 50px; }
+    /* .package-list { margin-bottom: 50px; }
   
     .package-list > li:not(:last-child) { margin-bottom: 40px; }
   
@@ -1050,7 +1226,7 @@
       place-content: center;
     }
   
-    .package-card .card-price .wrapper { margin-bottom: 15px; }
+    .package-card .card-price .wrapper { margin-bottom: 15px; } */
   
   
   
@@ -1058,7 +1234,7 @@
      * GALLERY
      */
   
-    .gallery { padding-bottom: calc(var(--section-padding * 2)); }
+    /* .gallery { padding-bottom: calc(var(--section-padding * 2)); }
   
     .gallery-list {
       grid-template-columns: repeat(3, 1fr);
@@ -1066,14 +1242,14 @@
     }
   
     .gallery-image { border-radius: var(--radius-25); }
-  
+   */
   
   
     /**
      * CTA
      */
   
-    .cta .container {
+    /* .cta .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1082,14 +1258,14 @@
     .cta-content { width: calc(100% - 225px); }
   
     .cta .section-text { margin-inline: 0; }
-  
+   */
   
   
     /**
      * FOOTER
      */
   
-    .form-wrapper {
+    /* .form-wrapper {
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -1098,7 +1274,7 @@
   
     .footer-form .input-field { margin-bottom: 0; }
   
-    .footer-form .btn { width: max-content; }
+    .footer-form .btn { width: max-content; } */
   
   }
   
@@ -1114,15 +1290,69 @@
     /**
      * REUSED STYLE
      */
-  
+     .navbar-toggler { display: none;}  
+     .navbar-collapse {
+      display: flex; /* Hiển thị menu ngang mặc định */
+      flex-direction: row; /* Sắp xếp theo hàng ngang */
+      justify-content: flex-end; /* Căn menu sang bên phải */
+      align-items: center;
+      background-color: transparent; /* Không có nền */
+      position: static; /* Không ảnh hưởng các thành phần khác */
+      box-shadow: none; /* Không có hiệu ứng bóng */
+      width: auto; /* Chiều rộng tự động */
+      z-index: auto; /* Giá trị z-index mặc định */
+  }
+
+  .tour-search .btn-secondary{
+    margin-left: 10px;
+  }
+  .tour-search .form-control{
+    width: 180px;
+  }
      .responsive {
       flex: 0 1 calc(33.333% - 20px); /* 3 cột */
   }
-  .gallery2 { flex: 1 1 35%; /* Three items per row */ max-width: 35%; /* Ensure items don't exceed 30% width */}
+  /* Tour nổi bật */
+
+  .header-popular h2{
+    font-size: 1.5rem;
+    align-items: center;
+  }
+  .header-popular{
+    display: flex;
+    margin-left: 40%;
+    width: 800px;
+    gap: 10px;
+    align-items: center;
+  }
+  .header-popular .icon-group{
+    margin-left: 290px;
+  }
+  /* Tour nổi đặc biệt */
+    .gallery2 {
+      flex: 0 1 calc(50% - 15px); /* Thu hẹp khoảng trống */
+  }
+  .tourdacbiet h2.tour-list {
+      font-size: 1.5rem;
+  }
     .container { max-width: 1050px; }
+  /* Đánh giá */
+    .tour-card {
+      flex: 1 1 calc(50% - 20px); /* Chia 2 cột */
+      max-width: calc(50% - 20px);
+  }
   
-  
-  
+  .danhgia h2 {
+    font-size: 1.5rem; /* Giảm kích thước tiêu đề */
+  }
+  .tour-details {
+    font-size: 1.2rem;
+    width: 500px;
+    padding: 6px 8px;
+  }
+  .tour-evaluate {
+    font-size: 1.1rem;
+  }
     /**
      * HEADER
      */
@@ -1181,6 +1411,9 @@
     .overlay { display: none; } 
   
   
+
+    /* header cho responsive */
+    
   
     /**
      * HERO
@@ -1261,11 +1494,23 @@
     /**
      * CUSTOM PROPERTY
      */
-  
+     .navbar-toggler { display: none;}
+     .navbar-collapse {
+      display: flex; /* Hiển thị menu ngang mặc định */
+      flex-direction: row; /* Sắp xếp theo hàng ngang */
+      justify-content: flex-end; /* Căn menu sang bên phải */
+      align-items: center;
+      background-color: transparent; /* Không có nền */
+      position: static; /* Không ảnh hưởng các thành phần khác */
+      box-shadow: none; /* Không có hiệu ứng bóng */
+      width: auto; /* Chiều rộng tự động */
+      z-index: auto; /* Giá trị z-index mặc định */
+  }
      .responsive {
       flex: 0 1 calc(25% - 20px); /* 4 cột */
-  }
-  .gallery2 { flex: 1 1 33%; /* Three items per row */ max-width: 33%; /* Ensure items don't exceed 30% width */}
+      }
+      
+      .gallery2 { flex: 1 1 33%;  max-width: 33%; }
     :root {
   
       /**

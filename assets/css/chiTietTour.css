@@ -208,14 +208,22 @@
 }
 
 .dontour-container .pdf {
-    background-color: #ffa500;
+    background-color: white;
+    color: var(--bright-navy-blue);
+    border: 1px solid var(--bright-navy-blue);
 }
-
+.dontour-container .quaylai{
+    margin-top: 30px;
+    margin-bottom: -75px;
+}
 .dontour-container .confirm {
     background-color: var(--bright-navy-blue);
 }
 
-
+.dontour-container .form-group #locationInfo, #contactInfo, #emailInfo{
+    margin-left: -90px;
+    width: 280px;
+}
 .dontour-container a{
     border: 2px solid var(--bright-navy-blue);
     color: var(--bright-navy-blue); 

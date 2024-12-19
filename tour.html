@@ -22,23 +22,24 @@
 
 <body id="top">
     
+
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
-        <a href="trangChu.html">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
             <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -48,6 +49,7 @@
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color active-header">Tour</a></li>
                     <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
                     <li class="nav-item" style="display: none;">
                         <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
@@ -75,13 +77,12 @@
                         </div>    
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
+    </nav> 
     <main>
         <article>
     <!-- Trang Tour Miền Bắc -->
-    <section id="tourModel">
+    <div id="tourModel">
         <section class="page-tour" id="home">
             <section class="content">
             <h1>Khám phá thế giới, chỉ một cú click
@@ -90,7 +91,7 @@
         </section>   
 
         <div class="specialtour-container">
-            <section class="special-tours">
+            <div class="special-tours">
                 <h2>Gói tour đặc biệt</h2>
                 <div class="slider-popular-ds">
                     <div class="responsive">
@@ -100,10 +101,10 @@
                             </a>
                             <div class="price-tag">Giá từ 4.900.000đ</div>
                             <div class="desc">
-                                <div id="province"> Sapa - Lào Cai</div>
-                                <div id="dest">Cát Cát, Mường Hoa, Xã Y Tý</div>
-                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div> 
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <div class="province"> Sapa - Lào Cai</div>
+                                <div class="dest">Cát Cát, Mường Hoa, Xã Y Tý</div>
+                                <div class="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div> 
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -116,10 +117,10 @@
                             </a>
                             <div class="price-tag">Giá từ 4.900.000đ</div>
                             <div class="desc">
-                                <div id="province"> Sài Gòn - Miền Tây</div>
-                                <div id="dest">Châu Đốc, Long Xuyên, Cánh đồng điện gió</div>
-                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <div class="province"> Sài Gòn - Miền Tây</div>
+                                <div class="dest">Châu Đốc, Long Xuyên, Cánh đồng điện gió</div>
+                                <div class="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -132,10 +133,10 @@
                             </a>
                             <div class="price-tag">Giá từ 4.900.000đ</div>
                             <div class="desc">
-                                <div id="province"> Phú Quốc -Rạch Giá</div>
-                                <div id="dest">Hòn Thơm, Rạch Giá, VinWonders Phú Quốc</div>
-                                <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <div class="province"> Phú Quốc -Rạch Giá</div>
+                                <div class="dest">Hòn Thơm, Rạch Giá, VinWonders Phú Quốc</div>
+                                <div class="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -148,20 +149,20 @@
                         </a>
                         <div class="price-tag">Giá từ 4.900.000đ</div>
                         <div class="desc">
-                            <div id="province"> Hà Giang - Đồng Văn</div>
-                            <div id="dest">Mã Pí Lèng, Đồng Văn, Hoàng Su Phì</div>
-                            <div id="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
-                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <div class="province"> Hà Giang - Đồng Văn</div>
+                            <div class="dest">Mã Pí Lèng, Đồng Văn, Hoàng Su Phì</div>
+                            <div class="price"><i class="fa fa-dollar"></i>Bao gồm chi phí dịch vụ, ăn uống, khách sạn,...</div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                             <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                         </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <a href="tourDacBiet.html" class="view-more">Xem thêm</a>
         </div>
         <div class="specialtour-container">
-            <section class="special-tours">
+            <div class="special-tours">
                 <h2>Tour miền bắc</h2>
                 <div class="slider-popular-ds">
                     <div class="responsive">
@@ -170,10 +171,10 @@
                                 <img src="assets/images/maichau-hoabinh.png">
                             </a>
                             <div class="desc">
-                                <div id="province"> Mai Châu - Hòa Bình</div>
-                                <div id="dest">Bản Lác, Hang Chiều, Hồ Suối Hai, Thung Nai</div>
-                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <div class="province"> Mai Châu - Hòa Bình</div>
+                                <div class="dest">Bản Lác, Hang Chiều, Hồ Suối Hai, Thung Nai</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">1.550.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -185,10 +186,10 @@
                                 <img src="assets/images/caobang-langson.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province">Cao Bằng - Lạng Sơn</div>
-                                <div id="dest">Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Ky</div>
-                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div> 
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <div class="province">Cao Bằng - Lạng Sơn</div>
+                                <div class="dest">Chùa Phật Tích Trúc Lâm, Làng đá cổ Khuổi Ky</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">950.000VND</label></div> 
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -200,10 +201,10 @@
                                 <img src="assets/images/laocai-yenbai.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province"> Lào Cai - Yên Bái - Phú Thọ</div>
-                                <div id="dest">Suối nước nóng Minh Quân, Mù Cang Chải, Sapa</div>
-                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <div class="province"> Lào Cai - Yên Bái - Phú Thọ</div>
+                                <div class="dest">Suối nước nóng Minh Quân, Mù Cang Chải, Sapa</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">900.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -215,20 +216,20 @@
                             <img src="assets/images/tuyenquang-phutho.jpg">
                         </a>
                         <div class="desc">
-                            <div id="province">Tuyên Quang - Phú Thọ</div>
-                            <div id="dest">Khu di tích Tân Trào,Thác Khuôn Tát, Hồ Gia Thanh</div>
-                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
-                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <div class="province">Tuyên Quang - Phú Thọ</div>
+                            <div class="dest">Khu di tích Tân Trào,Thác Khuôn Tát, Hồ Gia Thanh</div>
+                            <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">550.000VND</label></div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                             <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                         </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <a href="mienBac.html" class="view-more">Xem thêm</a>
         </div>
         <div class="specialtour-container">
-            <section class="special-tours">
+            <div class="special-tours">
                 <h2>Tour miền trung</h2>
                 <div class="slider-popular-ds">
                     <div class="responsive">
@@ -237,10 +238,10 @@
                                 <img src="assets/images/quangnam1.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province"> Quảng Nam - Quảng Ngãi</div>
-                                <div id="dest">Cù Lao Chàm, Thánh địa Mỹ Sơn, Biển Mỹ Khê</div>
-                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <div class="province"> Quảng Nam - Quảng Ngãi</div>
+                                <div class="dest">Cù Lao Chàm, Thánh địa Mỹ Sơn, Biển Mỹ Khê</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">1.550.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -252,10 +253,10 @@
                                 <img src="assets/images/danang1.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province">Đà Nẵng - Hội An - Huế</div>
-                                <div id="dest">Bà Nà Hills, Chùa Cầu, Phố cổ Hội An</div>
-                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <div class="province">Đà Nẵng - Hội An - Huế</div>
+                                <div class="dest">Bà Nà Hills, Chùa Cầu, Phố cổ Hội An</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">950.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -267,10 +268,10 @@
                                 <img src="assets/images/quangtri.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province">Quảng Trị - Quảng Bình</div>
-                                <div id="dest">Địa đạo Vịnh Mốc, Vườn quốc gia Phong Nha - Kẻ Bàng</div>
-                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <div class="province">Quảng Trị - Quảng Bình</div>
+                                <div class="dest">Địa đạo Vịnh Mốc, Vườn quốc gia Phong Nha - Kẻ Bàng</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">900.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -282,20 +283,20 @@
                             <img src="assets/images/phuyen.jpg">
                         </a>
                         <div class="desc">
-                            <div id="province">Phú Yên</div>
-                            <div id="dest">Bãi Xếp, Gành Đá Đĩa, Đầm Ô Loan</div>
-                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
-                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <div class="province">Phú Yên</div>
+                            <div class="dest">Bãi Xếp, Gành Đá Đĩa, Đầm Ô Loan</div>
+                            <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">550.000VND</label></div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                             <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                         </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <a href="mienTrung.html" class="view-more">Xem thêm</a>
         </div>
         <div class="specialtour-container">
-            <section class="special-tours">
+            <div class="special-tours">
                 <h2>Tour miền nam</h2>
                 <div class="slider-popular-ds">
                     <div class="responsive">
@@ -304,10 +305,10 @@
                                 <img src="assets/images/vungtau.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province"> TP.Hồ Chí Minh - Cần Giờ</div>
-                                <div id="dest">Dinh Độc Lập, Khu sinh quyển Cần Giờ</div>
-                                <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                                <div class="province"> TP.Hồ Chí Minh - Cần Giờ</div>
+                                <div class="dest">Dinh Độc Lập, Khu sinh quyển Cần Giờ</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">1.550.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -319,10 +320,10 @@
                                 <img src="assets/images/phuquoc.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province">Phú Quốc - Tây Ninh</div>
-                                <div id="dest">Vinpearl Phú Quốc, Vườn quốc gia Phú Quốc, Chùa Bà Đen</div>
-                                <div id="price"><i class="fa fa-dollar"></i>950.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                                <div class="province">Phú Quốc - Tây Ninh</div>
+                                <div class="dest">Vinpearl Phú Quốc, Vườn quốc gia Phú Quốc, Chùa Bà Đen</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">950.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -334,10 +335,10 @@
                                 <img src="assets/images/binhduong.jpg">
                             </a>
                             <div class="desc">
-                                <div id="province"> Bình Dương - Bình Phước</div>
-                                <div id="dest">Khu du lịch Đại Nam, Chùa Bà Châu Đốc, Chùa Côn Sơn</div>
-                                <div id="price"><i class="fa fa-dollar"></i>900.000VND</div>
-                                <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                                <div class="province"> Bình Dương - Bình Phước</div>
+                                <div class="dest">Khu du lịch Đại Nam, Chùa Bà Châu Đốc, Chùa Côn Sơn</div>
+                                <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">900.000VND</label></div>
+                                <div class="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
                                 <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                             </div>
                         </div>
@@ -349,19 +350,19 @@
                             <img src="assets/images/soctrang.jpg">
                         </a>
                         <div class="desc">
-                            <div id="province"> Cà Mau - Sóc Trăng</div>
-                            <div id="dest">Vườn quốc gia Cà Mau, Chùa Dơi, Rừng U Minh Hạ</div>
-                            <div id="price"><i class="fa fa-dollar"></i>550.000VND</div>
-                            <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                            <div class="province"> Cà Mau - Sóc Trăng</div>
+                            <div class="dest">Vườn quốc gia Cà Mau, Chùa Dơi, Rừng U Minh Hạ</div>
+                            <div class="price"><i class="fa fa-dollar"></i><label style="color: red;">550.000VND</label></div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                             <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                         </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <a href="mienNam.html" class="view-more">Xem thêm</a>
         </div>
-    </section>
+    </div>
     
 
 

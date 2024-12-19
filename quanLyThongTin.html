@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./assets/css/qlThongTin.css"> 
     <link rel="stylesheet" href="./assets/css/footer.css">
     <style>
+        
         .navbar-link:hover { color: var(--bright-navy-blue); }
         .stars {
             font-size: 2rem;
@@ -37,22 +38,23 @@
 
 <body id="top">
     
+
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
-        <a href="trangChu.html">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
-                    <li class="nav-item"><a href="trangChu.html" class="navbar-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link">Giới thiệu</a></li>
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link ">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link ">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -61,7 +63,8 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
-                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
                     <li class="nav-item" style="display: none;">
                         <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
@@ -89,9 +92,8 @@
                         </div>    
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
+    </nav> 
 
     <main>
         <article>
@@ -201,9 +203,9 @@
                             <div class="order-summary">
                                 <div class="waitforpay"><i class="fa-solid fa-check"></i><span class="status" style="color:#18AB2E;">HOÀN THÀNH</span></div>
                                 <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
-                                <button id="cancel-button" class="btn cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
-                                <a href="thongTinDatTour.html" class="btn rebook-btn">Đặt lại</a>
-                                <a href="#reviewtour"  class="btn review-btn">Đánh giá</a>
+                                <button id="cancel-button" class="btngroup cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
+                                <a href="thongTinDatTour.html" class="btngroup rebook-btn" >Đặt lại</a>
+                                <a href="#reviewtour"  class="btngroup review-btn">Đánh giá</a>
                             </div>
                         </div>
                         <div class="order-card">
@@ -216,7 +218,7 @@
                             <div class="order-summary">
                                 <div class="waitforpay"><i class="fa-solid fa-xmark"></i><span class="status" style="color: red;">ĐÃ HỦY</span></div>
                                 <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold; margin-left: 10px;">5.540.000VND</span></p>
-                                <a href="thongTinDatTour.html" class="btn rebook-btn">Đặt lại</a>
+                                <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>
                             </div>
                         </div>
                     </div>
@@ -239,8 +241,8 @@
                             <div class="order-summary">
                                 <div class="waitforpay"><i class="bi bi-cash-stack"></i><span class="status">CHỜ THANH TOÁN</span></div>
                                 <p>Tổng tiền: <span style="color: red; font-weight: bold; margin-left: 10px;">5.540.000VND</span></p>
-                                <a href="thongTinDatTour.html" class="btn pay-btn">Đặt lại</a>
-                                <a href="#reviewtour" class="btn review-btn">Đánh giá</a>
+                                <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>
+                                <a href="#reviewtour" class="btngroup review-btn">Đánh giá</a>
                             </div>
                         </div>
                     </div>
@@ -262,10 +264,10 @@
                                 <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
                             </div>
                             <div class="order-summary">
-                                <div class="finish"><span class="status" style="color: #18AB2E;">HOÀN THÀNH</span></div>
-                                <p>Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
-                                <button class="btn review-btn">Đánh giá</button>
-                                <a href="thongTinDatTour.html" class="btn cancel-btn">Đặt lại</a>
+                                <div class="finish"><i class="fa-solid fa-check"></i><span class="status" style="color: #18AB2E;">HOÀN THÀNH</span></div>
+                                <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                                <button class="btngroup review-btn">Đánh giá</button>
+                                <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>
                             </div>
                         </div>
                     </div>
@@ -287,10 +289,9 @@
                                 <div><i class="fa-solid fa-tag"></i><label class="price" style="color: red;">1.550.000VND</label></div>
                             </div>
                             <div class="order-summary">
-                                <div class="finish"><span class="status">ĐÃ HỦY</span></div>
-                                <p class="cancel-price">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
-                                <button class="btn pay-btn">Chi tiết hủy</button>
-                                <button class="btn cancel-btn">Đặt lại</button>
+                                <div class="finish"><i class="fa-solid fa-xmark"></i><span class="status" style="color: red;">ĐÃ HỦY</span></div>
+                                <p class="cancel-price" style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold;">5.540.000VND</span></p>
+                                <button class="btngroup rebook-btn">Đặt lại</button>
                             </div>
                         </div>
                     </div>
@@ -338,7 +339,7 @@
                         </div>
                         <div class="order-summary">
                             <div class="waitforpay"><i class="fa-solid fa-heart"></i></div>
-                            <a href="chiTietTour.html" class="btn pay-btn xemct">Xem chi tiết</a>
+                            <a href="chiTietTour.html" class="btngroup pay-btn xemct">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -348,16 +349,12 @@
                 <div class="popup-content">
                     <div class="popup-header">
                         <h3>Thông báo</h3>
-                        <span id="close-btn" class="close-btn">&times;</span>
                     </div>
                     <div class="popup-body">
                         <div class="icon-success">
                             &#10004;
                         </div>
                         <p>Đổi mật khẩu thành công!</p>
-                    </div>
-                    <div class="popup-footer">
-                        <button id="confirm-btn" class="confirm-btn">Đã hiểu</button>
                     </div>
                 </div>
             </div>
@@ -366,7 +363,6 @@
                 <div class="popup-content">
                     <div class="popup-header">
                         <h3>Thông báo</h3>
-                        <span id="close-btn" class="close-btn">&times;</span>
                     </div>
                     <div class="popup-body">
                         <div class="icon-success">
@@ -374,12 +370,8 @@
                         </div>
                         <p>Cập nhật thông tin thành công!</p>
                     </div>
-                    <div class="popup-footer">
-                        <button id="confirm-btn" class="confirm-btn">Đã hiểu</button>
-                    </div>
                 </div>
             </div>
-            <!-- Yêu thích -->
             
             <!-- Modal đánh giá -->
             <div id="review-modal" class="review-container">
@@ -398,28 +390,23 @@
                         </div>
                         <textarea placeholder="Chia sẻ trải nghiệm của bạn về chuyến đi..."></textarea>
                         <div class="review-actions">
-                            <button class="cancel-btn">Hủy</button>
+                            <button class="cancel-btn huy-review">Hủy</button>
                             <button class="submit-btn">Gửi</button>
                         </div>
                     </div>
                 </div>
             </div>
                         <!-- Thông báo cảm ơn đánh giá -->
-                        <div id="popup-thankyou" class="popup-thankyou-container">
-                            <div class="popup-thankyou">
+                        <div id="popup-thankyou" class="popup">
                                 <div class="popup-content">
                                     <div class="popup-header">
                                         <h3>Thông báo</h3>
-                                        <span id="close-btn-thankyou" class="close-btn">&times;</span>
                                     </div>
                                     <div class="popup-body">
                                         <div class="icon-success">
                                             &#10004;
                                         </div>
                                         <p>Cảm ơn đánh giá của bạn!</p>
-                                    </div>
-                                    <div class="popup-footer">
-                                        <button id="confirm-btn-thankyou" class="confirm-btn">Đã hiểu</button>
                                     </div>
                                 </div>
                             </div>
@@ -429,7 +416,7 @@
                             <div class="popup-content popup-cancel">
                                 <div class="popup-header">
                                     <h3>Thông báo</h3>
-                                    <span id="close-btn" class="close-btn">&times;</span>
+                                    <span id="close-btn-tour" class="close-btn">&times;</span>
                                 </div>
                                 <div class="popup-body">
                                     <div class="icon-warning" style="color: red; font-size: 30px;">
@@ -439,27 +426,23 @@
                                 </div>
                                 <div class="popup-footer">
                                     <div class="review-actions">
-                                        <button class="cancel-btn">Hủy</button>
+                                        <button id="huy-tour" class="cancel-btn">Hủy</button>
                                         <button id="confirm" class="cancel-btn" style="background-color: var(--bright-navy-blue); color: white;">Xác nhận</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Thông báo lưu thông tin thành công -->
+
             <div id="canceltour" class="popup">
                 <div class="popup-content canceltour">
                     <div class="popup-header">
-                        <h3>Thông báo</h3>
-                        <span id="close-btn" class="close-btn">&times;</span>
+                        <h3>Thông báo</h3>    
                     </div>
                     <div class="popup-body">
                         <div class="icon-success">
                             &#10004;
                         </div>
                         <p>Đã hủy tour thành công!</p>
-                    </div>
-                    <div class="popup-footer">
-                        <button id="confirm-btn" class="confirm-btn">Đã hiểu</button>
                     </div>
                 </div>
             </div>
@@ -543,25 +526,24 @@
         }
     //Thông báo đổi mật khẩu thành công
     document.querySelector('[href="#save-information"]').addEventListener("click", function () {
-    document.getElementById("popup").style.display = "flex";
-    });
+        const popupmk = document.getElementById("popup");
+        popupmk.style.display = "block"; 
 
+        setTimeout(function() {
+            popupmk.style.display = "none";
+        }, 3000); 
+    });
+    //Thông báo lưu thông tin thành công
     document.querySelector('[href="#save"]').addEventListener("click", function () {
-    document.getElementById("popup").style.display = "flex";
+        const popup = document.getElementById("popup-update-save");
+        popup.style.display = "block"; 
+
+        // Tự động ẩn popup sau 3 giây
+        setTimeout(function() {
+            popup.style.display = "none";
+        }, 3000); 
     });
-    // Thông báo lưu thay đổi thông tin
-    document.querySelectorAll('.confirm-btn').forEach(function (element) {
-        element.addEventListener("click", function () {
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("canceltour").style.display = "none";
-    });
-    });
-    document.querySelector('[href="#save"]').addEventListener("click", function () {
-    document.getElementById("popup").style.display = "flex";
-    });
-    document.getElementById("close-btn").addEventListener("click", function () {
-    document.getElementById("popup").style.display = "none"; 
-    });
+    
     //Hiển thị đánh giá
     document.querySelectorAll('[href="#reviewtour"]').forEach(function (element) {
     element.addEventListener("click", function () {
@@ -571,36 +553,53 @@
     document.getElementById("close-btn-review").addEventListener("click", function () {
     document.getElementById("review-modal").style.display = "none";
     });
-    document.querySelectorAll('.cancel-btn').forEach(function (element) {
+    //Hủy đánh giá
+    document.querySelectorAll('.huy-review').forEach(function (element) {
     element.addEventListener("click", function () {
         document.getElementById("review-modal").style.display = "none";
-        document.getElementById("popup-cancel").style.display = "none";
+        // document.getElementById("popup-cancel").style.display = "block";
     });
+    });
+    //Hủy xoá tour
+    document.getElementById("huy-tour").addEventListener("click", function () {
+    document.getElementById("popup-cancel").style.display = "none"; 
+    });
+    document.getElementById("close-btn-tour").addEventListener("click", function () {
+    document.getElementById("popup-cancel").style.display = "none"; 
+    });
+    //Xác nhận hủy tour
+    document.getElementById("confirm").addEventListener("click", function () {
+    document.getElementById("popup-cancel").style.display = "none"; 
+    const popupcancel = document.getElementById("canceltour");
+        popupcancel.style.display = "block"; 
+
+        setTimeout(function() {
+            popupcancel.style.display = "none";
+        }, 3000); 
     });
     //Cảm ơn đánh giá
     document.querySelectorAll('.submit-btn').forEach(function (element) {
     element.addEventListener("click", function () {
         document.getElementById("review-modal").style.display = "none";
         document.getElementById("popup-thankyou").style.display = "block";
+        setTimeout(function() {
+            document.getElementById("popup-thankyou").style.display = "none";
+        }, 3000); 
 
     });
     });
-    document.getElementById("confirm-btn-thankyou").addEventListener("click", function () {
-    document.getElementById("popup-thankyou").style.display = "none";
-    });
-    document.getElementById("close-btn-thankyou").addEventListener("click", function () {
-    document.getElementById("popup-thankyou").style.display = "none"; 
-    });
+    
     document.getElementById("cancel-button").addEventListener("click", function () {
     document.getElementById("popup-cancel").style.display = "block"; 
     });
-    document.getElementById("confirm").addEventListener("click", function () {
-    document.getElementById("popup-cancel").style.display = "none"; 
-    document.getElementById("canceltour").style.display = "block"; 
-    });
+    
     </script>
     <!-- Hiệu ứng đánh giá sao -->
     <script>
+        const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');}); 
+        
         const stars = document.querySelectorAll('.star');
         const reviewModal = document.querySelector('.review-modal');
 

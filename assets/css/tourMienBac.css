@@ -81,9 +81,7 @@
     height: 30px;
 
 }
-#mienBacModal, #mienNamModal, #mienTrungModal, #tourdbModel{
-    height: 2900px;
-}
+
 
 
 
@@ -91,14 +89,14 @@
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    max-height: 470px;
     margin: 200px auto;
 }
 
 .filter {
-    background-color: rgb(154,211,226);
+    background-color: rgb(154,211,226, 0.5);
     padding: 20px;
     border-radius: 8px;
+    height: 480px;
     width: 450px;
 }
 
@@ -160,7 +158,6 @@
     font-size: 22px;
     margin-bottom: 20px;
 }
-
 .result-item {
     display: flex;
     background-color: white;
@@ -241,9 +238,10 @@
     text-align: right;
 }
 .filter .filter-btn{
-    background-color: rgb(2,155,197);
+    background-color: var(--bright-navy-blue);
     padding: 10px 50px;
     border-radius: 10px;
+    color: white;
 }
 .price-and-button a{
     text-align: center;
@@ -295,3 +293,6 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+
+
+

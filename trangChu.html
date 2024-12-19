@@ -24,23 +24,23 @@
 <body id="top">
     <!-- header section  -->
     
-    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
-        <a href="trangChu.html">
+     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
             <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo" style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="trangChu.html" class="navbar-link change-color active-header">Trang chủ</a></li>
                     <li class="nav-item"><a href="gioiThieu.html" class="navbar-link change-color">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -50,6 +50,7 @@
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
                     <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
                     <li class="nav-item" style="display: none;">
                         <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
@@ -77,18 +78,16 @@
                         </div>    
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
-    
+    </nav> 
 
     <main>
         <article>
             
         <div class="main-container">
         
-            <section id="trangchu">
-                <section class="hero" id="home" id="login-modal">
+            <div id="trangchu">
+                <div class="hero" id="home" id="login-modal">
                     <div class="container text-center">
     
                         <h2 class="h1 hero-title">
@@ -96,8 +95,8 @@
                         </h2>
                                         
                     </div>
-                </section>
-                    <section class="tour-search py-4" style="max-width: 850px;">
+                </div>
+                    <div class="tour-search py-4" style="max-width: 850px;">
                         <div class="container" >    
                             <form action="" class="tour-search-form row gx-3 gy-2 justify-content-center align-items-center"> 
                                 <div class="col-12 col-md-4">
@@ -129,12 +128,12 @@
                                 </div>
                             </form>
                         </div>
-                     </section>
-            </section>
+                    </div>
+                </div>
 
             
              <!-- popular -->
-        <section class="tournoibat">
+        <div class="tournoibat">
             <div class="header-popular">
                 <h2 class = "popular_title">Điểm đến nổi bật trong tháng</h2>
                 <div class="icon-group">
@@ -149,10 +148,10 @@
                         <img src="assets/images/tournb_halong.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Quảng Ninh</div><br>
-                        <div id="dest">Vịnh Hạ Long - Thác Khe Vằn </div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                        <div class="province"> Quảng Ninh</div><br>
+                        <div class="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>1.550.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
@@ -164,10 +163,10 @@
                         <img src="assets/images/tournb_hoian.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Quảng Nam</div><br>
-                        <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                        <div class="province"> Quảng Nam</div><br>
+                        <div class="dest">Hội An - Đảo Tam Hải - VinWonders</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>950.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
@@ -179,10 +178,10 @@
                         <img src="assets/images/tournb_hue.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Thừa Thiên Huế</div><br>
-                        <div id="dest">Đại Nội - Đồi Thiên An - Làng Sình</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>900.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
+                        <div class="province"> Thừa Thiên Huế</div><br>
+                        <div class="dest">Đại Nội - Đồi Thiên An - Làng Sình</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>900.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2 ngày - 1 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
@@ -194,47 +193,16 @@
                         <img src="assets/images/tournb_ho-hoan-kiem.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Hà Nội</div><br>
-                        <div id="dest">Hồ Hoàn Kiếm - Hoàng Thành Thăng Long</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>550.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                        <div class="province"> Hà Nội</div><br>
+                        <div class="dest">Hồ Hoàn Kiếm - Hoàng Thành Thăng Long</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>550.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
                 </div>
             </div>
-            <div class="slider-popular slider1 active-p">
-                <div class="responsive">
-                    <div class="gallery">
-                    <a target="_blank" href="assets/images/tournb_halong.jpg">
-                        <img src="assets/images/tournb_halong.jpg">
-                    </a>
-                    <div class="desc">
-                        <div id="province"> Quảng Ninh</div><br>
-                        <div id="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
-                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
-                    </div>
-                    </div>
-                </div>
-                
-                <div class="responsive">
-                    <div class="gallery">
-                    <a target="_blank" href="assets/images/tournb_hoian.jpg">
-                        <img src="assets/images/tournb_hoian.jpg">
-                    </a>
-                    <div class="desc">
-                        <div id="province"> Quảng Nam</div><br>
-                        <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
-                        <button class="xem-chi-tiet-btn">Xem chi tiết</button>
-                    </div>
-                    </div>
-                </div>
-                
-            </div>
+            
             <div class="slider-popular slider2">
                 <div class="responsive">
                     <div class="gallery">
@@ -242,10 +210,10 @@
                         <img src="assets/images/tournb_halong.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Quảng Ninh</div><br>
-                        <div id="dest">Vịnh Hạ Long - Thác Khe Vằn - Hồ Yên Trung</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>1.550.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
+                        <div class="province"> Quảng Ninh</div><br>
+                        <div class="dest">Vịnh Hạ Long - Thác Khe Vằn</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>1.550.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>3 ngày - 2 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
@@ -257,28 +225,28 @@
                         <img src="assets/images/tournb_hoian.jpg">
                     </a>
                     <div class="desc">
-                        <div id="province"> Quảng Nam</div><br>
-                        <div id="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
-                        <div id="price"><i class="fa fa-dollar"></i>950.000VND</div><br> 
-                        <div id="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
+                        <div class="province"> Quảng Nam</div><br>
+                        <div class="dest">Hội An - Đảo Tam Hải - Khe Lim</div><br>
+                        <div class="price"><i class="fa fa-dollar"></i><label>950.000VND</label></div><br> 
+                        <div class="date"><i class="fa-solid fa-calendar-days"></i>1 ngày - 1 đêm</div>
                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                     </div>
                     </div>
                 </div>
             </div>
-    </section>
+        </div>
             
 
 
               <!-- package  -->
-    <section class="tourdacbiet">
-            <h2 class="tour-list">Các gói tour đặc biệt</h2>
+    <div class="tourdacbiet">
+        <h2 class="tour-list">Các gói tour đặc biệt</h2>
             <div class="gallery-container">
                     <div class="gallery2">
                         <img class="picture" src="assets/images/One_Pillar_Pagoda_Hanoi.jpg" alt="Hà Nội - Hải Phòng - Nghệ An">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 4.900.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Hà Nội - Hải Phòng - Nghệ An</div>
                             <div>Thời gian: 5 ngày 4 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -288,7 +256,7 @@
                         <img class="picture" src="assets/images/longan.jpg" alt="Long An - Tiền Giang - Kiên Giang">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 3.890.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Long An - Tiền Giang - Kiên Giang</div>
                             <div>Thời gian: 3 ngày 2 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -298,7 +266,7 @@
                         <img class="picture" src="assets/images/hue-nhatrang.jpg" alt="Huế - Nha Trang">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 3.500.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Huế - Nha Trang</div>
                             <div>Thời gian: 3 ngày 2 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -308,7 +276,7 @@
                         <img class="picture" src="assets/images/hue-saigon.jpg" alt="Huế - Sài Gòn">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 4.900.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Huế - Sài Gòn</div>
                             <div>Thời gian: 4 ngày 3 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -318,7 +286,7 @@
                         <img class="picture" src="assets/images/caobang-hatinh.jpg" alt="Cao Bằng - Hà Tĩnh">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 5.780.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Cao Bằng - Hà Tĩnh</div>
                             <div>Thời gian: 6 ngày 5 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -328,7 +296,7 @@
                         <img class="picture" src="assets/images/nghean-danang.jpg" alt="Nghệ An - Đà Nẵng - Quảng Nam">
                         <i class="fa-solid fa-heart"></i>
                         <div class="price-tag-db">Giá từ 4.790.000đ</div>
-                        <div class="desc">
+                        <div class="desc-special">
                             <div style="font-weight: bold;">Nghệ An - Đà Nẵng - Quảng Nam</div>
                             <div>Thời gian: 4 ngày 3 đêm</div>
                             <a href="link_to_detail_page_2.html" class="chi-tiet-btn">XEM NGAY</a>
@@ -339,9 +307,9 @@
                     <a href="tourDacBiet.html" id="xemthem">Xem thêm</a>
                 </div>
             </div>
-    </section>
+    </div>
             <!--Các đánh giá -->
-    <section class="danhgia">
+    <div class="danhgia">
             <h2 style="text-align: center; margin-bottom: 50px;">Đánh giá</h2>
                 <div class="tour-container">
                     <div class="tour-card">
@@ -395,7 +363,7 @@
                         </div>
                     </div>
                 </div>
-    </section>
+            </div>
     </div>
                
 

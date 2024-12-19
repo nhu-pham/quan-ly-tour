@@ -195,3 +195,14 @@ h1{
     background-color: #0056b3;
 }
 .dk{margin-left: 130px;}
+
+
+
+
+/* Responsive */
+
+@media (max-width: 576px) {
+    .dk{
+        margin-left: 40px;
+    }
+}

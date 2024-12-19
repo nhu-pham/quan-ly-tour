@@ -28,22 +28,24 @@
 <body id="top">
     <!-- header section  -->
 
+    
+
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
-        <a href="trangChu.html">
+        <a href="trangChu.html" >
             <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2" style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
         </a>
     
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
-                    <li class="nav-item"><a href="trangChu.html" class="navbar-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link">Giới thiệu</a></li>
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
+                    <li class="nav-item"><a href="trangChu.html" class="navbar-link ">Trang chủ</a></li>
+                    <li class="nav-item"><a href="gioiThieu.html" class="navbar-link ">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" >Điểm đến</a>
+                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -52,7 +54,8 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link change-color">Tour</a></li>
-                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color" class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                     <li class="nav-item"><a href="dangNhap.html" class="btn btn-primary">Đăng nhập</a></li>
                     <li class="nav-item" style="display: none;">
                         <!-- <a href="dangNhap.html" class="btn btn-primary" id="dangnhap-btn" data-nav-link>Đăng nhập</a> -->
@@ -80,9 +83,8 @@
                         </div>    
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
+    </nav> 
 
     <main>
         <article>
@@ -104,7 +106,7 @@
                 </section>
 
                 <!-- Nhập mã xác nhận -->
-                <section class="login-container" id="email-confirm">
+                <div class="login-container" id="email-confirm">
                     <div class="login-box">
                                 <h1>Đặt lại mật khẩu</h1>
                                 <form>
@@ -117,8 +119,21 @@
                                     <a href="#sendemail-2" type="submit" id="login-btn" class="login-btn">Gửi</a>
                                 </form>
                             </div>
-                </section>
-
+                        </div>
+                <div class="login-container" id="email-confirm-error" style="display: none;">
+                    <div class="login-box">
+                                <h1>Đặt lại mật khẩu</h1>
+                                <form>
+                                    <div class="input-group">
+                                        <label class="notification-error">Email không tồn tại trong hệ thống</label><br>
+                                        <label class="title-login" for="username">Email <label class="required">(*)</label>
+                                        <input type="text" placeholder="Nhập email" id="username">
+                                    </div>
+                                    <a href="trangChu.html" style="color: var(--bright-navy-blue); margin-left: 58%; margin-top: 8px; text-decoration: underline;">Quay lại trang chủ</a><br>
+                                    <a href="#sendemail-2" type="submit" id="login-btn" class="login-btn">Gửi</a>
+                                </form>
+                            </div>
+                        </div>
                 <!-- Nhập lại mật khẩu -->
                 <div class="login-container">
                     <div class="login-box" id="rewrite-pass">
@@ -235,6 +250,9 @@
     <script src="./assets/js/chiTietLichTrinh.js"></script>
     <script src="./assets/js/dangKy-dangNhap.js"></script>
     <script> 
+    const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');}); 
     function togglePassword(id, button) {
         const input = document.getElementById(id); // Lấy input tương ứng
         const eyeIcon = button.querySelector('.fa-regular'); // Lấy biểu tượng mắt trong button được bấm
@@ -261,6 +279,7 @@
     document.getElementById("popup").style.display = "none";
     window.location.href = "dangNhap.html";
     });
+    
 
     </script>
     <!-- ionicon link  -->

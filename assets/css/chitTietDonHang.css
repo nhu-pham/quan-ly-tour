@@ -92,7 +92,10 @@
     color: #FF0000;
     font-style: italic;
 }
-
+.sokhach{
+    display:flex;
+    align-items: center;
+}
 
 .chitiet-dsdv .tong-gia {
     color: red;
@@ -135,7 +138,10 @@
     display: flex;
     margin-bottom: 15px;
 }
-
+.dontour-container .form-group #locationInfo, #contactInfo, #emailInfo{
+    margin-left: -90px;
+    width: 280px;
+}
 .dontour-container .form-group label {
     color: var(--black);
     margin-bottom: 5px;

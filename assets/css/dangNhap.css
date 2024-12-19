@@ -210,6 +210,11 @@
     background-color: #E7FFE7;
     margin-left: 50px;
 }
+#email-confirm-error .notification-error{
+    color: #F10505;
+    background-color: #FEE6E6;
+    margin-left: 95px;
+}
 .change-psw{
     display: flex;
     align-items: flex-end;
@@ -226,4 +231,50 @@
 .fa-eye-slash{
     margin-left: 10px;
     color:#888;
+}
+
+
+
+/* Responsive */
+@media (max-width: 576px) {
+    .login-btn {
+        width: 30%;
+    }
+    .form-check-input{
+        width: 10%;
+        height: auto;
+        margin-top: -8px;
+        margin-left: -10px;
+    }
+    .form-check{
+        width: 160px;
+    }
+    .check-remember a{
+        width: 200px;
+        margin-left: 60px
+    }
+    .social-btn i{
+        margin-left: 15px;
+    }
+}
+@media (max-width: 768px) {
+
+    .form-check-input{
+        width: 10%;
+        height: auto;
+        margin-top: -8px;
+        margin-left: -10px;
+    }
+    .form-check{
+        width: 160px;
+    }
+    .social-btn i{
+        margin-left: 25px;
+    }
+}
+@media (min-width: 992px) {
+
+    .check-remember a{
+        margin-left: 130px;
+    }
 }

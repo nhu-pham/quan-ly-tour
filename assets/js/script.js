@@ -11,6 +11,7 @@ const navbarLinks = document.querySelectorAll('.navbar-link.change-color');
 const activeLink = document.querySelector('.navbar-link.active-header');
 const logo = document.querySelector('.logo');
 const logoScroll = document.querySelector('.logo2');
+const navbartoggler = document.querySelector('.navbar-toggler');
 
 // Lấy màu sắc ban đầu của header
 let originalHeaderColor = header.style.backgroundColor = 'transparent';
@@ -33,6 +34,7 @@ window.addEventListener('scroll', function () {
         if (activeLink) {
             activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
         }
+        navbartoggler.style.color = 'black';
     } else {
         // Khi cuộn về đầu trang
         header.style.backgroundColor = originalHeaderColor;
@@ -44,12 +46,21 @@ window.addEventListener('scroll', function () {
         navbarLinks.forEach(link => {
             link.style.color = 'white'; // Quay lại màu chữ ban đầu
         });
-
         if (activeLink) {
             activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
         }
+        navbartoggler.style.color = 'white';
     }
-});     
+}); 
+// Responsive trang chủ
+        const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');});    
+
+// Responsive danh sách tour
+        const tourtoggler = document.querySelector('.filter-toggler'); 
+        const tournavbarNav = document.querySelector('.filter'); 
+        tourtoggler.addEventListener('click', function() { tournavbarNav.classList.toggle('show');});    
 });
     /*SLIDER*/
     let slideIndex = 1;
