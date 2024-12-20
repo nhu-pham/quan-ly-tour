@@ -27,7 +27,9 @@
                 </div>
                 <div class="order-summary">
                     <button class="waitforpay love-btn <?php echo $tour['is_love'] ? 'loved' : ''; ?>"
-                        data-id="<?php echo $tour['id']; ?>">
+                        data-id="<?php echo $tour['id']; ?>"
+                        user-id="<?php echo $data['user']['id']; ?>"
+                        >
                         <i class="fa-solid fa-heart"></i>
                     </button>
                     <a href="chiTietTour.html" class="btngroup pay-btn xemct">Xem chi tiết</a>
@@ -45,6 +47,7 @@
     document.querySelectorAll('.love-btn').forEach(button => {
         button.addEventListener('click', function() {
             const tourId = this.getAttribute('data-id');
+            const userId = this.getAttribute('user-id');
             const isLoved = this.classList.contains('loved') ? 0 : 1; 
             const parentElement = this.closest('.order-card'); 
             
@@ -55,7 +58,8 @@
                     },
                     body: JSON.stringify({
                         id: tourId,
-                        is_love: isLoved
+                        is_love: isLoved,
+                        userId: userId
                     })
                 })
                 .then(response => response.json())

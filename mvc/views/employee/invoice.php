@@ -59,7 +59,7 @@
         </section>
 
         <footer>
-            <p class="total">Tổng cộng:<strong> <?=$invoice['total_money']?></strong></p>
+            <p class="total">Tổng cộng:<strong> <?=$invoice['total_money']?>VNĐ</strong></p>
             <p>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
         </footer>
     </div>

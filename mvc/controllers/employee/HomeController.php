@@ -23,6 +23,17 @@ class HomeController extends Controller
 
     public function index()
     {
+        if (isset($_SESSION['user']) && isset($_SESSION['employee'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
         $ordersData = [];
         $searchTerm = "";
 

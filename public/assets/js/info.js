@@ -21,21 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuItems.forEach(function (item) {
         item.addEventListener("click", function (event) {
+            // event.preventDefault(); 
 
             menuItems.forEach(function (el) {
                 el.classList.remove("active_tt");
             });
 
             this.classList.add("active_tt");
-
-            fetch(item.getAttribute("href"))
-                .then(response => response.text()) 
-                .then(data => {
-                    contentDiv.innerHTML = data; 
-                })
-                .catch(error => {
-                    console.error("Error loading content:", error);
-                });
         });
     });
 });

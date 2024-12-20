@@ -50,25 +50,9 @@ if (isset($_SESSION['errors'])) {
             </button>
             <div class="collapse navbar-collapse navbar-header" id="navbarNav">
                 <ul class="navbar-nav ms-auto navbar-list">
-                    <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="../about" class="navbar-link">Giới thiệu</a></li>
-                    <li class="nav-item dropdown">
-                        <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
-                            <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
-                                <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
-                                <li><a class="dropdown-item" href="mienNam.html">Miền Nam</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="tour.html" class="navbar-link">Tour</a></li>
-                    <li class="nav-item"><a href="lienHe.html" class="navbar-link">Liên hệ</a></li>
-
-
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
-                            <div id="user-profile" class="user-profile">
+                            <div id="user-profile" class="user-profile" style="position: relative;">
                                 <div class="user-account">
                                     <?php $avatar = isset($data['user']['avatar_url']) ? '/quan-ly-tour/' . $data['user']['avatar_url'] : '/quan-ly-tour/public/uploads/images/user/avt-default.png' ?>
 
@@ -76,7 +60,7 @@ if (isset($_SESSION['errors'])) {
                                         alt="Avatar" class="user-image">
                                     <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
                                 </div>
-                                <div class="user-options">
+                                  <div class="user-options" style="top: 55px;left: 630px;">
                                     <a href="/quan-ly-tour/auth/info">
                                         <i class="fas fa-cog"></i>
                                         Quản lý thông tin
@@ -115,28 +99,4 @@ if (isset($_SESSION['errors'])) {
     <?php
     require "./mvc/views/user/include/footer.php"
     ?>
-
-
-
-
-<!-- <body>
-        <div class="employee-container">
-    
-
-            <div class="content">
-                <div class="search-form">
-                    <form method="GET" action="">
-                        <input type="text" class="search-input" name="search" placeholder="Tìm kiếm thông tin" value="<?php echo htmlspecialchars($searchTerm); ?>">
-                        <button type="submit" class="search-button">Tìm kiếm</button>
-                    </form>
-                </div>
-                <div id="loadData">
-                    <?php
-                    require_once './mvc/views/employee/' . $page . '.php';
-                    ?>
-                </div>
-            </div>
-        </div>
-    </body> -->
-
 </html>

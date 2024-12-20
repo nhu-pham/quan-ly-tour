@@ -10,7 +10,6 @@
 
     <?php
         if (!empty($ordersData)) {
-            $i = 0;
             foreach ($ordersData as $data) : ?>
                 <div class="tour-item">
                     <img src="<?php echo '/quan-ly-tour/' . $data['toursImage'] ?>" alt="Avatar">

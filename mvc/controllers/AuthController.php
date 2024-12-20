@@ -281,6 +281,7 @@
 
             ]);
         }
+        
 
         function change_password()
         {
@@ -531,7 +532,7 @@
                             <div>
                                 <h4>' . htmlspecialchars($order['name']) . '</h4>
                             </div>
-                            <div><a class="detail">Chi tiết đơn hàng</a></div>
+                            <div><a href="detailOrder?id='. $order['id']. '" class="detail">Chi tiết đơn hàng</a></div>
                         </div>
                         <div class="order-summary">
                             <div class="waitforpay">
@@ -633,11 +634,12 @@
         function updateLove()
         {
             $data = json_decode(file_get_contents("php://input"), true);
-            if (isset($data['id']) && isset($data['is_love'])) {
+            if (isset($data['id']) && isset($data['is_love']) && isset($data['userId'])) {
                 $tourId = $data['id'];
                 $isLove = $data['is_love'];
+                $isLoveBy = $data['userId'];
 
-                $result = $this->TourModels->update(['is_love' => $isLove], ['id' => $tourId]);
+                $result = $this->TourModels->update(['is_love' => $isLove, 'loved_by' => $isLoveBy], ['id' => $tourId]);
                 $decodeResults = json_decode($result, true);
 
                 if ($decodeResults['type'] === 'Sucessfully') {
