@@ -55,17 +55,6 @@
 </footer>
 </article>
 </main>
-
-
-
-<!-- custom js link  -->
-<script src="/quan-ly-tour/public/assets/js/header.js"></script>
-<script src="./assets/js/phanTrangMB.js"></script>
-<script src="./assets/js/phanTrangMT.js"></script>
-<script src="./assets/js/phanTrangMN.js"></script>
-<script src="./assets/js/phanTrangDB.js"></script>
-<script src="./assets/js/tourNoiBacTrongThang.js"></script>
-<script src="./assets/js/chiTietLichTrinh.js"></script>
 <script>
 const userNameButton = document.getElementById('user-name');
 const userOptions = document.querySelector('.user-options');

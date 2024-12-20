@@ -31,27 +31,53 @@ class DestinationController extends Controller{
 
         $this->view('user/index', $data);
     }
-    function pagination_page($id){
-        $rows = $this->TourModels->select_row('*',['category_id'=>$id]);
-        // 30 sản phẩm total_rows = 30
-        // mỗi trang sẽ chứa 1 sản phẩm limit = 1
-        // 30 / 1 => 30 trang total_rows / limit
-        $limit = self::limit;
-        $page = $_POST['page']?$_POST['page']:1;
-        $total_rows = count($rows);
-        $total_page = ceil($total_rows / $limit);
-        $start = ($page - 1) * $limit;
-        $datas=[];
-        if ($total_rows > 0) {
-            $datas = $this->TourModels->select_row('*',['category_id'=>$id],NULL,$start,$limit);
+    function pagination_page($id = NULL) {
+        $conditions = [];
+        if ($id != NULL) {
+            $conditions['category_id'] = $id;
         }
-        $button_pagination = $this->Functions->pagination($total_page,$page);
+    
+        // Số lượng sản phẩm hiển thị mỗi trang
+        $limit = self::limit;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $sort = isset($_POST['sort']) ? $_POST['sort'] : 'all';
+    
+        // Xử lý sắp xếp
+        $orderby = 'id desc'; // Mặc định sắp xếp theo ID giảm dần
+        if ($sort === 'price-asc') {
+            $orderby = 'price asc';
+        } else if ($sort === 'price-desc') {
+            $orderby = 'price desc';
+        }
+    
+        // Truy vấn tổng số lượng sản phẩm
+        $total_rows = count($this->TourModels->select_row('*', $conditions));
+    
+        // Tổng số trang
+        $total_page = ceil($total_rows / $limit);
+    
+        // Vị trí bắt đầu của trang hiện tại
+        $start = ($page - 1) * $limit;
+    
+        // Truy vấn dữ liệu phân trang
+        $datas = [];
+        if ($total_rows > 0) {
+            $datas = $this->TourModels->select_row('*', $conditions, $orderby, $start, $limit);
+        }
+    
+        // Tạo các nút phân trang
+        $button_pagination = $this->Functions->pagination($total_page, $page);
+    
+        // Truyền dữ liệu vào view
         $data = [
             'tour'             => $datas,
             'button_pagination' => $button_pagination
         ];
+    
+        // Trả về kết quả cho AJAX
         $this->view('destination/loadData', $data);
     }
+    
 
     public function search() 
     { 

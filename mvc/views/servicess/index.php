@@ -15,8 +15,9 @@ require_once ('./mvc/views/user/include/header.php');
             </h4>
             <div class="title-cart">
                 <h3>Thuê dịch vụ du lịch</h3>
-                <a href="gioHang.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                <label id="quantity">0</label>
+                <a href="/quan-ly-tour/cart/viewCart/<?=$tour[0]['slug']?>" class="cart-icon"><i
+                        class="fa-solid fa-cart-shopping"></i></a>
+                <label id="quantity"><?=$data['qty']?></label>
             </div>
 
             <label class="product-rent">

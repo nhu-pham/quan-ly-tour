@@ -30,28 +30,4 @@
 <?php }?>
 <ul class="pagination" style="display: flex">
     <?=$data['button_pagination'];?>
-</ul>
-<script>
-$(document).ready(function() {
-    let data;
-    let page = 1;
-    $('.pagination li a.page-link').click(function() {
-        page = $(this).attr('num-page')
-        data = {
-            page: page
-        }
-        callback('destination/pagination_page/<?=$cate_id?>', data);
-    })
-
-    function callback(url, data) {
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: data,
-            success: function(response) {
-                $('#loadData').html(response);
-            },
-        })
-    }
-});
-</script>
+</ul

@@ -21,10 +21,23 @@ class ServiceController extends Controller{
         $data= $this->MyController->indexCustomers();
         $service = $this->ServiceModels->select_array('*');
         $tour=$this->TourModels->select_array_join_table('categories.name as cate_name, categories.id as cate_id,tours.name as tour_name,slug',['slug'=>$slug],NULL,NULL,NULL,'categories','tours.category_id=categories.id','INNER');
+
+        $qty = 0;
+
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+        } else {
+            $cart = [];
+        }
+        foreach ($cart as $item) {
+            $qty += $item['qty'];
+        }
         $data=[
             'page'=>'servicess/index',
             'service'=>$service,
-            'tour'=>$tour
+            'tour'=>$tour,
+            'qty'=>$qty,
+            'slug'=>$slug
         ];
         $this->view('user/index', $data);
     }

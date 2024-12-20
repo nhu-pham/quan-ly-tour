@@ -17,7 +17,7 @@ require_once ('./mvc/views/user/include/header.php');
 
             <div class="booking-form">
                 <div class="gender">
-                    <label><input type="radio" name="gender" value="male"> Nam</label>
+                    <label><input type="radio" name="gender" value="male" checked> Nam</label>
                     <label><input type="radio" name="gender" value="female"> Nữ</label>
                     <label><input type="radio" name="gender" value="other"> Khác</label>
                 </div>
@@ -25,7 +25,7 @@ require_once ('./mvc/views/user/include/header.php');
                 <div class="form-row1">
                     <div class="form-group">
                         <label for="name"><strong>Họ và tên</strong></label>
-                        <input type="text" id="name" class="form-control">
+                        <input type="text" id="name" class="form-control" placeholder="Nhập họ và tên">
                     </div>
 
                     <div class="form-group">
@@ -36,12 +36,12 @@ require_once ('./mvc/views/user/include/header.php');
                 <div class="form-row2">
                     <div class="form-group">
                         <label for="phone"><strong>Số điện thoại</strong></label>
-                        <input type="text" id="phone" class="form-control">
+                        <input type="text" id="phone" class="form-control" placeholder="Nhập số điện thoại">
                     </div>
 
                     <div class="form-group">
                         <label for="email"><strong>Email</strong></label>
-                        <input type="email" id="email" class="form-control">
+                        <input type="email" id="email" class="form-control" placeholder="Nhập email">
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@ require_once ('./mvc/views/user/include/header.php');
                 <div class="form-row3">
                     <div>
                         <label for="address"><strong>Nơi ở hiện tại</strong></label>
-                        <input type="text" id="address" class="form-control">
+                        <input type="text" id="address" class="form-control" placeholder="Nhập nơi ở hiện tại">
                     </div>
                     <div>
                         <label for="quantity"><strong>Số lượng:</strong></label>

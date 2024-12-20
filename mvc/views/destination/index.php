@@ -53,18 +53,60 @@ require_once ('./mvc/views/user/include/header.php')
                             quý khách</label>
                         <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp theo:</label>
                             <select id="combobox-sapxep">
-                                <option value="option1">Tất cả</option>
-                                <option value="option2">Giá từ cao đến thấp</option>
-                                <option value="option3">Giá từ thấp đến cao</option>
+                                <option value="all">Tất cả</option>
+                                <option value="price-desc">Giá từ cao đến thấp</option>
+                                <option value="price-asc">Giá từ thấp đến cao</option>
                             </select>
                         </div>
                     </div>
                     <hr style="margin-top: 10px; margin-bottom: 20px;">
                     <div id="loadData">
                         <?php $cate_id=$tour[0]['category_id'];
-                        print_r($cate_id);
                         require_once "./mvc/views/destination/loadData.php" ?>
                     </div>
                 </div>
             </div>
         </section>
+        <script>
+        $(document).ready(function() {
+            let currentPage = 1;
+            let currentSort = 'all';
+
+            function loadData(page, sort) {
+                $.ajax({
+                    url: 'destination/pagination_page/<?=$cate_id?>',
+                    method: 'POST',
+                    data: {
+                        page: page,
+                        sort: sort
+                    },
+                    success: function(response) {
+                        $('#loadData').html(response);
+
+                        // Gắn lại sự kiện click cho các nút phân trang mới
+                        attachPaginationEvents();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Lỗi AJAX: ' + status + ' - ' + error);
+                    }
+                });
+            }
+
+            function attachPaginationEvents() {
+                // Gắn sự kiện click cho các nút phân trang
+                $('#loadData').on('click', '.pagination li a.page-link', function() {
+                    currentPage = $(this).attr('num-page');
+                    loadData(currentPage, currentSort);
+                });
+            }
+
+            // Lắng nghe sự kiện thay đổi của combobox sắp xếp
+            $('#combobox-sapxep').change(function() {
+                currentSort = $(this).val();
+                loadData(currentPage, currentSort);
+            });
+
+            // Gắn sự kiện click cho các nút phân trang ban đầu
+            attachPaginationEvents();
+        });
+        </script>

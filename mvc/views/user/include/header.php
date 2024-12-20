@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/demo/tourDacBiet.css" />
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/demo/gioiThieu.css" />
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/demo/footer.css" />
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/demo/gioHang.css" />
+
 
     <style>
     .navbar-link:hover {
