@@ -1,4 +1,4 @@
-    <?php
+<?php
     require_once "./mvc/controllers/MyController.php";
     require_once "./mvc/core/redirect.php";
 
@@ -459,10 +459,15 @@
             } else {
                 $redirect = new redirect('auth/login');
             }
-
+            
+            $data = $this->MyController->indexCustomers();
+            $userId = $data['user']['id'];
             $ordersData = $this->OrderModels->select_array_join_table(
                 'orders.*, tours.name as name, tours.thumbnail as toursImage',
-                ['active' => 1],
+                [
+                    'active' => 1,
+                    'user_id' => $userId
+                ],
                 'order_date desc',
                 NULL,
                 NULL,
@@ -471,7 +476,6 @@
                 'LEFT'
             );
 
-            $data = $this->MyController->indexCustomers();
             $this->view('user/info/index', [
                 'page' => 'ordersList',
                 'data'    => $data,
@@ -482,10 +486,15 @@
         function getOrders()
         {
             $status = isset($_GET['status']) ? $_GET['status'] : 'all';
+            $data = $this->MyController->indexCustomers();
+            $userId = $data['user']['id'];
             if ($status === 'all') {
                 $ordersData = $this->OrderModels->select_array_join_table(
                     'orders.*, tours.name as name, tours.thumbnail as toursImage',
-                    ['active' => 1],
+                    [
+                        'active' => 1,
+                        'user_id' => $userId
+                    ],
                     'order_date desc',
                     NULL,
                     NULL,
@@ -498,7 +507,8 @@
                     'orders.*, tours.name as name, tours.thumbnail as toursImage',
                     [
                         'status' => $status,
-                        'active' => 1
+                        'active' => 1,
+                        'user_id' => $userId
                     ],
                     'order_date desc',
                     NULL,
@@ -559,7 +569,8 @@
                     } elseif ($status === 'completed') {
                         $htmlOutput .= '<button id="delete-button" data-id="' . $order['id'] . '" class="btngroup cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
                         <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>
-                        <button href="#reviewtour" class="btngroup review-btn">Đánh giá</button>';
+                        <button class="btngroup review-btn" data-user-id="'.$data['user']['id'].'" data-tour-id="'. $order['tour_id'] .'">Đánh giá</button>
+                        ';
                     } elseif ($status === 'cancelled') {
                         $htmlOutput .= '<button id="delete-button" data-id="' . $order['id'] . '" class="btngroup cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
                         <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>';
@@ -608,10 +619,10 @@
             } else {
                 $redirect = new redirect('auth/login');
             }
-
-            $lovedTour = $this->TourModels->select_array('*', ['is_love' => 1]);
-
+            
             $data = $this->MyController->indexCustomers();
+            $lovedTour = $this->TourModels->select_array('*', ['is_love' => 1, 'loved_by' => $data['user']['id']]);
+
             $this->view('user/info/index', [
                 'page' => 'love',
                 'data'    => $data,

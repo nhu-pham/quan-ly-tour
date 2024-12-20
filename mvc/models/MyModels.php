@@ -327,7 +327,7 @@ class MyModels extends Database {
         return false;
     }
     
-    function search_array($data = '*', 
+    public function search_array($data = '*', 
     $searchFields = [], 
     $searchTerm = '', 
     $orderby = NULL, 
@@ -335,14 +335,14 @@ class MyModels extends Database {
     $limit = NULL) {
         $sql = "SELECT $data FROM $this->table";
         $values = [];
-
-        
+    
         if (!empty($searchTerm) && !empty($searchFields)) {
             $conditions = [];
             foreach ($searchFields as $field) {
                 $conditions[] = "$field LIKE ?";
-                $values[] = '%' . $searchTerm . '%'; 
+                $values[] = '%' . $searchTerm . '%';  
             }
+            
             $sql .= " WHERE " . implode(' OR ', $conditions);
         }
     
@@ -353,21 +353,10 @@ class MyModels extends Database {
             $sql .= " LIMIT $start, $limit";
         }
     
-        // $query = $this->conn->prepare($sql); 
-        // $query->execute($values);
-        // return $query->fetchAll(PDO::FETCH_ASSOC);
-        // Chuẩn bị và thực thi câu lệnh SQL
-        try {
-            $query = $this->conn->prepare($sql); 
-            $query->execute($values);
-            return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            //echo 'Error: ' . $e->getMessage();
-            return [];
-        }
+        $query = $this->conn->prepare($sql); 
+        $query->execute($values);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    
 
     function select_row($data='*',$where){
         $sql ="SELECT $data FROM $this->table ";
@@ -476,43 +465,38 @@ class MyModels extends Database {
         $sql ="SELECT $data FROM $this->table";
         if (isset($where) && $where != NULL) {
             $fields = array_keys($where);
-            $fields_list = implode("",$fields);
+            $fields_list = implode(' AND ', array_map(fn($field) => "$field = ?", $fields));
             $values = array_values($where);
-            $isFields = true;
+            
             if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
-                $sql .= ' '.$this->join_table($table_join,$query_join,$type_join).' ';
+                $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
             }
-            $stringWhere = 'where';
-            for ($i=0; $i < count($fields); $i++) { 
-                if (!$isFields) {
-                  $sql .= " and ";
-                  $stringWhere = '';
-                }
-               $isFields = false;
-               $sql .= "  ".$stringWhere." ".$fields[$i]." = ? ";
+        
+            $sql .= " WHERE $fields_list";
+        
+            if ($orderby != '' && $orderby != NULL) {
+                $sql .= " ORDER BY ".$orderby."";
             }
             if ($limit != NULL) {
                 $sql .= " LIMIT ".$start." , ".$limit."";
             }
-            if ($orderby !='' && $orderby != NULL) {
-                $sql .= " ORDER BY ".$orderby."";
-            }
+            
             $query = $this->conn->prepare($sql);
             $query->execute($values);
-        }
-        else{
+        } else {
             if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
-                $sql .= ' '.$this->join_table($table_join,$query_join,$type_join).' ';
+                $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
             }
-            if ($orderby !='' && $orderby != NULL) {
+            if ($orderby != '' && $orderby != NULL) {
                 $sql .= " ORDER BY ".$orderby."";
             }
             if ($limit != NULL) {
                 $sql .= " LIMIT ".$start." , ".$limit."";
             }
             $query = $this->conn->prepare($sql);
-            $query->execute();
+            $query->execute();        
         }
+        
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -536,7 +520,6 @@ class MyModels extends Database {
             $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
         }
         
-    
         $conditions = [];
         $values = [];
     
@@ -597,9 +580,9 @@ class MyModels extends Database {
         
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
     function select_array_join_multi_table($data = '*',
         $where = NULL,
-        $groupBy = NULL,
         $orderby = NULL,
         $start = NULL,
         $limit = NULL,
@@ -615,6 +598,7 @@ class MyModels extends Database {
             foreach ($joinTable as $key => $value) {
                $sql .= ' '.$this->join_table(trim($value[0]),trim($value[1]),trim($value[2])).' ';
             }
+           
             $stringWhere = 'where';
             for ($i=0; $i < count($fields); $i++) { 
                 if (!$isFields) {
@@ -622,16 +606,13 @@ class MyModels extends Database {
                   $stringWhere = '';
                 }
                $isFields = false;
-               $sql .= "  ".$stringWhere." ".$fields[$i]."= ? ";
-            }
-            if (isset($groupBy) && $groupBy != '') {
-                $sql .= " GROUP BY " . $groupBy;
-            }
-            if ($orderby !='' && $orderby != NULL) {
-                $sql .= " ORDER BY ".$orderby."";
+               $sql .= "  ".$stringWhere." ".$fields[$i]." = ? ";
             }
             if ($limit != NULL) {
                 $sql .= " LIMIT ".$start." , ".$limit."";
+            }
+            if ($orderby !='' && $orderby != NULL) {
+                $sql .= " ORDER BY ".$orderby."";
             }
             $query = $this->conn->prepare($sql);
             $query->execute($values);
@@ -639,9 +620,6 @@ class MyModels extends Database {
         else{
              foreach ($joinTable as $key => $value) {
                $sql .= ' '.$this->join_table(trim($value[0]),trim($value[1]),trim($value[2])).' ';
-            }
-            if (isset($groupBy) && $groupBy != '') {
-                $sql .= " GROUP BY " . $groupBy;
             }
             if ($orderby !='' && $orderby != NULL) {
                 $sql .= " ORDER BY ".$orderby."";
@@ -654,7 +632,7 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
     // Phương thức fetchAll để select * from một bảng bất kỳ
     public function fetchAll($table = null) {
         try {
@@ -694,6 +672,4 @@ class MyModels extends Database {
             ];
         }
     }
-    
-
 }

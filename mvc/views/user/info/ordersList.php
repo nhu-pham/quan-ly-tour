@@ -11,7 +11,9 @@
     </div>
 
     <div id="all-order">
-        <?php foreach ($ordersData as $order):
+        <?php 
+        if (!empty($ordersData)) {
+        foreach ($ordersData as $order):
             $status = $order['status']; ?>
             <div class="order-card">
                 <img src="/quan-ly-tour/<?= $order['toursImage'] ?>" alt="Tour Image" class="order-image">
@@ -65,7 +67,11 @@
                     } ?>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <?php endforeach;
+            } else {
+                echo '<tr><td colspan="5">Không có đơn hàng nào.</td></tr>';
+            }
+            ?>
     </div>
 
     <!-- Popup xác nhận hủy tour -->
@@ -360,6 +366,7 @@
     });
 
     reviewSubmitBtn.addEventListener('click', function () {
+
         const tourId = reviewModal.getAttribute('data-tour-id');
         const userId = reviewModal.getAttribute('data-user-id');
         const note = reviewTextarea.value.trim();
@@ -377,7 +384,7 @@
             })
         })
             .then(response => response.json())
-            .then(data => {
+            .then(data => {  
                 if (data.success) {
                     reviewModal.style.display = 'none';
                     reviewThankYouPopup.style.display = 'flex';
