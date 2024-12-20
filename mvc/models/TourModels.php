@@ -320,5 +320,9 @@ class TourModels extends MyModels {
         return $data ? $data : [];
     }
 
+    public function countItems($table = null){
+        return parent::countItems($this->table);
+    }
+
 }
 ?>

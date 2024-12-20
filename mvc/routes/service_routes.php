@@ -7,7 +7,8 @@ $ServiceRoutes = [
     'GET' => [
         '/api/manager/service/searchByKeyword' => 'ServiceController/searchByKeyword',
         '/api/manager/service/fetchAll' => 'ServiceController/fetchAll',
-        '/api/manager/service/search' => 'ServiceController/search'
+        '/api/manager/service/search' => 'ServiceController/search',
+        '/api/manager/service/count' => 'ServiceController/count'
     ],
     'POST' => [
         '/api/manager/service/add' => 'ServiceController/add',

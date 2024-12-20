@@ -12,26 +12,35 @@
   <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/trangchu.css">
 </head>
 <body>
-    <div class="container mt-4">
-         <!-- Top Summary Section -->
-  <div class="summary">
-    <div class="card green">
-      <h2>Doanh Thu</h2>
-      <p><span>750 triệu</span><br>Trong tháng này</p>
+<div class="container mt-4">
+    <!-- Top Summary Section -->
+    <div class="summary">
+      <div class="card green">
+        <h2>Doanh Thu</h2>
+        <p><span id="doanh-thu">
+        <?php 
+            // Chuyển đổi doanh thu từ đơn vị VNĐ sang triệu VNĐ
+            $revenue_in_million = $tour_revenue / 1000000;  // Chuyển từ VNĐ sang triệu VNĐ
+            echo number_format($revenue_in_million, 0, '.', ',') . ' triệu VNĐ'; 
+        ?>
+    </span><br>Trong tháng này</p>
+      </div>
+      <div class="card yellow">
+        <h2>Số lượng tour</h2>
+        <!-- Hiển thị giá trị từ PHP -->
+        <p><span id="so-luong-tour"><?php echo $tour_amount; ?></span><br>Trong tháng này</p>
+      </div>
+      <div class="card blue">
+        <h2>Nhận xét</h2>
+        <!-- Hiển thị giá trị từ PHP -->
+        <p><span id="nhan-xet"><?php echo $review_amount; ?></span><br>Trong tháng này</p>
+      </div>
+      <div class="card lime">
+        <h2>Dịch vụ thuê</h2>
+        <!-- Hiển thị giá trị từ PHP -->
+        <p><span id="dich-vu-thue"><?php echo $service_amount; ?></span><br>Trong tháng này</p>
+      </div>
     </div>
-    <div class="card yellow">
-      <h2>Số lượng tour</h2>
-      <p><span>150</span><br>Trong tháng này</p>
-    </div>
-    <div class="card blue">
-      <h2>Nhận xét</h2>
-      <p><span>888</span><br>Trong tháng này</p>
-    </div>
-    <div class="card lime">
-      <h2>Dịch vụ thuê</h2>
-      <p><span>585</span><br>Trong tháng này</p>
-    </div>
-  </div>
       
 
     <!-- Charts Section -->
@@ -41,20 +50,11 @@
           <h5 class="text-primary text-center mb-3">Thống Kê Doanh Thu</h5>
           <canvas id="revenueChart"></canvas>
         </div>
-      </div>
-      
-    <div class="chart">
-        <h3 style="color: #ffc107;">Thống kê dịch vụ</h3> <!-- Màu vàng -->
-        <canvas id="serviceChart" width="100" height="100"></canvas>
-      </div>
     </div>
       
 
 
-   
 
-
-  
 
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

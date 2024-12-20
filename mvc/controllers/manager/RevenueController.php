@@ -1,14 +1,23 @@
 <?php
 require_once './mvc/models/RevenueModels.php';
+require_once './mvc/models/TourModels.php';
+require_once './mvc/models/ServiceModels.php';
+require_once './mvc/models/ReviewModels.php';
 require_once "./mvc/core/redirect.php";
 
 class RevenueController extends Controller{
     
     protected $revenueModel;
+    protected $tourModel;
+    protected $serviceModel;
+    protected $reviewModel;
 
     public function __construct() {
-        // Giả sử model được gọi là RevenueModel hoặc tương tự
+        // Khởi tạo các model
         $this->revenueModel = new RevenueModels();
+        $this->tourModel = new TourModels();
+        $this->serviceModel = new ServiceModels();
+        $this->reviewModel = new ReviewModels();
     }
 
     // Thống kê tổng doanh thu trong khoảng thời gian
@@ -38,6 +47,31 @@ class RevenueController extends Controller{
         echo json_encode(['totalRevenue' => $revenue]);
     }
 
+    public function getRevenue() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405); // Method Not Allowed
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Only POST method is allowed'
+            ]);
+            return;
+        }
+
+        $data = json_decode(file_get_contents("php://input"), true);
+        
+        $month = $data['month'] ?? null;
+        $status = $data['status'] ?? null;
+        $orderby = $data['orderby'] ?? null;
+        $limit = $data['limit'] ?? null;
+
+        // Gọi phương thức trong model để lấy doanh thu
+        $revenue = $this->revenueModel->get_revenue($month, $status, $orderby, $limit);
+
+        // Trả kết quả dưới dạng JSON
+        header('Content-Type: application/json');
+        echo json_encode(['totalRevenue' => $revenue]);
+    }
+
     // Thống kê doanh thu theo tháng
     public function getMonthlyRevenue() {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
@@ -59,7 +93,7 @@ class RevenueController extends Controller{
 
         // Trả kết quả dưới dạng JSON
         header('Content-Type: application/json');
-        echo json_encode(['monthlyRevenue' => $monthlyRevenue]);
+        echo json_encode($monthlyRevenue);
     }
 
 
@@ -72,13 +106,18 @@ class RevenueController extends Controller{
         );
     }
 
-    public function index()
-    {
-        $this->view('admin/statistic/trangchu', [
-            'title' => 'Homepage Management'
+    public function index() {
+        $revenue = $this->revenueModel->get_revenue();
+        $tourAmount = $this->tourModel->countItems();
+        $serviceAmount = $this->serviceModel->countItems();
+        $reviewAmount = $this->reviewModel->countItems();  
+        $this->view('manager/index', [
+            'page' => 'statistic/trangchu',
+            'tour_revenue' => $revenue,
+            'tour_amount' => $tourAmount,
+            'service_amount' => $serviceAmount,
+            'review_amount' => $reviewAmount
         ]);
     }
-
 }
-
 ?>

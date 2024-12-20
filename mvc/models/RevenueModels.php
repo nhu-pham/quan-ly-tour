@@ -81,5 +81,34 @@ class RevenueModels extends MyModels {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['total_tours'];
     } 
-}
+
+    function get_revenue($month = null, $status = null, $orderby = null, $limit = null) {
+        // Chọn các cột cần thiết từ bảng orders và order_details
+        $data = "orders.id, orders.order_date, orders.total_money, SUM(order_details.total_money_service) as total_service_money";
+        $groupBy = 'orders.id, orders.order_date, orders.total_money';
+        // Các bảng cần JOIN
+        $joinTable = [
+            ['order_details', 'orders.id = order_details.order_id', 'LEFT']
+        ];
+    
+        // Điều kiện WHERE
+        $where = []; // Sử dụng mảng
+        $values = [];
+        
+        if ($status) {
+            $where['orders.status'] = $status;
+        }
+    
+        // Sử dụng phương thức select_array_join_multi_table để thực hiện JOIN và truy vấn
+        $result = $this->select_array_join_multi_table($data, $where, $groupBy, $orderby, 0, $limit, $joinTable);
+    
+        // Xử lý kết quả
+        $totalRevenue = 0;
+        foreach ($result as $row) {
+            $totalRevenue += $row['total_money'] + $row['total_service_money'];
+        }
+    
+        return $totalRevenue;
+    }    
+}   
 ?>

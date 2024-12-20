@@ -640,6 +640,9 @@ class MyModels extends Database {
              foreach ($joinTable as $key => $value) {
                $sql .= ' '.$this->join_table(trim($value[0]),trim($value[1]),trim($value[2])).' ';
             }
+            if (isset($groupBy) && $groupBy != '') {
+                $sql .= " GROUP BY " . $groupBy;
+            }
             if ($orderby !='' && $orderby != NULL) {
                 $sql .= " ORDER BY ".$orderby."";
             }
@@ -666,5 +669,31 @@ class MyModels extends Database {
             ];
         }
     }
+
+    public function countItems($table = null) {
+        
+        try {
+            // Kiểm tra tên bảng hợp lệ
+            if (!$table || !preg_match('/^[a-zA-Z0-9_]+$/', $table)) {
+                throw new PDOException('Invalid table name');
+            }
+    
+            // Câu lệnh SQL
+            $sql = "SELECT COUNT(*) as count FROM $table";
+            
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+    
+            // Lấy kết quả
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            return $result['count'] ?? 0; // Trả về số lượng hoặc 0 nếu không có kết quả
+        } catch (PDOException $e) {
+            return [
+                'type' => 'Fail',
+                'message' => 'Error fetching data: ' . $e->getMessage()
+            ];
+        }
+    }
+    
 
 }

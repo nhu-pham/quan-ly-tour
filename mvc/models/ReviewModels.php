@@ -100,7 +100,10 @@ class ReviewModels extends MyModels {
         $data = parent::fetchAll($this->table);
         return $data ? $data : [];
     }
-
+    
+    public function countItems($table = null){
+        return parent::countItems($this->table);
+    }
 
 }
 ?>

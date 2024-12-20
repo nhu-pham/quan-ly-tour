@@ -5,6 +5,7 @@ $tourRoutes = [
     'GET' => [
         '/api/manager/tour/search' => 'TourController/search',
         '/api/manager/tour/fetch' => 'TourController/fetchAll',
+        '/api/manager/tour/count' => 'TourController/count',
 
     ],
     'POST' => [

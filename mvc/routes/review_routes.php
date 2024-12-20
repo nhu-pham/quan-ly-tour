@@ -5,7 +5,8 @@ $reviewRoutes = [
     'GET' => [
         '/api/manager/review/searchReviews' => 'reviewController/searchReviews',
         '/api/manager/review/fetchAll' => 'reviewController/fetchAll',
-        '/api/manager/review/search'=> '/reviewController/search';
+        '/api/manager/review/search'=> 'reviewController/search',
+        '/api/manager/review/count' => 'ReviewController/count'
     ],
     'POST' => [
         '/api/manager/review/add' => 'reviewController/add',

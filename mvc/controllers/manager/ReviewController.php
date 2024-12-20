@@ -186,5 +186,14 @@ class ReviewController extends Controller {
             'page' => 'review/index'
         ]);
     }
+
+    public function count() {
+        // Lấy số lượng bản ghi từ model
+        $amount = $this->reviewModel->countItems();
+        
+        // Định dạng và trả về dữ liệu JSON
+        header('Content-Type: application/json'); // Đặt header Content-Type là JSON
+        echo json_encode(['amount' => $amount]); // Trả về JSON
+    }
 }
 ?>

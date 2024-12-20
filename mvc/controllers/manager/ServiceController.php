@@ -108,41 +108,6 @@ class ServiceController extends Controller
         echo json_encode($responseArray);
     }
 
-    // public function search()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    //         http_response_code(405); // Method Not Allowed
-    //         echo json_encode([
-    //             'type'    => 'Fail',
-    //             'message' => 'Only GET method is allowed'
-    //         ]);
-    //         return;
-    //     }
-
-    //     $data = json_decode(file_get_contents("php://input"), true);
-
-    //     $service_id = $data['id'] ?? null;
-    //     $service_name = $data['name'] ?? null;
-    //     $category = $data['service_categories.name'] ?? null;
-    //     $orderby = $data['orderby'] ?? null;
-    //     $limit = $data['limit'] ?? null;
-
-    //     $response = $this->serviceModel->search_services($service_id, $service_name, $category, $orderby, $limit);
-
-    //     header('Content-Type: application/json');
-    //     $responseArray = json_decode($response, true);
-    //     if (json_last_error() !== JSON_ERROR_NONE) {
-    //         http_response_code(500); // Internal Server Error
-    //         echo json_encode([
-    //             'type'    => 'Fail',
-    //             'message' => 'Error processing update response'
-    //         ]);
-    //         return;
-    //     }
-    //     echo json_encode($responseArray);
-    // }
-
-
     public function search() {
         
         $data = json_decode(file_get_contents("php://input"), true);
@@ -225,5 +190,13 @@ class ServiceController extends Controller
         ]);
     }
 
+    public function count() {
+        // Lấy số lượng bản ghi từ model
+        $amount = $this->serviceModel->countItems();
+        
+        // Định dạng và trả về dữ liệu JSON
+        header('Content-Type: application/json'); // Đặt header Content-Type là JSON
+        echo json_encode(['amount' => $amount]); // Trả về JSON
+    }
     
 }
