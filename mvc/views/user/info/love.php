@@ -5,6 +5,7 @@
     </div>
     <div id="tourList">
         <?php
+        if(!empty($lovedTour)) {
         foreach ($lovedTour as $tour) :
         ?>
             <div class="order-card">
@@ -32,7 +33,11 @@
                     <a href="chiTietTour.html" class="btngroup pay-btn xemct">Xem chi tiết</a>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <?php endforeach;
+            } else {
+                echo '<tr><td colspan="5">Không tìm thấy tour yêu thích nào.</td></tr>';
+            }
+            ?>
     </div>
 </div>
 
