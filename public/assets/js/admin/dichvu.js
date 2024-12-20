@@ -69,7 +69,7 @@ function deleteService(serviceId) {
 async function confirmDeleteService(serviceId) {
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/service/delete/${serviceId}`,
+      `http://localhost/quan-ly-tour/api/manager/service/delete/${serviceId}`,
       {
         method: "DELETE",
         headers: {
@@ -92,8 +92,7 @@ async function confirmDeleteService(serviceId) {
     // Xóa các lớp modal-backdrop
     document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
     document.body.classList.remove("modal-open");
-
-    alert("Xóa dịch vụ thành công!");
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi khi xóa dịch vụ:", error);
     alert("Không thể xóa dịch vụ. Vui lòng kiểm tra lại.");
@@ -106,10 +105,15 @@ async function update(serviceId) {
   const serviceCategoryId = document.getElementById("editServiceType").value;
   const serviceImageUrl = document.getElementById("editImage").value;
 
-  let data = {};
+  // Nếu có đường dẫn của image, cắt bỏ phần đầu (C:\\fakepath\\) và chỉ lấy tên file
+  let image = "";
+  if (serviceImageUrl !== "") {
+    const imageName = serviceImageUrl.split("\\").pop(); // Tách chuỗi và lấy phần cuối cùng (tên file)
+    image = "public/uploads/images/services/" + imageName;
+  }
 
   // Gán giá trị `data` theo điều kiện
-  if (serviceImageUrl === "") {
+  if (image === "") {
     data = {
       name: serviceName,
       price: servicePrice,
@@ -118,7 +122,7 @@ async function update(serviceId) {
   } else {
     data = {
       name: serviceName,
-      image_url: serviceImageUrl,
+      image_url: image,
       price: servicePrice,
       service_category_id: serviceCategoryId,
     };
@@ -128,7 +132,7 @@ async function update(serviceId) {
   console.log("Request data:", data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/service/update/${serviceId}`,
+      `http://localhost/quan-ly-tour/api/manager/service/update/${serviceId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -147,6 +151,7 @@ async function update(serviceId) {
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
     }
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi:", error);
     alert("Lỗi: " + error.message);
@@ -163,7 +168,7 @@ function getServiceTypeName(serviceCategoryId) {
 }
 
 function reloadServices() {
-  fetch(`http://localhost:8088/quan-ly-tour/api/manager/service/fetchAll`)
+  fetch(`http://localhost/quan-ly-tour/api/manager/service/fetchAll`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -225,10 +230,17 @@ async function addService() {
   const serviceImageUrl = document.querySelector("#image").value;
   const serviceType = document.querySelector("#serviceType").value;
 
+  // Nếu có đường dẫn của image, cắt bỏ phần đầu (C:\\fakepath\\) và chỉ lấy tên file
+  let image = "";
+  if (serviceImageUrl !== "") {
+    const imageName = serviceImageUrl.split("\\").pop(); // Tách chuỗi và lấy phần cuối cùng (tên file)
+    image = "public/uploads/images/services/" + imageName;
+  }
+
   const data = {
     name: serviceName,
     price: servicePrice,
-    image_url: serviceImageUrl,
+    image_url: image,
     service_category_id: serviceType,
   };
 
@@ -236,7 +248,7 @@ async function addService() {
 
   try {
     const response = await fetch(
-      "http://localhost:8088/quan-ly-tour/api/manager/service/add",
+      "http://localhost/quan-ly-tour/api/manager/service/add",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -252,7 +264,6 @@ async function addService() {
     console.log("Add response:", jsonResponse);
 
     console.log("Dịch vụ thêm thành công:", jsonResponse);
-    alert("Dịch vụ đã được thêm thành công!");
 
     // Tạo hàng mới trong bảng
     const newRow = document.createElement("tr");
@@ -261,7 +272,7 @@ async function addService() {
           <td>${jsonResponse.id}</td>
           <td class="service-type">${getServiceTypeName(serviceType)}</td>
           <td class="service-name">${serviceName}</td>
-          <td><img src="${serviceImageUrl}" alt="${serviceName}" class="service-image"></td>
+          <td><img src="${image}" alt="${serviceName}" class="service-image"></td>
           <td class="service-price">${servicePrice}</td>
           <td>
             <button class="btn btn-warning" onclick="editService(${
@@ -287,6 +298,7 @@ async function addService() {
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
     }
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi khi thêm dịch vụ:", error);
     alert("Lỗi: " + error.message);
@@ -303,7 +315,7 @@ async function searchDichVu() {
   console.log("JSON Body:", data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/service/search`,
+      `http://localhost/quan-ly-tour/api/manager/service/search`,
       {
         method: "POST",
         headers: {

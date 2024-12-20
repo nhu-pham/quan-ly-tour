@@ -29,7 +29,7 @@ function deleteReview(reviewId) {
 async function confirmDeleteReview(reviewId) {
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/review/delete/${reviewId}`,
+      `http://localhost/quan-ly-tour/api/manager/review/delete/${reviewId}`,
       {
         method: "DELETE",
         headers: {
@@ -54,6 +54,7 @@ async function confirmDeleteReview(reviewId) {
     // Xóa các lớp modal-backdrop
     document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
     document.body.classList.remove("modal-open");
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi khi xóa nhận xét:", error);
     alert("Không thể xóa nhận xét. Vui lòng kiểm tra lại.");
@@ -61,21 +62,7 @@ async function confirmDeleteReview(reviewId) {
 }
 
 async function reloadReviews() {
-  try {
-    const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/review/searchReviews`
-    );
-    if (!response.ok) throw new Error("Lỗi khi tải danh sách nhận xét.");
-
-    const data = await response.json(); // Parse JSON
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Lỗi khi tải danh sách nhận xét: " + error.message);
-  }
-}
-
-function reloadReviews() {
-  fetch(`http://localhost:8088/quan-ly-tour/api/manager/review/searchReviews`)
+  fetch(`http://localhost/quan-ly-tour/api/manager/review/searchReviews`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -130,7 +117,7 @@ async function searchReview() {
 
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/review/search`,
+      `http://localhost/quan-ly-tour/api/manager/review/search`,
       {
         method: "POST",
         headers: {
@@ -180,8 +167,6 @@ async function searchReview() {
       // Thêm hàng mới vào bảng
       reviewList.appendChild(newRow);
     });
-
-    alert("Tìm kiếm hoàn tất!");
   } catch (error) {
     console.error("Error:", error);
     alert("Đã có lỗi xảy ra, vui lòng thử lại.");

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/tour.css">
+    <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/tour.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -70,7 +70,7 @@
 
     <!-- Modal thêm tour -->
     <div class="modal fade" id="addTourModal" tabindex="-1" aria-labelledby="addTourModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addTourModalLabel">Tạo mới tour</h5>
@@ -78,37 +78,57 @@
                 </div>
                 <div class="modal-body">
                     <form id="addTourForm">
-                        <div class="mb-3">
-                            <label for="tourName" class="form-label">Tên tour</label>
-                            <input type="text" class="form-control" id="tourName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="region" class="form-label">Miền</label>
-                            <select class="form-select" id="region" required>
-                                <option value="1">Miền Bắc</option>
-                                <option value="2">Miền Trung</option>
-                                <option value="3">Miền Nam</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Hình ảnh</label>
-                            <input type="file" class="form-control" id="image" accept="image/*">
-                        </div>
-                        <div class="mb-3">
-                            <label for="tourDeparturePlace" class="form-label">Khởi hành:</label>
-                            <input type="text" class="form-control" id="tourDeparturePlace" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tourDate" class="form-label">Ngày khởi hành:</label>
-                            <input type="date" class="form-control" id="tourDate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tourPrice" class="form-label">Giá:</label>
-                            <input type="number" class="form-control" id="tourPrice" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tourTime" class="form-label">Thời gian:</label>
-                            <input type="text" class="form-control" id="tourTime" required>
+                        <div class="row">
+                            <!-- Cột bên trái -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="tourName" class="form-label">Tên tour</label>
+                                    <input type="text" class="form-control" id="tourName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="region" class="form-label">Miền</label>
+                                    <select class="form-select" id="region" required>
+                                        <option value="1">Miền Bắc</option>
+                                        <option value="2">Miền Trung</option>
+                                        <option value="3">Miền Nam</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Hình ảnh</label>
+                                    <input type="file" class="form-control" id="image" accept="image/*">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourDeparturePlace" class="form-label">Khởi hành:</label>
+                                    <input type="text" class="form-control" id="tourDeparturePlace" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourDate" class="form-label">Ngày khởi hành:</label>
+                                    <input type="date" class="form-control" id="tourDate" required>
+                                </div>
+                            </div>
+                            <!-- Cột bên phải -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="tourPrice" class="form-label">Giá:</label>
+                                    <input type="number" class="form-control" id="tourPrice" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourTime" class="form-label">Thời gian:</label>
+                                    <input type="text" class="form-control" id="tourTime" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourDestination" class="form-label">Điểm đến:</label>
+                                    <input type="text" class="form-control" id="tourDestination" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourItinerary" class="form-label">Lịch trình:</label>
+                                    <input type="text" class="form-control" id="tourItinerary" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tourDetail" class="form-label">Chi tiết:</label>
+                                    <input type="text" class="form-control" id="tourDetail" required>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -119,7 +139,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal chỉnh sửa tour -->
 <div class="modal fade" id="editTourModal" tabindex="-1" aria-labelledby="editTourLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -195,6 +214,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="http://localhost:8088/quan-ly-tour/public/assets/js/admin/tour.js"></script>
+    <script src="http://localhost/quan-ly-tour/public/assets/js/admin/tour.js"></script>
 </body>
 </html>

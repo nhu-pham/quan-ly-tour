@@ -9,9 +9,9 @@
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/trangChu.css">
-    <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/quanLyTour.css">
-    <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/footer.css">
+    <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/trangChu.css">
+    <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/quanLyTour.css">
+    <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/footer.css">
     <style>
         .navbar-link:hover { color: var(--bright-navy-blue); }
     </style>

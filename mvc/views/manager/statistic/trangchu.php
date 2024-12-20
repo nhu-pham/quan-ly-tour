@@ -9,7 +9,7 @@
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="http://localhost:8088/quan-ly-tour/public/assets/css/admin/trangchu.css">
+  <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/trangchu.css">
 </head>
 <body>
 <div class="container mt-4">
@@ -61,6 +61,6 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Custom JS -->
-  <script src="http://localhost:8088/quan-ly-tour/public/assets/js/admin/trangchu.js"></script>
+  <script src="http://localhost/quan-ly-tour/public/assets/js/admin/trangchu.js"></script>
 </body>
 </html>

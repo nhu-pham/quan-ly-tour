@@ -1,7 +1,5 @@
 // Lấy dữ liệu từ API
-fetch(
-  "http://localhost:8088/quan-ly-tour/api/manager/revenue/getMonthlyRevenue"
-) // Đường dẫn API của bạn
+fetch("http://localhost/quan-ly-tour/api/manager/revenue/getMonthlyRevenue") // Đường dẫn API của bạn
   .then((response) => response.json()) // Chuyển đổi dữ liệu trả về thành JSON
   .then((data) => {
     // Chuẩn bị mảng tháng và doanh thu từ dữ liệu API

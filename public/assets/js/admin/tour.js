@@ -87,7 +87,7 @@ async function confirmDeleteTour(tourId) {
   $("#confirmDeleteModal").modal("hide");
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
+      `http://localhost/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
       {
         method: "DELETE", // Sửa lỗi chính tả
         headers: {
@@ -111,6 +111,7 @@ async function confirmDeleteTour(tourId) {
     // Xóa các lớp modal-backdrop
     document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
     document.body.classList.remove("modal-open");
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi khi xóa tour:", error);
     alert("Không thể xóa tour. Vui lòng kiểm tra lại.");
@@ -153,7 +154,7 @@ async function updateTour(tourId) {
   console.log("Request data:", data);
 
   const response = await fetch(
-    `http://localhost:8088/quan-ly-tour/api/manager/tour/update/${tourId}`,
+    `http://localhost/quan-ly-tour/api/manager/tour/update/${tourId}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -176,6 +177,7 @@ async function updateTour(tourId) {
       // Xóa các lớp modal-backdrop
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
+      window.location.reload();
     }
   } catch (error) {
     console.error("Lỗi:", error);
@@ -208,12 +210,25 @@ $("#editTourModal").on("hidden.bs.modal", function () {
 async function addTour() {
   const tourName = document.getElementById("tourName").value.trim();
   const region = document.getElementById("region").value;
+  const tourImage = document.getElementById("image").value;
   const tourDeparturePlace = document
     .getElementById("tourDeparturePlace")
     .value.trim();
   const tourDate = document.getElementById("tourDate").value;
   const tourPrice = document.getElementById("tourPrice").value.trim();
   const tourTime = document.getElementById("tourTime").value.trim();
+  const tourDestination = document
+    .getElementById("tourDestination")
+    .value.trim();
+  const tourItinerary = document.getElementById("tourItinerary").value.trim();
+  const tourDetail = document.getElementById("tourDetail").value.trim();
+
+  // Nếu có đường dẫn của image, cắt bỏ phần đầu (C:\\fakepath\\) và chỉ lấy tên file
+  let image = "";
+  if (tourImage !== "") {
+    const imageName = tourImage.split("\\").pop(); // Tách chuỗi và lấy phần cuối cùng (tên file)
+    image = "public/uploads/images/tours/" + imageName;
+  }
 
   if (
     !tourName ||
@@ -234,11 +249,15 @@ async function addTour() {
     date_start: tourDate,
     price: parseFloat(tourPrice),
     duration: tourTime,
+    destination: tourDestination,
+    itinerary: tourItinerary,
+    description: tourDetail,
+    thumbnail: image,
   };
 
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/tour/add`,
+      `http://localhost/quan-ly-tour/api/manager/tour/add`,
       {
         method: "POST",
         headers: {
@@ -264,12 +283,15 @@ async function addTour() {
         <td>${result.id}</td>
         <td class="tour-name">${tourName}</td>
         <td class="region">${getRegionTypeName(region)}</td>
-        <td><img src="${image}" alt="${tourName}" class="tour-image"></td>
+        <td><img src="/quan-ly-tour/public/uploads/images/tours/${image}" alt="${tourName}" class="tour-image"></td>
         <td class="tour-details">
             Khởi hành: ${tourDeparturePlace}<br>
             Ngày khởi hành: ${tourDate}<br>
             Giá tour: ${parseInt(tourPrice).toLocaleString()} VNĐ<br>
-            Thời gian: ${tourTime}
+            Thời gian: ${tourTime}<br>
+            Điểm đến: ${tourDestination}<br>
+            Lịch trình: ${tourItinerary}<br>
+            Chi tiết: ${tourDetail}
         </td>
         <td>
           <button class="btn btn-warning" onclick="edittour(${
@@ -296,6 +318,7 @@ async function addTour() {
       // Xóa các lớp modal-backdrop
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
+      window.location.reload();
     }
   } catch (error) {
     console.error(error);
@@ -326,7 +349,7 @@ async function search() {
 
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/tour/searchByKeyword`,
+      `http://localhost/quan-ly-tour/api/manager/tour/searchByKeyword`,
       {
         method: "POST",
         headers: {
@@ -408,7 +431,7 @@ function renderTourRow(tour) {
 }
 
 function reloadTours() {
-  fetch("http://localhost:8088/quan-ly-tour/api/manager/tour/fetchAll")
+  fetch("http://localhost/quan-ly-tour/api/manager/tour/fetchAll")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Lỗi khi tải danh sách tour.");
@@ -440,7 +463,7 @@ async function searchTour() {
   console.log(data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/manager/tour/search`,
+      `http://localhost/quan-ly-tour/api/manager/tour/search`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -472,3 +495,19 @@ async function searchTour() {
 document.querySelector("#searchBtn").onclick = function () {
   searchTour();
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Lấy tất cả các liên kết trong menu
+  const links = document.querySelectorAll(".nav-link");
+
+  links.forEach((link) => {
+    // Lắng nghe sự kiện click
+    link.addEventListener("click", function () {
+      // Loại bỏ lớp active khỏi tất cả các liên kết
+      links.forEach((item) => item.classList.remove("active"));
+
+      // Thêm lớp active vào mục đã click
+      link.classList.add("active");
+    });
+  });
+});
