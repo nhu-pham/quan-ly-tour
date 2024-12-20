@@ -18,6 +18,6 @@ class HomeController extends Controller
             'title' => 'Trang chủ',
             'data' => $data
         ];
-        $this->view('user/index', $data);
+        $this->view('employee/index', $data);
     }
 }
