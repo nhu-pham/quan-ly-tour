@@ -9,11 +9,11 @@
 
 <body>
     <?php 
-    foreach ($invoiceData as $invoice): ?>
+    foreach ($groupInvoiceData as $invoice): ?>
         <div class="invoice-container">
         <header>
             <h1>HÓA ĐƠN ĐẶT TOUR DU LỊCH</h1>
-            <p>Ngày lập hóa đơn: <?= $invoice['order_date']?></p>
+            <p>Ngày lập hóa đơn: <span id="invoice-date"></span></p>
         </header>
         
         <section class="customer-info">
@@ -30,8 +30,8 @@
             <p><strong>Ngày khởi hành:</strong> <?=$invoice['tourDateStart']?></p>
             <p><strong>Số ngày:</strong> <?=$invoice['tourDuration']?></p>
             <p><strong>Số người:</strong> <?=$invoice['number_of_people']?> người</p>
-            <p><strong>Giá tour:</strong> <?=$invoice['tour_price']?>/người</p>
-            <p><strong>Thành tiền:</strong> <?=$invoice['total_money_tour']?></p>
+            <p><strong>Giá tour:</strong> <?=$invoice['tour_price']?>VNĐ / người</p>
+            <p><strong>Thành tiền:</strong> <?=$invoice['total_money_tour']?>VNĐ</p>
         </section>
 
         <section class="services-info">
@@ -46,12 +46,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($invoice['services'] as $invoiceService): ?> 
                     <tr>
-                        <td><?=$invoice['serviceName']?></td>
-                        <td><?=$invoice['service_price']?></td>
-                        <td><?=$invoice['number_of_services']?></td>
-                        <td><?=$invoice['total_money_service']?></td>
-                    </tr>   
+                        <td><?=$invoiceService['serviceName']?></td>
+                        <td><?=$invoiceService['service_price']?></td>
+                        <td><?=$invoiceService['number_of_services']?></td>
+                        <td><?=$invoiceService['total_money_service']?></td>
+                    </tr>  
+                <?php endforeach; ?> 
                 </tbody>
             </table>
         </section>
@@ -65,3 +67,7 @@
     <?php endforeach;?>
 </body>
 </html>
+
+<script>
+    document.getElementById("invoice-date").textContent = new Date().toLocaleDateString("vi-VN");
+</script>

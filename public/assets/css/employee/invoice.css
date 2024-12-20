@@ -2,11 +2,11 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f7f7f7;
+        background-color: #f7f7f7;            
     }
 
     .invoice-container {
-        width: 80%;
+        width: 100%; max-width: 800px;
         margin: 20px auto;
         padding: 20px;
         background: #fff;
@@ -77,3 +77,5 @@
         font-size: 16px;
         color: #333;
     }
+
+   

@@ -8,6 +8,7 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- custom css link  -->
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/login.css">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/footer.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/about.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/info.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/orderDetail.css">
     <link rel="stylesheet" href="./assets/css/tourMienBac.css">
     <link rel="stylesheet" href="./assets/css/danhSachTour.css">
     <link rel="stylesheet" href="./assets/css/chiTiet.css">

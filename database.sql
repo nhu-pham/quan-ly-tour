@@ -84,6 +84,7 @@ CREATE TABLE tours (
     date_start DATETIME NOT NULL,
     thumbnail VARCHAR(300) DEFAULT '' COMMENT 'Ảnh preview tour/combo',
     description LONGTEXT DEFAULT '', -- có thẻ bỏ cột này ở chỗ ăn uống, đối tượng,... nếu ko xử lý logic được thì để mặc định
+    is_love TINYINT(1) DEFAULT 0,
     created_at DATETIME,
     updated_at DATETIME,
     category_id INT,

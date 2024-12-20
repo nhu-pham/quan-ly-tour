@@ -28,7 +28,7 @@ if (isset($_SESSION['errors'])) {
             <div class="info-sidebar">
                 <div class="header-info">
                     <img src="<?php echo isset($data['user']['avatar_url']) ? '/quan-ly-tour/' . $data['user']['avatar_url'] : '/quan-ly-tour/public/uploads/images/user/avt-default.png' ?>" alt="User Avatar" class="avatar-large">
-                    <h3>Tên tài khoản</h3>
+                    <h3><?=$data['user']['username']?></h3>
                 </div>
                 <ul class="menu">
                     <li><a href="info">Quản lý thông tin</a></li>
@@ -46,50 +46,7 @@ if (isset($_SESSION['errors'])) {
 </main>
 
 <script src="/quan-ly-tour/public/assets/js/info.js"></script>
-<script>
     
-
-   
- 
-    
-    //Hiển thị đánh giá
-    document.querySelectorAll('[href="#reviewtour"]').forEach(function(element) {
-        element.addEventListener("click", function() {
-            document.getElementById("review-modal").style.display = "block";
-        });
-    });
-    document.getElementById("close-btn-review").addEventListener("click", function() {
-        document.getElementById("review-modal").style.display = "none";
-    });
-    document.querySelectorAll('.cancel-btn').forEach(function(element) {
-        element.addEventListener("click", function() {
-            document.getElementById("review-modal").style.display = "none";
-            document.getElementById("popup-cancel").style.display = "none";
-        });
-    });
-    //Cảm ơn đánh giá
-    document.getElementById('.submit-btn').forEach(function(element) {
-        element.addEventListener("click", function() {
-            document.getElementById("review-modal").style.display = "none";
-            document.getElementById("popup-thankyou").style.display = "block";
-            
-        });
-    });
-    document.getElementById("confirm-btn-thankyou").addEventListener("click", function() {
-        document.getElementById("canceltour").style.display = "none";
-        document.getElementById("popup-thankyou").style.display = "none";
-    });
-    document.getElementById("close-btn-thankyou").addEventListener("click", function() {
-        document.getElementById("popup-thankyou").style.display = "none";
-    });
-    document.getElementById("cancel-button").addEventListener("click", function() {
-        document.getElementById("popup-cancel").style.display = "block";
-    });
-    document.getElementById("confirm").addEventListener("click", function() {
-        document.getElementById("popup-cancel").style.display = "none";
-        document.getElementById("canceltour").style.display = "block";
-    });
-</script>
 <!-- Hiệu ứng đánh giá sao -->
 <script>
     const stars = document.querySelectorAll('.star');

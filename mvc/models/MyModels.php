@@ -317,43 +317,38 @@ class MyModels extends Database {
         $sql ="SELECT $data FROM $this->table";
         if (isset($where) && $where != NULL) {
             $fields = array_keys($where);
-            $fields_list = implode("",$fields);
+            $fields_list = implode(' AND ', array_map(fn($field) => "$field = ?", $fields));
             $values = array_values($where);
-            $isFields = true;
+            
             if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
-                $sql .= ' '.$this->join_table($table_join,$query_join,$type_join).' ';
+                $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
             }
-            $stringWhere = 'where';
-            for ($i=0; $i < count($fields); $i++) { 
-                if (!$isFields) {
-                  $sql .= " and ";
-                  $stringWhere = '';
-                }
-               $isFields = false;
-               $sql .= "  ".$stringWhere." ".$fields[$i]." = ? ";
+        
+            $sql .= " WHERE $fields_list";
+        
+            if ($orderby != '' && $orderby != NULL) {
+                $sql .= " ORDER BY ".$orderby."";
             }
             if ($limit != NULL) {
                 $sql .= " LIMIT ".$start." , ".$limit."";
             }
-            if ($orderby !='' && $orderby != NULL) {
-                $sql .= " ORDER BY ".$orderby."";
-            }
+            
             $query = $this->conn->prepare($sql);
             $query->execute($values);
-        }
-        else{
+        } else {
             if ($table_join != NULL && $query_join != NULL && $type_join != NULL) {
-                $sql .= ' '.$this->join_table($table_join,$query_join,$type_join).' ';
+                $sql .= ' ' . $this->join_table($table_join, $query_join, $type_join) . ' ';
             }
-            if ($orderby !='' && $orderby != NULL) {
+            if ($orderby != '' && $orderby != NULL) {
                 $sql .= " ORDER BY ".$orderby."";
             }
             if ($limit != NULL) {
                 $sql .= " LIMIT ".$start." , ".$limit."";
             }
             $query = $this->conn->prepare($sql);
-            $query->execute();
+            $query->execute();        
         }
+        
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 

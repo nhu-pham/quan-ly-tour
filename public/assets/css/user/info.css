@@ -1,10 +1,20 @@
+:root {
+    --bright-navy-blue: hsl(193.073, 85%, 41%); 
+}
 
 #popup-cancel,#popup-thankyou,#popup-save,#doiMK, #donMua,#khuyenMai, #waitforpay, #finish-order, #cancel-order, #yeuThich{
     /* display: none; */
 }
-#popup{
+#popup-update-save{
     /* display: none; */
+
 }
+
+.fade-out {
+    opacity: 0; 
+    transition: opacity 3s ease; 
+}
+
 .avatar {
     width: 40px;
     height: 40px;
@@ -343,6 +353,7 @@ input[type="file"] {
 
 /* Search Bar */
 .search-bar {
+    width: 760px;
     margin: 15px 0;
 }
 
@@ -364,6 +375,16 @@ input[type="file"] {
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.order-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.order-card[style*="display: none"] {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
 .waitforpay{
     display: flex;
 }
@@ -372,20 +393,26 @@ input[type="file"] {
     margin-right: 5px;
     padding: 5px 5px;
     color: white;
-    background-color: #18AB2E ;
+    background-color: #18AB2E;
     border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-top: 5px;
 }
 .order-card .fa-xmark{
-    padding: 5px 10px;
+    padding: 5px 7px;
     border-radius: 50%;
     color: white;
     background-color: red;
     margin-left: 250px;
     margin-right: 5px;
+    margin-top: 6px;
+    width: 25px;
+    height: 25px;
 }
 
 .order-card .bi-cash-stack{
-    margin-left: 30px;
+    margin-left: 150px;
     margin-right: 5px;
     font-size: 2rem; 
     color: #BFAB16;
@@ -415,6 +442,12 @@ input[type="file"] {
 
 .order-card .price {
     font-size: 14px;
+}
+
+.detail {
+    color: hsl(193.073, 85%, 41%); 
+    text-decoration: underline; 
+    font-style: italic;
 }
 
 .status {
@@ -458,6 +491,17 @@ input[type="file"] {
 .order-summary p span{
     padding-left: 10px;
 }
+
+.btngroup {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+} 
 .order-summary .pay-btn {
     background-color: var(--bright-navy-blue);
     color: white;
@@ -470,7 +514,13 @@ input[type="file"] {
     background-color: #ddd;
     color: #333;
 }
-.review-btn{
+.paytour-btn{
+    background-color: var(--bright-navy-blue);
+    color: white;
+    width: 120px;
+}
+.review-btn, 
+.cancelOrder-btn {
     background-color: white;
     color: var(--bright-navy-blue);
     border: 1px solid var(--bright-navy-blue);
@@ -690,8 +740,27 @@ textarea::placeholder {
     color: red; font-weight: bold;
 }
 .order-summary .fa-heart{
-    color: red; margin-left: 100px; margin-top: -10px;
+    margin-left: 100px; 
+    margin-top: -10px;
+    color: white;
 }
+
+.love-btn {
+    background: none;
+    border: none;
+    cursor: pointer; 
+}
+
+.love-btn i {
+    color: gray; 
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.love-btn.loved i {
+    color: red; 
+}
+
 .order-summary .xemct{
     margin-top: 90px;
 }
@@ -701,4 +770,45 @@ textarea::placeholder {
 .fav-image{
     width: 150px;
     height: 150px;
+}
+
+/* Scroll */
+#tourList {
+    max-height: calc(100vh - 200px); 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    margin: 20px 0;
+}
+
+#tourList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#tourList::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+#tourList::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+#all-order {
+    max-height: calc(100vh - 200px); 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    margin: 20px 0;
+}
+
+#all-order::-webkit-scrollbar {
+    width: 8px;
+}
+
+#all-order::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+#all-order::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
 }

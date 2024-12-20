@@ -6,22 +6,28 @@
     <?php if (isset($_SESSION['sucess'])) { ?>
         <!-- Thông báo đổi mật khẩu thành công -->
         <div id="popup" class="popup">
-            <div class="popup-content">
-                <div class="popup-header">
-                    <h3>Thông báo</h3>
-                    <span id="close-btn" class="close-btn">&times;</span>
-                </div>
-                <div class="popup-body">
-                    <div class="icon-success">
-                        &#10004;
+                <div class="popup-content">
+                    <div class="popup-header">
+                        <h3>Thông báo</h3>
                     </div>
-                    <p>Đổi mật khẩu thành công!</p>
-                </div>
-                <div class="popup-footer">
-                    <button id="confirm-btn" class="confirm-btn">Đã hiểu</button>
+                    <div class="popup-body">
+                        <div class="icon-success">
+                            &#10004;
+                        </div>
+                        <p>Đổi mật khẩu thành công!</p>
+                    </div>
                 </div>
             </div>
-        </div>
+            <script>
+            setTimeout(function() {
+                const popup = document.getElementById("popup");
+                popup.classList.add("fade-out"); 
+
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 1000); 
+            }, 1000); 
+        </script>
     <?php }
     unset($_SESSION['sucess']) ?>
     <form action="" method="post">
@@ -80,13 +86,4 @@
         }
     }
 
-
-    // Xử lý thông báo thay đổi mật khẩu 
-    document.getElementById("close-btn").addEventListener("click", function() {
-        document.getElementById("popup").style.display = "none";
-    });
-
-    document.getElementById("confirm-btn").addEventListener("click", function() {
-        document.getElementById("popup").style.display = "none";
-    });
 </script>

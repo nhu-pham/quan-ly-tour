@@ -10,6 +10,9 @@
         function __construct()
         {
             $this->UserModels = $this->models('UserModels');
+            $this->OrderModels = $this->models('OrderModels');
+            $this->TourModels = $this->models('TourModels');
+            $this->ReviewModels = $this->models('ReviewModels');
             $this->MyController = new MyController();
             $this->TokenLoginModels = $this->models('TokenLoginModels');
             $this->Jwtoken = $this->helper('Jwtoken');
@@ -19,7 +22,7 @@
         }
         function index()
         {
-         'auth';
+            'auth';
         }
         function register()
         {
@@ -69,7 +72,7 @@
 
                         // Tiến hành gửi mail
                         $sendMail = $this->SendMail->send($subject, $dataInsert['email'], $content);
-                        if ($sendMail) { 
+                        if ($sendMail) {
                             $redirect = new redirect('auth/register');
                             $redirect->setFlash('sucess', 'Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản!');
                         } else {
@@ -83,27 +86,28 @@
                     $redirect = new redirect('auth/register');
                     $redirect->setFlash('error', 'Đăng ký không thành công!');
                 }
-            } 
+            }
             $this->view('user/register/index', [
                 'title'         => 'Đăng ký'
             ]);
         }
 
-        function active() {
+        function active()
+        {
             $activeToken = $_GET['token'];
-            if(!empty($activeToken)) {
+            if (!empty($activeToken)) {
                 $tokenQuery = $this->UserModels->select_row('*', ['activeToken' => trim($activeToken)]);
-                if(!empty($tokenQuery)) {
+                if (!empty($tokenQuery)) {
                     $userId = $tokenQuery['id'];
                     $dataUpdate = [
                         'status' => 1,
                         'activeToken' => null
                     ];
-        
+
                     $result = $this->UserModels->update($dataUpdate, ['id' => $userId]);
                     $decodeResults = json_decode($result, true);
-        
-                    if($decodeResults['type'] === 'Sucessfully') {
+
+                    if ($decodeResults['type'] === 'Sucessfully') {
                         $redirect = new redirect('auth/login');
                         $redirect->setFlash('sucess', 'Kích hoạt tài khoản thành công, bạn có thể đăng nhập ngay bây giờ!');
                     } else {
@@ -118,7 +122,6 @@
                 $redirect = new redirect('auth/register');
                 $redirect->setFlash('error', 'Liên kết không tồn tại!');
             }
-
         }
 
         function login()
@@ -162,23 +165,23 @@
                             $_SESSION['user'] = $jwt;
                             switch ($data['role_id']) {
                                 case 1:
-                                    $_SESSION['customer'] = $jwt .'customer';
-                                    $redirect = new redirect('/'); 
+                                    $_SESSION['customer'] = $jwt . 'customer';
+                                    $redirect = new redirect('/');
                                     break;
                                 case 2:
                                     $_SESSION['admin'] = $jwt . 'admin';
-                                    $redirect = new redirect('admin/'); 
+                                    $redirect = new redirect('admin/');
                                     break;
                                 case 3:
                                     $_SESSION['employee'] = $jwt . 'employee';
-                                    $redirect = new redirect('employee/'); 
+                                    $redirect = new redirect('employee/');
                                     break;
                                 case 4:
                                     $_SESSION['manager'] = $jwt . 'manager';
-                                    $redirect = new redirect('manager/'); 
+                                    $redirect = new redirect('manager/');
                                     break;
                                 default:
-                                    $redirect = new redirect('/'); 
+                                    $redirect = new redirect('/');
                                     break;
                             }
                         } else {
@@ -204,14 +207,13 @@
         {
             if ($_SESSION['user']) {
                 $token = $_SESSION['user'];
-                $dataDelete = $this->TokenLoginModels->select_row('*',['token' => $token]);
+                $dataDelete = $this->TokenLoginModels->select_row('*', ['token' => $token]);
                 $this->TokenLoginModels->delete(['token' => $dataDelete['token']]);
                 unset($_SESSION['user']);
-                unset($_SESSION['customer']); 
+                unset($_SESSION['customer']);
                 unset($_SESSION['employee']);
                 unset($_SESSION['admin']);
                 unset($_SESSION['manager']);
-               
             }
             $redirect = new redirect('/');
         }
@@ -255,7 +257,7 @@
                         $dataUpdate['avatar_url'] = $image;
                     }
                 }
-                
+
                 if (empty($errors)) {
                     $result = $this->UserModels->update($dataUpdate, ['id' => $verify['id']]);
                     $decodeResults = json_decode($result, true);
@@ -295,7 +297,7 @@
                 $redirect = new redirect('auth/login');
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
+
                 $errors = [];
                 $data_post = $_POST;
                 if (strlen($_POST['password']) < 6) {
@@ -308,7 +310,7 @@
                     $errors['retype-newPassword'] = 'Mật khẩu xác nhận không trùng khớp';
                 }
                 $rows = $this->UserModels->select_row('*', ['id' => $data['user']['id']]);
-                if(empty($errors)) {
+                if (empty($errors)) {
                     if (password_verify($data_post['password'], $rows['password'])) {
                         $array = [
                             'password' => password_hash(trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS)), PASSWORD_BCRYPT),
@@ -331,7 +333,7 @@
                     $redirect->setFlash('error', 'Cập nhật mật khẩu không thành công!');
                 }
             }
-            
+
             $this->view('user/info/index', [
                 'title' => 'Đổi mật khẩu',
                 'page'  => 'changePassword',
@@ -339,7 +341,8 @@
             ]);
         }
 
-        function forgot() {
+        function forgot()
+        {
             if (isset($_SESSION['user'])) {
                 $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
                 if ($verify != NULL && $verify != 0) {
@@ -352,10 +355,10 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $email = trim($_POST['email']);
                 $user = $this->UserModels->select_row('*', ['email' => trim($email)]);
-                if(!empty($user)) {
+                if (!empty($user)) {
                     $userId = $user['id'];
                     // Tạo forgot token
-                    $forgotToken = sha1(uniqid().time()); 
+                    $forgotToken = sha1(uniqid() . time());
 
                     $dataUpdate = [
                         'forgotToken' => $forgotToken,
@@ -363,23 +366,23 @@
 
                     $result = $this->UserModels->update($dataUpdate, ['id' => $userId]);
                     $decodeResults = json_decode($result, true);
-        
-                    if($decodeResults['type'] === 'Sucessfully') {
-                        $linkReset = base_url.'auth/reset?token='.$forgotToken;
-                    
+
+                    if ($decodeResults['type'] === 'Sucessfully') {
+                        $linkReset = base_url . 'auth/reset?token=' . $forgotToken;
+
                         // Gửi email mã xác nhận
                         $subject = 'Khôi phục mật khẩu tài khoản';
-                        $content = 'Chào bạn'.'<br>';
+                        $content = 'Chào bạn' . '<br>';
                         $content .= 'Bạn đã yêu cầu đặt lại mật khẩu tài khoản. 
-                        Click vào link dưới đây để tiến hành reset mật khẩu: '.'<br>';
-                        $content .= $linkReset. '<br>';
+                        Click vào link dưới đây để tiến hành reset mật khẩu: ' . '<br>';
+                        $content .= $linkReset . '<br>';
                         $content .= 'Trân trọng cảm ơn!';
 
                         $sendEmail = $this->SendMail->send($subject, $email, $content);
-                        if($sendEmail) {
+                        if ($sendEmail) {
                             $redirect = new redirect('auth/forgot');
                             $redirect->setFlash('sucess', 'Vui lòng kiểm tra email để đặt lại mật khẩu của bạn.');
-                        } 
+                        }
                     } else {
                         $redirect = new redirect('auth/forgot');
                         $redirect->setFlash('error', 'Có lỗi xảy ra. Vui lòng thử lại!');
@@ -414,8 +417,11 @@
 
                         if (empty($errors)) {
                             $dataUpdate = [
-                                'password' => password_hash(trim(filter_input(INPUT_POST, 'newPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS)), PASSWORD_BCRYPT),
-                                
+                                'password' => password_hash(trim(filter_input(
+                                    INPUT_POST,
+                                    'newPassword',
+                                    FILTER_SANITIZE_FULL_SPECIAL_CHARS
+                                )), PASSWORD_BCRYPT),
                                 'updated_at' => gmdate('Y-m-d H:i:s', time() + 7 * 3600)
                             ];
                             $result = $this->UserModels->update($dataUpdate, ['id' => $userId]);
@@ -438,5 +444,331 @@
             $this->view('user/reset/index', [
                 'title' => 'Thiết lập mật khẩu'
             ]);
+        }
+
+        function orders()
+        {
+            if (isset($_SESSION['user'])) {
+                $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+                if ($verify != NULL && $verify != 0) {
+                    $auth = $this->Authorzation->checkAuth($verify);
+                    if (!$auth) {
+                        $redirect = new redirect('auth/login');
+                    }
+                }
+            } else {
+                $redirect = new redirect('auth/login');
+            }
+
+            $ordersData = $this->OrderModels->select_array_join_table(
+                'orders.*, tours.name as name, tours.thumbnail as toursImage',
+                ['active' => 1],
+                'order_date desc',
+                NULL,
+                NULL,
+                'tours',
+                'orders.tour_id = tours.id',
+                'LEFT'
+            );
+
+            $data = $this->MyController->indexCustomers();
+            $this->view('user/info/index', [
+                'page' => 'ordersList',
+                'data'    => $data,
+                'ordersData' => $ordersData
+            ]);
+        }
+
+        function getOrders()
+        {
+            $status = isset($_GET['status']) ? $_GET['status'] : 'all';
+            if ($status === 'all') {
+                $ordersData = $this->OrderModels->select_array_join_table(
+                    'orders.*, tours.name as name, tours.thumbnail as toursImage',
+                    ['active' => 1],
+                    'order_date desc',
+                    NULL,
+                    NULL,
+                    'tours',
+                    'orders.tour_id = tours.id',
+                    'LEFT'
+                );
+            } else {
+                $ordersData = $this->OrderModels->select_array_join_table(
+                    'orders.*, tours.name as name, tours.thumbnail as toursImage',
+                    [
+                        'status' => $status,
+                        'active' => 1
+                    ],
+                    'order_date desc',
+                    NULL,
+                    NULL,
+                    'tours',
+                    'orders.tour_id = tours.id',
+                    'LEFT'
+                );
+            }
+
+            if ($ordersData) {
+                $htmlOutput = '';
+                foreach ($ordersData as $order) {
+                    $status = $order['status'];
+
+                    $htmlOutput .= '
+                    <div class="order-card">
+                        <img src="/quan-ly-tour/' . htmlspecialchars($order['toursImage']) . '" alt="Tour Image" class="order-image">
+                        <div class="order-details">
+                            <div>
+                                <h4>' . htmlspecialchars($order['name']) . '</h4>
+                            </div>
+                            <div><a class="detail">Chi tiết đơn hàng</a></div>
+                        </div>
+                        <div class="order-summary">
+                            <div class="waitforpay">
+                                <i class="';
+                    if ($status === 'pending') {
+                        $htmlOutput .= 'bi bi-cash-stack';
+                    } elseif ($status === 'completed') {
+                        $htmlOutput .= 'fa-solid fa-check';
+                    } elseif ($status === 'cancelled') {
+                        $htmlOutput .= 'fa-solid fa-xmark';
+                    }
+                    $htmlOutput .= '"></i>
+                                <span class="status" style="';
+                    if ($status === 'pending') {
+                        $htmlOutput .= 'color: #BFAB16;';
+                    } elseif ($status === 'completed') {
+                        $htmlOutput .= 'color: #18AB2E;';
+                    } elseif ($status === 'cancelled') {
+                        $htmlOutput .= 'color: #E80E0E;';
+                    }
+                    $htmlOutput .= '">';
+                    if ($status === 'pending') {
+                        $htmlOutput .= 'CHỜ THANH TOÁN';
+                    } elseif ($status === 'completed') {
+                        $htmlOutput .= 'HOÀN THÀNH';
+                    } elseif ($status === 'cancelled') {
+                        $htmlOutput .= 'ĐÃ HUỶ';
+                    }
+                    $htmlOutput .= '</span></div>
+                            <p style="margin-left: 150px;">Tổng tiền: <span style="color: red; font-weight: bold;">'.$order['total_money']. 'VNĐ</span></p>';
+
+                    if ($status === 'pending') {
+                        $htmlOutput .= '<a href="thongTinDatTour.html" class="btngroup paytour-btn">Thanh toán</a>
+                        <button id="cancel-button" class="btngroup cancelOrder-btn" data-id="' . $order['id'] . '">Huỷ</button>';
+                    } elseif ($status === 'completed') {
+                        $htmlOutput .= '<button id="delete-button" data-id="' . $order['id'] . '" class="btngroup cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
+                        <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>
+                        <button href="#reviewtour" class="btngroup review-btn">Đánh giá</button>';
+                    } elseif ($status === 'cancelled') {
+                        $htmlOutput .= '<button id="delete-button" data-id="' . $order['id'] . '" class="btngroup cancel-btn" style="background-color: red; color: white; border: none;">Xóa</button>
+                        <a href="thongTinDatTour.html" class="btngroup rebook-btn">Đặt lại</a>';
+                    }
+
+                    $htmlOutput .= '</div>
+                    </div>';
+                }
+                echo $htmlOutput;
+            } else {
+                echo '<p>Không có đơn hàng nào.</p>';
+            }
+        }
+
+        function voucher()
+        {
+            if (isset($_SESSION['user'])) {
+                $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+                if ($verify != NULL && $verify != 0) {
+                    $auth = $this->Authorzation->checkAuth($verify);
+                    if (!$auth) {
+                        $redirect = new redirect('auth/login');
+                    }
+                }
+            } else {
+                $redirect = new redirect('auth/login');
+            }
+
+            $data = $this->MyController->indexCustomers();
+            $this->view('user/info/index', [
+                'page' => 'voucher',
+                'data'    => $data
+            ]);
+        }
+
+        function love()
+        {
+            if (isset($_SESSION['user'])) {
+                $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+                if ($verify != NULL && $verify != 0) {
+                    $auth = $this->Authorzation->checkAuth($verify);
+                    if (!$auth) {
+                        $redirect = new redirect('auth/login');
+                    }
+                }
+            } else {
+                $redirect = new redirect('auth/login');
+            }
+
+            $lovedTour = $this->TourModels->select_array('*', ['is_love' => 1]);
+
+            $data = $this->MyController->indexCustomers();
+            $this->view('user/info/index', [
+                'page' => 'love',
+                'data'    => $data,
+                'lovedTour' => $lovedTour
+            ]);
+        }
+
+        function updateLove()
+        {
+            $data = json_decode(file_get_contents("php://input"), true);
+            if (isset($data['id']) && isset($data['is_love'])) {
+                $tourId = $data['id'];
+                $isLove = $data['is_love'];
+
+                $result = $this->TourModels->update(['is_love' => $isLove], ['id' => $tourId]);
+                $decodeResults = json_decode($result, true);
+
+                if ($decodeResults['type'] === 'Sucessfully') {
+                    echo json_encode(['success' => true]);
+                } else {
+                    echo json_encode(['success' => false]);
+                }
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Dữ liệu không hợp lệ.']);
+            }
+        }
+
+        function cancelOrder()
+        {
+            $data = json_decode(file_get_contents("php://input"), true);
+            if (isset($data['id']) && isset($data['status'])) {
+                $orderId = $data['id'];
+                $status = $data['status'];
+
+                $result = $this->OrderModels->update(['status' => $status], ['id' => $orderId]);
+                $decodeResults = json_decode($result, true);
+
+                if ($decodeResults['type'] === 'Sucessfully') {
+                    echo json_encode(['success' => true]);
+                } else {
+                    echo json_encode(['success' => false]);
+                }
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Dữ liệu không hợp lệ.']);
+            }
+        }
+
+        function deleteOrder()
+        {
+            $data = json_decode(file_get_contents("php://input"), true);
+            if (isset($data['id'])) {
+                $orderId = $data['id'];
+
+                $result = $this->OrderModels->update(['active' => 0], ['id' => $orderId]);
+                $decodeResults = json_decode($result, true);
+
+                if ($decodeResults['type'] === 'Sucessfully') {
+                    echo json_encode(['success' => true]);
+                } else {
+                    echo json_encode(['success' => false]);
+                }
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Dữ liệu không hợp lệ.']);
+            }
+        }
+
+        function detailOrder()
+        {
+            $groupOrderDetail = [];
+            if (isset($_GET['id'])) {
+                $orderId = (int)$_GET['id'];
+                $orderDetail = $this->OrderModels->select_array_join_multi_table(
+                    'orders.*, order_details.*, tours.name as tourName, tours.date_start as tourDateStart, tours.duration as tourDuration, tours.pick_up as tourPickUp, services.name as serviceName',
+                    ['orders.id' => trim($orderId), 'active' => 1],
+                    'order_details.id desc',
+                    NULL,
+                    NULL,
+                    [
+                        ['order_details', 'orders.id = order_details.order_id', 'LEFT'],
+                        ['tours', 'tours.id = order_details.tour_id', 'LEFT'],
+                        ['services', 'services.id = order_details.service_id', 'LEFT']
+                    ]
+                );
+            }
+
+            if ($orderDetail) {
+                foreach ($orderDetail as $order) {
+                    if (!isset($groupOrderDetail[$orderId])) {
+                        $groupOrderDetail[$orderId] = [
+                            'order_id' => $orderId,
+                            'tour_id' => $order['tour_id'],
+                            'order_date' => $order['order_date'],
+                            'fullname' => $order['fullname'],
+                            'phone_number' => $order['phone_number'],
+                            'email' => $order['email'],
+                            'status' => $order['status'],
+                            'address' => $order['address'],
+                            'tourName' => $order['tourName'],
+                            'tourDateStart' => $order['tourDateStart'],
+                            'tourDuration' => $order['tourDuration'],
+                            'tourPickUp' => $order['tourPickUp'],
+                            'number_of_people' => $order['number_of_people'],
+                            'tour_price' => $order['tour_price'],
+                            'total_money' => $order['total_money'],
+                            'services' => [],
+                        ];
+                    }
+
+                    $groupOrderDetail[$orderId]['services'][] = [
+                        'serviceName' => $order['serviceName'],
+                        'service_price' => $order['service_price'],
+                        'number_of_services' => $order['number_of_services'],
+                        'total_money_service' => $order['total_money_service'],
+                    ];
+                }
+            }
+            $data = $this->MyController->indexCustomers();
+            $data = [
+                'orderDetail' => $groupOrderDetail,
+                'page' => 'orderDetail',
+                'data' => $data
+            ];
+            $this->view('user/info/index', $data);
+        }
+
+        function rateOrder() {
+            $data = json_decode(file_get_contents('php://input'), true);
+            if (empty($data['user_id']) || empty($data['tour_id']) || empty($data['rating']) || empty($data['note'])) {
+                echo json_encode(['success' => false, 'message' => 'Hãy điền đầy đủ nội dung.']);
+                exit;
+            }
+        
+            $user_id = $data['user_id'];
+            $tour_id = $data['tour_id'];
+            $rating = $data['rating'];
+            $note = $data['note'];
+        
+    
+            if ($rating < 1 || $rating > 5) {
+                echo json_encode(['success' => false, 'message' => 'Đánh giá phải trong phạm vi từ 1 đến 5.']);
+                exit;
+            }
+        
+            $dataInsert = [
+                'user_id' => $user_id,
+                'tour_id' => $tour_id,
+                'rating' => $rating,
+                'note' => $note
+            ];
+        
+            $result = $this->ReviewModels->add($dataInsert);
+            $return = json_decode($result, true);
+        
+            if ($return['type'] === 'Sucessfully') {
+                echo json_encode(['success' => true, 'message' => 'Đánh giá đã được lưu thành công.']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Không thể lưu đánh giá vào cơ sở dữ liệu.']);
+            }
         }
     }

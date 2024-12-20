@@ -52,21 +52,21 @@ class Functions extends Controller
                     $prev_id = $page_array[$i] - 1;
                     if ($prev_id <= 0) {
                         $prev_link .= '<li>
-                            <a href="javascript:void(0)" class="page-link disabled">Previous</a>
+                            <a href="javascript:void(0)" class="page-link disabled">&laquo</a>
                         </li>';
                     } else {
                         $prev_link .= '<li>
-                            <a href="javascript:void(0)" class="page-link" num-page="' . $prev_id . '">Previous</a>
+                            <a href="javascript:void(0)" class="page-link" num-page="' . $prev_id . '">&laquo</a>
                         </li>';
                     }
                     $next_id = $page_array[$i] + 1;
                     if ($next_id > $total_page) {
                         $next_link .= '<li>
-                            <a href="javascript:void(0)" class="page-link disabled">Next</a>
+                            <a href="javascript:void(0)" class="page-link disabled">&raquo;</a>
                         </li>';
                     } else {
                         $next_link .= '<li>
-                            <a href="javascript:void(0)" class="page-link" num-page="' . $next_id . '">Next</a>
+                            <a href="javascript:void(0)" class="page-link" num-page="' . $next_id . '">&raquo;</a>
                         </li>';
                     }
                 } else {
