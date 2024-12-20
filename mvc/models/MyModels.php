@@ -156,8 +156,8 @@ class MyModels extends Database {
         if ($query->execute($values)) {
             return json_encode(
                 array(
-                    'type'      => 'Sucessfully',
-                    'Message'   => 'Insert data sucessfully',
+                    'type'      => 'Successfully',
+                    'Message'   => 'Insert data successfully',
                     'id'        => $this->conn->lastInsertId()
                 )
             );
@@ -234,8 +234,8 @@ class MyModels extends Database {
             if ($query->execute($values)) {
                 return json_encode(
                     array(
-                        'type'      => 'Sucessfully',
-                        'Message'   => 'Update data sucessfully',
+                        'type'      => 'Successfully',
+                        'Message'   => 'Update data successfully',
                     )
                 );
             }
@@ -287,8 +287,8 @@ class MyModels extends Database {
             if ($query->execute($value_where)) {
                 return json_encode(
                     array(
-                        'type'      => 'Sucessfully',
-                        'Message'   => 'Delete data sucessfully',
+                        'type'      => 'Successfully',
+                        'Message'   => 'Delete data successfully',
                     )
                 );
             }
@@ -320,8 +320,8 @@ class MyModels extends Database {
     
         // Nếu tìm thấy khóa ngoại
         if (!empty($foreignKeys)) {
-            echo "Foreign keys referencing '{$this->table}({$column})':\n";
-            print_r($foreignKeys);
+            //echo "Foreign keys referencing '{$this->table}({$column})':\n";
+            //print_r($foreignKeys);
             return true;
         }
         return false;
@@ -362,7 +362,7 @@ class MyModels extends Database {
             $query->execute($values);
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            //echo 'Error: ' . $e->getMessage();
             return [];
         }
     }
@@ -590,7 +590,8 @@ class MyModels extends Database {
 
         // Chuẩn bị và thực thi câu lệnh
         $query = $this->conn->prepare($sql);
-        
+        // var_dump($query);
+        // die();
         
         $query->execute($values);
         
@@ -650,4 +651,20 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // Phương thức fetchAll để select * from một bảng bất kỳ
+    public function fetchAll($table = null) {
+        try {
+            $sql = "SELECT * FROM $table";
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [
+                'type' => 'Fail',
+                'message' => 'Error fetching data: ' . $e->getMessage()
+            ];
+        }
+    }
+
 }

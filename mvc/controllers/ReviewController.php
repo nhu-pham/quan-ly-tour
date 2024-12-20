@@ -1,6 +1,6 @@
 <?php
 require_once "./mvc/models/ReviewModel.php";
-header('Content-Type: application/json; charset=UTF-8');
+require_once "./mvc/core/redirect.php";
 
 class ReviewController extends Controller {
     protected $reviewModel;
@@ -11,6 +11,7 @@ class ReviewController extends Controller {
 
      // Phương thức tìm kiếm đánh giá theo tên và email khách hàng
     public function searchReviews() {
+        header('Content-Type: application/json; charset=UTF-8');
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             http_response_code(405); // Method Not Allowed
             echo json_encode([
@@ -26,12 +27,9 @@ class ReviewController extends Controller {
 
         $reviews = $this->reviewModel->searchReviewsByCustomer($fullname, $email);
 
-        // Trả về kết quả tìm kiếm
         if ($reviews) {
-            echo json_encode([
-                'status' => 'success',
-                'data' => $reviews
-            ], JSON_UNESCAPED_UNICODE);
+            echo json_encode($reviews
+            , JSON_UNESCAPED_UNICODE);
         } else {
             echo json_encode([
                 'status' => 'fail',
@@ -39,6 +37,31 @@ class ReviewController extends Controller {
             ]);
         }
     }
+
+    public function search() {
+        
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        $keyword = $data['keyword'] ?? null;
+        $start = isset($data['start']) ? (int)$data['start'] : 0;
+        $limit = isset($data['limit']) ? (int)$data['limit'] : 10;
+        $orderby = isset($data['orderby']) ? $data['orderby'] : null;
+
+        $response = $this->reviewModel->search_reviews($keyword, $orderby, $limit, $start);
+
+        if ($response === false) {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Error fetching data from the database'
+            ]);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
 
     public function add()
     {
@@ -135,5 +158,33 @@ class ReviewController extends Controller {
         }
     }
 
+    public function fetchAll() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405); // Method Not Allowed
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Only GET method is allowed'
+            ]);
+            return;
+        }
+        $data = $this->reviewModel->fetchAll();
+        header('Content-Type: application/json');
+        if (!empty($data)) {
+            echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'No data found'
+            ]);
+        }
+    }
+
+    public function index()
+    {
+        $this->view('admin/index', [
+            'page' => 'review/index'
+        ]);
+    }
 }
 ?>

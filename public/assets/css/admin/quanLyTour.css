@@ -1,0 +1,206 @@
+#customer-container, #customer-update-container{
+    display: none;
+}
+.header-background .navbar-link{
+    color: black;
+  }
+  
+.header-background{
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .pagination {
+    display: inline-block;
+    position: relative;
+    top: 42%;
+    margin-left: 60%;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+  .pagination .active {
+    background-color: rgb(16,156,195);
+    color: white;
+    border: 1px solid rgb(16,156,195);
+  }
+  .inactive{
+    background-color: #d3cece;       
+    pointer-events: none; 
+    cursor: not-allowed;  
+}
+  .pagination a:hover:not(.active) {background-color: var(--bright-navy-blue);}
+  
+  .pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+.tourlist-container {
+    max-width: 900px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tourlist-container h1 {
+    text-align: center;
+    color: var(--bright-navy-blue);
+    margin-bottom: 20px;
+}
+
+.tourlist-container .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.tourlist-container .search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 40px 10px 10px;
+    color: var(--black);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.tourlist-container .search-bar i {
+    position: absolute;
+    right: 15px;
+    color: #aaa;
+    font-size: 16px;
+}
+
+.tour-list {
+    margin-top: 20px;
+}
+
+.last-tour-item{
+    border-bottom: 20px solid var(--bright-navy-blue);
+}
+.tour-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-top: 20px solid var(--bright-navy-blue);
+    padding: 10px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    height: 140px;
+}
+
+.tour-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.tour-info p:first-child{
+    margin-left: -140px;
+    margin-bottom: 20px;
+}
+.ngay-gia{
+    display: flex;
+    gap: 30px;
+    margin-bottom: -37px;
+}
+.tourlist-container .update-btn {
+    background-color: var(--bright-navy-blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.tourlist-container .update-btn:hover {
+    background-color: var(--bright-navy-blue);
+}
+
+.tourlist-container .pagination {
+    display: flex;
+    text-align: justify;
+    margin-left: 85%;
+    margin-top: 20px;
+}
+.tourlist-container .pagination span {
+    padding: 5px 10px;
+    border: 2px solid var(--bright-navy-blue);
+}
+.tourlist-container .pagination .page-btn {
+    background-color: var(--bright-navy-blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tourlist-container .pagination span {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+
+.price-row {
+    display: flex; 
+    gap: 5px; 
+}
+.dontour-container {
+    max-width: 1100px;
+    margin: 200px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dontour-container h2 {
+    text-align: center;
+    color: var(--bright-navy-blue);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.hoadon-header{
+    display: flex;
+}
+.hoadon-header i{
+    margin-left: 60%;
+    padding: 0px;
+}
+.matour label{
+    margin-left: 40px;
+    color: var(--bright-navy-blue);
+    padding: 10px;
+    border: 1px solid var(--black);
+    margin-bottom: 30px;
+}
+
+.ngaydat label{
+    color: var(--black);
+    font-style: italic;
+    margin-bottom: 30px;
+}

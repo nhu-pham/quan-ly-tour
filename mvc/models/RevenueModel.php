@@ -70,7 +70,16 @@ class RevenueModel extends MyModels {
     
         return $revenueByMonth;
     }
-    
-    
+
+    function getTotalTours() {
+        $sql = "
+            SELECT COUNT(*) AS total_tours
+            FROM tours
+        ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total_tours'];
+    } 
 }
 ?>

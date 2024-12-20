@@ -1,6 +1,6 @@
 <?php
 require_once './mvc/models/RevenueModel.php';
-
+require_once "./mvc/core/redirect.php";
 
 class RevenueController extends Controller{
     
@@ -61,6 +61,24 @@ class RevenueController extends Controller{
         header('Content-Type: application/json');
         echo json_encode(['monthlyRevenue' => $monthlyRevenue]);
     }
+
+
+    public function getTotalTours1() {
+        $result = $this->revenueModel->getTotalTours();
+        echo json_encode([
+            'type' => 'Success', 
+            'data' => $result], 
+            JSON_UNESCAPED_UNICODE
+        );
+    }
+
+    public function index()
+    {
+        $this->view('admin/statistic/trangchu', [
+            'title' => 'Homepage Management'
+        ]);
+    }
+
 }
 
 ?>

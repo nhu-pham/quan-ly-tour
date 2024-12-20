@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.tour-image {
+    width: 100px;
+    height: auto;
+}
+
+.table img {
+    width: 100px;
+}
+.table th {
+    background-color: #109cc3 !important; /* Nền xanh dương cho ô tiêu đề */
+    color: #ffffff !important; /* Màu chữ trắng */
+}
+#search {
+    width: calc(100% + 17px); /* Mở rộng thêm 15px về phía trái */
+    margin-left: -17px;
+}
+
+
+.btn-custom {
+    background-color: #109cc3 !important; /* Màu xanh dương */
+    color: #ffffff !important; /* Màu chữ trắng */
+    border: none; /* Xóa viền */
+    margin-bottom: 15px;
+}
+
+.btn-custom:hover {
+    background-color: #0d8bb0; /* Màu xanh dương đậm hơn khi hover */
+    color: #ffffff;
+}
+
+.search-container {
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: space-between; /* Căn đều các phần tử */
+    gap: 10px; /* Khoảng cách giữa thanh tìm kiếm và nút */
+    margin: 20px; /* Thêm khoảng cách xung quanh nếu cần */
+}
+
+#search {
+    flex: 5; /* Để thanh tìm kiếm chiếm không gian còn lại */
+    padding: 8px 12px; /* Kích thước lề trong */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-button {
+    background-color: #109cc3; /* Màu xanh dương */
+    color: #ffffff; /* Màu chữ trắng */
+    border: none; /* Xóa viền */
+    padding: 10px 20px; /* Kích thước lề trong */
+    font-size: 16px; /* Cỡ chữ */
+    border-radius: 5px; /* Bo tròn các góc */
+    cursor: pointer; /* Con trỏ khi di chuột */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Hiệu ứng mượt */
+    outline: none; /* Xóa viền khi bấm vào */
+    font-weight: bold; /* Chữ đậm */
+}
+
+/* Hiệu ứng khi hover chuột */
+.search-button:hover {
+    background-color: #0056b3; /* Màu xanh đậm hơn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+/* Hiệu ứng khi bấm nút */
+.search-button:active {
+    background-color: #004085; /* Màu xanh đậm hơn khi nhấn */
+    transform: scale(0.98); /* Nút nhỏ lại một chút */
+}
+
+/* Làm cho nút trông đẹp trên màn hình nhỏ */
+@media (max-width: 576px) {
+    .search-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+#search::placeholder {
+    color: #aaa; /* Màu của placeholder */
+}

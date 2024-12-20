@@ -1,53 +1,41 @@
 <?php
-// // mvc/routes/routes.php
-// include 'mvc/routes/tour_routes.php';
+require_once './mvc/routes/service_routes.php';  // Bao gồm file chứa route API dịch vụ
+
 class Routes {
     var $array = [];
+    var $Routes = [];
 
     // Phương thức để thêm route
-    public static function addRoute($url, $controllerAction) {
-        global $Routes;
-        $Routes[] = ['url' => $url, 'controllerAction' => $controllerAction];
+    public function addRoute($url, $controllerAction) {
+        $this->Routes[] = ['url' => $url, 'controllerAction' => $controllerAction];
     }
 
-    function handleUrl($url){
-        global $Routes;
+    // Hàm xử lý URL cho API và các route khác
+    public function handleUrl($url) {
         $returnUrl = ltrim($url, '/');
-        if (isset($Routes)) {
-            $folder = $this->readFolder('mvc/controllers');
-            $strpos = $this->checkUrl($returnUrl, $folder);
-            foreach ($Routes as $key => $val) {
-                $paramer = explode('/', $val['controllerAction']);
-                $urlArray = explode('/', ltrim($url, '/'));
-                $explode_url_arr = explode('.', $returnUrl);
-                
-                // Kiểm tra nếu $returnUrl là chuỗi
-                if ($strpos === 0 && $url !== '/' && !isset($explode_url_arr[1])) {
-                    $regex = $this->convertRegex($key);
-                    if (!empty($regex)) {
-                        if (preg_match($regex, $returnUrl)) {
-                            unset($paramer[count($paramer) - 1]);
-                            $explode_url = explode('/', $returnUrl);
-                            $returnUrl = preg_replace('~' . $regex . '~is', $val['controllerAction'], $explode_url[count($explode_url) - 1]);
-                            $strip = '';
-                            foreach ($paramer as $value) {
-                                $strip .= $value . '/';
-                            }
-                            $strip = $strip . $returnUrl;
-                            $returnUrl = $strip;
-                        }
-                    }
-                } else {
-                    if (preg_match('~' . $key . '~is', $url)) {
-                        $returnUrl = preg_replace('~' . $key . '~is', $url, $val['controllerAction']);
-                    }
+        
+        // Kiểm tra nếu URL bắt đầu với 'api/' để xử lý API
+        if (strpos($returnUrl, 'api/') === 0) {
+            // Duyệt qua các API routes
+            foreach ($this->Routes as $key => $val) {
+                if (preg_match('~' . $val['url'] . '~is', $returnUrl)) {
+                    return $val['controllerAction'];  // Trả về controllerAction cho API
+                }
+            }
+        } else {
+            // Nếu không phải API, xử lý cho các route web
+            foreach ($this->Routes as $key => $val) {
+                if (preg_match('~' . $val['url'] . '~is', $returnUrl)) {
+                    return $val['controllerAction'];  // Trả về controllerAction cho web routes
                 }
             }
         }
-        return $returnUrl;
+        
+        return $returnUrl;  // Trả về URL gốc nếu không tìm thấy route nào phù hợp
     }
 
-    function checkUrl($url, $folder = NULL){
+    // Kiểm tra xem URL có tồn tại trong các controller không
+    public function checkUrl($url, $folder = NULL) {
         $trim = ltrim($url, '/');
         $countArray = explode('/', $trim);
         $counts = 0;
@@ -65,15 +53,18 @@ class Routes {
         return $counts;
     }
 
-    function convertRegex($string){
+    // Chuyển đổi các tham số động trong URL thành regex
+    public function convertRegex($string) {
+        // Xử lý các tham số trong URL động như :any
         if (preg_match('(:any)', $string)) {
-            return '/([A-Za-z0-9]+)/';
+            return '/([A-Za-z0-9]+)/'; // Dùng cho tham số bất kỳ
         } else if (preg_match('(:num)', $string)) {
-            return  '/^[0-9]+$/i';
+            return  '/([0-9]+)/'; // Dùng cho tham số kiểu số
         }
     }
 
-    function readFolder($folder_ = NULL){
+    // Đọc các thư mục controller và trả về danh sách các controller
+    public function readFolder($folder_ = NULL) {
         if (is_dir($folder_)) {
             $folder = glob($folder_ . '/*');
             foreach ($folder as $value) {

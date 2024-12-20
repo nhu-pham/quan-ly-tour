@@ -285,5 +285,40 @@ class TourModel extends MyModels {
         return $tours;
     }   
 
+    public function search_tours($search_value = null, $orderby = null, $limit = null, $start = null) {
+        // Chọn các cột cần truy vấn
+        $data = "tours.id, tours.name, tours.price, tours.destination, tours.pick_up, tours.itinerary, tours.date_start, tours.thumbnail, tours.description, categories.id AS category_id";
+
+        // Định nghĩa bảng cần join
+        $table_join = "categories";
+        $query_join = "tours.category_id = categories.id";
+        $type_join = "INNER"; // INNER JOIN để kết hợp hai bảng
+        
+        // Các trường để tìm kiếm
+        $search_fields = ["tours.name", "tours.price", "tours.id", "categories.name",]; // Tìm kiếm trong tên dịch vụ và tên danh mục
+        
+        // Gọi phương thức search_array_join_table từ lớp cha
+        return parent::search_array_join_table(
+            $data,              // Cột cần truy vấn
+            $search_fields,     // Các trường cần tìm kiếm
+            $search_value,      // Giá trị tìm kiếm
+            null,                // Không có điều kiện WHERE đặc biệt
+            $orderby,            // Sắp xếp theo cột (nếu có)
+            $start,              // Vị trí bắt đầu cho phân trang
+            $limit,              // Số lượng bản ghi
+            $table_join,         // Bảng cần join
+            $query_join,         // Điều kiện join
+            $type_join           // Loại join
+        );
+    }
+
+    public function fetchAll($table = null) {
+        // Gọi phương thức fetchAll từ lớp cha
+        $data = parent::fetchAll($this->table);
+
+        // Trả về dữ liệu dưới dạng JSON hoặc mảng rỗng
+        return $data ? $data : [];
+    }
+
 }
 ?>

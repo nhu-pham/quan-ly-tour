@@ -1,6 +1,7 @@
 <?php
 require_once './mvc/models/TourModel.php';
-header('Content-Type: application/json; charset=UTF-8');
+require_once "./mvc/core/redirect.php";
+//header('Content-Type: application/json; charset=UTF-8');
 
 class TourController extends Controller
 {
@@ -16,19 +17,16 @@ class TourController extends Controller
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            http_response_code(405); // Method Not Allowed
+            http_response_code(405); 
             echo json_encode([
                 'type'    => 'Fail',
                 'message' => 'Only POST method is allowed'
             ]);
             return;
         }
-
-        // Đọc dữ liệu từ body của request
         $data = json_decode(file_get_contents("php://input"), true);
-
         if (!$data || !is_array($data)) {
-            http_response_code(400); // Bad Request
+            http_response_code(400);
             echo json_encode([
                 'type'    => 'Fail',
                 'message' => 'Invalid input data'
@@ -42,16 +40,14 @@ class TourController extends Controller
 
     public function update($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'PATCH') {
+        if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
             http_response_code(405); // Method Not Allowed
             echo json_encode([
                 'type'    => 'Fail',
-                'message' => 'Only PUT or PATCH method is allowed'
+                'message' => 'Only POST method is allowed'
             ]);
             return;
         }
-
-        // Kiểm tra ID hợp lệ
         if (empty($id) || !is_numeric($id)) {
             echo json_encode([
                 'type' => 'Fail',
@@ -59,11 +55,8 @@ class TourController extends Controller
             ]);
             return;
         }
-
-        // Đọc dữ liệu từ body của request
         $data = json_decode(file_get_contents("php://input"), true);
 
-        // Kiểm tra dữ liệu đầu vào
         if (!$data || !is_array($data)) {
             http_response_code(400); // Bad Request
             echo json_encode([
@@ -108,7 +101,7 @@ class TourController extends Controller
         }
     }
 
-    public function search()
+    public function searchTours()
     {
         // Lấy các tham số tìm kiếm từ query string
         // $tourCode = isset($_GET['tour_code']) ? $_GET['tour_code'] : null;
@@ -137,6 +130,31 @@ class TourController extends Controller
             ]);
         }
     }
+
+    public function search() {
+        
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        $keyword = $data['keyword'] ?? null;
+        $start = isset($data['start']) ? (int)$data['start'] : 0;
+        $limit = isset($data['limit']) ? (int)$data['limit'] : 10;
+        $orderby = isset($data['orderby']) ? $data['orderby'] : null;
+
+        $response = $this->tourModel->search_tours($keyword, $orderby, $limit, $start);
+
+        if ($response === false) {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Error fetching data from the database'
+            ]);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
 
     public function searchWithFilters() {
 
@@ -179,6 +197,36 @@ class TourController extends Controller
         // Kiểm tra xem có searchField hay không, nếu có thì chỉ tìm kiếm trong trường đó
         $tours = $this->tourModel->searchToursByKeyword($keyword, $searchFields, $orderby, $limit, $start);
         // Trả về kết quả dưới dạng JSON
-        echo json_encode(['type' => 'Success', 'data' => $tours], JSON_UNESCAPED_UNICODE);
+        echo json_encode($tours, JSON_UNESCAPED_UNICODE);
     }
+
+    public function index()
+    {
+        $this->view('admin/index', [
+            'page' => 'tour/index'
+        ]);
+    }
+
+    public function fetchAll() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            http_response_code(405); // Method Not Allowed
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Only GET method is allowed'
+            ]);
+            return;
+        }
+        $data = $this->tourModel->fetchAll();
+        header('Content-Type: application/json');
+        if (!empty($data)) {
+            echo json_encode($data);
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'No data found'
+            ]);
+        }
+    }
+    
 }

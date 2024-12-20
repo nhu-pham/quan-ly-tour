@@ -1,5 +1,7 @@
 <?php
 require_once './mvc/models/ServiceModel.php';
+require_once "./mvc/core/redirect.php";
+
 class ServiceController extends Controller
 {
     protected $serviceModel;
@@ -8,7 +10,7 @@ class ServiceController extends Controller
     public function __construct()
     {
         $this->serviceModel = new ServiceModel();
-        $this->Jwtoken             =  $this->helper('Jwtoken');
+        $this->Jwtoken = $this->helper('Jwtoken');
     }
 
     public function add()
@@ -21,10 +23,7 @@ class ServiceController extends Controller
             ]);
             return;
         }
-
-        // Đọc dữ liệu từ body của request
         $data = json_decode(file_get_contents("php://input"), true);
-
         if (!$data || !is_array($data)) {
             http_response_code(400); // Bad Request
             echo json_encode([
@@ -33,24 +32,29 @@ class ServiceController extends Controller
             ]);
             return;
         }
-
         $response = $this->serviceModel->add($data);
-        echo $response;
-    }
-
-    
-    public function update($id)
-    {
-        if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'PATCH') {
-            http_response_code(405); // Method Not Allowed
+        $responseArray = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            http_response_code(500); // Internal Server Error
             echo json_encode([
                 'type'    => 'Fail',
-                'message' => 'Only PUT or PATCH method is allowed'
+                'message' => 'Error processing update response'
             ]);
             return;
         }
+        echo json_encode($responseArray);
+    }
 
-        // Kiểm tra ID hợp lệ
+    public function update($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405); // Method Not Allowed
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Only PUT method is allowed'
+            ]);
+            return;
+        }
         if (empty($id) || !is_numeric($id)) {
             echo json_encode([
                 'type' => 'Fail',
@@ -58,11 +62,7 @@ class ServiceController extends Controller
             ]);
             return;
         }
-
-        // Đọc dữ liệu từ body của request
         $data = json_decode(file_get_contents("php://input"), true);
-
-        // Kiểm tra dữ liệu đầu vào
         if (!$data || !is_array($data)) {
             http_response_code(400); // Bad Request
             echo json_encode([
@@ -71,30 +71,132 @@ class ServiceController extends Controller
             ]);
             return;
         }
-
-        // Chuyển ID thành mảng điều kiện
         $where = ['id' => $id];
-
-        // Gọi model update
         $response = $this->serviceModel->update($data, $where);
-        echo $response;
-
+        $responseArray = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Error processing update response'
+            ]);
+            return;
+        }
+        echo json_encode($responseArray);
     }
 
     public function delete($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-            $response = $this->serviceModel->delete(['id' => $id]);
-            echo $response;
-        } else {
+        if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+            http_response_code(405); // Method Not Allowed
             echo json_encode([
-                'type' => 'Fail',
-                'message' => 'Invalid request method'
+                'type'    => 'Fail',
+                'message' => 'Only DELETE method is allowed'
             ]);
+            return;
         }
+        $response = $this->serviceModel->delete(['id' => $id]);
+        $responseArray = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Error processing update response'
+            ]);
+            return;
+        }
+        echo json_encode($responseArray);
     }
 
+    // public function search()
+    // {
+    //     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    //         http_response_code(405); // Method Not Allowed
+    //         echo json_encode([
+    //             'type'    => 'Fail',
+    //             'message' => 'Only GET method is allowed'
+    //         ]);
+    //         return;
+    //     }
+
+    //     $data = json_decode(file_get_contents("php://input"), true);
+
+    //     $service_id = $data['id'] ?? null;
+    //     $service_name = $data['name'] ?? null;
+    //     $category = $data['service_categories.name'] ?? null;
+    //     $orderby = $data['orderby'] ?? null;
+    //     $limit = $data['limit'] ?? null;
+
+    //     $response = $this->serviceModel->search_services($service_id, $service_name, $category, $orderby, $limit);
+
+    //     header('Content-Type: application/json');
+    //     $responseArray = json_decode($response, true);
+    //     if (json_last_error() !== JSON_ERROR_NONE) {
+    //         http_response_code(500); // Internal Server Error
+    //         echo json_encode([
+    //             'type'    => 'Fail',
+    //             'message' => 'Error processing update response'
+    //         ]);
+    //         return;
+    //     }
+    //     echo json_encode($responseArray);
+    // }
+
+
     public function search() {
+        
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        $keyword = $data['keyword'] ?? null;
+        $start = isset($data['start']) ? (int)$data['start'] : 0;
+        $limit = isset($data['limit']) ? (int)$data['limit'] : 10;
+        $orderby = isset($data['orderby']) ? $data['orderby'] : null;
+
+        $response = $this->serviceModel->search_services($keyword, $orderby, $limit, $start);
+
+        if ($response === false) {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Error fetching data from the database'
+            ]);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
+
+
+    public function searchByKeyword() {
+        // Lấy dữ liệu từ body JSON
+        $data = json_decode(file_get_contents("php://input"), true);
+    
+        // Kiểm tra và gán giá trị cho $searchField và $searchFields
+        $searchField = isset($data['searchField']) ? $data['searchField'] : ''; // Lấy trường cần tìm
+        $searchFields = isset($data['searchField']) ? [$searchField] : null; // Nếu có searchField, truyền vào mảng
+    
+        $keyword = isset($data['keyword']) ? $data['keyword'] : '';
+        
+        // Kiểm tra và gán giá trị cho $orderby
+        $orderby = isset($data['orderby']) ? $data['orderby'] : null;
+    
+        // Kiểm tra và gán giá trị cho $limit và $start
+        $limit = isset($data['limit']) ? (int)$data['limit'] : 10;
+        $start = isset($data['start']) ? (int)$data['start'] : 0;
+    
+        // Lấy các trường mặc định (tất cả các trường) nếu không có searchField
+        if (!$searchFields) {
+            $searchFields = ['name', 'price', 'service_category_id'];
+        }
+        // Kiểm tra xem có searchField hay không, nếu có thì chỉ tìm kiếm trong trường đó
+        $result = $this->serviceModel->searchByKeyword($keyword, $searchFields, $orderby, $limit, $start);
+        // Trả về kết quả dưới dạng JSON
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
+    }
+    
+    public function fetchAll() {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             http_response_code(405); // Method Not Allowed
             echo json_encode([
@@ -103,25 +205,25 @@ class ServiceController extends Controller
             ]);
             return;
         }
-
-        $data = json_decode(file_get_contents("php://input"), true);
-        
-        $service_id = $data['id'] ?? null;
-        $service_name = $data['name'] ?? null;
-        $category = $data['service_categories.name'] ?? null;
-        $orderby = $data['orderby'] ?? null;
-        $limit = $data['limit'] ?? null;
-
-        // Gọi phương thức trong model để lấy doanh thu
-        $Service = $this->serviceModel->search_services($service_id, $service_name, $category, $orderby, $limit);
-
-        
-        // Trả kết quả dưới dạng JSON
+        $data = $this->serviceModel->fetchAll();
         header('Content-Type: application/json');
-        echo json_encode(['totalService' => $Service]);
+        if (!empty($data)) {
+            echo json_encode($data);
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'No data found'
+            ]);
+        }
     }
 
+    public function index()
+    {
+        $this->view('admin/index', [
+            'page' => 'service/index'
+        ]);
+    }
+
+    
 }
-?>
-
-

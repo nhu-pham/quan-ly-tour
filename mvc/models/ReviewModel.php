@@ -48,6 +48,34 @@ class ReviewModel extends MyModels {
         );
     }
 
+    // Hàm tìm kiếm các dịch vụ
+    public function search_reviews($search_value = null, $orderby = null, $limit = null, $start = null) {
+        // Chọn các cột cần truy vấn
+        $data = 'reviews.id AS review_id, users.id AS user_id, users.fullname, users.email, reviews.note AS review_note'; 
+
+        // Định nghĩa bảng cần join
+        $table_join = "users";
+        $query_join = "reviews.user_id = users.id";
+        $type_join = "INNER"; // INNER JOIN để kết hợp hai bảng
+        
+        // Các trường để tìm kiếm
+        $search_fields = ["reviews.id", "users.id", "users.fullname", "users.email","reviews.note", "users.username", "users.phone_number"]; // Tìm kiếm trong tên dịch vụ và tên danh mục
+        
+        // Gọi phương thức search_array_join_table từ lớp cha
+        return parent::search_array_join_table(
+            $data,              // Cột cần truy vấn
+            $search_fields,     // Các trường cần tìm kiếm
+            $search_value,      // Giá trị tìm kiếm
+            null,                // Không có điều kiện WHERE đặc biệt
+            $orderby,            // Sắp xếp theo cột (nếu có)
+            $start,              // Vị trí bắt đầu cho phân trang
+            $limit,              // Số lượng bản ghi
+            $table_join,         // Bảng cần join
+            $query_join,         // Điều kiện join
+            $type_join           // Loại join
+        );
+    }
+
     public function add($data = null) {
         return parent::add($data);
     }
@@ -68,5 +96,11 @@ class ReviewModel extends MyModels {
         return parent::delete($where);
     }
     
+    public function fetchAll($table = null) {
+        $data = parent::fetchAll($this->table);
+        return $data ? $data : [];
+    }
+
+
 }
 ?>
