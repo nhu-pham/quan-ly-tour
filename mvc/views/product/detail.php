@@ -20,7 +20,7 @@ require_once ('./mvc/views/user/include/header.php')
                     <div>
                         <div class="slideshow-container">
 
-                            <div class="Slide fade">
+                            <!--<div class="Slide fade">
                                 <div class="numbertext">1 / 3</div>
                                 <img src="./public/upload/images/tours/sliderB1.jpg" style="width:100%; height: 400px;">
                                 <div class="text-slide">Chùa Phật Tích Trúc Lâm</div>
@@ -39,14 +39,10 @@ require_once ('./mvc/views/user/include/header.php')
                                 <div class="text-slide">Làng đá cổ Khuổi Kỵ</div>
                             </div>
                             <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
-                            <a class="next-slide" onclick="plusSlides(1)">❯</a>
+                            <a class="next-slide" onclick="plusSlides(1)">❯</a>-->
+                            <img src="/quan-ly-tour/<?=$details['thumbnail']?>" style="width:100%; height: 400px;">
                         </div>
                         <br>
-                        <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <span class="dot" onclick="currentSlide(3)"></span>
-                        </div>
                         <ul class="chuyendi-chitiet">
                             <?php
                                 // Chuỗi ban đầu
@@ -115,7 +111,7 @@ require_once ('./mvc/views/user/include/header.php')
                                     </div>
                                     <div><span class="dropdown-icon">▼</span></div>
                                 </div>
-                                <div class="day-content">
+                                <div class="day-content" style="display: none;">
                                     <p>
                                         <?=htmlspecialchars($day['details'])?>
                                     </p>
@@ -198,3 +194,27 @@ require_once ('./mvc/views/user/include/header.php')
         </div>
     </article>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy tất cả các tiêu đề ngày
+    var dayHeaders = document.querySelectorAll('.day-header');
+
+    // Thêm sự kiện click cho mỗi tiêu đề
+    dayHeaders.forEach(function(dayHeader) {
+        dayHeader.addEventListener('click', function() {
+            // Tìm nội dung ngày tương ứng
+            var dayContent = this.nextElementSibling;
+
+            // Kiểm tra và thay đổi trạng thái hiển thị
+            if (dayContent.style.display === 'none' || dayContent.style.display === '') {
+                dayContent.style.display = 'block';
+                this.querySelector('.dropdown-icon').textContent = '▲'; // Thay đổi biểu tượng
+            } else {
+                dayContent.style.display = 'none';
+                this.querySelector('.dropdown-icon').textContent = '▼'; // Thay đổi biểu tượng
+            }
+        });
+    });
+});
+</script>

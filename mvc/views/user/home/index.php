@@ -55,7 +55,8 @@
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/product/tours" class="navbar-link change-color">Tour</a>
                     </li>
-                    <li class="nav-item"><a href="lienHe.html" class="navbar-link change-color">Liên hệ</a></li>
+                    <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color">Liên hệ</a>
+                    </li>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
@@ -198,7 +199,7 @@
                                     <?= $value_db['name']?>
                                 </div>
                                 <div>Thời gian: <?= $value_db['duration']?></div>
-                                <a href="product/detail/<?=$value['slug']?>" class="chi-tiet-btn">XEM NGAY</a>
+                                <a href="product/detail/<?=$value_db['slug']?>" class="chi-tiet-btn">XEM NGAY</a>
                             </div>
                         </div>
                         <?php }?>

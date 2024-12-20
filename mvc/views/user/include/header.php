@@ -9,22 +9,6 @@
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/login.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/register.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/footer.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/about.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/info.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienBac.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/danhSachTour.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/chiTiet.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/ttDatTour.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/thanhToan.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/thueDichVu.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/lienLac.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/qlKhachHang.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/qlHoaDonTour.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourDacBiet.css">
 
     <!--DEMO-->
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/demo/style.css" />
@@ -86,7 +70,7 @@
                         </div>
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/product/tours" class="navbar-link">Tour</a></li>
-                    <li class="nav-item"><a href="/quan-ly-tour/about" class="navbar-link">Liên hệ</a></li>
+                    <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link">Liên hệ</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
