@@ -87,7 +87,7 @@ async function confirmDeleteTour(tourId) {
   $("#confirmDeleteModal").modal("hide");
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/tour/delete/${tourId}`, // URL đúng
+      `http://localhost:8088/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
       {
         method: "DELETE", // Sửa lỗi chính tả
         headers: {
@@ -142,7 +142,7 @@ async function updateTour(tourId) {
 
   const data = {
     name: updatedName,
-    price: updatedPrice, // Đảm bảo price là kiểu số
+    price: updatedPrice,
     pick_up: updatedDeparturePlace,
     duration: updatedTime,
     date_start: updatedDepartureDate,
@@ -153,9 +153,9 @@ async function updateTour(tourId) {
   console.log("Request data:", data);
 
   const response = await fetch(
-    `http://localhost:8088/quan-ly-tour/api/tour/update/${tourId}`,
+    `http://localhost:8088/quan-ly-tour/api/manager/tour/update/${tourId}`,
     {
-      method: "PUT", // Hoặc "POST" nếu bạn dùng POST
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     }
@@ -182,6 +182,17 @@ async function updateTour(tourId) {
     alert("Lỗi: " + error.message);
   }
 }
+
+// Khi modal được hiển thị
+$("#editTourModal").on("shown.bs.modal", function () {
+  $(this).removeAttr("aria-hidden"); // Xóa bỏ nếu tồn tại thuộc tính không cần thiết
+  $("#editTourName").focus(); // Đưa focus vào input đầu tiên
+});
+
+// Khi modal bị ẩn
+$("#editTourModal").on("hidden.bs.modal", function () {
+  $(this).attr("aria-hidden", "true"); // Đặt lại nếu cần
+});
 
 // Khi modal được hiển thị
 $("#editTourModal").on("shown.bs.modal", function () {
@@ -227,7 +238,7 @@ async function addTour() {
 
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/tour/add`,
+      `http://localhost:8088/quan-ly-tour/api/manager/tour/add`,
       {
         method: "POST",
         headers: {
@@ -292,9 +303,63 @@ async function addTour() {
   }
 }
 
+async function search() {
+  const input = document.querySelector("#regionSelect").value;
+
+  let region;
+  if (input === "Miền Bắc") {
+    region = 1;
+  } else if (input === "Miền Trung") {
+    region = 2;
+  } else if (input === "Miền Nam") {
+    region = 3;
+  }
+
+  const data = {
+    keyword: region,
+    searchField: "category_id",
+    start: "0",
+    limit: "10",
+  };
+
+  console.log("JSON Body:", data);
+
+  try {
+    const response = await fetch(
+      `http://localhost:8088/quan-ly-tour/api/manager/tour/searchByKeyword`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const jsonResponse = await response.json();
+    if (!jsonResponse || jsonResponse.length === 0) {
+      alert("Không tìm thấy kết quả phù hợp.");
+      return;
+    }
+
+    console.log(jsonResponse);
+
+    const tourList = document.querySelector("#tourList");
+    tourList.innerHTML = "";
+
+    jsonResponse.forEach((tour) => {
+      const row = renderTourRow(tour);
+      console.log(tour);
+      tourList.insertAdjacentHTML("beforeend", row);
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Đã có lỗi xảy ra, vui lòng thử lại.");
+  }
+}
+
 // Thêm sự kiện click vào nút "search-button"
 document.querySelector("#regionSelect").onclick = function () {
-  searchTour();
+  search();
 };
 
 function renderTourRow(tour) {
@@ -343,7 +408,7 @@ function renderTourRow(tour) {
 }
 
 function reloadTours() {
-  fetch("http://localhost:8088/quan-ly-tour/api/tour/fetchAll")
+  fetch("http://localhost:8088/quan-ly-tour/api/manager/tour/fetchAll")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Lỗi khi tải danh sách tour.");
@@ -375,7 +440,7 @@ async function searchTour() {
   console.log(data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/tour/search`,
+      `http://localhost:8088/quan-ly-tour/api/manager/tour/search`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -29,7 +29,7 @@ function deleteReview(reviewId) {
 async function confirmDeleteReview(reviewId) {
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/review/delete/${reviewId}`,
+      `http://localhost:8088/quan-ly-tour/api/manager/review/delete/${reviewId}`,
       {
         method: "DELETE",
         headers: {
@@ -63,7 +63,7 @@ async function confirmDeleteReview(reviewId) {
 async function reloadReviews() {
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/review/searchReviews`
+      `http://localhost:8088/quan-ly-tour/api/manager/review/searchReviews`
     );
     if (!response.ok) throw new Error("Lỗi khi tải danh sách nhận xét.");
 
@@ -75,7 +75,7 @@ async function reloadReviews() {
 }
 
 function reloadReviews() {
-  fetch(`http://localhost:8088/quan-ly-tour/api/review/searchReviews`)
+  fetch(`http://localhost:8088/quan-ly-tour/api/manager/review/searchReviews`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -130,7 +130,7 @@ async function searchReview() {
 
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/review/search`,
+      `http://localhost:8088/quan-ly-tour/api/manager/review/search`,
       {
         method: "POST",
         headers: {

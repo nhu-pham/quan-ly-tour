@@ -1,7 +1,7 @@
 <?php
 require_once "./mvc/models/MyModels.php";
 
-class ReviewModel extends MyModels {
+class ReviewModels extends MyModels {
     protected $table = 'reviews';
     
     public function searchReviewsByCustomer($fullname = '', $email = '') {

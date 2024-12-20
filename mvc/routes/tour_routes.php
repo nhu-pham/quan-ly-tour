@@ -3,20 +3,20 @@ require_once "./mvc/config/Routes.php";
 
 $tourRoutes = [
     'GET' => [
-        '/api/tour/search' => 'TourController/search',
-        '/api/tour/fetch' => 'TourController/fetchAll',
+        '/api/manager/tour/search' => 'TourController/search',
+        '/api/manager/tour/fetch' => 'TourController/fetchAll',
 
     ],
     'POST' => [
-        '/api/tour/add' => 'TourController/add',
-        '/api/tour/search/filters' => 'TourController/searchWithFilters',
-        '/tours/search/keyword' => 'TourController/searchByKeyword'
+        '/api/manager/tour/add' => 'TourController/add',
+        '/api/manager/tour/search/filters' => 'TourController/searchWithFilters',
+        '/api/manager/tour/search/keyword' => 'TourController/searchByKeyword'
     ],
     'POST' => [
-        '/api/tour/update/(:num)' => 'TourController/update/$1',
+        '/api/manager/tour/update/(:num)' => 'TourController/update/$1',
     ],
     'DELETE' => [
-        '/api/tour/delete/(:num)' => 'TourController/delete/$1',
+        '/api/manager/tour/delete/(:num)' => 'TourController/delete/$1',
     ],
 ];
 

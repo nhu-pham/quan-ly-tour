@@ -10,7 +10,7 @@ class Authorzation extends Controller
     {
         $id = $array['id'];
         $email = $array['email'];
-        echo $email;
+        // echo $email;
         $checkUS = $this->UserModels->select_array('*', ['id' => $id, 'email' => $email]);
         if ($checkUS != NULL && count($checkUS) > 0) {
             return true;

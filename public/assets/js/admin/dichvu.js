@@ -69,7 +69,7 @@ function deleteService(serviceId) {
 async function confirmDeleteService(serviceId) {
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/service/delete/${serviceId}`,
+      `http://localhost:8088/quan-ly-tour/api/manager/service/delete/${serviceId}`,
       {
         method: "DELETE",
         headers: {
@@ -100,37 +100,6 @@ async function confirmDeleteService(serviceId) {
   }
 }
 
-// Function để thêm dịch vụ mới
-// function addService() {
-//   const serviceType = document.querySelector("#serviceType").value;
-//   const serviceName = document.querySelector("#serviceName").value;
-//   const servicePrice = document.querySelector("#servicePrice").value;
-//   const serviceImageUrl = document.querySelector("#image").value;
-
-//   // Tạo hàng mới trong bảng
-//   const newRow = document.createElement("tr");
-//   newRow.setAttribute("data-id", Date.now()); // Sử dụng timestamp làm ID tạm thời
-//   newRow.innerHTML = `
-//           <td>${Date.now()}</td>
-//           <td class="service-type">${serviceType}</td>
-//           <td class="service-name">${serviceName}</td>
-//           <td><img src="${serviceImageUrl}" alt="${serviceName}" class="service-image"></td>
-//           <td class="service-price">${servicePrice}</td>
-//           <td>
-//               <button class="btn btn-warning" onclick="editService(${Date.now()})" data-bs-toggle="modal" data-bs-target="#editServiceModal">
-//                   <i class="fas fa-edit"></i> Chỉnh sửa
-//               </button>
-//               <button class="btn btn-danger" onclick="deleteService(${Date.now()})" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-//                   <i class="fas fa-trash"></i> Xóa
-//               </button>
-//           </td>
-//       `;
-
-//   // Thêm hàng mới vào bảng
-//   document.querySelector("#serviceList").appendChild(newRow);
-//   $("#addServiceModal").modal("hide");
-// }
-
 async function update(serviceId) {
   const serviceName = document.getElementById("editServiceName").value;
   const servicePrice = document.getElementById("editServicePrice").value;
@@ -159,7 +128,7 @@ async function update(serviceId) {
   console.log("Request data:", data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/service/update/${serviceId}`,
+      `http://localhost:8088/quan-ly-tour/api/manager/service/update/${serviceId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -194,7 +163,7 @@ function getServiceTypeName(serviceCategoryId) {
 }
 
 function reloadServices() {
-  fetch(`http://localhost:8088/quan-ly-tour/api/service/fetchAll`)
+  fetch(`http://localhost:8088/quan-ly-tour/api/manager/service/fetchAll`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -267,7 +236,7 @@ async function addService() {
 
   try {
     const response = await fetch(
-      "http://localhost:8088/quan-ly-tour/api/service/add",
+      "http://localhost:8088/quan-ly-tour/api/manager/service/add",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -334,7 +303,7 @@ async function searchDichVu() {
   console.log("JSON Body:", data);
   try {
     const response = await fetch(
-      `http://localhost:8088/quan-ly-tour/api/service/search`,
+      `http://localhost:8088/quan-ly-tour/api/manager/service/search`,
       {
         method: "POST",
         headers: {

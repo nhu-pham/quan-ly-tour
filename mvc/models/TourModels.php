@@ -1,6 +1,6 @@
 <?php
 require_once "./mvc/models/MyModels.php";
-class TourModel extends MyModels {
+class TourModels extends MyModels {
     protected $table = 'tours';
 
     public function add($data = null) {
@@ -59,17 +59,17 @@ class TourModel extends MyModels {
 
         // Cập nhật dữ liệu vào bảng tours
         $result = parent::update($data, $where);
-        // Cập nhật ảnh thumbnail mới vào tour_images nếu có
-        if (isset($where['id'])) {
-            $this->updateThumbnailInImages($where['id'], $data['thumbnail']);
-        } else {
-            return json_encode(
-                array(
-                    'type'    => 'Fail',
-                    'Message' => 'Tour ID not found in WHERE clause',
-                )
-            );
-        }
+        // // Cập nhật ảnh thumbnail mới vào tour_images nếu có
+        // if (isset($where['id'])) {
+        //     $this->updateThumbnailInImages($where['id'], $data['thumbnail']);
+        // } else {
+        //     return json_encode(
+        //         array(
+        //             'type'    => 'Fail',
+        //             'Message' => 'Tour ID not found in WHERE clause',
+        //         )
+        //     );
+        // }
         return $result;
     }
 
@@ -287,7 +287,7 @@ class TourModel extends MyModels {
 
     public function search_tours($search_value = null, $orderby = null, $limit = null, $start = null) {
         // Chọn các cột cần truy vấn
-        $data = "tours.id, tours.name, tours.price, tours.destination, tours.pick_up, tours.itinerary, tours.date_start, tours.thumbnail, tours.description, categories.id AS category_id";
+        $data = "tours.id, tours.name, tours.price, tours.destination, tours.duration, tours.pick_up, tours.itinerary, tours.date_start, tours.thumbnail, tours.description, categories.id AS category_id";
 
         // Định nghĩa bảng cần join
         $table_join = "categories";

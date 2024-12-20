@@ -3,18 +3,18 @@ require_once "./mvc/config/Routes.php";
 
 $reviewRoutes = [
     'GET' => [
-        '/api/review/searchReviews' => 'reviewController/searchReviews',
-        '/api/review/fetchAll' => 'reviewController/fetchAll',
-        '/api/review/search'=> '/reviewController/search';
+        '/api/manager/review/searchReviews' => 'reviewController/searchReviews',
+        '/api/manager/review/fetchAll' => 'reviewController/fetchAll',
+        '/api/manager/review/search'=> '/reviewController/search';
     ],
     'POST' => [
-        '/api/review/add' => 'reviewController/add',
+        '/api/manager/review/add' => 'reviewController/add',
     ],
     'POST' => [
-        '/api/review/update/(:num)' => 'reviewController/update/$1',
+        '/api/manager/review/update/(:num)' => 'reviewController/update/$1',
     ],
     'DELETE' => [
-        '/api/review/delete/(:num)' => 'reviewController/delete/$1',
+        '/api/manager/review/delete/(:num)' => 'reviewController/delete/$1',
     ],
 ];
 

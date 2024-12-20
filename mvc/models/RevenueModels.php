@@ -1,7 +1,7 @@
 <?php
 require_once "./mvc/models/MyModels.php";
 
-class RevenueModel extends MyModels {
+class RevenueModels extends MyModels {
     protected $table = 'orders';
 
     function get_revenue_statistics($startDate, $endDate, $status = null, $orderby = null, $limit = null) {

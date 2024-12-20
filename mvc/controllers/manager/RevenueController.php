@@ -1,5 +1,5 @@
 <?php
-require_once './mvc/models/RevenueModel.php';
+require_once './mvc/models/RevenueModels.php';
 require_once "./mvc/core/redirect.php";
 
 class RevenueController extends Controller{
@@ -8,7 +8,7 @@ class RevenueController extends Controller{
 
     public function __construct() {
         // Giả sử model được gọi là RevenueModel hoặc tương tự
-        $this->revenueModel = new RevenueModel();
+        $this->revenueModel = new RevenueModels();
     }
 
     // Thống kê tổng doanh thu trong khoảng thời gian

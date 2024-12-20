@@ -1,12 +1,12 @@
 <?php
-require_once "./mvc/models/ReviewModel.php";
+require_once "./mvc/models/ReviewModels.php";
 require_once "./mvc/core/redirect.php";
 
 class ReviewController extends Controller {
     protected $reviewModel;
 
     public function __construct() {
-        $this->reviewModel = new ReviewModel();
+        $this->reviewModel = new ReviewModels();
     }
 
      // Phương thức tìm kiếm đánh giá theo tên và email khách hàng
@@ -182,7 +182,7 @@ class ReviewController extends Controller {
 
     public function index()
     {
-        $this->view('admin/index', [
+        $this->view('manager/index', [
             'page' => 'review/index'
         ]);
     }

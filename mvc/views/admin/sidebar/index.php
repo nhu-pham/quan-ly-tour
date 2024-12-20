@@ -25,7 +25,7 @@
         <!-- Menu -->
         <ul class="nav flex-column w-100">
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/revenue/" class="nav-link text-dark fw-bold">Trang chủ</a>
+                <a href="/quan-ly-tour/revenue/" class="nav-link text-dark fw-bold">Trang chủ</a>
             </li>
             <li class="nav-item mb-2">
                 <a href="/quan-ly-tour/tour/" class="nav-link text-dark fw-bold">Tour</a>

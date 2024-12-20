@@ -5,18 +5,18 @@ require_once "./mvc/config/Routes.php";
 
 $ServiceRoutes = [
     'GET' => [
-        '/api/service/searchByKeyword' => 'ServiceController/searchByKeyword',
-        '/api/service/fetchAll' => 'ServiceController/fetchAll',
-        '/api/service/search' => 'ServiceController/search'
+        '/api/manager/service/searchByKeyword' => 'ServiceController/searchByKeyword',
+        '/api/manager/service/fetchAll' => 'ServiceController/fetchAll',
+        '/api/manager/service/search' => 'ServiceController/search'
     ],
     'POST' => [
-        '/api/service/add' => 'ServiceController/add',
+        '/api/manager/service/add' => 'ServiceController/add',
     ],
     'POST' => [
-        '/api/service/update/(:num)' => 'ServiceController/update/$1',
+        '/api/manager/service/update/(:num)' => 'ServiceController/update/$1',
     ],
     'DELETE' => [
-        '/api/service/delete/(:num)' => 'ServiceController/delete/$1',
+        '/api/manager/service/delete/(:num)' => 'ServiceController/delete/$1',
     ],
 ];
 

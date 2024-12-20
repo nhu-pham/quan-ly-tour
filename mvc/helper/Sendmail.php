@@ -7,10 +7,10 @@
     require './mvc/helper/vendor/phpmailer/phpmailer/src/SMTP.php';
     require_once './mvc/helper/vendor/autoload.php';
     class SendMail extends controller{
-        function send($subject, $mailTo, $contents, $ccmail){
+        function send($subject, $mailTo, $contents){
             ob_start();
             $mail = new PHPMailer(true);
-            $mail->isSMTP();
+            $mail->isSMTP(); 
             $mail->SMTPDebug = 2;
             $mail->Host = HOST;
             $mail->Port = 587;
@@ -18,11 +18,11 @@
             $mail->Username = USERNAME;
             $mail->Password = PASSWORD;
             $mail->SMTPSecure = SMTPSECURE;
-            $mail->setFrom(FORM, FORMSUBJECT);
+            $mail->setFrom(FROM, FROMSUBJECT);
             $mail->CharSet = 'UTF-8';
-            $mail->addCC($ccmail);
+            // $mail->addCC($ccmail);
             // $mail->addReplyTo($mailTo, 'ABC TEST YOUR');
-            $mail->addAddress($mailTo, 'Receiver ME');
+            $mail->addAddress($mailTo);
             $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body = $contents;
