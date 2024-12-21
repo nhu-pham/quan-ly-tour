@@ -40,36 +40,50 @@ class CartController extends Controller {
         }
     }
 
-    // Phương thức cập nhật số lượng sản phẩm 
-    function updateCartQuantity() 
-    { 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-        { 
-            $id = isset($_POST['id']) ? intval($_POST['id']) : 0; 
-            $qty = isset($_POST['qty']) ? intval($_POST['qty']) : 0; 
-            if (isset($_SESSION['cart'][$id])) 
-            { 
-                if ($qty > 0) 
-                { 
-                    $_SESSION['cart'][$id]['qty'] = $qty; 
-                } 
-                else 
-                { 
-                    unset($_SESSION['cart'][$id]); 
-                    // Xóa sản phẩm nếu số lượng <= 0
-                     
-                } 
-                // Trả về kết quả cho AJAX 
-                header('Content-Type: application/json'); 
-                echo json_encode(['status' => 'success', 'message' => 'Cập nhật giỏ hàng thành công', 'cart' => $_SESSION['cart']]); 
-            } 
-            else 
-            { 
-                header('Content-Type: application/json'); 
-                echo json_encode(['status' => 'error', 'message' => 'Sản phẩm không tồn tại trong giỏ hàng']); 
-            } 
+    
+    // Phương thức cập nhật giỏ hàng
+    function updateCart() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Giải mã dữ liệu giỏ hàng từ JSON
+            $rawData = file_get_contents('php://input');
+            $cartData = json_decode($rawData, true)['cart'];
+
+            // Xóa giỏ hàng cũ
+            $_SESSION['cart'] = [];
+
+            // Thực hiện cập nhật giỏ hàng
+            foreach ($cartData as $item) {
+                $slug = $item['slug']; 
+                $service = $this->ServiceModels->select_row('*', ['slug_service' => $slug]);
+                $qty = intval($item['qty']);
+    
+                if ($service) {
+                    // Chuẩn bị dữ liệu để thêm vào giỏ hàng
+                    $cartItem = [
+                        'id' => $service['id'],
+                        'slug_service' => $slug,
+                        'name' => $service['name'],
+                        'price' => $service['price'],
+                        'image_url' => $service['image_url'],
+                        'qty' => $qty
+                    ];
+        
+                    // Cập nhật giỏ hàng
+                    $_SESSION['cart'][$slug] = $cartItem;
+                } else {
+                    // Nếu dịch vụ không tồn tại, trả về lỗi
+                    echo json_encode(['status' => 'error', 'message' => 'Dịch vụ không tồn tại']);
+                    return;
+                }
+            }
+
+            // Trả về kết quả cho AJAX 
+            header('Content-Type: application/json'); 
+            echo json_encode(['status' => 'success', 'message' => 'Cập nhật giỏ hàng thành công', 'cart' => $_SESSION['cart']]); 
         }
     }
+    
+    
 
     function viewCart($slug) 
     { 
@@ -105,4 +119,6 @@ class CartController extends Controller {
             
         }
     }
+
+    
 }

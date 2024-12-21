@@ -88,7 +88,7 @@ require_once ('./mvc/views/user/include/header.php');
                     <a href="/quan-ly-tour/service/loadData/<?= $slug?>" class="btn-dichvu">Dịch vụ khác
                         <div class="icon-container">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <div class="soluong-dv">0</div>
+                            <div class="soluong-dv"><?=$data['qty']?></div>
                         </div>
                     </a>
                 </div>
@@ -108,52 +108,137 @@ require_once ('./mvc/views/user/include/header.php');
                                 <option value="150000">Dịch vụ C - 150,000 VNĐ</option>
                             </select>
                         </div>
-                        <div><span class="price-service">0 VNĐ</span></div>
+                        <div><span class="price-service"><?=number_format($data['price_service'])?> VNĐ</span></div>
                     </div>
                 </div>
 
                 <div class="total">
-                    <p style="color: white" class="tttour"><strong>Tổng tiền: </strong><span class="price total-price">0
+                    <p style="color: white" class="tttour"><strong>Tổng tiền: </strong><span class="price total-price">
                             VNĐ</span></p>
                 </div>
 
                 <div class="buttons">
-                    <a href="chiTietTour.html" class="bt back" style="text-align: center; height: 45px;">Quay lại</a>
-                    <a href="thanhToan.html" class="bt pay" style="text-align: center; height: 45px;">Thanh toán</a>
+                    <a href="/quan-ly-tour/product/detail/<?= $slug?>" class="bt back"
+                        style="text-align: center; height: 45px;">Quay lại</a>
+                    <a href="/quan-ly-tour/product/payment/<?= $slug?>" class="bt pay"
+                        style="text-align: center; height: 45px;">Thanh toán</a>
                 </div>
             </div>
         </div>
     </article>
 </main>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var quantityInput = document.getElementById('soluong');
-    var tourPriceElement = document.querySelector('.tour-price');
-    var serviceDropdown = document.querySelector('.service-dropdown');
-    var servicePriceElement = document.querySelector('.price-service');
-    var totalPriceElement = document.querySelector('.total-price');
+    var nameInput = document.getElementById('name');
+    var dateInput = document.getElementById('date');
+    var phoneInput = document.getElementById('phone');
+    var emailInput = document.getElementById('email');
+    var addressInput = document.getElementById('address');
+    var genderInputs = document.querySelectorAll('input[name="gender"]');
 
-    // Hàm để cập nhật giá tiền
-    function updatePrices() {
-        var quantity = parseInt(quantityInput.value) || 0;
-        var tourPrice = parseFloat(<?= $details['price'] ?>) * quantity || 0;
-        var servicePrice = parseFloat(serviceDropdown.value) || 0;
-        var totalPrice = tourPrice + servicePrice;
-
-        // Cập nhật giá tour
-        tourPriceElement.innerText = tourPrice.toLocaleString() + ' VNĐ';
-        // Cập nhật giá dịch vụ
-        servicePriceElement.textContent = servicePrice.toLocaleString() + ' VNĐ';
-        // Cập nhật tổng giá
-        totalPriceElement.textContent = totalPrice.toLocaleString() + ' VNĐ';
+    // Hàm để lưu giá trị vào Local Storage
+    function saveToLocalStorage() {
+        localStorage.setItem('quantity', quantityInput.value);
+        localStorage.setItem('name', nameInput.value);
+        localStorage.setItem('date', dateInput.value);
+        localStorage.setItem('phone', phoneInput.value);
+        localStorage.setItem('email', emailInput.value);
+        localStorage.setItem('address', addressInput.value);
+        genderInputs.forEach(gender => {
+            if (gender.checked) {
+                localStorage.setItem('gender', gender.value);
+            }
+        });
     }
 
-    // Lắng nghe thay đổi trong input số lượng và dropdown dịch vụ
-    quantityInput.addEventListener('input', updatePrices);
-    serviceDropdown.addEventListener('change', updatePrices);
+    // Hàm để tải giá trị từ Local Storage
+    function loadFromLocalStorage() {
+        if (localStorage.getItem('quantity')) {
+            quantityInput.value = localStorage.getItem('quantity');
+        }
+        if (localStorage.getItem('name')) {
+            nameInput.value = localStorage.getItem('name');
+        }
+        if (localStorage.getItem('date')) {
+            dateInput.value = localStorage.getItem('date');
+        }
+        if (localStorage.getItem('phone')) {
+            phoneInput.value = localStorage.getItem('phone');
+        }
+        if (localStorage.getItem('email')) {
+            emailInput.value = localStorage.getItem('email');
+        }
+        if (localStorage.getItem('address')) {
+            addressInput.value = localStorage.getItem('address');
+        }
+        if (localStorage.getItem('gender')) {
+            var gender = localStorage.getItem('gender');
+            document.querySelector('input[name="gender"][value="' + gender + '"]').checked = true;
+        }
+    }
+
+    // Lắng nghe sự kiện thay đổi và lưu giá trị
+    quantityInput.addEventListener('input', saveToLocalStorage);
+    nameInput.addEventListener('input', saveToLocalStorage);
+    dateInput.addEventListener('input', saveToLocalStorage);
+    phoneInput.addEventListener('input', saveToLocalStorage);
+    emailInput.addEventListener('input', saveToLocalStorage);
+    addressInput.addEventListener('input', saveToLocalStorage);
+    genderInputs.forEach(gender => {
+        gender.addEventListener('change', saveToLocalStorage);
+    });
 
     // Khởi tạo cập nhật giá lần đầu tiên
-    updatePrices();
+    loadFromLocalStorage();
+
+    // Xử lý sự kiện khi nhấp vào nút "Thanh toán"
+    document.querySelector('.bt.pay').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        var tourPriceElement = document.querySelector('.tour-price');
+        var tourPriceText = tourPriceElement.textContent;
+        var tourPriceValue = parseInt(tourPriceText.replace(/[^\d]/g, ''));
+
+        var orderData = {
+            name: nameInput.value,
+            date: dateInput.value,
+            phone: phoneInput.value,
+            email: emailInput.value,
+            address: addressInput.value,
+            gender: document.querySelector('input[name="gender"]:checked').value,
+            quantity: quantityInput.value,
+            tourPriceValue: tourPriceValue
+        };
+
+        $.ajax({
+            url: '/quan-ly-tour/mvc/controllers/ProductController/payment/<?=$slug?>',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                orderData: orderData
+            }),
+            success: function(response) {
+                try {
+                    const res = JSON.parse(response);
+                    if (res.status === 'success') {
+                        console.log(res.message);
+                        alert('Đặt hàng thành công');
+                        window.location.href =
+                            '/success/page/url'; // Chuyển hướng sau khi thành công
+                    } else {
+                        console.error(res.message);
+                        alert('Đặt hàng thất bại');
+                    }
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Lỗi AJAX: ' + status + ' - ' + error);
+                alert('Đặt hàng thất bại');
+            }
+        });
+    });
 });
 </script>

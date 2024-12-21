@@ -38,7 +38,6 @@
     <div class="below">
         <div class="logo">
             <img src="/quan-ly-tour/public/uploads/images/logo-white.png" alt="VietCharm Logo" class="vietcharm-logo">
-            <h3>VietCharm</h3>
         </div>
 
         <div class="contact-info">

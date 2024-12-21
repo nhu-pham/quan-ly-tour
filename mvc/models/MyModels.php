@@ -495,4 +495,40 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function addMultiple($data) {
+        if ($data != NULL) {
+            $fields = array_keys($data[0]);
+            $fields_list = implode(",", $fields);
+            $qr = str_repeat("?,", count($fields) - 1);
+            $sql = "INSERT INTO `" . $this->table . "` (" . $fields_list . ") VALUES";
+            $values = [];
+            foreach ($data as $key => $val) {
+                $fields_for = array_keys($val);
+                $fields_list_for = implode(",", $fields_for);
+                $qr_for = str_repeat("?,", count($fields_for) - 1);
+                if (count($data) - 1 > $key) {
+                    $sql .= " (${qr_for}?),";
+                } else {
+                    $sql .= " (${qr_for}?) ";
+                }
+                $values = array_merge($values, array_values($val));
+            }
+    
+            $query = $this->conn->prepare($sql);
+            print_r($sql);
+            if ($query->execute($values)) {
+                return [
+                    'type' => 'success',
+                    'message' => 'Insert data success',
+                ];
+            } else {
+                return [
+                    'type' => 'failure',
+                    'message' => 'Insert data fails',
+                ];
+            }
+        }
+    }
+    
 }

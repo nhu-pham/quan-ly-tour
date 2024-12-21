@@ -9,7 +9,7 @@ require_once ('./mvc/views/user/include/header.php');
                 <label class="mienbac-chitiet">
                     <a href="/quan-ly-tour/destination/index/<?=$tour[0]['cate_id']?>"><?=$tour[0]['cate_name']?></a> >
                     <a href="/quan-ly-tour/product/detail/<?=$tour[0]['slug']?>"><?=$tour[0]['tour_name']?></a> >
-                    <a href="thongTinDatTour.html">Đặt tour</a> >
+                    <a href="/quan-ly-tour/product/buy/<?=$tour[0]['slug']?>">Đặt tour</a> >
                     <a href="dichVu.html"><strong>Dịch vụ</strong></a>
                 </label>
             </h4>
@@ -33,8 +33,7 @@ require_once ('./mvc/views/user/include/header.php');
             </div>
             <?php }?>
             <div class="buttons dichvu-btn">
-                <a href="thongTinDatTour.html" class="bt back">Quay lại</a>
-                <a href="thongTinDatTour.html" class="bt pay cont">Tiếp tục</a>
+                <a href="/quan-ly-tour/product/buy/<?=$tour[0]['slug']?>" class="bt pay cont">Tiếp tục</a>
             </div>
         </div>
     </article>

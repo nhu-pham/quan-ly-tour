@@ -23,7 +23,7 @@ class ServiceController extends Controller{
         $tour=$this->TourModels->select_array_join_table('categories.name as cate_name, categories.id as cate_id,tours.name as tour_name,slug',['slug'=>$slug],NULL,NULL,NULL,'categories','tours.category_id=categories.id','INNER');
 
         $qty = 0;
-
+        $price=0;
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
         } else {
@@ -31,6 +31,7 @@ class ServiceController extends Controller{
         }
         foreach ($cart as $item) {
             $qty += $item['qty'];
+            
         }
         $data=[
             'page'=>'servicess/index',

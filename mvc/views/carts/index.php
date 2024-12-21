@@ -33,9 +33,9 @@ require_once ('./mvc/views/user/include/header.php');
                     <tbody id="cart-body">
                         <?php if(isset($data['cart']) && $data['cart']!=NULL){ 
                             foreach($data['cart'] as $value){?>
-                        <tr class="row">
+                        <tr class="row" data-id="<?=$value['slug_service']?>">
                             <td>
-                                <img src="/quan-ly-tour/<?=$value['image_url']?>">
+                                <img src=" /quan-ly-tour/<?=$value['image_url']?>">
                                 <span><?=$value['name']?></span>
                             </td>
                             <td class="price-dv"><?= number_format($value['price'])?> VNĐ</td>
@@ -142,6 +142,43 @@ document.querySelectorAll('.delete-btn').forEach(button => {
         document.getElementById('close-btn').onclick = function() {
             popup.style.display = 'none';
         };
+    });
+});
+
+document.querySelector('.confirm-btn').addEventListener('click', function() {
+    var cart = [];
+    document.querySelectorAll('#cart-body .row').forEach(function(row) {
+        var slug = row.getAttribute('data-id');
+        var qty = row.querySelector('.quantity-input').value;
+        cart.push({
+            slug: slug,
+            qty: qty
+        });
+    });
+
+    $.ajax({
+        url: '/quan-ly-tour/cart/updateCart', // Đường dẫn đến hàm updateCart 
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ // Chuyển đổi dữ liệu thành JSON
+            cart: cart
+        }),
+        success: function(response) {
+            try {
+                const res = JSON.parse(response); // Chuyển đổi phản hồi thành JSON
+                if (res.status === 'success') {
+                    console.log(res.message);
+                    alert('Giỏ hàng đã được cập nhật');
+                } else {
+                    console.error(res.message);
+                }
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi AJAX: ' + status + ' - ' + error);
+        }
     });
 });
 </script>
