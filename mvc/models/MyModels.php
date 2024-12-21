@@ -477,4 +477,44 @@ class MyModels extends Database {
         }
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // Phương thức fetchAll để select * from một bảng bất kỳ
+    public function fetchAll($table = null) {
+        try {
+            $sql = "SELECT * FROM $table";
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [
+                'type' => 'Fail',
+                'message' => 'Error fetching data: ' . $e->getMessage()
+            ];
+        }
+    }
+
+    public function countItems($table = null) {
+        
+        try {
+            // Kiểm tra tên bảng hợp lệ
+            if (!$table || !preg_match('/^[a-zA-Z0-9_]+$/', $table)) {
+                throw new PDOException('Invalid table name');
+            }
+    
+            // Câu lệnh SQL
+            $sql = "SELECT COUNT(*) as count FROM $table";
+            
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+    
+            // Lấy kết quả
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            return $result['count'] ?? 0; // Trả về số lượng hoặc 0 nếu không có kết quả
+        } catch (PDOException $e) {
+            return [
+                'type' => 'Fail',
+                'message' => 'Error fetching data: ' . $e->getMessage()
+            ];
+        }
+    }
 }

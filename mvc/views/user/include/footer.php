@@ -17,21 +17,21 @@
         </div>
         <div class="links">
             <h3>ĐIỂM ĐẾN</h3>
-            <a href="mienBac.html">Miền Bắc</a>
-            <a href="mienTrung.html">Miền Trung</a>
-            <a href="mienNam.html">Miền Nam</a>
+            <a href="/quan-ly-tour/destination/index/2">Miền Bắc</a>
+            <a href="/quan-ly-tour/destination/index/3">Miền Trung</a>
+            <a href="/quan-ly-tour/destination/index/1">Miền Nam</a>
         </div>
         <div class="links">
             <h3>TOUR</h3>
-            <a href="tourDacBiet.html">Tour đặc biệt</a>
-            <a href="mienBac.html">Miền Bắc</a>
-            <a href="mienTrung.html">Miền Trung</a>
-            <a href="mienNam.html">Miền Nam</a>
+            <a href="/quan-ly-tour/destination/index/4">Tour đặc biệt</a>
+            <a href="/quan-ly-tour/destination/index/2">Miền Bắc</a>
+            <a href="/quan-ly-tour/destination/index/3">Miền Trung</a>
+            <a href="/quan-ly-tour/destination/index/1">Miền Nam</a>
         </div>
         <div class="links">
             <h3>THÔNG TIN</h3>
-            <a href="gioiThieu.html">Về chúng tôi</a>
-            <a href="lienHe.html">Liên hệ</a>
+            <a href="/quan-ly-tour/about">Về chúng tôi</a>
+            <a href="/quan-ly-tour/contact">Liên hệ</a>
         </div>
     </div>
     <hr class="footer-line">
@@ -42,7 +42,8 @@
         </div>
 
         <div class="contact-info">
-            <p> <i class="fa-solid fa-location-dot"></i> Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ Đức, Hồ Chí Minh</p>
+            <p> <i class="fa-solid fa-location-dot"></i> Đường Tạ Quang Bửu, Khu phố 6, phường Linh Trung, Thành phố Thủ
+                Đức, Hồ Chí Minh</p>
             <div id="email-phone-fax">
                 <p><i class="fa-regular fa-envelope"></i> Email: vietcham.contact@gmail.com</p>
                 <p><i class="fa-solid fa-phone"></i> Phone: 0324561235</p>
@@ -66,16 +67,16 @@
 <script src="./assets/js/tourNoiBacTrongThang.js"></script>
 <script src="./assets/js/chiTietLichTrinh.js"></script>
 <script>
-    const userNameButton = document.getElementById('user-name');
-    const userOptions = document.querySelector('.user-options');
+const userNameButton = document.getElementById('user-name');
+const userOptions = document.querySelector('.user-options');
 
-    userNameButton.addEventListener('click', function() {
-        if (userOptions.style.display === "block") {
-            userOptions.style.display = "none";
-        } else {
-            userOptions.style.display = "block";
-        }
-    });
+userNameButton.addEventListener('click', function() {
+    if (userOptions.style.display === "block") {
+        userOptions.style.display = "none";
+    } else {
+        userOptions.style.display = "block";
+    }
+});
 </script>
 <!-- ionicon link  -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

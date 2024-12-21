@@ -1,0 +1,47 @@
+.sidebar {
+  height: 100vh; /* Chiều cao toàn màn hình */
+  width: 220px; /* Độ rộng sidebar */
+  border-right: 1px solid #ddd;
+  padding: 15px; /* Thêm padding để dễ dàng căn chỉnh */
+}
+
+.sidebar h5 {
+  border-bottom: 2px solid #109cc3; /* Line màu xanh */
+  margin-bottom: 20px; /* Khoảng cách từ tên admin đến line */
+  width: 100%; /* Chiều dài line bằng chiều ngang sidebar */
+  padding-bottom: 20px; /* Khoảng cách từ line đến chữ Trang chủ */
+}
+
+.sidebar img {
+  width: 80px; /* Kích thước ảnh đại diện */
+  height: 80px;
+  object-fit: cover;
+}
+
+.nav-link {
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold; /* Chữ đậm */
+}
+
+/* Đảm bảo chỉ mục được click mới chuyển màu */
+.nav-link.active {
+  color: #109cc3 !important; /* Màu xanh khi active */
+  background-color: #e9f5ff; /* Thêm màu nền nhẹ cho mục đang chọn */
+}
+
+.nav-link:not(.active) {
+  color: inherit; /* Giữ nguyên màu mặc định khi không active */
+  background-color: transparent; /* Màu nền trong suốt khi không active */
+}
+
+/* Đảm bảo chỉ mục được click mới chuyển màu */
+.nav-link.active {
+  color: #109cc3 !important;
+}
+
+.nav-link:not(.active) {
+  color: inherit; /* Giữ nguyên màu mặc định khi không active */
+}
