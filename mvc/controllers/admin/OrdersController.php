@@ -6,7 +6,7 @@ require_once './mvc/helper/pdf/vendor/autoload.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-class HomeController extends Controller
+class OrdersController extends Controller
 {
     public $ordersData;
     const limit = 6;
@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        if (isset($_SESSION['user']) && isset($_SESSION['employee'])) {
+        if (isset($_SESSION['user']) && isset($_SESSION['admin'])) {
             $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
             if ($verify != NULL && $verify != 0) {
                 $auth = $this->Authorzation->checkAuth($verify);
@@ -508,7 +508,7 @@ class HomeController extends Controller
                         $dompdf->render();
 
                         $pdfFile = 'Hoa_don'.$invoiceId. '.pdf';
-                        $filePath = "././././public/invoice/". $pdfFile;
+                        $filePath = "C:/xampp/htdocs/quan-ly-tour/public/invoice/". $pdfFile;
                         file_put_contents($filePath, $dompdf->output());
                         echo json_encode(['success' => true, 'message' => 'Xuất PDF thành công', 'pdf_url' => "http://localhost/quan-ly-tour/public/invoice/".$pdfFile]); exit();
                     } 

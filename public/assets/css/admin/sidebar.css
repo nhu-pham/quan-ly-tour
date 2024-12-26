@@ -5,19 +5,6 @@
   padding: 15px; /* Thêm padding để dễ dàng căn chỉnh */
 }
 
-.sidebar h5 {
-  border-bottom: 2px solid #109cc3; /* Line màu xanh */
-  margin-bottom: 20px; /* Khoảng cách từ tên admin đến line */
-  width: 100%; /* Chiều dài line bằng chiều ngang sidebar */
-  padding-bottom: 20px; /* Khoảng cách từ line đến chữ Trang chủ */
-}
-
-.sidebar img {
-  width: 80px; /* Kích thước ảnh đại diện */
-  height: 80px;
-  object-fit: cover;
-}
-
 .nav-link {
   font-size: 16px;
   padding: 8px 12px;

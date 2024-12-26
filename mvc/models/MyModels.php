@@ -383,7 +383,6 @@ class MyModels extends Database {
             }
         }
     
-        // Thêm điều kiện tìm kiếm với tên bảng khác (ví dụ: tours.name)
         if (!empty($search_fields) && $search_value !== '') {
             $search_conditions = [];
             foreach ($search_fields as $field) {
@@ -416,7 +415,6 @@ class MyModels extends Database {
             $sql .= " LIMIT $start, $limit";
         }
     
-        // Chuẩn bị và thực thi câu lệnh
         $query = $this->conn->prepare($sql);
         $query->execute($values);
     

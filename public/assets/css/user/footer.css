@@ -9,8 +9,10 @@ body {
     text-align: center;
     height: 450px;
     margin-top: 200px;
-    width: 1423px;
+    width: 100%;
+    
 }
+
 
 .footer .container {
     display: flex;
@@ -68,6 +70,7 @@ body {
 
 .footer .payment-methods img {
     width: 50px;
+    height: 50px;
     margin: 0 10px;
 }
 

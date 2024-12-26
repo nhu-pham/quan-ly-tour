@@ -69,10 +69,6 @@ if (isset($_SESSION['errors'])) {
                                         <i class="fa-solid fa-key"></i>
                                         Đổi mật khẩu
                                     </a>
-                                    <a href="/quan-ly-tour/auth/orders">
-                                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                                        Đơn mua
-                                    </a>
                                     <a href="/quan-ly-tour/auth/logout">
                                         <i class="fas fa-sign-out-alt"></i>
                                         Đăng xuất
@@ -99,4 +95,7 @@ if (isset($_SESSION['errors'])) {
     <?php
     require "./mvc/views/user/include/footer.php"
     ?>
-</html>
+
+<?php
+    require "./mvc/views/user/include/footer.php"
+?>

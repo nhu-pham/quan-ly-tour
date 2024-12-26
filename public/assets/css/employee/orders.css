@@ -1,11 +1,13 @@
-#customer-container, #customer-update-container{
+#customer-container,
+#customer-update-container {
   display: none;
 }
-.header-background .navbar-link{
+
+.header-background .navbar-link {
   color: black;
 }
 
-.header-background{
+.header-background {
   background-color: white;
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -27,21 +29,21 @@
 }
 
 .pagination .active {
-  background-color: rgb(16,156,195);
+  background-color: rgb(16, 156, 195);
   color: white;
-  border: 1px solid rgb(16,156,195);
+  border: 1px solid rgb(16, 156, 195);
 }
 
 .disabled {
-  background-color: #d3cece;       
-  pointer-events: none; 
-  cursor: not-allowed;  
+  background-color: #d3cece;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .pagination a:hover:not(.active) {
   background-color: white;
-  color: var(--bright-navy-blue) ;
-  border: 1px solid var(--bright-navy-blue) ;
+  color: var(--bright-navy-blue);
+  border: 1px solid var(--bright-navy-blue);
 }
 
 .pagination a:first-child {
@@ -53,6 +55,7 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 .tourlist-container {
   max-width: 900px;
   margin: 100px auto;
@@ -97,9 +100,10 @@
   margin-top: 20px;
 }
 
-.last-tour-item{
+.last-tour-item {
   border-bottom: 20px solid var(--bright-navy-blue);
 }
+
 .tour-item {
   display: flex;
   align-items: center;
@@ -120,26 +124,31 @@
 }
 
 .tour-info p {
-  width: 200px;            
-  white-space: nowrap;      
-  overflow: hidden;         
-  text-overflow: ellipsis;  
-  display: block;           
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
-.tour-info p:first-child{
+
+.tour-info p:first-child {
   margin-bottom: 20px;
 }
-.ngay-gia{
+
+.ngay-gia {
   display: flex;
   gap: 30px;
   margin-bottom: -37px;
 }
-.ngay-gia .trangthai-gia{
+
+.ngay-gia .trangthai-gia {
   margin-bottom: 35px;
 }
-.trangthai-gia p:first-child{
+
+.trangthai-gia p:first-child {
   margin-bottom: 10px;
 }
+
 .trangthai-gia .hoanthanh {
   color: green;
 }
@@ -151,6 +160,7 @@
 .trangthai-gia .choxacnhan {
   color: #BFAB16;
 }
+
 .tourlist-container .update-btn {
   background-color: var(--bright-navy-blue);
   color: #fff;
@@ -168,14 +178,16 @@
 
 .tourlist-container .pagination {
   display: flex;
-  text-align: justify;
-  margin-left: 85%;
+  text-align: center;
+  justify-content: end; 
   margin-top: 20px;
 }
+
 .tourlist-container .pagination span {
   padding: 5px 10px;
   border: 2px solid var(--bright-navy-blue);
 }
+
 .tourlist-container .pagination .page-btn {
   background-color: var(--bright-navy-blue);
   color: #fff;
@@ -195,9 +207,10 @@
 
 
 .price-row {
-  display: flex; 
-  gap: 5px; 
+  display: flex;
+  gap: 5px;
 }
+
 .dontour-container {
   max-width: 1100px;
   margin: 200px auto;
@@ -213,14 +226,17 @@
   margin-top: 20px;
   margin-bottom: 30px;
 }
-.hoadon-header{
+
+.hoadon-header {
   display: flex;
 }
-.hoadon-header i{
+
+.hoadon-header i {
   margin-left: 60%;
   padding: 0px;
 }
-.matour label{
+
+.matour label {
   margin-left: 40px;
   color: var(--bright-navy-blue);
   padding: 10px;
@@ -228,7 +244,7 @@
   margin-bottom: 30px;
 }
 
-.ngaydat label{
+.ngaydat label {
   color: var(--black);
   font-style: italic;
   margin-bottom: 30px;

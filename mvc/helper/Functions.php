@@ -12,7 +12,7 @@ class Functions extends Controller
         $page_array = [];
         if ($total_page > 5) {
             if ($page < 6) {
-                for ($i = 1; $i <= 6; $i++) {
+                for ($i = 1; $i <= 2; $i++) {
                     $page_array[] = $i;
                 }
                 $page_array[] = '...';
@@ -72,7 +72,7 @@ class Functions extends Controller
                 } else {
                     if ($page_array[$i] == '...') {
                         $page_link .= '<li>
-                            <a href="javascript:void(0)" class="page-link  disabled">...</a>
+                            <a href="javascript:void(0)" class="page-link">...</a>
                         </li>';
                     } else {
                         $page_link .= '<li>
