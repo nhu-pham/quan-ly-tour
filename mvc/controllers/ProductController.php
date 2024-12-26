@@ -82,7 +82,7 @@ class ProductController extends Controller{
     function payment($slug){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Nhận dữ liệu thô từ PHP input
-            $rawData = file_get_contents('php://input',true);
+            $rawData = file_get_contents('php://input');
             // Giải mã dữ liệu JSON thành mảng
             $orderData = json_decode($rawData, true);
 
@@ -94,7 +94,8 @@ class ProductController extends Controller{
             $address = $orderData['address'];
             $gender = $orderData['gender'];
             $quantity = $orderData['quantity'];
-            $tourPrice= $orderData['tourPriceValue'];
+            $tourPrice= $orderData['tourPrice'];
+            $totalPrice=$orderData['totalPrice'];
 
             $tour_id= $this->TourModels->select_row('id', ['slug' => $slug]);
             
@@ -110,47 +111,76 @@ class ProductController extends Controller{
 
             $arrayOrders = [
                 'user_id'       => $this->MyController->getUsers()['id'],
-                'tour_id'       =>$tour_id['id'],
+                'tour_id'       =>  $tour_id['id'],
                 'fullname'       => $name,
                 'gender'         => $gender,
                 'birthday'       => $date,
                 'email'          => $email,
                 'phone_number'   => $phone,
                 'address'         => $address,
-                'number_of_people'         => $quantity,
+                'number_of_people'=> $quantity,
                 'order_date'    => gmdate('Y-m-d H:i:s', time() + 7*3600),
                 'status'         => 'pending',
-                'total_money'         => $tourPrice+$price,
+                'total_money'         => $totalPrice,
                 'active'=>'1'
             ];
-            $orderAdd = $this->OrderModels->add($arrayOrders);
-            $resultsOrders = json_decode($orderAdd, true);
-            if($resultsOrders['type'] ==='Sucessfully'){
-                if($cart!=NULL){
-                    $arrayOrderDetail = [];
-                    foreach ($cart as $value) {
-                        array_push($arrayOrderDetail, [
-                            'order_id'   => $resultsOrders['id'],
-                            'tour_id'   =>$tour_id['id'],
-                            'service_id'=>$value['id'],
-                            'service_price'     => $value['price'],
-                            'number_of_services' => $value['qty'],
-                            'total_money_service'=>$price
-                        ]);
+            $find= $this->OrderModels->select_row('id', ['user_id'=> $this->MyController->getUsers()['id'],
+                'tour_id'       =>  $tour_id['id'],
+                'fullname'       => $name,
+                'gender'         => $gender,
+                'birthday'       => $date,
+                'email'          => $email,
+                'phone_number'   => $phone,
+                'address'         => $address,
+                'number_of_people'=> $quantity,
+                'status'         => 'pending',
+                'total_money'         => $totalPrice]);
+            if($find['id']==NULL){
+                $orderAdd = $this->OrderModels->add($arrayOrders);
+                $resultsOrders = json_decode($orderAdd, true);
+                if($resultsOrders['type'] ==='Sucessfully'){
+                    if($cart!=NULL){
+                        $arrayOrderDetail = [];
+                        foreach ($cart as $value) {
+                            array_push($arrayOrderDetail, [
+                                'order_id'   => $resultsOrders['id'],
+                                'tour_id'   =>$tour_id['id'],
+                                'tour_price'=> $tourPrice,
+                                'number_of_people'=>$quantity,
+                                'total_money_tour'=>$totalPrice,
+                                'service_id'=>$value['id'],
+                                'service_price'     => $value['price'],
+                                'number_of_services' => $value['qty'],
+                                'total_money_service'=>$price
+                            ]);
+                        }
+                        $this->OrderDetailModels->addMultiple($arrayOrderDetail);
+                        unset($_SESSION['cart']);
                     }
-                    $this->OrderDetailModels->addMultiple($arrayOrderDetail);
-                    unset($_SESSION['cart']);
                 }
-                
             }
-
-            $total_money=$tourPrice+$price;
-            $data=[
-                'price'=>$total_money,
-                'page'=>'buying/payment'
-            ];
-            $this->view("user/index", $data);
         }
-        
+    }
+
+    function detailPayment(){
+        $user_id= $this->MyController->getUsers()['id']; //Lấy ra id user
+       
+        $order = $this->OrderModels->select_max_fields('id',['user_id'=>$user_id]); //Lấy ra id của order
+       
+        $order_value=$this->OrderModels->select_array_join_table('total_money,tours.name as tour_name, category_id, slug',['orders.id'=>$order['sort']],NULL,NULL,NULL,'tours','tours.id=orders.tour_id','INNER');
+       
+        $category=$this->CategoryModels->select_row('name',['id'=>$order_value[0]['category_id']]);
+      
+        $data=[
+            'page' => 'buying/payment',
+            'total_money'=>$order_value[0]['total_money'],
+            'tour_name'=>$order_value[0]['tour_name'],
+            'category_id'=>$order_value[0]['category_id'],
+            'cate_name'=>$category['name'],
+            'slug'=>$order_value[0]['slug'],
+            
+        ];
+        $this->view("user/index", $data);
+
     }
 }

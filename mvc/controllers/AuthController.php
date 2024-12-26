@@ -124,8 +124,9 @@
             }
         }
 
-        function login()
+        function login($slug=NULL)
         {
+            
             if (isset($_SESSION['user'])) {
                 $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
                 if ($verify != NULL && $verify != 0) {
@@ -135,6 +136,7 @@
                     }
                 }
             }
+            
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $data_post = [
                     'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL),
@@ -150,8 +152,8 @@
                             'time'      => time() + 3600 * 24,
                             'keys'      => KEYS,
                             'info'      => [
-                                'id'        => $data['id'],
-                                'email'  => $data['email']
+                            'id'        => $data['id'],
+                            'email'  => $data['email']
                             ]
                         ];
                         $jwt = $this->Jwtoken->CreateToken($array);

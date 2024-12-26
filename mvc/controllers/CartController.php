@@ -32,8 +32,10 @@ class CartController extends Controller {
     
                 // Cập nhật giỏ hàng
                 $array = $this->cart($cartItem);
+
+                $cartCount = $this->getCartCount();
                 // Trả về kết quả cho AJAX
-                echo json_encode(['status' => 'success', 'message' => 'Đã thêm vào giỏ hàng', 'cart' => $array]);
+                echo json_encode(['status' => 'success', 'message' => 'Đã thêm vào giỏ hàng', 'cart' => $array,'cartCount'=>$cartCount]);
             } else {
                 echo json_encode(['status' => 'error', 'message' => 'Dịch vụ không tồn tại']);
             }

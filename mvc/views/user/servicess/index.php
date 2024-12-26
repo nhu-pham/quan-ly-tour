@@ -36,16 +36,14 @@
 
         <div class="container">
             <div class="collapse navbar-header" id="navbarNav">
-                <button class="navbar-toggler">
-                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
-                </button>
+
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link ">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link ">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="/quan-ly-tour/destination/index/2" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false"
+                            <a href="/quan-ly-tour/destination/index/2" class="navbar-link desdrop dropdown-toggle"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                                 style="color: rgb(0, 225, 255); font-weight: bold;">Điểm đến <i
                                     class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
@@ -142,7 +140,7 @@
 
         function loadData(category) {
             $.ajax({
-                url: '/quan-ly-tour/mvc/views/servicess/loadData.php',
+                url: '/quan-ly-tour/mvc/views/user/servicess/loadData.php',
                 method: 'POST',
                 data: {
                     category: category,

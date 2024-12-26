@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/trangChu.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienBac.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienTrung.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourDacBiet.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienNam.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/responsiveTour.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
@@ -28,17 +29,15 @@
 
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
         <a href="trangChu.html">
-            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2"
+            <img src="/quan-ly-tour/public/uploads/images/logo-blue.png" alt="Logo" class="logo2"
                 style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
-            <img src="assets/images/LOGO-removebg-preview.png" alt="Logo" class="logo"
+            <img src="/quan-ly-tour/public/uploads/images/logo-white.png" alt="Logo" class="logo"
                 style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
         </a>
 
         <div class="container">
             <div class="collapse navbar-header" id="navbarNav">
-                <button class="navbar-toggler">
-                    <span class="navbar-toggler-icon">&#9776;</span>
-                </button>
+
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link change-color">Giới thiệu</a>
@@ -113,15 +112,24 @@
                         <div class="filter">
                             <h2>Bộ lọc tìm kiếm</h2>
                             <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
-                            <form>
+                            <form id="filter-form">
                                 <label for="budget">Ngân sách</label>
-                                <div class="budget-options">
+                                <div class="budget-options ">
                                     <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
                                     <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
                                     <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20
                                         triệu</button>
                                     <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
                                 </div>
+                                <style>
+                                /* Thêm lớp .selected để chỉ ra nút được chọn */
+                                .budget-btn.selected {
+                                    background-color: rgba(43, 110, 182, 0.68);
+                                    color: white;
+                                }
+                                </style>
+
+
 
                                 <label for="departure">Điểm khởi hành</label>
                                 <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
@@ -141,11 +149,7 @@
                         <!-- Kết quả tìm kiếm -->
                         <div class="search-results page_MT">
                             <div class="page-header">
-                                <label for="">Chúng tôi tìm thấy</label>
-                                <p type="text" id="number-tour" style="width: 40px; text-align: center; ">
-                                    <?=$data['row']?></p>
-                                <label for="">cho
-                                    quý khách</label>
+                                <label for="">Tìm thấy <?=$data['row']?> kết quả</label>
                                 <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
                                         theo:</label>
                                     <select id="combobox-sapxep">
@@ -157,52 +161,38 @@
                             </div>
                             <hr style="margin-top: 10px; margin-bottom: 20px;">
                             <div id="loadData">
-                                <?php $cate_id=$tour[0]['category_id'];
-                        require_once "./mvc/views/user/destination/loadData.php" ?>
+                                <?php 
+                                $cate_id=$data['cate_id'];
+                               require_once "./mvc/views/user/destination/loadData.php"
+                                ?>
                             </div>
                         </div>
                     </div>
                 </section>
                 <script>
-                $(document).ready(function() {
-                    let currentPage = 1;
-                    let currentSort = 'all';
+                document.addEventListener('DOMContentLoaded', function() {
+                    const buttons = document.querySelectorAll('.budget-btn');
 
-                    function loadData(page, sort) {
-                        $.ajax({
-                            url: 'destination/pagination_page/<?=$cate_id?>',
-                            method: 'POST',
-                            data: {
-                                page: page,
-                                sort: sort
-                            },
-                            success: function(response) {
-                                $('#loadData').html(response);
+                    buttons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Loại bỏ lớp .selected khỏi tất cả các nút
+                            buttons.forEach(btn => btn.classList.remove(
+                                'selected'));
 
-                                // Gắn lại sự kiện click cho các nút phân trang mới
-                                attachPaginationEvents();
-                            },
-                            error: function(xhr, status, error) {
-                                console.error('Lỗi AJAX: ' + status + ' - ' + error);
-                            }
+                            // Thêm lớp .selected vào nút được nhấp
+                            this.classList.add('selected');
                         });
-                    }
-
-                    function attachPaginationEvents() {
-                        // Gắn sự kiện click cho các nút phân trang
-                        $('#loadData').on('click', '.pagination li a.page-link', function() {
-                            currentPage = $(this).attr('num-page');
-                            loadData(currentPage, currentSort);
-                        });
-                    }
-
-                    // Lắng nghe sự kiện thay đổi của combobox sắp xếp
-                    $('#combobox-sapxep').change(function() {
-                        currentSort = $(this).val();
-                        loadData(currentPage, currentSort);
                     });
 
-                    // Gắn sự kiện click cho các nút phân trang ban đầu
-                    attachPaginationEvents();
+                    document.getElementById('filter-form').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Ngăn chặn hành vi mặc định của form 
+                        const formData = new FormData(this);
+                        fetch('search.php', {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => response.text()).then(data => {
+                            document.getElementById('search-results').innerHTML = data;
+                        }).catch(error => console.error('Error:', error));
+                    });
                 });
                 </script>

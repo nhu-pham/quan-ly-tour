@@ -46,4 +46,17 @@ class Controller
             return isset($item['id']) && !empty($item['id']);
         });
     }
+
+    function getCartCount(){
+        $count=0;
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+            foreach($cart as $value){
+                $count+=$value['qty'];
+            }
+        } else {
+            $cart = [];
+        }
+        return $count;
+    }
 }

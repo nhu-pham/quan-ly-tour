@@ -508,7 +508,7 @@ class HomeController extends Controller
                         $dompdf->render();
 
                         $pdfFile = 'Hoa_don'.$invoiceId. '.pdf';
-                        $filePath = "C:/xampp/htdocs/quan-ly-tour/public/invoice/". $pdfFile;
+                        $filePath = "D:/xampp/htdocs/quan-ly-tour/public/invoice/". $pdfFile;
                         file_put_contents($filePath, $dompdf->output());
                         echo json_encode(['success' => true, 'message' => 'Xuất PDF thành công', 'pdf_url' => "http://localhost/quan-ly-tour/public/invoice/".$pdfFile]); exit();
                     } 
