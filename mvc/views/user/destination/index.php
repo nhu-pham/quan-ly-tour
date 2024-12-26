@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body id="top">
@@ -61,138 +63,173 @@
                     <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color">Liên hệ</a>
                     </li>
                     <?php if (isset($_SESSION['user'])) { ?>
-                    <li class="nav-item">
-                        <div id="user-profile" class="user-profile">
-                            <div class="user-account"><img src="
+                        <li class="nav-item">
+                            <div id="user-profile" class="user-profile">
+                                <div class="user-account"><img src="
                                 <?php echo isset($data['user']['avatar_url']) ? '/quan-ly-tour/' . $data['user']['avatar_url'] : '/quan-ly-tour/public/uploads/images/user/avt-default.png' ?>
                                 " alt="Avatar" class="user-image">
-                                <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
+                                    <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
+                                </div>
+                                <div class="user-options">
+                                    <a href="/quan-ly-tour/auth/info">
+                                        <i class="fas fa-cog"></i>
+                                        Quản lý thông tin
+                                    </a>
+                                    <a href="/quan-ly-tour/auth/change_password">
+                                        <i class="fa-solid fa-key"></i>
+                                        Đổi mật khẩu
+                                    </a>
+                                    <a href="/quan-ly-tour/auth/orders">
+                                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                                        Đơn mua
+                                    </a>
+                                    <a href="/quan-ly-tour/auth/logout">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Đăng xuất
+                                    </a>
+                                </div>
                             </div>
-                            <div class="user-options">
-                                <a href="/quan-ly-tour/auth/info">
-                                    <i class="fas fa-cog"></i>
-                                    Quản lý thông tin
-                                </a>
-                                <a href="/quan-ly-tour/auth/change_password">
-                                    <i class="fa-solid fa-key"></i>
-                                    Đổi mật khẩu
-                                </a>
-                                <a href="/quan-ly-tour/auth/orders">
-                                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                                    Đơn mua
-                                </a>
-                                <a href="/quan-ly-tour/auth/logout">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                    Đăng xuất
-                                </a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
                     <?php } else { ?>
-                    <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
+                        <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
             </div>
             </ul>
         </div>
     </nav>
+
     <main>
-        <main>
-            <article>
-                <section id="mienTrungModal">
-                    <section class="page-Central" id="home">
-                        <section class="content">
+        <article>
+            <section id="mienTrungModal">
+                <section class="page-Central" id="home">
+                    <section class="content">
 
-                            <h1><?=$tour[0]['cate_name']?></h1>
-                            <p><?=$tour[0]['des']?></p>
-                        </section>
+                        <h1><?= $tour[0]['cate_name'] ?></h1>
+                        <p><?= $tour[0]['des'] ?></p>
                     </section>
+                </section>
 
-                    <div class="dstour">
+                <div class="dstour">
 
-                        <div class="filter">
-                            <h2>Bộ lọc tìm kiếm</h2>
-                            <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
-                            <form id="filter-form">
-                                <label for="budget">Ngân sách</label>
-                                <div class="budget-options ">
-                                    <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
-                                    <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
-                                    <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20
-                                        triệu</button>
-                                    <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
-                                </div>
-                                <style>
+                    <div class="filter">
+                        <h2>Bộ lọc tìm kiếm</h2>
+                        <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
+                        <form id="filter-form">
+                            <label for="budget">Ngân sách</label>
+                            <div class="budget-options ">
+                                <button type="button" class="budget-btn" data-value="under5">Dưới 5 triệu</button>
+                                <button type="button" class="budget-btn" data-value="5to10">Từ 5 - 10 triệu</button>
+                                <button type="button" class="budget-btn" data-value="10to20">Từ 10 - 20
+                                    triệu</button>
+                                <button type="button" class="budget-btn" data-value="over20">Trên 20 triệu</button>
+                            </div>
+                            <style>
                                 /* Thêm lớp .selected để chỉ ra nút được chọn */
                                 .budget-btn.selected {
                                     background-color: rgba(43, 110, 182, 0.68);
                                     color: white;
                                 }
-                                </style>
+                            </style>
 
 
 
-                                <label for="departure">Điểm khởi hành</label>
-                                <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
+                            <label for="departure">Điểm khởi hành</label>
+                            <input type="text" id="departure" placeholder="Nhập điểm khởi hành">
 
-                                <label for="destination">Địa điểm</label>
-                                <input type="text" id="destination" placeholder="Nhập địa điểm">
+                            <label for="destination">Địa điểm</label>
+                            <input type="text" id="destination" placeholder="Nhập địa điểm">
 
-                                <div class="date-group">
-                                    <label for="date">Ngày đi</label>
-                                    <input type="date" id="date">
-                                </div>
+                            <div class="date-group">
+                                <label for="date">Ngày đi</label>
+                                <input type="date" id="date">
+                            </div>
 
-                                <button type="submit" class="filter-btn">Lọc</button>
-                            </form>
+                            <button type="submit" class="filter-btn">Lọc</button>
+                        </form>
+                    </div>
+
+                    <!-- Kết quả tìm kiếm -->
+                    <div class="search-results page_MT">
+                        <div class="page-header">
+                            <label for="">Tìm thấy <?= $data['row'] ?> kết quả</label>
+                            <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
+                                    theo:</label>
+                                <select id="combobox-sapxep">
+                                    <option value="all">Tất cả</option>
+                                    <option value="price-desc">Giá từ cao đến thấp</option>
+                                    <option value="price-asc">Giá từ thấp đến cao</option>
+                                </select>
+                            </div>
                         </div>
+                        <hr style="margin-top: 10px; margin-bottom: 20px;">
+                        <?php $cate_id = $data['cate_id']; ?>
+                        <div id="loadData">
+                            <?php
 
-                        <!-- Kết quả tìm kiếm -->
-                        <div class="search-results page_MT">
-                            <div class="page-header">
-                                <label for="">Tìm thấy <?=$data['row']?> kết quả</label>
-                                <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
-                                        theo:</label>
-                                    <select id="combobox-sapxep">
-                                        <option value="all">Tất cả</option>
-                                        <option value="price-desc">Giá từ cao đến thấp</option>
-                                        <option value="price-asc">Giá từ thấp đến cao</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <hr style="margin-top: 10px; margin-bottom: 20px;">
-                            <div id="loadData">
-                                <?php 
-                                $cate_id=$data['cate_id'];
-                               require_once "./mvc/views/user/destination/loadData.php"
-                                ?>
-                            </div>
+                            require_once "./mvc/views/user/destination/loadData.php"
+                            ?>
                         </div>
                     </div>
-                </section>
-                <script>
+                </div>
+            </section>
+            <script>
+                // Bộ lọc
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('.budget-btn');
 
                     buttons.forEach(button => {
                         button.addEventListener('click', function() {
-                            // Loại bỏ lớp .selected khỏi tất cả các nút
-                            buttons.forEach(btn => btn.classList.remove(
-                                'selected'));
-
-                            // Thêm lớp .selected vào nút được nhấp
+                            buttons.forEach(btn => btn.classList.remove('selected'));
                             this.classList.add('selected');
                         });
                     });
-
                     document.getElementById('filter-form').addEventListener('submit', function(event) {
-                        event.preventDefault(); // Ngăn chặn hành vi mặc định của form 
+                        event.preventDefault();
                         const formData = new FormData(this);
-                        fetch('search.php', {
+
+                        const selectedBudget = document.querySelector('.budget-btn.selected') ?
+                            document.querySelector('.budget-btn.selected').getAttribute('data-value') :
+                            '';
+
+                        formData.append('budget', selectedBudget);
+
+                        $.ajax({
+                            url: '/quan-ly-tour/destination/search',
                             method: 'POST',
-                            body: formData
-                        }).then(response => response.text()).then(data => {
-                            document.getElementById('search-results').innerHTML = data;
-                        }).catch(error => console.error('Error:', error));
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(response) {
+                                $('html').html(response);
+                            },
+                            error: function(error) {
+                                console.error('Error:', error);
+                            }
+                        });
                     });
                 });
-                </script>
+
+
+                // Lọc thứ tự giá
+                $(document).ready(function() {
+                    $('#combobox-sapxep').change(function() {
+                        var selectedOption = $(this).val();
+
+                        var data = {
+                            sort: selectedOption
+                        };
+
+                        $.ajax({
+                            url: '/quan-ly-tour/destination/sort_tours/<?php echo $cate_id ?>',
+                            method: 'POST',
+                            data: data,
+                            success: function(response) {
+                                $('#loadData').html(response);
+                            },
+                            error: function() {
+                                alert('Có lỗi xảy ra khi lọc dữ liệu!');
+                            }
+                        });
+                    });
+                });
+            </script>
