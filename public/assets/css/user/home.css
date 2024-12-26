@@ -1,5 +1,4 @@
 :root {
-
   /**
    * colors
    */
@@ -59,12 +58,7 @@
 
   --radius-15: 15px;
   --radius-25: 25px;
-
 }
-
-
-
-
 
 /*-----------------------------------*\
  * #RESET
@@ -124,9 +118,6 @@ body {
   background: var(--white);
 }
 
-
-
-
 /*-----------------------------------*\
  * #REUSED STYLE
 \*-----------------------------------*/
@@ -168,8 +159,7 @@ body {
   text-align: center;
   width: 140px;
   font-size: 14px;
-} 
-
+}
 
 .btn-primary:is(:hover, :focus) {
   background: var(--yale-blue);
@@ -219,11 +209,9 @@ body {
   font-weight: var(--fw-700);
 }
 
-
 /*-----------------------------------*\
  * #HEADER
 \*-----------------------------------*/
-
 
 #login-modal {
   display: none;
@@ -248,13 +236,10 @@ nav,
 header.sticky {
   /* background-color: var(--bright-navy-blue-blur); */
   /* Màu xanh cho header */
-}.
-
-.header-chitiet {
+}
+. .header-chitiet {
   background-color: var(--bright-navy-blue-blur);
 }
-
-
 
 .input-wrapper {
   margin-left: 13px;
@@ -286,31 +271,20 @@ header.sticky {
   width: 100%;
 }
 
-
 .hero-title {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-
-
 
 .header.active .header-top {
   position: fixed;
   background: var(--gunmetal);
 }
 
-
-
 .search-btn,
-
-
 .search-btn {
   font-size: 20px;
 }
-
-
-
 
 .header .container {
   display: flex;
@@ -318,8 +292,6 @@ header.sticky {
   align-items: center;
   padding-block: 15px;
 }
-
-
 
 .header .btn {
   --padding: 4px 20px;
@@ -345,7 +317,6 @@ header.sticky {
   font-weight: bold;
   /* Tăng độ đậm */
 }
-
 
 /* .nav-close-btn {
   font-size: 20px;
@@ -441,8 +412,6 @@ header.sticky {
   /* Hiển thị dropdown khi rê chuột vào */
 }
 
-
-
 /* USER PROFILE   */
 .user-profile {
   position: absolute;
@@ -486,11 +455,11 @@ header.sticky {
   position: relative;
   background-color: var(--white);
   min-width: 170px;
-  box-shadow: 0px 2px 4px 0px #26EF69;
+  box-shadow: 0px 2px 4px 0px #26ef69;
   z-index: 1;
   border-radius: 10px;
-  top: 16px;
-  right: 100px;
+  top: 25px;
+  right: -15px;
 }
 
 .user-options a {
@@ -540,7 +509,6 @@ header.sticky {
 .hero-title {
   margin-bottom: 20px;
 }
-
 
 .btn-group {
   display: flex;
@@ -657,7 +625,6 @@ header.sticky {
   padding: 10px;
   border-radius: 20px;
   margin-right: 10px;
-
 }
 
 .popular_title {
@@ -691,7 +658,6 @@ div.gallery img {
   text-align: left;
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -703,8 +669,6 @@ div.gallery img {
   float: left;
   width: 325px;
 }
-
-
 
 /*-----------------------------------*\
  * #PACKAGE (tour đặc biệt)
@@ -758,7 +722,6 @@ div.gallery img {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 0px 20px 20px 20px;
-
 }
 
 .chi-tiet-btn {
@@ -782,7 +745,6 @@ div.gallery img {
   margin-left: 50%;
   margin-top: 50px;
   margin-bottom: 200px;
-
 }
 
 #xemthem {
@@ -805,14 +767,9 @@ div.gallery img {
   border-radius: 50%;
 }
 
-
-
-
-
 /*-----------------------------------*\
  * #REVIEW
 \*-----------------------------------*/
-
 
 .tour-container {
   display: flex;
@@ -821,7 +778,6 @@ div.gallery img {
   margin-left: 60px;
   max-width: 1300px;
 }
-
 
 .tour-card {
   background-color: #006d77;
@@ -891,8 +847,6 @@ div.gallery img {
   padding-bottom: 50px;
 }
 
-
-
 /*-----------------------------------*\
  * #MEDIA QUERIES
 \*-----------------------------------*/
@@ -937,9 +891,6 @@ div.gallery img {
     --fs-5: 15px;
   }
 
-
-
-
   /**
    * HEADER
    */
@@ -969,7 +920,6 @@ div.gallery img {
     --padding: 6px 20px;
   }
 
-
   /**
    * HERO
    */
@@ -986,7 +936,6 @@ div.gallery img {
  */
 
   /*TOUR SEARCH*/
-
 
   .tour-search-form {
     display: grid;
@@ -1007,8 +956,6 @@ div.gallery img {
     grid-column: span 2;
     margin-top: 20px;
   }
-
-
 
   /**
    * POPULAR
@@ -1074,19 +1021,13 @@ div.gallery img {
   .copyright { margin-bottom: 0; }
 
   .footer-bottom-list { justify-content: flex-end; } */
-
 }
-
-
-
-
 
 /**
  * responsive for larger than 768px screen
  */
 
 @media (min-width: 768px) {
-
   /**
    * CUSTOM PROPERTY
    */
@@ -1102,16 +1043,12 @@ div.gallery img {
   }
 
   :root {
-
     /**
      * typography
      */
 
     --fs-5: 15px;
-
   }
-
-
 
   /**
    * REUSED STYLE
@@ -1125,8 +1062,6 @@ div.gallery img {
     max-width: 60ch;
     margin-inline: auto;
   }
-
-
 
   /**
    * HEADER
@@ -1149,8 +1084,6 @@ div.gallery img {
     gap: 10px;
   }
 
-
-
   /**
    * POPULAR
    */
@@ -1166,10 +1099,6 @@ div.gallery img {
 
   .popular-card .card-content { right: 20px; } */
 
-
-
-
-
   /**
    * PACKAGE
    */
@@ -1178,7 +1107,7 @@ div.gallery img {
     margin-bottom: 50px;
   }
 
-  .package-list>li:not(:last-child) {
+  .package-list > li:not(:last-child) {
     margin-bottom: 40px;
   }
 
@@ -1204,8 +1133,6 @@ div.gallery img {
     margin-bottom: 15px;
   }
 
-
-
   /**
    * GALLERY
    */
@@ -1222,8 +1149,6 @@ div.gallery img {
   .gallery-image {
     border-radius: var(--radius-25);
   }
-
-
 
   /**
    * CTA
@@ -1243,8 +1168,6 @@ div.gallery img {
     margin-inline: 0;
   }
 
-
-
   /**
    * FOOTER
    */
@@ -1263,18 +1186,13 @@ div.gallery img {
   .footer-form .btn {
     width: max-content;
   }
-
 }
-
-
-
 
 /**
  * responsive for larger than 992px screen
  */
 
 @media (min-width: 992px) {
-
   /**
    * REUSED STYLE
    */
@@ -1294,8 +1212,6 @@ div.gallery img {
   .container {
     max-width: 1050px;
   }
-
-
 
   /**
    * HEADER
@@ -1370,8 +1286,6 @@ div.gallery img {
     display: none;
   }
 
-
-
   /**
    * HERO
    */
@@ -1379,8 +1293,6 @@ div.gallery img {
   .hero .container {
     max-width: 740px;
   }
-
-
 
   /**
    * TOUR SEARCH
@@ -1395,8 +1307,6 @@ div.gallery img {
     grid-column: unset;
     margin-top: 0;
   }
-
-
 
   /**
    * POPULAR
@@ -1417,11 +1327,9 @@ div.gallery img {
     --fs-8: 13px;
   }
 
-  .meta-box>ion-icon {
+  .meta-box > ion-icon {
     font-size: 15px;
   }
-
-
 
   /**
    * CTA 
@@ -1430,8 +1338,6 @@ div.gallery img {
   .cta .section-title {
     max-width: 25ch;
   }
-
-
 
   /**
    * FOOTER
@@ -1453,19 +1359,13 @@ div.gallery img {
   .footer-form .btn {
     width: 100%;
   }
-
 }
-
-
-
-
 
 /**
  * responsive for larger than 1200px screen
  */
 
 @media (min-width: 1200px) {
-
   /**
    * CUSTOM PROPERTY
    */
@@ -1483,13 +1383,11 @@ div.gallery img {
   }
 
   :root {
-
     /**
      * spacing
      */
 
     --section-padding: 100px;
-
   }
 
   .responsive {
@@ -1504,5 +1402,4 @@ div.gallery img {
   .container {
     max-width: 1180px;
   }
-
 }

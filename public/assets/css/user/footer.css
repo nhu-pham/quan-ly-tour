@@ -1,16 +1,20 @@
-body {
-    font-family: Arial, sans-serif;
-}
+
+
+
 
 .footer {
     background-color: #0099cc;
     color: white;
     padding: 40px 0;
     text-align: center;
-    height: 450px;
+    min-height: 450px;
     margin-top: 200px;
+<<<<<<< HEAD
     width: 100%;
     
+=======
+
+>>>>>>> 5eda28beb38e6bd7c60bde480bba228c7bc24c25
 }
 
 
@@ -101,6 +105,9 @@ body {
     text-align: left;
 }
 
+
+
+
 .footer-line {
     border: none;
     border-top: 1px solid white; 
@@ -134,3 +141,62 @@ body {
     margin-left: 30px;
 } 
 #email-phone-fax p { margin: 10px 0;  } 
+
+/* RESPONSIVE CHO FOOTER */
+@media (max-width: 768px) {
+    .below {
+        flex-direction: column; /* Chuyển thành dạng dọc */
+        text-align: center; /* Căn giữa nội dung */
+        margin-left: 20px;
+    }
+
+    .below .logo {
+        justify-content: center; /* Logo nằm giữa */
+        border-right: none; /* Ẩn border bên phải */
+        border-bottom: 1px solid white; /* Thêm border bên dưới */
+        width: 80%;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+   
+    #email-phone-fax {
+        flex-direction: column; /* Xếp dọc */
+        align-items: flex-start; /* Căn trái các mục */
+        gap: 5px; /* Thu nhỏ khoảng cách giữa các mục */
+    }
+
+    #email-phone-fax p {
+        margin: 5px 0; /* Tăng khoảng cách giữa các dòng */
+        text-align: left; /* Căn trái nội dung */
+    }
+}
+
+@media (max-width: 576px) {
+    .below {
+        flex-direction: column; /* Chuyển thành dạng dọc */
+        text-align: center; /* Căn giữa nội dung */
+        margin-left: 20px;
+    }
+    .below .logo img {
+        width: 80px; /* Logo nhỏ hơn */
+    }
+
+    .below .logo h3 {
+        font-size: 1.2em;
+    }
+    .below .logo {
+        justify-content: center; /* Logo nằm giữa */
+        border-right: none; /* Ẩn border bên phải */
+        border-bottom: 1px solid white; /* Thêm border bên dưới */
+        width: 80%;
+    }
+    #email-phone-fax p {
+        font-size: 0.9em; /* Thu nhỏ chữ */
+    }
+    .contact-info p {
+        font-size: 0.9em; /* Thu nhỏ chữ */
+    }
+}

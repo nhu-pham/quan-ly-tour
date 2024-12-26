@@ -31,22 +31,20 @@
 
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="trangChu.html">
-            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2"
+            <img src="/quan-ly-tour/public/uploads/images/logo-blue.png" alt="Logo" class="logo2"
                 style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
         </a>
 
         <div class="container">
             <div class="collapse navbar-header" id="navbarNav">
-                <button class="navbar-toggler">
-                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
-                </button>
+
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link ">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link ">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="/quan-ly-tour/destination/index/2" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false"
+                            <a href="/quan-ly-tour/destination/index/2" class="navbar-link desdrop dropdown-toggle"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                                 style="color: rgb(0, 225, 255); font-weight: bold;">Điểm đến <i
                                     class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
@@ -116,27 +114,6 @@
                     <div class="chitiet-general">
                         <div>
                             <div class="slideshow-container">
-
-                                <!--<div class="Slide fade">
-                                <div class="numbertext">1 / 3</div>
-                                <img src="./public/upload/images/tours/sliderB1.jpg" style="width:100%; height: 400px;">
-                                <div class="text-slide">Chùa Phật Tích Trúc Lâm</div>
-                            </div>
-
-                            <div class="Slide fade s1">
-                                <div class="numbertext">2 / 3</div>
-                                <img src="./public/upload/images/tours/sliderB2.jpg" style="width:100%; height: 400px;">
-                                <div class="text-slide">Thác Bản Giốc</div>
-                            </div>
-
-                            <div class="Slide fade s2">
-                                <div class="numbertext">3 / 3</div>
-                                <img src="./public/upload/images/tours/lang-da-khuoi-ky.jpg"
-                                    style="width:100%; height: 400px;">
-                                <div class="text-slide">Làng đá cổ Khuổi Kỵ</div>
-                            </div>
-                            <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
-                            <a class="next-slide" onclick="plusSlides(1)">❯</a>-->
                                 <img src="/quan-ly-tour/<?=$details['thumbnail']?>" style="width:100%; height: 400px;">
                             </div>
                             <br>
@@ -277,14 +254,13 @@
                                 <li class="price-from">Giá từ: <?=number_format($details['price'])?> VND / người</li>
                             </div>
                             <?php
-                        if (isset($_SESSION['user'])){?>
+                            if (isset($_SESSION['user'])) { ?>
                             <a href="/quan-ly-tour/product/buy/<?=$details['slug']?>" class="chi-tiet-btn xemngay"
                                 style="margin-top: 45px;">ĐẶT NGAY</a>
-                            <?php }
-                        else{ ?>
-                            <a href="/quan-ly-tour/auth/login" class="chi-tiet-btn xemngay" style="margin-top: 45px;">
-                                ĐẶT NGAY</a>
-                            <?php }?>
+                            <?php } else { ?>
+                            <a href="/quan-ly-tour/auth/login/<?=$details['slug']?>" class="chi-tiet-btn xemngay"
+                                style="margin-top: 45px;">ĐẶT NGAY</a>
+                            <?php } ?>
 
                         </div>
                     </div>

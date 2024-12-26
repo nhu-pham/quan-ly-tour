@@ -35,12 +35,13 @@
             </button>
             <div class="collapse navbar-collapse navbar-header" id="navbarNav">
                 <ul class="navbar-nav ms-auto navbar-list">
-                    <li class="nav-item"><a href="/quan-ly-tour" class="navbar-link change-color">Trang chủ</a></li>
+                    <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="./" class="navbar-link change-color active-header">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="/quan-ly-tour/destination/index/2" class="navbar-link change-color desdrop dropdown-toggle"
-                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="/quan-ly-tour/destination/index/2"
+                                class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/2">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/3">Miền Trung</a>

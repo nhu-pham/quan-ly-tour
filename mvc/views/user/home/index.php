@@ -64,19 +64,19 @@
                                 <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
                             </div>
                             <div class="user-options">
-                                <a href="auth/info">
+                                <a href="/quan-ly-tour/auth/info">
                                     <i class="fas fa-cog"></i>
                                     Quản lý thông tin
                                 </a>
-                                <a href="auth/change_password">
+                                <a href="/quan-ly-tour/auth/change_password">
                                     <i class="fa-solid fa-key"></i>
                                     Đổi mật khẩu
                                 </a>
-                                <a href="auth/orders">
+                                <a href="/quan-ly-tour/auth/orders">
                                     <i class="fa-solid fa-file-invoice-dollar"></i>
                                     Đơn mua
                                 </a>
-                                <a href="auth/logout">
+                                <a href="/quan-ly-tour/auth/logout">
                                     <i class="fas fa-sign-out-alt"></i>
                                     Đăng xuất
                                 </a>
@@ -84,7 +84,7 @@
                         </div>
                     </li>
                     <?php } else { ?>
-                    <li class="nav-item"><a href="auth/login" class="btn btn-primary">Đăng nhập</a></li>
+                    <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
                 </ul>
             </div>

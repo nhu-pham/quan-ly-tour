@@ -35,9 +35,6 @@
 
         <div class="container">
             <div class="collapse navbar-header" id="navbarNav">
-                <button class="navbar-toggler">
-                    <span class="navbar-toggler-icon">&#9776;</span>
-                </button>
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link change-color">Giới thiệu</a>
@@ -141,12 +138,7 @@
                         <!-- Kết quả tìm kiếm -->
                         <div class="search-results page_MT">
                             <div class="page-header">
-                                <label for="">Chúng tôi tìm thấy</label>
-                                <p id="number-tour" style="width: 40px; text-align: center">
-                                    <?=$data['rows']?>
-                                </p>
-
-                                <label for="">cho quý khách</label>
+                                <label for="">Tìm thấy <?=$data['rows']?> kết quả</label>
                                 <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
                                         theo:</label>
                                     <select id="combobox-sapxep">
