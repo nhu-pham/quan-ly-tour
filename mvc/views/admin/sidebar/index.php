@@ -15,32 +15,31 @@
     <link rel="stylesheet" href="http://localhost/quan-ly-tour/public/assets/css/admin/sidebar.css">
 </head>
 <body style="display:flex">
-
-    <!-- Sidebar -->
+<!-- Sidebar -->
     <div class="d-flex flex-column align-items-center bg-light sidebar p-3">
-        <!-- Avatar -->
-        <img src="https://via.placeholder.com/80" alt="Admin" class="rounded-circle mb-2">
-        <!-- Tên người dùng -->
-        <h5 class="fw-bold text-center mb-4">Manager</h5>
-        <!-- Menu -->
         <ul class="nav flex-column w-100">
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/revenue/" class="nav-link text-dark fw-bold" id="homeLink">Trang chủ</a>
+                <a href="/quan-ly-tour/admin/revenue/" class="nav-link text-dark fw-bold" id="homeLink">Trang chủ</a>
             </li>
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/tour/" class="nav-link text-dark fw-bold" id="tourLink">Tour</a>
+                <a href="/quan-ly-tour/admin/tour/" class="nav-link text-dark fw-bold" id="tourLink">Tour</a>
             </li>
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/order/" class="nav-link text-dark fw-bold" id="orderLink" style="display: none;">Đơn đặt tour</a>
+
+                <a href="/quan-ly-tour/admin/orders/" class="nav-link text-dark fw-bold" id="orderLink">Đơn đặt tour</a>
+
             </li>
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/service/" class="nav-link text-dark fw-bold" id="serviceLink">Dịch vụ</a>
+                <a href="/quan-ly-tour/admin/service/" class="nav-link text-dark fw-bold" id="serviceLink">Dịch vụ</a>
             </li>
+
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/review/" class="nav-link text-dark fw-bold" id="reviewLink">Nhận xét</a>
+                <a href="/quan-ly-tour/admin/review/" class="nav-link text-dark fw-bold" id="reviewLink">Nhận xét</a>
+
             </li>
+
             <li class="nav-item mb-2">
-                <a href="/quan-ly-tour/manager/role/" class="nav-link text-dark fw-bold" id="roleLink" style="display: none;">Phân quyền</a>
+                <a href="/quan-ly-tour/admin/role/" class="nav-link text-dark fw-bold" id="roleLink">Phân quyền</a>
             </li>
         </ul>
     </div>

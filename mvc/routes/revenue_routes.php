@@ -5,12 +5,18 @@ $revenueRoutes = [
     'GET' => [
         '/api/manager/revenue/searchrevenue' => 'RevenueController/getRevenueStatistics',
         '/api/manager/revenue/getMonthlyRevenue' => 'RevenueController/getMonthlyRevenue',
-        '/api/manager/revenue/getRevenue'=> 'RevenueController/getRevenue';
+        '/api/manager/revenue/getRevenue'=> 'RevenueController/getRevenue',
+        '/api/admin/revenue/searchrevenue' => 'RevenueController/getRevenueStatistics',
+        '/api/admin/revenue/getMonthlyRevenue' => 'RevenueController/getMonthlyRevenue',
+        '/api/admin/revenue/getRevenue'=> 'RevenueController/getRevenue';
     ],
     'POST' => [
         '/api/manager/revenue/searchrevenue' => 'RevenueController/getRevenueStatistics',
         '/api/manager/revenue/getMonthlyRevenue' => 'RevenueController/getMonthlyRevenue', //biểu đồ
-        '/api/manager/revenue/getRevenue'=> 'RevenueController/getRevenue'; // doanh thu
+        '/api/manager/revenue/getRevenue'=> 'RevenueController/getRevenue',
+        '/api/admin/revenue/searchrevenue' => 'RevenueController/getRevenueStatistics',
+        '/api/admin/revenue/getMonthlyRevenue' => 'RevenueController/getMonthlyRevenue', //biểu đồ
+        '/api/admin/revenue/getRevenue'=> 'RevenueController/getRevenue'; // doanh thu
     ]
 ];
 

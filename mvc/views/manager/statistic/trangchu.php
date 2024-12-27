@@ -61,6 +61,6 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Custom JS -->
-  <script src="http://localhost/quan-ly-tour/public/assets/js/admin/trangchu.js"></script>
+  <script src="http://localhost/quan-ly-tour/public/assets/js/manager/trangchu.js"></script>
 </body>
 </html>

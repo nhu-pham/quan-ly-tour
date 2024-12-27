@@ -87,7 +87,7 @@ async function confirmDeleteTour(tourId) {
   $("#confirmDeleteModal").modal("hide");
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/delete/${tourId}`, // URL đúng
+      `http://localhost/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
       {
         method: "DELETE", // Sửa lỗi chính tả
         headers: {
@@ -154,7 +154,7 @@ async function updateTour(tourId) {
   console.log("Request data:", data);
 
   const response = await fetch(
-    `http://localhost/quan-ly-tour/api/admin/tour/update/${tourId}`,
+    `http://localhost/quan-ly-tour/api/manager/tour/update/${tourId}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -257,7 +257,7 @@ async function addTour() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/add`,
+      `http://localhost/quan-ly-tour/api/manager/tour/add`,
       {
         method: "POST",
         headers: {
@@ -349,7 +349,7 @@ async function search() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/searchByKeyword`,
+      `http://localhost/quan-ly-tour/api/manager/tour/searchByKeyword`,
       {
         method: "POST",
         headers: {
@@ -431,7 +431,7 @@ function renderTourRow(tour) {
 }
 
 function reloadTours() {
-  fetch("http://localhost/quan-ly-tour/api/admin/tour/fetchAll")
+  fetch("http://localhost/quan-ly-tour/api/manager/tour/fetchAll")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Lỗi khi tải danh sách tour.");
@@ -463,7 +463,7 @@ async function searchTour() {
   console.log(data);
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/search`,
+      `http://localhost/quan-ly-tour/api/manager/tour/search`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -8,16 +8,23 @@ $ServiceRoutes = [
         '/api/manager/service/searchByKeyword' => 'ServiceController/searchByKeyword',
         '/api/manager/service/fetchAll' => 'ServiceController/fetchAll',
         '/api/manager/service/search' => 'ServiceController/search',
-        '/api/manager/service/count' => 'ServiceController/count'
+        '/api/manager/service/count' => 'ServiceController/count',
+        '/api/admin/service/searchByKeyword' => 'ServiceController/searchByKeyword',
+        '/api/admin/service/fetchAll' => 'ServiceController/fetchAll',
+        '/api/admin/service/search' => 'ServiceController/search',
+        '/api/admin/service/count' => 'ServiceController/count'
     ],
     'POST' => [
         '/api/manager/service/add' => 'ServiceController/add',
+        '/api/admin/service/add' => 'ServiceController/add',
     ],
     'POST' => [
         '/api/manager/service/update/(:num)' => 'ServiceController/update/$1',
+        '/api/admin/service/update/(:num)' => 'ServiceController/update/$1',
     ],
     'DELETE' => [
         '/api/manager/service/delete/(:num)' => 'ServiceController/delete/$1',
+        '/api/admin/service/delete/(:num)' => 'ServiceController/delete/$1',
     ],
 ];
 

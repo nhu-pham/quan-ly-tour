@@ -29,7 +29,7 @@ function deleteReview(reviewId) {
 async function confirmDeleteReview(reviewId) {
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/review/delete/${reviewId}`,
+      `http://localhost/quan-ly-tour/api/manager/review/delete/${reviewId}`,
       {
         method: "DELETE",
         headers: {
@@ -62,7 +62,7 @@ async function confirmDeleteReview(reviewId) {
 }
 
 async function reloadReviews() {
-  fetch(`http://localhost/quan-ly-tour/api/admin/review/searchReviews`)
+  fetch(`http://localhost/quan-ly-tour/api/manager/review/searchReviews`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -117,7 +117,7 @@ async function searchReview() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/review/search`,
+      `http://localhost/quan-ly-tour/api/manager/review/search`,
       {
         method: "POST",
         headers: {
