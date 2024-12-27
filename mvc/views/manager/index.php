@@ -8,16 +8,67 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- custom css link  -->
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/footer.css">
-    <!-- google font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/header.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/nhanxet.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/tour.css">
+    <!-- <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/quanLyTour.css"> -->
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/trangchu.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/styles.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/employee/orders.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/employee/detail.css">
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/admin/dichvu.css">
+
+    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/footer.css">
+
+    <style>
+        img {
+            margin-top: 0px !important;
+        }
+        .tour-info p:first-child {
+            margin-left: 2px !important;
+            margin-bottom: 20px;
+        }
+
+        .tourlist-container, 
+        .dontour-container {
+            margin-top: 0px !important;
+        }
+
+        .tourlist-container .pagination {
+            display: flex;
+            text-align: justify;
+            margin-left: 80%;
+            margin-top: 20px;
+        }
+
+        .container1 {
+            position: absolute;
+            top: 100px;
+            left: 230px;
+            width: 81%; 
+        }
+
+        b, strong {
+            font-weight: 700 !important;
+        }
+
+        .btn-warning {
+            margin-bottom: 10px !important;
+        }
+
+    </style>
 </head>
 
 <body id="top">
@@ -41,9 +92,9 @@
 
                                     <img src="<?= $avatar ?>"
                                         alt="Avatar" class="user-image">
-                                    <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
+                                    <button id="user-name" class="dropdown-toggle-btn"><i class="fa-solid fa-caret-down"></i></button>
                                 </div>
-                                  <div class="user-options" style="top: 55px;left: 630px;">
+                                <div class="user-options" id="userOptions">
                                     <a href="/quan-ly-tour/auth/info">
                                         <i class="fas fa-cog"></i>
                                         Quản lý thông tin
@@ -59,22 +110,45 @@
                                 </div>
                             </div>
                         <?php } else { ?>
-                        <li class="nav-item"><a href="/quan-ly-tour/auth/login " class="btn btn-primary">Đăng nhập</a></li>
+                        <li class="nav-item"><a href="/quan-ly-tour/auth/login " class="btn1 btn1-primary">Đăng nhập</a></li>
                     <?php } ?>
                 </ul>
             </div>
         </div>
     </nav>
-    <?php 
-        require_once './mvc/views/manager/sidebar/index.php'; 
-        ?>
+    <?php
+    require_once './mvc/views/manager/sidebar/index.php';
+    ?>
     <main>
-    <article>
+        <article>
+        <div id="loadData">
+            <?php
+            require_once './mvc/views/manager/' . $page . '.php';
+            ?>
+            </div>
+        </article>
+    </main>
 
-<?php  
-require_once './mvc/views/manager/'.$page.'.php'; 
-?>
+            <script src="/quan-ly-tour/public/assets/js/admin/trangchu.js"></script>
+            <script src="/quan-ly-tour/public/assets/js/admin/sidebar.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                $(document).ready(function () {
+                    const userOptions = $('#userOptions');
+                    const toggleBtn = $('.user-account');
 
-<?php
-    require "./mvc/views/user/include/footer.php"
-?>
+                    toggleBtn.on('click', function (e) {
+                        e.stopPropagation(); 
+                        userOptions.toggle(); 
+                        $('#userOptions').css('z-index', 1050); // Đảm bảo menu nằm trên các thành phần khác
+                        $('#userOptions').css('overflow', 'visible'); // Kiểm tra nếu bị cắt
+
+                    });
+
+                    $(document).on('click', function () {
+                        userOptions.hide();
+                    });
+                });
+
+            </script>

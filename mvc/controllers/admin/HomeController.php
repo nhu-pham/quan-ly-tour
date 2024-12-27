@@ -1,6 +1,6 @@
 
 <?php
-require_once './mvc/controllers/manager/RevenueController.php';
+require_once './mvc/controllers/admin/RevenueController.php';
 require_once "./mvc/core/redirect.php";
 
 class HomeController extends Controller
@@ -9,6 +9,7 @@ class HomeController extends Controller
     {
             
         $this->RevenueController = new RevenueController();
+        
         $this->Jwtoken = $this->helper('Jwtoken');
         $this->Authorzation = $this->helper('Authorzation');
     }
@@ -29,7 +30,6 @@ class HomeController extends Controller
         $data= $this->RevenueController->index();
         $data = [
             'page' => 'statistic/trangchu',
-            'title' => 'Trang chủ',
             'data' => $data
 
         ];

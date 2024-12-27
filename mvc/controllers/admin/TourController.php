@@ -223,7 +223,7 @@ class TourController extends Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            http_response_code(405); // Method Not Allowed
+            http_response_code(405); 
             echo json_encode([
                 'type'    => 'Fail',
                 'message' => 'Only GET method is allowed'

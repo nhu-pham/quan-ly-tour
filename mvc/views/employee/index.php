@@ -95,7 +95,3 @@ if (isset($_SESSION['errors'])) {
     <?php
     require "./mvc/views/user/include/footer.php"
     ?>
-
-<?php
-    require "./mvc/views/user/include/footer.php"
-?>

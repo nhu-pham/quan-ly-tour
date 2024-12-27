@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         <?php } else { ?>
-                        <li class="nav-item"><a href="login " class="btn1 btn-primary">Đăng nhập</a></li>
+                        <li class="nav-item"><a href="login " class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
                     </li>
                 </ul>

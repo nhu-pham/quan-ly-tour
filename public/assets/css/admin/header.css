@@ -1,0 +1,289 @@
+:root {
+
+
+  --united-nations-blue: hsl(214, 56%, 58%);
+  --bright-navy-blue: hsl(193.073, 85%, 41%);
+  --bright-navy-blue-blur: hsla(193.073, 85%, 41%, 0.8);
+}
+
+
+
+
+
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+img,
+span,
+input,
+label,
+button,
+ion-icon {
+  display: block;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+html {
+  font-family: var(--ff-poppins);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+}
+
+
+
+
+/*-----------------------------------*\
+ * #REUSED STYLE
+\*-----------------------------------*/
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.vietcharm-logo {
+  width: 500px;
+  height: 100px;
+}
+
+.container {
+  padding-inline: 15px;
+}
+
+.btn1 {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: var(--fs-5);
+  border-radius: 100px;
+  padding: var(--padding, 8px 18px);
+  border: var(--border-width, 2px) solid transparent;
+  transition: var(--transition);
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.btn1-primary {
+  background: var(--bright-navy-blue);
+  border-color: var(--bright-navy-blue);
+  position: fixed;
+  top: 5px;
+  right: 90px;
+  text-align: center;
+  width: 140px;
+  font-size: 14px;
+} 
+
+
+.btn1-primary:is(:hover, :focus) {
+  background: var(--yale-blue);
+  border-color: var(--yale-blue);
+}
+
+
+#header,
+nav {
+  position: fixed;
+  top: 0;
+  height: 90px;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.header {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+
+
+.header.active .header-top {
+  position: fixed;
+  background: var(--gunmetal);
+}
+
+
+
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 15px;
+}
+
+
+
+.header .btn1 {
+  --padding: 4px 20px;
+}
+
+.navbar-header {
+  position: fixed;
+  top: 14px;
+  /* Cách mép trên 20px */
+  left: 25%;
+}
+
+.navbar.active {
+  right: 0;
+  visibility: visible;
+  pointer-events: all;
+  transition: 0.25s ease-out;
+}
+
+.navbar-link.active-header {
+  color: rgb(0, 225, 255);
+  /* Màu của mục active */
+  font-weight: bold;
+  /* Tăng độ đậm */
+}
+
+
+
+.navbar-list {
+  border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+  padding-left: 30px;
+  gap: 30px;
+}
+
+.navbar-list li {
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+  padding-right: 10px;
+}
+
+.navbar-link {
+  padding: 15px 20px;
+  color: var(--jet);
+  font-weight: var(--fw-500);
+  font-size: var(--fs-4);
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.navbar-link:hover {
+  color: var(--bright-navy-blue);
+}
+
+.navbar-link:focus {
+  color: var(--white);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* USER PROFILE   */
+.user-profile {
+  position: absolute;
+  display: inline-block;
+}
+
+.user-account {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0px 10px;
+  top: 30px;
+  right: 200px;
+  z-index: 999;
+}
+
+
+.user-profile .fa-caret-down {
+  border-radius: 50%;
+  background-color: var(--white);
+  padding: 2px 4px;
+  /* Padding */
+  font-size: 10px;
+  position: relative;
+  top: 15px;
+  left: 70px;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 30px;
+  position: absolute;
+  border: 1px solid rgb(55, 223, 245);
+}
+
+/* USER OPTIONS */
+.user-options {
+  display: none;
+  position: relative;
+  background-color: white !important;
+  min-width: 170px;
+  box-shadow: 0px 2px 4px 0px #26EF69;
+  z-index: 1000; /* Đặt giá trị lớn hơn */
+  border-radius: 10px;
+  top: 55px;
+  left: 650px;
+}
+
+
+.user-options a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.user-options a i {
+  color: var(--bright-navy-blue);
+  margin-right: 8px;
+}
+
+.user-options .fa-file-invoice-dollar {
+  margin-left: 4px;
+}
+
+.user-options a:hover {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.fas {
+  margin-right: 5px;
+}

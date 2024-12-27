@@ -57,13 +57,13 @@ class OrdersController extends Controller
         }
         $button_pagination = $this->Functions->pagination($total_page, $page);
         $data = [
-            'page' => 'orders',
+            'page' => 'orders/orders',
             'title' => 'Danh sách đơn hàng',
             'ordersData' => $ordersData,
             'button_pagination' => $button_pagination,
             'searchTerm' => $searchTerm
         ];
-        $this->view('employee/index', $data);
+        $this->view('manager/index', $data);
     }
 
     public function searchOrders()
@@ -129,7 +129,7 @@ class OrdersController extends Controller
                             <p class="price-row"><strong>Giá:</strong> <label style="color: red; font-weight: bold;">' . htmlspecialchars($data['total_money']) . ' VNĐ</label></p>
                         </div>
                         </div>
-                        <a href="home/detail" data-id="'.$data['id'].'" class="update-btn chitiet-btn">Xem chi tiết</a>
+                        <a data-id="'.$data['id'].'" class="update-btn chitiet-btn">Xem chi tiết</a>
                     </div>';
             }
         } else {
@@ -165,7 +165,7 @@ class OrdersController extends Controller
             'ordersData' => $ordersData,
             'button_pagination' => $button_pagination,
         ];
-        $this->view('employee/orders', $data);
+        $this->view('manager/orders/orders', $data);
     }
 
     function detail()
@@ -221,9 +221,9 @@ class OrdersController extends Controller
 
         $data = [
             'orderDetail' => $groupOrderDetail,
-            'page' => 'detail',
+            'page' => 'orders/detail',
         ];
-        $this->view('employee/index', $data);
+        $this->view('manager/index', $data);
     }
 
     function cancel()
@@ -351,13 +351,13 @@ class OrdersController extends Controller
                 }
             }
         } else {
-            $redirect = new redirect('/employee');
+            $redirect = new redirect('/manager');
         }
         $data = [
             'groupInvoiceData' => $groupInvoiceData,
             'title' => 'Hoá đơn đặt tour',
         ];
-        $this->view('employee/invoice', $data);
+        $this->view('manager/orders/invoice', $data);
     }
 
     function exportPDF()
