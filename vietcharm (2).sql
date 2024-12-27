@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 21, 2024 lúc 06:39 AM
+-- Thời gian đã tạo: Th12 27, 2024 lúc 01:15 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -71,37 +71,16 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `tour_id`, `fullname`, `gender`, `birthday`, `email`, `phone_number`, `address`, `number_of_people`, `order_date`, `status`, `total_money`, `active`) VALUES
-(1, 6, 2, 'Trần Minh Hòa', 'Male', '1985-05-15 00:00:00', 'tranminhhoa@gmail.com', '0357111123', 'Quận 1, TP. Hồ Chí Minh', 2, '2024-12-01 08:00:00', 'completed', 5000000, 1),
-(2, 7, 4, 'Nguyễn Thị Lan', 'Female', '1990-08-22 00:00:00', 'nguyenlan@gmail.com', '0357222234', 'Quận 3, TP. Hồ Chí Minh', 4, '2024-12-02 10:00:00', 'completed', 7000000, 1),
-(3, 8, 6, 'Lê Hoàng Anh', 'Male', '1988-12-05 00:00:00', 'hoanganh@gmail.com', '0357333345', 'Quận 7, TP. Hồ Chí Minh', 1, '2024-12-03 09:00:00', 'pending', 3500000, 1),
-(4, 9, 8, 'Phạm Văn Đức', 'Male', '1982-03-19 00:00:00', 'phamduc@gmail.com', '0357444456', 'Quận 5, TP. Hồ Chí Minh', 3, '2024-12-04 14:00:00', 'cancelled', 8000000, 1),
-(5, 10, 10, 'Đỗ Thị Hương', 'Female', '1995-06-30 00:00:00', 'huongdo@gmail.com', '0357555567', 'Quận 10, TP. Hồ Chí Minh', 5, '2024-12-05 16:00:00', 'completed', 12000000, 1),
-(6, 11, 12, 'Ngô Đức Thịnh', 'Male', '1980-09-25 00:00:00', 'ngothinh@gmail.com', '0357666678', 'Quận Bình Thạnh, TP. Hồ Chí Minh', 2, '2024-12-06 08:00:00', 'pending', 6000000, 1),
-(7, 12, 14, 'Vũ Hải Yến', 'Female', '1989-11-11 00:00:00', 'yenhai@gmail.com', '0357777789', 'Quận Gò Vấp, TP. Hồ Chí Minh', 4, '2024-12-07 11:00:00', 'completed', 9000000, 1),
-(8, 13, 16, 'Phan Anh Tú', 'Male', '1992-02-28 00:00:00', 'tuanh@gmail.com', '0357888890', 'Quận Phú Nhuận, TP. Hồ Chí Minh', 3, '2024-12-08 13:00:00', 'completed', 8000000, 1),
-(9, 14, 18, 'Bùi Minh Ngọc', 'Female', '1997-04-18 00:00:00', 'ngocbui@gmail.com', '0357999911', 'Quận Tân Bình, TP. Hồ Chí Minh', 1, '2024-12-09 15:00:00', 'pending', 4500000, 1),
-(10, 15, 20, 'Trịnh Thùy Linh', 'Female', '1993-07-07 00:00:00', 'linhthuy@gmail.com', '0357111012', 'Quận 12, TP. Hồ Chí Minh', 2, '2024-12-10 09:30:00', 'completed', 5500000, 1),
-(11, 6, 2, 'Trần Minh Hòa', 'Male', '1985-05-15 00:00:00', 'tranminhhoa@gmail.com', '0357111123', 'Quận 1, TP. Hồ Chí Minh', 2, '2024-12-01 08:00:00', 'completed', 5000000, 1),
-(12, 7, 4, 'Nguyễn Thị Lan', 'Female', '1990-08-22 00:00:00', 'nguyenlan@gmail.com', '0357222234', 'Quận 3, TP. Hồ Chí Minh', 4, '2024-12-02 10:00:00', 'completed', 7000000, 1),
-(13, 8, 6, 'Lê Hoàng Anh', 'Male', '1988-12-05 00:00:00', 'hoanganh@gmail.com', '0357333345', 'Quận 7, TP. Hồ Chí Minh', 1, '2024-12-03 09:00:00', 'pending', 3500000, 1),
-(14, 9, 8, 'Phạm Văn Đức', 'Male', '1982-03-19 00:00:00', 'phamduc@gmail.com', '0357444456', 'Quận 5, TP. Hồ Chí Minh', 3, '2024-12-04 14:00:00', 'cancelled', 8000000, 1),
-(15, 10, 10, 'Đỗ Thị Hương', 'Female', '1995-06-30 00:00:00', 'huongdo@gmail.com', '0357555567', 'Quận 10, TP. Hồ Chí Minh', 5, '2024-12-05 16:00:00', 'completed', 12000000, 1),
-(16, 11, 12, 'Ngô Đức Thịnh', 'Male', '1980-09-25 00:00:00', 'ngothinh@gmail.com', '0357666678', 'Quận Bình Thạnh, TP. Hồ Chí Minh', 2, '2024-12-06 08:00:00', 'pending', 6000000, 1),
-(17, 12, 14, 'Vũ Hải Yến', 'Female', '1989-11-11 00:00:00', 'yenhai@gmail.com', '0357777789', 'Quận Gò Vấp, TP. Hồ Chí Minh', 4, '2024-12-07 11:00:00', 'completed', 9000000, 1),
-(18, 13, 16, 'Phan Anh Tú', 'Male', '1992-02-28 00:00:00', 'tuanh@gmail.com', '0357888890', 'Quận Phú Nhuận, TP. Hồ Chí Minh', 3, '2024-12-08 13:00:00', 'completed', 8000000, 1),
-(19, 14, 18, 'Bùi Minh Ngọc', 'Female', '1997-04-18 00:00:00', 'ngocbui@gmail.com', '0357999911', 'Quận Tân Bình, TP. Hồ Chí Minh', 1, '2024-12-09 15:00:00', 'pending', 4500000, 1),
-(20, 15, 20, 'Trịnh Thùy Linh', 'Female', '1993-07-07 00:00:00', 'linhthuy@gmail.com', '0357111012', 'Quận 12, TP. Hồ Chí Minh', 2, '2024-12-10 09:30:00', 'completed', 5500000, 1),
-(21, 17, 3, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 06:27:29', 'pending', 2200000, 1),
-(32, 17, 3, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 07:59:04', 'pending', 12400000, 1),
-(35, 17, 3, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:04:23', 'pending', 9000000, 1),
-(36, 17, 2, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:06:39', 'pending', 24400000, 1),
-(37, 17, 2, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:09:16', 'pending', 21000000, 1),
-(38, 17, 2, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:12:48', 'pending', 24500000, 1),
-(39, 17, 4, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:19:08', 'pending', 12000000, 1),
-(40, 17, 4, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:21:16', 'pending', 12000000, 1),
-(41, 17, 4, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:21:51', 'pending', 12000000, 1),
-(42, 17, 4, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:22:30', 'pending', 12000000, 1),
-(43, 17, 4, 'Võ Thanh Nhàn', 'Other', '2024-12-10 00:00:00', 'thanhiscoding@gmail.com', '0702562318', 'thôn Thọ Vức, xã Hòa Kiến, thành phố Tuy Hòa, Phú Yên', 6, '2024-12-21 08:25:43', 'pending', 14800000, 1);
+(1, 6, 2, 'Trần Minh Hòa', 'Male', '1985-05-15 00:00:00', 'tranminhhoa@gmail.com', '0357111123', 'Quận 1, TP. Hồ Chí Minh', 2, '2024-10-01 08:00:00', 'completed', 5500000, 1),
+(2, 7, 4, 'Nguyễn Thị Lan', 'Female', '1990-08-22 00:00:00', 'nguyenlan@gmail.com', '0357222234', 'Quận 3, TP. Hồ Chí Minh', 4, '2024-10-02 10:00:00', 'completed', 7500000, 1),
+(3, 8, 6, 'Lê Hoàng Anh', 'Male', '1988-12-05 00:00:00', 'hoanganh@gmail.com', '0357333345', 'Quận 7, TP. Hồ Chí Minh', 1, '2024-10-08 09:00:00', 'pending', 4000000, 1),
+(4, 9, 8, 'Phạm Văn Đức', 'Male', '1982-03-19 00:00:00', 'phamduc@gmail.com', '0357444456', 'Quận 5, TP. Hồ Chí Minh', 3, '2024-11-04 14:00:00', 'cancelled', 8500000, 1),
+(5, 10, 10, 'Đỗ Thị Hương', 'Female', '1995-06-30 00:00:00', 'huongdo@gmail.com', '0357555567', 'Quận 10, TP. Hồ Chí Minh', 5, '2024-11-05 16:00:00', 'completed', 12500000, 1),
+(6, 11, 12, 'Ngô Đức Thịnh', 'Male', '1980-09-25 00:00:00', 'ngothinh@gmail.com', '0357666678', 'Quận Bình Thạnh, TP. Hồ Chí Minh', 2, '2024-11-06 08:00:00', 'cancelled', 6500000, 1),
+(7, 12, 14, 'Vũ Hải Yến', 'Female', '1989-11-11 00:00:00', 'yenhai@gmail.com', '0357777789', 'Quận Gò Vấp, TP. Hồ Chí Minh', 4, '2024-11-07 11:00:00', 'completed', 9500000, 1),
+(8, 13, 16, 'Phan Anh Tú', 'Male', '1992-02-28 00:00:00', 'tuanh@gmail.com', '0357888890', 'Quận Phú Nhuận, TP. Hồ Chí Minh', 3, '2024-12-08 13:00:00', 'completed', 8500000, 1),
+(9, 14, 18, 'Bùi Minh Ngọc', 'Female', '1997-04-18 00:00:00', 'ngocbui@gmail.com', '0357999911', 'Quận Tân Bình, TP. Hồ Chí Minh', 1, '2024-12-09 15:00:00', 'pending', 5000000, 1),
+(10, 15, 20, 'Trịnh Thùy Linh', 'Female', '1993-07-07 00:00:00', 'linhthuy@gmail.com', '0357111012', 'Quận 12, TP. Hồ Chí Minh', 2, '2024-12-10 09:30:00', 'completed', 6000000, 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +93,8 @@ CREATE TABLE `order_details` (
   `order_id` int(11) DEFAULT NULL,
   `tour_id` int(11) DEFAULT NULL,
   `tour_price` float NOT NULL CHECK (`tour_price` >= 0),
+  `number_of_people` int(11) NOT NULL CHECK (`number_of_people` > 0),
+  `total_money_tour` float DEFAULT NULL CHECK (`total_money_tour` >= 0),
   `service_id` int(11) DEFAULT NULL,
   `service_price` float NOT NULL CHECK (`service_price` >= 0),
   `number_of_services` int(11) NOT NULL CHECK (`number_of_services` > 0),
@@ -124,38 +105,17 @@ CREATE TABLE `order_details` (
 -- Đang đổ dữ liệu cho bảng `order_details`
 --
 
-INSERT INTO `order_details` (`id`, `order_id`, `tour_id`, `tour_price`, `service_id`, `service_price`, `number_of_services`, `total_money_service`) VALUES
-(1, 1, 2, 4000000, 1, 500000, 2, 1000000),
-(2, 2, 4, 5600000, 2, 350000, 4, 1400000),
-(3, 3, 6, 2800000, 3, 700000, 1, 700000),
-(4, 4, 8, 6400000, 4, 533333, 3, 1600000),
-(5, 5, 10, 9600000, 5, 400000, 5, 2000000),
-(6, 6, 12, 4800000, 2, 600000, 2, 1200000),
-(7, 7, 14, 7200000, 3, 450000, 4, 1800000),
-(8, 8, 16, 6400000, 4, 533333, 3, 1600000),
-(9, 9, 18, 3600000, 1, 900000, 1, 900000),
-(10, 10, 20, 4400000, 5, 550000, 2, 1100000),
-(11, 1, 2, 4000000, 1, 500000, 2, 1000000),
-(12, 2, 4, 5600000, 2, 350000, 4, 1400000),
-(13, 3, 6, 2800000, 3, 700000, 1, 700000),
-(14, 4, 8, 6400000, 4, 533333, 3, 1600000),
-(15, 5, 10, 9600000, 5, 400000, 5, 2000000),
-(16, 6, 12, 4800000, 2, 600000, 2, 1200000),
-(17, 7, 14, 7200000, 3, 450000, 4, 1800000),
-(18, 8, 16, 6400000, 4, 533333, 3, 1600000),
-(19, 9, 18, 3600000, 1, 900000, 1, 900000),
-(20, 10, 20, 4400000, 5, 550000, 2, 1100000),
-(24, 32, 3, 0, 1, 700000, 1, 3400000),
-(25, 32, 3, 0, 2, 1500000, 1, 3400000),
-(26, 32, 3, 0, 3, 1200000, 1, 3400000),
-(27, 36, 2, 0, 1, 700000, 1, 3400000),
-(28, 36, 2, 0, 2, 1500000, 1, 3400000),
-(29, 36, 2, 0, 3, 1200000, 1, 3400000),
-(30, 38, 2, 0, 22, 800000, 1, 3500000),
-(31, 38, 2, 0, 23, 1200000, 1, 3500000),
-(32, 38, 2, 0, 2, 1500000, 1, 3500000),
-(33, 43, 4, 0, 2, 1500000, 1, 2800000),
-(34, 43, 4, 0, 6, 1300000, 1, 2800000);
+INSERT INTO `order_details` (`id`, `order_id`, `tour_id`, `tour_price`, `number_of_people`, `total_money_tour`, `service_id`, `service_price`, `number_of_services`, `total_money_service`) VALUES
+(1, 1, 2, 2000000, 2, 4000000, 3, 500000, 3, 1500000),
+(2, 2, 4, 3000000, 4, 6000000, 5, 750000, 2, 1500000),
+(3, 3, 6, 3500000, 1, 3500000, 6, 500000, 1, 500000),
+(4, 4, 8, 2500000, 3, 7500000, 7, 250000, 2, 1000000),
+(5, 5, 10, 2000000, 5, 10000000, 8, 500000, 5, 2500000),
+(6, 6, 12, 3000000, 2, 6000000, 9, 250000, 2, 500000),
+(7, 7, 14, 2000000, 4, 8000000, 10, 375000, 4, 1500000),
+(8, 8, 16, 2500000, 3, 7500000, 11, 250000, 4, 1000000),
+(9, 9, 18, 4000000, 1, 4000000, 12, 1000000, 1, 1000000),
+(10, 10, 20, 2000000, 2, 4000000, 13, 1000000, 2, 2000000);
 
 -- --------------------------------------------------------
 
@@ -277,81 +237,6 @@ INSERT INTO `service_categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `slugs`
---
-
-CREATE TABLE `slugs` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `slugs`
---
-
-INSERT INTO `slugs` (`id`, `name`, `category_id`) VALUES
-(1, 'Mui-Ne-Kham-pha-Bai-Rang-Doi-Cat-Bay', 1),
-(2, 'Phu-Quoc-Kham-pha-Dao-Ngoc', 1),
-(3, 'Vung-Tau-Tham-quan-Bai-Truoc-Bai-Sau', 1),
-(4, 'Can-Tho-Cho-Noi-Lang-Du-Lich-My-Khanh', 1),
-(5, 'Da-Lat-Ho-Xuan-Huong-Thac-Datanla', 1),
-(6, 'Tay-Ninh-Nui-Ba-Den-Chua-Linh-Son', 1),
-(7, 'Ben-Tre-Vuon-Dua-Chua-Vinh-Trang', 1),
-(8, 'Ca-Mau-Mui-Ca-Mau-Rung-U-Minh', 1),
-(9, 'Rach-Gia-Khu-Du-Lich-Phu-Quoc', 1),
-(10, 'Long-An-Dong-Thap-Muoi-Chua-Vinh-Nguyen', 1),
-(11, 'Tien-Giang-Vuon-Cay-Chua-Vinh-Trang', 1),
-(12, 'Mui-Ne-Kham-pha-Bai-Rang-Doi-Cat-Bay', 1),
-(13, 'Phu-Quoc-Kham-pha-Dao-Ngoc', 1),
-(14, 'Vung-Tau-Tham-quan-Bai-Truoc-Bai-Sau', 1),
-(15, 'Can-Tho-Cho-Noi-Lang-Du-Lich-My-Khanh', 1),
-(16, 'Da-Lat-Ho-Xuan-Huong-Thac-Datanla', 1),
-(17, 'Tay-Ninh-Nui-Ba-Den-Chua-Linh-Son', 1),
-(18, 'Ben-Tre-Vuon-Dua-Chua-Vinh-Trang', 1),
-(19, 'Ca-Mau-Mui-Ca-Mau-Rung-U-Minh', 1),
-(20, 'Rach-Gia-Khu-Du-Lich-Phu-Quoc', 1),
-(21, 'Long-An-Dong-Thap-Muoi-Chua-Vinh-Nguyen', 1),
-(22, 'Tien-Giang-Vuon-Cay-Chua-Vinh-Trang', 1),
-(23, 'Ha-Long-Tham-quan-Vinh-Ha-Long', 2),
-(24, 'Sa-Pa-Kham-pha-Fansipan', 2),
-(25, 'Moc-Chau-Doi-che-thac-Dai-Yem', 2),
-(26, 'Ninh-Binh-Trang-An-Bai-Dinh', 2),
-(27, 'Ha-Giang-Dong-Van-Lung-Cu', 2),
-(28, 'Mai-Chau-Ban-Lang-Thac', 2),
-(29, 'Tam-Dao-Chua-Tay-Thien-Thac-Bac', 2),
-(30, 'Cat-Ba-Vinh-Lan-Ha-Dao-Khi', 2),
-(31, 'Yen-Bai-Ruong-Bac-Thang-Mu-Cang-Chai', 2),
-(32, 'Hoa-Binh-Suoi-Nuoc-Nong-Kim-Boi', 2),
-(33, 'Thai-Nguyen-Bao-Tang-Tra-Doi-Che', 2),
-(34, 'Hue-Tham-quan-Kinh-Thanh-Hue', 3),
-(35, 'Da-Nang-Ngu-Hanh-Son-Ba-Na-Hills', 3),
-(36, 'Quang-Nam-Hoi-An-My-Son', 3),
-(37, 'Nha-Trang-Vinpearl-Land-Thap-Ba-Ponagar', 3),
-(38, 'Quang-Binh-Phong-Nha-Ke-Bang', 3),
-(39, 'Quang-Tri-Cua-Tung-Ho-Con-Rua', 3),
-(40, 'Binh-Dinh-Ky-Co-Eo-Gio', 3),
-(41, 'Kon-Tum-Rung-Tram-Doi-Che', 3),
-(42, 'Thanh-Hoa-Sam-Son-Cua-Lo', 3),
-(43, 'Quang-Ngai-Ly-Son-Nui-Thien-An', 3),
-(44, 'Phu-Yen-Ghenh-Da-Dia-Bai-Xep', 3),
-(45, 'Gia-Lai-Ho-Tnung-Nui-Ham-Rong', 3),
-(46, 'Ha-Noi-Da-Nang-Hoi-An', 4),
-(47, 'Ho-Chi-Minh-Nha-Trang-Da-Lat', 4),
-(48, 'Ha-Noi-Phu-Quoc', 4),
-(49, 'Ha-Noi-Can-Tho', 4),
-(50, 'Da-Nang-Ha-Noi', 4),
-(51, 'Ha-Noi-Ninh-Binh-Sapa', 4),
-(52, 'Da-Nang-Phu-Yen-Nha-Trang', 4),
-(53, 'Ha-Noi-Ha-Long-Sapa', 4),
-(54, 'Ho-Chi-Minh-Vung-Tau-Phan-Thiet', 4),
-(55, 'Da-Lat-Ho-Chi-Minh', 4),
-(56, 'Nha-Trang-Da-Lat', 4),
-(57, 'Ha-Noi-Hue-Phu-Quoc', 4);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `tokenlogin`
 --
 
@@ -361,6 +246,15 @@ CREATE TABLE `tokenlogin` (
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tokenlogin`
+--
+
+INSERT INTO `tokenlogin` (`id`, `token`, `user_id`, `created_at`) VALUES
+(5, 'eyJ0eXBlIjoiand0IiwidGltZSI6MTczNDg0OTc1NX0.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.6b9d2e12e9b770010b852ee26829fbcc9722c89588e1555b808b989f16807cbf', 1, '2024-12-21 13:42:35'),
+(15, 'eyJ0eXBlIjoiand0IiwidGltZSI6MTczNTE0NzcyMH0.eyJpZCI6MywiZW1haWwiOiJtYW5hZ2VyTkBnbWFpbC5jb20ifQ.6783865fa093f61c6159602d6ec7a07ea716fe337e17ccf8f35d17e37489e815', 3, '2024-12-25 00:28:40'),
+(17, 'eyJ0eXBlIjoiand0IiwidGltZSI6MTczNTI3OTk0NH0.eyJpZCI6MiwiZW1haWwiOiJlbXBsb3llZUBnbWFpbC5jb20ifQ.6e75ee75973ff4890ef8e7e24229040b74643646763346feac4e8879e9ef295d', 2, '2024-12-26 13:12:24');
 
 -- --------------------------------------------------------
 
@@ -453,18 +347,6 @@ INSERT INTO `tours` (`id`, `name`, `slug`, `price`, `destination`, `pick_up`, `d
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tour_images`
---
-
-CREATE TABLE `tour_images` (
-  `id` int(11) NOT NULL,
-  `tour_id` int(11) DEFAULT NULL,
-  `image_url` varchar(300) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -503,9 +385,7 @@ INSERT INTO `users` (`id`, `username`, `avatar_url`, `fullname`, `phone_number`,
 (12, 'vuhaien', 'public/uploads/images/user/avt-default.png', 'Vũ Hải Yến', '0928901234', 'yen.vu@gmail.com', '$2y$10$abcdEFghIjklmnopQRStuvWxYz1234567890abcdefgHIJKLmnoPQRStuv', '', '', '2024-12-14 10:30:00', NULL, 1, 1),
 (13, 'phananhtu', 'public/uploads/images/user/avt-default.png', 'Phan Anh Tú', '0939012345', 'tu.phan@gmail.com', '$2y$10$abcdEFghIjklmnopQRStuvWxYz1234567890abcdefgHIJKLmnoPQRStuv', '', '', '2024-12-14 10:45:00', NULL, 1, 1),
 (14, 'buiminhngoc', 'public/uploads/images/user/avt-default.png', 'Bùi Minh Ngọc', '0950123456', 'ngoc.bui@gmail.com', '$2y$10$abcdEFghIjklmnopQRStuvWxYz1234567890abcdefgHIJKLmnoPQRStuv', '', '', '2024-12-14 11:00:00', NULL, 1, 1),
-(15, 'trinhthuylinh', 'public/uploads/images/user/avt-default.png', 'Trịnh Thùy Linh', '0971234568', 'linh.trinh@gmail.com', '$2y$10$abcdEFghIjklmnopQRStuvWxYz1234567890abcdefgHIJKLmnoPQRStuv', '', '', '2024-12-14 11:15:00', NULL, 1, 1),
-(16, 'V&otilde; Thanh Nh&agrave;n', 'public/uploads/images/user/avt-default.png', 'V&otilde; Thanh Nh&agrave;n', '0702562318', 'vothanhnhan06@gmail.com', '$2y$10$twrQ847y1sMWaUEvTH08LO3T.nVwpAbMCjV2q8Vqh5zKi5ATRPFYS', '84054b25b215870c17235b8cc4abd18c45243f7c', '', '2024-12-18 12:29:15', NULL, 0, 1),
-(17, 'V&otilde; Thanh Nh&agrave;n', 'public/uploads/images/user/avt-default.png', 'V&otilde; Thanh Nh&agrave;n', '0702562318', 'thanhiscoding@gmail.com', '$2y$10$xcFw4XMoGoPtjPcoyk5mBOmt1GNPhJohsIvFc.IUuGXKMa3byn96e', '', '', '2024-12-19 05:31:13', NULL, 1, 1);
+(15, 'trinhthuylinh', 'public/uploads/images/user/avt-default.png', 'Trịnh Thùy Linh', '0971234568', 'linh.trinh@gmail.com', '$2y$10$abcdEFghIjklmnopQRStuvWxYz1234567890abcdefgHIJKLmnoPQRStuv', '', '', '2024-12-14 11:15:00', NULL, 1, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -562,12 +442,6 @@ ALTER TABLE `service_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `slugs`
---
-ALTER TABLE `slugs`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `tokenlogin`
 --
 ALTER TABLE `tokenlogin`
@@ -582,13 +456,6 @@ ALTER TABLE `tours`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`),
   ADD KEY `fk_loved_by` (`loved_by`);
-
---
--- Chỉ mục cho bảng `tour_images`
---
-ALTER TABLE `tour_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_images_tour_id` (`tour_id`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -611,13 +478,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `reviews`
@@ -641,7 +508,7 @@ ALTER TABLE `service_categories`
 -- AUTO_INCREMENT cho bảng `tokenlogin`
 --
 ALTER TABLE `tokenlogin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `tours`
@@ -650,16 +517,10 @@ ALTER TABLE `tours`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT cho bảng `tour_images`
---
-ALTER TABLE `tour_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -694,12 +555,6 @@ ALTER TABLE `services`
   ADD CONSTRAINT `services_ibfk_1` FOREIGN KEY (`service_category_id`) REFERENCES `service_categories` (`id`);
 
 --
--- Các ràng buộc cho bảng `slugs`
---
-ALTER TABLE `slugs`
-  ADD CONSTRAINT `slugs_ibfk_1` FOREIGN KEY (`id`) REFERENCES `tours` (`id`);
-
---
 -- Các ràng buộc cho bảng `tokenlogin`
 --
 ALTER TABLE `tokenlogin`
@@ -711,13 +566,6 @@ ALTER TABLE `tokenlogin`
 ALTER TABLE `tours`
   ADD CONSTRAINT `fk_loved_by` FOREIGN KEY (`loved_by`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `tours_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
-
---
--- Các ràng buộc cho bảng `tour_images`
---
-ALTER TABLE `tour_images`
-  ADD CONSTRAINT `fk_images_tour_id` FOREIGN KEY (`tour_id`) REFERENCES `tours` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tour_images_ibfk_1` FOREIGN KEY (`tour_id`) REFERENCES `tours` (`id`);
 
 --
 -- Các ràng buộc cho bảng `users`
