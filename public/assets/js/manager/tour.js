@@ -439,11 +439,13 @@ function reloadTours() {
       return response.json();
     })
     .then((data) => {
+      console.log("Dữ liệu JSON nhận được:", data);
       const tableBody = document.querySelector("#tourList");
       tableBody.innerHTML = "";
 
       data.forEach((tour) => {
         const row = renderTourRow(tour);
+        console.log("HTML của hàng:", row);
         tableBody.insertAdjacentHTML("beforeend", row);
       });
     })

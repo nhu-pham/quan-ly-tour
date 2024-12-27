@@ -86,9 +86,9 @@ class App
         //echo "<br>";
 
         // Bước 6: Gọi controller, action và truyền params
-        // echo "Gọi action `$this->action` từ controller `$controllerName` với params: ";
-        // print_r($this->params);
-        // echo "<br>";
+        //echo "Gọi action `$this->action` từ controller `$controllerName` với params: ";
+        //print_r($this->params);
+        //echo "<br>";
 
         call_user_func_array([$this->controller, $this->action], $this->params);
     }
