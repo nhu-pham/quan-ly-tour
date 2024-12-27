@@ -16,18 +16,18 @@ function editPermission(permissionId) {
         <div class="form-group">
             <label for="editPermissionPosition">Vai trò</label>
             <select class="form-select" id="editPermissionPosition">
-                <option value="Quản lý Miền Bắc" ${
-                  permissionPosition === "Quản lý Miền Bắc" ? "selected" : ""
-                }>Quản lý Miền Bắc</option>
-                <option value="Quản lý Miền Trung" ${
-                  permissionPosition === "Quản lý Miền Trung" ? "selected" : ""
-                }>Quản lý Miền Trung</option>
-                <option value="Quản lý Miền Nam" ${
-                  permissionPosition === "Quản lý Miền Nam" ? "selected" : ""
-                }>Quản lý Miền Nam</option>
-                   <option value="Nhân viên" ${
-                     permissionPosition === "Nhân viên" ? "selected" : ""
-                   }>Nhân viên</option>
+                <option value="Quản lý" ${
+                  permissionPosition === "Quản lý" ? "selected" : ""
+                }>Quản lý</option>
+                <option value="Khách hàng" ${
+                  permissionPosition === "Khách hàng" ? "selected" : ""
+                }>Khách hàng</option>
+                <option value="Nhân viên" ${
+                  permissionPosition === "Nhân viên" ? "selected" : ""
+                }>Nhân viên</option>
+                <option value="Admin" ${
+                  permissionPosition === "Admin" ? "selected" : ""
+                }>Admin</option>
             </select>
         </div>
        
@@ -49,14 +49,33 @@ function updatePermission(permissionId) {
     "#editPermissionPosition"
   ).value;
 
-  // Cập nhật thông tin trên bảng
-  const row = document.querySelector(`tr[data-id='${permissionId}']`);
-  row.querySelector(".permission-name").innerText = updatedPermissionName;
-  row.querySelector(".permission-position").innerText =
-    updatedPermissionPosition;
-
-  // Đóng modal
-  $("#editPermissionModal").modal("hide");
+  const fullname = updatedPermissionName;
+  const position = updatedPermissionPosition;
+  fetch("/quan-ly-tour/admin/role/update", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: permissionId,
+      fullname: fullname,
+      position: position,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        console.log(data);
+        const row = document.querySelector(`tr[data-id='${permissionId}']`);
+        row.querySelector(".permission-name").innerText = updatedPermissionName;
+        row.querySelector(".permission-position").innerText =
+          updatedPermissionPosition;
+        $("#editPermissionModal").modal("hide");
+      } else {
+        alert("Có lỗi xảy ra khi phân quyền.");
+      }
+    })
+    .catch((error) => console.error("Lỗi:", error));
 }
 
 // Function để mở modal xác nhận xóa
@@ -77,11 +96,23 @@ function deletePermission(permissionId) {
 
 // Function xác nhận xóa dịch vụ
 function confirmDeletePermission(permissionId) {
-  const row = document.querySelector(`tr[data-id='${permissionId}']`);
-  row.remove();
-
-  // Đóng modal
-  $("#confirmDeleteModal").modal("hide");
+  fetch("/quan-ly-tour/admin/role/delete", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: permissionId,
+    }),
+  })
+  .then(response => response.text())
+  .then(data => {
+      console.log(data);
+      const row = document.querySelector(`tr[data-id='${permissionId}']`);
+      row.remove();
+      $("#confirmDeleteModal").modal("hide");
+  })
+  .catch(error => console.error("Error:", error));
 }
 
 function addPermission() {
@@ -95,30 +126,107 @@ function addPermission() {
     return;
   }
 
-  const newId = Date.now(); // Tạo ID duy nhất
-  const newRow = document.createElement("tr");
-  newRow.setAttribute("data-id", newId);
-
-  newRow.innerHTML = `
-        <td>${newId}</td>
-        <td class="permission-position">${permissionPosition}</td>
-        <td class="permission-name">${permissionName}</td>
-        <td>
-            <button class="btn btn-warning" onclick="editPermission(${newId})" data-bs-toggle="modal" data-bs-target="#editPermissionModal">
-                <i class="fas fa-edit"></i> Chỉnh sửa
-            </button>
-            <button class="btn btn-danger" onclick="deletePermission(${newId})" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-                <i class="fas fa-trash"></i> Xóa
-            </button>
-        </td>
-    `;
-
-  document.querySelector("#permissionList").appendChild(newRow);
-
-  // Đóng modal
-  $("#addPermissionModal").modal("hide");
-
-  // Reset form
-  document.querySelector("#permissionName").value = "";
-  document.querySelector("#permissionPosition").value = "";
+  const fullname = permissionName;
+  const position = permissionPosition;
+  fetch("/quan-ly-tour/admin/role/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      fullname: fullname,
+      position: position,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        location.reload();
+        $("#addPermissionModal").modal("hide");
+      } else {
+        alert("Có lỗi xảy ra khi phân quyền.");
+      }
+    })
+    .catch((error) => console.error("Lỗi:", error));
 }
+
+function searchPhanquyen(event) {
+  event.preventDefault(); // Ngăn form submit mặc định
+
+  const query = document.getElementById("search").value.trim();
+
+  if (query.length === 0) {
+    document.getElementById("permissionList").innerHTML =
+      "<tr><td colspan='4'>Vui lòng nhập từ khóa tìm kiếm.</td></tr>";
+    return;
+  }
+
+  fetch("/quan-ly-tour/admin/role/search", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      searchQuery: query,
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      let results = "";
+
+      if (Array.isArray(data) && data.length > 0) {
+        data.forEach((user) => {
+          let roleName;
+          switch (user.role_id) {
+            case "1":
+              roleName = "Khách hàng";
+              break;
+            case "2":
+              roleName = "Admin";
+              break;
+            case "3":
+              roleName = "Nhân viên";
+              break;
+            case "4":
+              roleName = "Quản lý";
+              break;
+            default:
+              roleName = "Không xác định";
+          }
+
+          results += `
+            <tr data-id="${user.id}">
+              <td>${user.id}</td>
+              <td>${user.fullname}</td>
+              <td>${roleName}</td>
+              <td>
+                <button class="btn btn-warning" onclick="editPermission(${user.id})" data-bs-toggle="modal" data-bs-target="#editPermissionModal">
+                  <i class="fas fa-edit"></i> Chỉnh sửa
+                </button>
+                <button class="btn btn-danger" onclick="deletePermission(${user.id})" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                  <i class="fas fa-trash"></i> Xóa
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+      } else {
+        results = "<tr><td colspan='4'>Không tìm thấy kết quả</td></tr>";
+      }
+
+      // Cập nhật bảng HTML
+      document.getElementById("permissionList").innerHTML = results;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      document.getElementById("permissionList").innerHTML =
+        "<tr><td colspan='4'>Đã xảy ra lỗi khi tìm kiếm.</td></tr>";
+    });
+}
+
+
