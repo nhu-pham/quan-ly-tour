@@ -7,6 +7,9 @@ class ReviewController extends Controller {
 
     public function __construct() {
         $this->reviewModel = new ReviewModels();
+        $this->Jwtoken = $this->helper('Jwtoken');
+        $this->Authorzation = $this->helper('Authorzation');
+        $this->Functions =  $this->helper('Functions');
     }
 
      // Phương thức tìm kiếm đánh giá theo tên và email khách hàng
@@ -159,6 +162,18 @@ class ReviewController extends Controller {
     }
 
     public function fetchAll() {
+        if (isset($_SESSION['user']) && isset($_SESSION['manager'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             http_response_code(405); // Method Not Allowed
             echo json_encode([

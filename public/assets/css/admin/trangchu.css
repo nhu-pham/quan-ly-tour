@@ -1,26 +1,8 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #ffffff;
-    color: #333;
-    padding: 20px;
-}
-
-/* General Styling */
 .card, .comparison-card {
     padding: 15px;
     border-radius: 8px;
     text-align: center;
-}
-
-h5, h6 {
-    font-weight: bold;
 }
 
 /* Colors */
@@ -36,6 +18,12 @@ h5, h6 {
 .text-info { color: #07BBEC; }
 
 /* Summary Section */
+.container {
+    position: absolute;
+    left: 250px;
+    width: 70%;
+    top: 100px;
+}
 .summary {
     display: flex;
     gap: 20px;

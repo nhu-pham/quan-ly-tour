@@ -10,7 +10,6 @@
 
     <?php
         if (!empty($ordersData)) {
-            $i = 0;
             foreach ($ordersData as $data) : ?>
                 <div class="tour-item">
                     <img src="<?php echo '/quan-ly-tour/' . $data['toursImage'] ?>" alt="Avatar">
@@ -68,17 +67,19 @@
         }
     });
 
-    document.getElementById('search-input').addEventListener('input', function() {
-        let searchTerm = this.value.trim();
+    document.addEventListener('input', function(event) {
+    if (event.target && event.target.id === 'search-input') {
+        let searchTerm = event.target.value.trim();
         let xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById('tourlist-container').innerHTML = xhr.responseText;
+                document.getElementById('search-result').innerHTML = xhr.responseText;
             }
         };
 
         xhr.open('GET', '/quan-ly-tour/employee/home/searchOrders?search=' + encodeURIComponent(searchTerm), true);
         xhr.send();
-    });
+    }
+});
 </script>

@@ -1,7 +1,6 @@
 <form method="post" action="confirm" id="dontour-container" class="dontour-container">
     <h2>Thông tin đơn đặt tour</h2>
-    <?php
-    if (!empty($orderDetail)) {
+    <?php if (!empty($orderDetail)) {
         foreach ($orderDetail as $data) : ?>
             <?php
             $totalMoneyServices = array_sum(array_column($data['services'], 'total_money_service'));

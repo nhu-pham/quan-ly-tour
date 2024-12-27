@@ -6,6 +6,10 @@ if (isset($_SESSION['errors'])) {
     $errors = $_SESSION['errors'];
 }
 
+$currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); 
+$currentPage = basename($currentPage); 
+
+
 ?>
 <style>
         .navbar-link:hover { color: var(--bright-navy-blue); }
@@ -31,11 +35,11 @@ if (isset($_SESSION['errors'])) {
                     <h3><?=$data['user']['username']?></h3>
                 </div>
                 <ul class="menu">
-                    <li><a href="info">Quản lý thông tin</a></li>
-                    <li><a href="change_password">Đổi mật khẩu</a></li>
-                    <li><a href="orders">Đơn mua</a></li>
-                    <li><a href="voucher">Khuyến mãi</a></li>
-                    <li><a href="love">Yêu thích</a></li>
+                    <li><a href="info" class="<?= $currentPage === 'info' ? 'active_tt' : '' ?>">Quản lý thông tin</a></li>
+                    <li><a href="change_password" class="<?= $currentPage === 'change_password' ? 'active_tt' : '' ?>">Đổi mật khẩu</a></li>
+                    <li><a href="orders" class="<?= $currentPage === 'orders' || $currentPage === 'detailOrder' ? 'active_tt' : '' ?>">Đơn mua</a></li>
+                    <li><a href="voucher" class="<?= $currentPage === 'voucher' ? 'active_tt' : '' ?>">Khuyến mãi</a></li>
+                    <li><a href="love" class="<?= $currentPage === 'love' ? 'active_tt' : '' ?>">Yêu thích</a></li>
                 </ul>
             </div>
 
@@ -44,8 +48,6 @@ if (isset($_SESSION['errors'])) {
             </div>
     </article>
 </main>
-
-<script src="/quan-ly-tour/public/assets/js/info.js"></script>
     
 <!-- Hiệu ứng đánh giá sao -->
 <script>

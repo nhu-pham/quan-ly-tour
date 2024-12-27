@@ -9,10 +9,24 @@ class HomeController extends Controller
     {
             
         $this->RevenueController = new RevenueController();
+        
+        $this->Jwtoken = $this->helper('Jwtoken');
+        $this->Authorzation = $this->helper('Authorzation');
     }
 
     public function index()
     {
+        if (isset($_SESSION['user']) && isset($_SESSION['manager'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
         $data= $this->RevenueController->index();
         $data = [
             'page' => 'statistic/trangchu',

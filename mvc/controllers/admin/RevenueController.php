@@ -25,17 +25,17 @@ class RevenueController extends Controller{
 
     // Thống kê tổng doanh thu trong khoảng thời gian
     public function getRevenueStatistics() {
-        // if (isset($_SESSION['user']) && isset($_SESSION['admin'])) {
-        //     $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
-        //     if ($verify != NULL && $verify != 0) {
-        //         $auth = $this->Authorzation->checkAuth($verify);
-        //         if (!$auth) {
-        //             $redirect = new redirect('auth/login');
-        //         }
-        //     }
-        // } else {
-        //     $redirect = new redirect('auth/login');
-        // }
+        if (isset($_SESSION['user']) && isset($_SESSION['admin'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
 
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             http_response_code(405); // Method Not Allowed

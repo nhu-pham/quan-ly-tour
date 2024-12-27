@@ -124,7 +124,7 @@
             <?php
             require_once './mvc/views/admin/' . $page . '.php';
             ?>
-        </div>
+            </div>
         </article>
     </main>
 
@@ -150,5 +150,5 @@
                 });
 
             </script>
-</body>
-</html>
+            </body>
+            </html>

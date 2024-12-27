@@ -1,0 +1,290 @@
+:root {
+    --bright-navy-blue: hsl(193.073, 85%, 41%);
+}
+
+.header-background .navbar-link {
+    color: black;
+}
+
+.header-background {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dontour-container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+    /* background: white; */
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dontour-container h2 {
+    text-align: center;
+    color: var(--bright-navy-blue);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/*Header chi tiết đơn hàng*/
+.dontour-container .booking-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.header-hoadon,
+.ngaydat,
+.chitiettour {
+    display: flex;
+}
+
+.header-hoadon {
+    margin-left: 40px;
+}
+
+.chitiettour {
+    margin-left: 63%;
+    margin-bottom: 20px;
+}
+
+.chitiettour .fa-check {
+    margin-right: 5px;
+    height: 30px;
+    padding: 5px 10px;
+    color: white;
+    background-color: #18AB2E;
+    border-radius: 50%;
+}
+
+/****/
+
+.dontour-container .left-section {
+    flex: 1.5;
+}
+
+.dontour-container .right-section {
+    flex: 1;
+    margin-right: 20px;
+    
+}
+.right-section .group-info {
+    box-shadow: 1px 2px 4px 6px rgba(132, 192, 247, 0.1);
+    border-radius: 10px;
+    height: auto;
+    min-width: 300px;
+    height: 100%;
+    padding: 15px;  
+    border: 1px solid var(--bright-navy-blue);
+}
+/* .dontour-container .left-section,.dontour-container .right-section {
+    flex: 1;
+    margin-left: 30px;
+    padding: 10px;
+}
+.dontour-container .right-section{
+    margin-right: 40px;
+    border: 1px solid var(--bright-navy-blue);
+    box-shadow: 1px 2px 4px 6px rgba(132, 192, 247, 0.1);
+    border-radius: 10px;
+    height: 350px;
+} */
+.chitiet-dsdv {
+    display: flex;
+    flex-direction: column;
+}
+
+.chitiet-dsdv .tablechititiet {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-collapse: collapse;
+    background-color: #C8EBF5;
+    /* Màu nền nhạt */
+}
+
+.chitiet-dsdv tr {
+    text-align: left;
+    padding: 10px;
+    width: 80px;
+    font-weight: bold;
+}
+
+.chitiet-dsdv th {
+    text-align: left;
+    padding: 10px;
+    width: 50px;
+    font-weight: bold;
+}
+
+.chitiet-dsdv td {
+    padding: 10px;
+    border-bottom: 3px solid white;
+}
+
+.chitiet-dsdv .gia {
+    color: #FF0000;
+    font-style: italic;
+}
+
+.sokhach {
+    display: flex;
+    align-items: center;
+}
+
+.chitiet-dsdv .tong-gia {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.right-section h3 {
+    margin-bottom: 20px;
+}
+
+.right-section i {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.dontour-container .left-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    background-color: #C8EBF5;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.dontour-container .buttons {
+    margin-left: 64%;
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dontour-container button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+
+.dontour-container input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    color: var(--black);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.dontour-container input[type="number"] {
+    width: 100px;
+    margin-left: 20%;
+    margin-bottom: 15px;
+}
+
+.dontour-container input[readonly] {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.dontour-container a {
+    border: 2px solid var(--bright-navy-blue);
+    color: var(--bright-navy-blue);
+    background-color: white;
+    width: 10%;
+    margin-left: 86%;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.matour label {
+    margin-left: 40px;
+    color: var(--bright-navy-blue);
+    padding: 10px;
+    border: 1px solid var(--black);
+    margin-bottom: 30px;
+}
+
+.dontour-container .left-section {
+    flex: 1.5;
+    margin-left: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dontour-container .form-group {
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.dontour-container .form-group label {
+    color: var(--black);
+    margin-bottom: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.dontour-container .form-group input {
+    width: 100%;
+    padding: 8px;
+    color: var(--black);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.dontour-container .form-group #locationInfo,
+.dontour-container .form-group #contactInfo,
+.dontour-container .form-group #emailInfo {
+    margin-left: 0;
+    width: calc(100% - 20px);
+}
+
+.dontour-container .quaylai {
+    background-color: white;
+    color: var(--bright-navy-blue);
+    border: 1px solid var(--bright-navy-blue);
+    margin: 50% 0px 0px 65%;
+}
+
+.quaylai:hover {
+    background: #f8f8f8;
+}
+.dontour-container {
+    max-height: 600px; 
+    overflow-y: auto; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+}
+
+.dontour-container::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.dontour-container::-webkit-scrollbar-thumb {
+    background-color: #ccc; 
+    border-radius: 5px; 
+}
+
+.dontour-container::-webkit-scrollbar-track {
+    background-color: #ccc;
+}

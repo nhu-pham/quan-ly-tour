@@ -18,10 +18,25 @@ class RevenueController extends Controller{
         $this->tourModel = new TourModels();
         $this->serviceModel = new ServiceModels();
         $this->reviewModel = new ReviewModels();
+        $this->Jwtoken = $this->helper('Jwtoken');
+        $this->Authorzation = $this->helper('Authorzation');
+        $this->Functions =  $this->helper('Functions');
     }
 
     // Thống kê tổng doanh thu trong khoảng thời gian
     public function getRevenueStatistics() {
+        if (isset($_SESSION['user']) && isset($_SESSION['manager'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             http_response_code(405); // Method Not Allowed
             echo json_encode([

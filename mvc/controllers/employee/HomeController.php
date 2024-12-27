@@ -23,6 +23,17 @@ class HomeController extends Controller
 
     public function index()
     {
+        if (isset($_SESSION['user']) && isset($_SESSION['employee'])) {
+            $verify = $this->Jwtoken->decodeToken($_SESSION['user'], KEYS);
+            if ($verify != NULL && $verify != 0) {
+                $auth = $this->Authorzation->checkAuth($verify);
+                if (!$auth) {
+                    $redirect = new redirect('auth/login');
+                }
+            }
+        } else {
+            $redirect = new redirect('auth/login');
+        }
         $ordersData = [];
         $searchTerm = "";
 
@@ -497,7 +508,7 @@ class HomeController extends Controller
                         $dompdf->render();
 
                         $pdfFile = 'Hoa_don'.$invoiceId. '.pdf';
-                        $filePath = "C:/xampp/htdocs/quan-ly-tour/public/invoice/". $pdfFile;
+                        $filePath = "././././public/invoice/". $pdfFile;
                         file_put_contents($filePath, $dompdf->output());
                         echo json_encode(['success' => true, 'message' => 'Xuất PDF thành công', 'pdf_url' => "http://localhost/quan-ly-tour/public/invoice/".$pdfFile]); exit();
                     } 
