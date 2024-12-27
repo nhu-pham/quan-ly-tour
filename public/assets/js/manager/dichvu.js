@@ -69,7 +69,7 @@ function deleteService(serviceId) {
 async function confirmDeleteService(serviceId) {
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/service/delete/${serviceId}`,
+      `http://localhost/quan-ly-tour/api/manager/service/delete/${serviceId}`,
       {
         method: "DELETE",
         headers: {
@@ -132,7 +132,7 @@ async function update(serviceId) {
   console.log("Request data:", data);
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/service/update/${serviceId}`,
+      `http://localhost/quan-ly-tour/api/manager/service/update/${serviceId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -168,7 +168,7 @@ function getServiceTypeName(serviceCategoryId) {
 }
 
 function reloadServices() {
-  fetch(`http://localhost/quan-ly-tour/api/admin/service/fetchAll`)
+  fetch(`http://localhost/quan-ly-tour/api/manager/service/fetchAll`)
     .then((response) => {
       console.log("Response từ server:", response);
       if (!response.ok) {
@@ -248,7 +248,7 @@ async function addService() {
 
   try {
     const response = await fetch(
-      "http://localhost/quan-ly-tour/api/admin/service/add",
+      "http://localhost/quan-ly-tour/api/manager/service/add",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -315,7 +315,7 @@ async function searchDichVu() {
   console.log("JSON Body:", data);
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/service/search`,
+      `http://localhost/quan-ly-tour/api/manager/service/search`,
       {
         method: "POST",
         headers: {
