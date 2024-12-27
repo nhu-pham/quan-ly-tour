@@ -23,21 +23,18 @@
 
 <body id="top">
     <!-- header section  -->
-    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header">
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="/quan-ly-tour/">
-            <img src="/quan-ly-tour/public/uploads/images/logo-white.png" alt="Logo" class="logo"
-                style="width: 160px; margin-left: 60px; height: auto; margin-top: -20px;">
             <img src="/quan-ly-tour/public/uploads/images/logo-blue.png" alt="Logo" class="logo2"
-                style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; display: none;">
+                style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; ">
         </a>
 
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color ">Trang
                             chủ</a></li>
                     <li class="nav-item"><a href="about/" class="navbar-link change-color">Giới thiệu</a></li>
@@ -56,8 +53,9 @@
                     <li class="nav-item"><a href="/quan-ly-tour/product/tours" class="navbar-link change-color">Tour</a>
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/contact"
-                            class="navbar-link change-color active-header">Liên
+                            class="navbar-link change-color active-header"style="color: rgb(0, 225, 255); font-weight: bold;">Liên
                             hệ</a></li>
+                </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
@@ -98,7 +96,7 @@
         <article>
             <div id="contact-container" class="contact-container">
                 <h2 class="title">Thông tin liên hệ</h2>
-                <p class="desc">
+                <p class="desc-contact">
                     Để có thể đáp ứng được các yêu cầu và đóng góp ý kiến của quý khách, xin vui lòng gửi thông tin hoặc
                     gọi đến hotline các chi nhánh bên dưới để liên hệ một cách nhanh chóng.
                 </p>

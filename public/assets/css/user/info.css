@@ -461,15 +461,6 @@ input[type="file"] {
     text-align: right;
 }
 
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 .order-details {
     display: flex;
     flex-direction: column;   

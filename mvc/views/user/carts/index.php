@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/trangChu.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/ttDatTour.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/gioHang.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/home.css">
@@ -32,13 +31,16 @@
 
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="trangChu.html">
-            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2"
-                style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
+        <img src="/quan-ly-tour/public/uploads/images/logo-blue.png" alt="Logo" class="logo2"
+        style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; ">
         </a>
 
         <div class="container">
-            <div class="collapse navbar-header" id="navbarNav" <ul
-                class="navbar-nav navbar-collapse ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+            <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
+            <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                 <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link ">Trang chủ</a></li>
                 <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link ">Giới thiệu</a></li>
                 <li class="nav-item dropdown">
@@ -59,6 +61,7 @@
                 </li>
                 <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color"
                         class="navbar-link change-color">Liên hệ</a></li>
+                </div>
                 <?php if (isset($_SESSION['user'])) { ?>
                 <li class="nav-item">
                     <div id="user-profile" class="user-profile">
@@ -90,7 +93,7 @@
                 <?php } else { ?>
                 <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                 <?php } ?>
-            </div>
+            
             </ul>
         </div>
     </nav>
@@ -277,4 +280,22 @@
             }
         });
     });
+    </script>
+
+<script>
+        const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');}); 
+
+        document.querySelectorAll('.delete-btn').forEach(function (element) {
+        element.addEventListener("click", function () {
+    document.getElementById("popup").style.display = "block";
+    });});
+        document.getElementById("close-btn").addEventListener("click", function () {
+            document.getElementById("popup").style.display = "none";
+        });
+
+        document.getElementById("yes-btn").addEventListener("click", function () {
+            document.getElementById("popup").style.display = "none";
+        });
     </script>

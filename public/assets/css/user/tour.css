@@ -54,12 +54,13 @@
     margin-right: 30px;
     color: var(--bright-navy-blue);
 } 
-.specialtour-container .desc .xem-chi-tiet-btn{
-    margin-right: 15px;
-    margin-top: 470px;
-    width: 150px;
+.specialtour-container .xem-chi-tiet-btn{
+    position: absolute;
+    margin-left: -10px;
+    margin-top: 10px;
+    width: 130px;
     height: 36px;
-    align-items: center;
+    text-align: center;
 }
 
 .specialtour-container .view-more:hover{
@@ -76,11 +77,7 @@
     margin-top: 10px;
     margin-left: 5px;
 }
-.specialtour-container .desc button{
-    position: absolute;
-    bottom: 10px;
-    right: 30px;
-} 
+
 .price-tag-db{
     position: absolute;
     bottom: 30%;

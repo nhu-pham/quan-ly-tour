@@ -48,16 +48,17 @@
         </a>
 
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+        <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
+            
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link">Trang chủ</a></li>
                     <li class="nav-item"><a href="../about" class="navbar-link">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link desdrop dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="mienBac.html">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="mienTrung.html">Miền Trung</a></li>
@@ -67,6 +68,7 @@
                     </li>
                     <li class="nav-item"><a href="tour.html" class="navbar-link">Tour</a></li>
                     <li class="nav-item"><a href="lienHe.html" class="navbar-link">Liên hệ</a></li>
+                    </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
                             <div id="user-profile" class="user-profile">
@@ -97,13 +99,48 @@
                                 </div>
                             </div>
                         <?php } else { ?>
-                        <li class="nav-item"><a href="login " class="btn1 btn-primary">Đăng nhập</a></li>
+                        <li class="nav-item"><a href="login " class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
                     </li>
                 </ul>
-            </div>
+            
         </div>
     </nav>
 
     <main>
         <article>
+
+
+        <script> 
+    const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');}); 
+        
+        function togglePassword(id, button) {
+            const input = document.getElementById(id); // Lấy input tương ứng
+            const eyeIcon = button.querySelector('.fa-regular'); // Lấy biểu tượng mắt trong button được bấm
+        
+            if (input.type === 'password') {
+                input.type = 'text'; // Hiển thị mật khẩu
+                eyeIcon.classList.remove('fa-eye-slash'); // Xóa icon mắt có dấu gạch chéo
+                eyeIcon.classList.add('fa-eye'); // Thêm icon mắt mở
+            } else {
+                input.type = 'password'; // Ẩn mật khẩu
+                eyeIcon.classList.remove('fa-eye'); // Xóa icon mắt mở
+                eyeIcon.classList.add('fa-eye-slash'); // Thêm icon mắt có dấu gạch chéo
+            }
+        }
+        document.querySelector('[href="#doimatkhau"]').addEventListener("click", function () {
+        document.getElementById("popup").style.display = "flex";
+        });
+        document.getElementById("close-btn").addEventListener("click", function () {
+        document.getElementById("popup").style.display = "none";
+        window.location.href = "dangNhap.html";
+        });
+    
+        document.getElementById("confirm-btn").addEventListener("click", function () {
+        document.getElementById("popup").style.display = "none";
+        window.location.href = "dangNhap.html";
+        });
+    
+        </script>

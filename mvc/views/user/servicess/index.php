@@ -30,13 +30,15 @@
 
     <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light header-background">
         <a href="trangChu.html">
-            <img src="assets/images/logo2-removebg-preview.png" alt="Logo" class="logo2"
-                style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px;">
+        <img src="/quan-ly-tour/public/uploads/images/logo-blue.png" alt="Logo" class="logo2"
+        style="width: 160px; height: auto; margin-left: 60px; margin-top: -20px; ">
         </a>
 
         <div class="container">
-            <div class="collapse navbar-header" id="navbarNav">
-
+        <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon" style="color: black;">&#9776;</span>
+                </button>
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link ">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link ">Giới thiệu</a></li>
@@ -58,6 +60,7 @@
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color"
                             class="navbar-link change-color">Liên hệ</a></li>
+                    </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
@@ -201,4 +204,10 @@
         // Gắn sự kiện cho các nút sau khi tải dữ liệu lần đầu
         attachEventHandlers();
     });
+    </script>
+
+    <script>
+        const toggler = document.querySelector('.navbar-toggler'); 
+        const navbarNav = document.querySelector('.navbar-collapse'); 
+        toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');}); 
     </script>

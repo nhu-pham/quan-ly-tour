@@ -29,19 +29,18 @@
         </a>
 
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
-                    <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color">Trang chủ</a></li>
-                    <li class="nav-item"><a href="./" class="navbar-link change-color active-header">Giới thiệu</a></li>
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
+                    <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color ">Trang
+                            chủ</a></li>
+                    <li class="nav-item"><a href="about/" class="navbar-link change-color active-header">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
-                            <a href="/quan-ly-tour/destination/index/2"
-                                class="navbar-link change-color desdrop dropdown-toggle" id="navbarDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                            <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/2">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/3">Miền Trung</a>
@@ -54,6 +53,7 @@
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color">Liên hệ</a>
                     </li>
+                    </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
@@ -86,8 +86,8 @@
                     <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
                 </ul>
-            </div>
         </div>
+    </nav>
     </nav>
 
     <main>
@@ -157,3 +157,6 @@
                     </div>
                 </div>
             </section>
+
+
+            <script src="/quan-ly-tour/public/assets/js/header.js"></script>

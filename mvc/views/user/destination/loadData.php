@@ -32,7 +32,9 @@ if (isset($data['datas']) && $data['datas'] != NULL) { ?>
     <?php } ?>
     <?php } ?>
     
-    <ul class="pagination" style="display: flex">
+    <ul class="pagination" style="display: flex; position: relative;
+    top: 55%;
+    margin-left: 40%;">
         <?= $data['button_pagination']; ?>
     </ul>
     

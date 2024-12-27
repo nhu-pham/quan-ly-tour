@@ -59,7 +59,7 @@
     .result-details .detail-btn{
         font-size: 1rem;
         margin-left: 120px;
-        margin-bottom: 10px;
+        margin-top: 40px;
         width: 110px;
     }
     .page-header{
@@ -156,8 +156,8 @@
     }
     .result-details .detail-btn{
         font-size: 1rem;
-        margin-left: 120px;
-        margin-top: 20px;
+        margin-left: 200px;
+        margin-top: 50px;
         width: 110px;
     }
     .page-header{

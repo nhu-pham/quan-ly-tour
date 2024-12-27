@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- custom css link  -->
-    <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/trangChu.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienBac.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourMienTrung.css">
     <link rel="stylesheet" href="/quan-ly-tour/public/assets/css/user/tourDacBiet.css">
@@ -39,7 +38,9 @@
 
         <div class="container">
             <div class="collapse navbar-header" id="navbarNav">
-
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
                 <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color">Trang chủ</a></li>
                     <li class="nav-item"><a href="/quan-ly-tour/about/" class="navbar-link change-color">Giới thiệu</a>
@@ -62,6 +63,7 @@
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color">Liên hệ</a>
                     </li>
+                </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li class="nav-item">
                             <div id="user-profile" class="user-profile">
@@ -93,7 +95,7 @@
                     <?php } else { ?>
                         <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
-            </div>
+            
             </ul>
         </div>
     </nav>
@@ -110,7 +112,9 @@
                 </section>
 
                 <div class="dstour">
-
+                    <button class="filter-toggler">
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
                     <div class="filter">
                         <h2>Bộ lọc tìm kiếm</h2>
                         <hr style="width: 100%; border-top: 1px solid white; margin-bottom: 10px;">
@@ -152,7 +156,7 @@
                     <div class="search-results page_MT">
                         <div class="page-header">
                             <label for="">Tìm thấy <?= $data['row'] ?> kết quả</label>
-                            <div><label for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
+                            <div><label class="sapxeptheo" for="" style="margin-right: 10px; margin-left: 100px; ">Sắp xếp
                                     theo:</label>
                                 <select id="combobox-sapxep">
                                     <option value="all">Tất cả</option>
@@ -161,9 +165,9 @@
                                 </select>
                             </div>
                         </div>
-                        <hr style="margin-top: 10px; margin-bottom: 20px;">
+
                         <?php $cate_id = $data['cate_id']; ?>
-                        <div id="loadData">
+                        <div id="loadData" class="result-item-list">
                             <?php
 
                             require_once "./mvc/views/user/destination/loadData.php"
@@ -233,3 +237,4 @@
                     });
                 });
             </script>
+            <script src="/quan-ly-tour/public/assets/js/header.js"></script>

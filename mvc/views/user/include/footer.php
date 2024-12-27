@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 </footer>
 </article>
 </main>
@@ -59,7 +59,7 @@
 
 
 <!-- custom js link  -->
-<script src="/quan-ly-tour/public/assets/js/header.js"></script>
+
 <script>
 const userNameButton = document.getElementById('user-name');
 const userOptions = document.querySelector('.user-options');

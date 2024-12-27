@@ -1,93 +1,97 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // CHUYỂN ĐỔI GIỮA CÁC SECTION //
-  const header = document.getElementById("header"); // Lấy header
-  const navbarLinks = document.querySelectorAll(".navbar-link.change-color");
-  const activeLink = document.querySelector(".navbar-link.active-header");
-  const logo = document.querySelector(".logo");
-  const logoScroll = document.querySelector(".logo2");
+document.addEventListener("DOMContentLoaded", function() {
 
-  // Lấy màu sắc ban đầu của header
-  let originalHeaderColor = "transparent";
-  let originalHeaderShadow = getComputedStyle(header).boxShadow;
+  //CHUYỂN ĐỔI GIỮA CÁC SECTION//
+  //const header = document.queryAllSelector("header"); // Lấy phần tử header
 
-  // Sự kiện lắng nghe scroll
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
+
+const header = document.getElementById('header'); // Lấy header
+const navbarLinks = document.querySelectorAll('.navbar-link.change-color');
+const activeLink = document.querySelector('.navbar-link.active-header');
+const logo = document.querySelector('.logo');
+const logoScroll = document.querySelector('.logo2');
+const navbartoggler = document.querySelector('.navbar-toggler');
+
+// Lấy màu sắc ban đầu của header
+let originalHeaderColor = header.style.backgroundColor = 'transparent';
+let originalHeaderShadow = getComputedStyle(header).boxShadow;
+
+// Sự kiện lắng nghe scroll
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 50) {
       // Khi cuộn xuống
-      header.style.backgroundColor = "white";
-      header.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.3)";
-      header.classList.add("scrolled");
+      header.style.backgroundColor = 'white';
+      header.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.3)';
+      header.classList.add('scrolled');
 
-      logoScroll.style.display = "block";
-      logo.style.display = "none";
+      logoScroll.style.display = 'block';
+      logo.style.display = 'none';
 
-      navbarLinks.forEach((link) => {
-        link.style.color = "black"; // Đổi màu chữ navbar thành đen
+      navbarLinks.forEach(link => {
+          link.style.color = 'black'; // Đổi màu chữ navbar thành đen
       });
       if (activeLink) {
-        activeLink.style.color = "rgb(0, 225, 255)"; // Giữ màu cho link active
+          activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
       }
-    } else {
+      navbartoggler.style.color = 'black';
+  } else {
       // Khi cuộn về đầu trang
       header.style.backgroundColor = originalHeaderColor;
       header.style.boxShadow = originalHeaderShadow;
 
-      logoScroll.style.display = "none";
-      logo.style.display = "block";
+      logoScroll.style.display = 'none';
+      logo.style.display = 'block';
 
-      navbarLinks.forEach((link) => {
-        link.style.color = "white"; // Quay lại màu chữ ban đầu
+      navbarLinks.forEach(link => {
+          link.style.color = 'white'; // Quay lại màu chữ ban đầu
       });
-
       if (activeLink) {
-        activeLink.style.color = "rgb(0, 225, 255)"; // Giữ màu cho link active
+          activeLink.style.color = 'rgb(0, 225, 255)'; // Giữ màu cho link active
       }
-    }
-  });
+      navbartoggler.style.color = 'white';
+  }
+}); 
+// Responsive trang chủ
+      const toggler = document.querySelector('.navbar-toggler'); 
+      const navbarNav = document.querySelector('.navbar-collapse'); 
+      toggler.addEventListener('click', function() { navbarNav.classList.toggle('show');});    
 
-  /* SLIDER */
+// Responsive danh sách tour
+      const tourtoggler = document.querySelector('.filter-toggler'); 
+      const tournavbarNav = document.querySelector('.filter'); 
+      tourtoggler.addEventListener('click', function() { tournavbarNav.classList.toggle('show');});    
+});
+  /*SLIDER*/
   let slideIndex = 1;
   showSlides(slideIndex);
 
   function plusSlides(n) {
-    showSlides((slideIndex += n));
+  showSlides(slideIndex += n);
   }
 
   function currentSlide(n) {
-    showSlides((slideIndex = n));
+  showSlides(slideIndex = n);
   }
 
   function showSlides(n) {
-    let slides = document.getElementsByClassName("Slide");
-    let dots = document.getElementsByClassName("dot");
-
-    if (slides.length === 0 || dots.length === 0) {
-      console.error("No slides or dots elements found.");
-      return;
-    }
-
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-
-    for (let i = 0; i < slides.length; i++) {
-      if (slides[i]) {
-        slides[i].style.display = "none";
-      }
-    }
-
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace("active-slide", "");
-    }
-
-    if (slides[slideIndex - 1]) {
-      slides[slideIndex - 1].style.display = "block";
-    }
-    if (dots[slideIndex - 1]) {
-      dots[slideIndex - 1].className += " active-slide";
-    }
+  let i;
+  let slides = document.getElementsByClassName("Slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) 
+  {
+          slideIndex = 1
+  }    
+  if (n < 1) 
+  {
+      slideIndex = slides.length
   }
-});
+  for (i = 0; i < slides.length; i++) 
+  {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) 
+  {
+      dots[i].className = dots[i].className.replace("active-slide", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active-slide";
+  }

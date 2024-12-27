@@ -30,19 +30,18 @@
         </a>
 
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
-                <ul class="navbar-nav ms-auto navbar-list">
+            <div class="collapse navbar-header" id="navbarNav">
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon">&#9776;</span>
+                </button>
+                <ul class="navbar-nav navbar-collapse ms-auto navbar-list">
                     <li class="nav-item"><a href="/quan-ly-tour/" class="navbar-link change-color active-header">Trang
                             chủ</a></li>
                     <li class="nav-item"><a href="about/" class="navbar-link change-color">Giới thiệu</a></li>
                     <li class="nav-item dropdown">
                         <div class="dropdown-des">
                             <a href="#destination" class="navbar-link change-color desdrop dropdown-toggle"
-                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến</a>
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Điểm đến <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/2">Miền Bắc</a></li>
                                 <li><a class="dropdown-item" href="/quan-ly-tour/destination/index/3">Miền Trung</a>
@@ -55,12 +54,11 @@
                     </li>
                     <li class="nav-item"><a href="/quan-ly-tour/contact" class="navbar-link change-color">Liên hệ</a>
                     </li>
+                    </div>
                     <?php if (isset($_SESSION['user'])) { ?>
                     <li class="nav-item">
                         <div id="user-profile" class="user-profile">
-                            <div class="user-account"><img src="
-                                <?php echo isset($data['user']['avatar_url']) ? '/quan-ly-tour/' . $data['user']['avatar_url'] : '/quan-ly-tour/public/uploads/images/user/avt-default.png' ?>
-                                " alt="Avatar" class="user-image">
+                            <div class="user-account"><img src="<?php echo isset($data['user']['avatar_url']) ? '/quan-ly-tour/' . $data['user']['avatar_url'] : '/quan-ly-tour/public/uploads/images/user/avt-default.png' ?>" alt="Avatar" class="user-image">
                                 <button id="user-name"><i class="fa-solid fa-caret-down"></i></button>
                             </div>
                             <div class="user-options">
@@ -87,7 +85,6 @@
                     <li class="nav-item"><a href="/quan-ly-tour/auth/login" class="btn btn-primary">Đăng nhập</a></li>
                     <?php } ?>
                 </ul>
-            </div>
         </div>
     </nav>
     <main>
@@ -147,10 +144,6 @@
                 <section class="tournoibat">
                     <div class="header-popular">
                         <h2 class="popular_title">Điểm đến nổi bật trong tháng</h2>
-                        <div class="icon-group">
-                            <button id="prevButton"><i class="fa-solid fa-chevron-left"></i></button>
-                            <button id="nextButton"><i class="fa-solid fa-chevron-right"></i></button>
-                        </div>
                     </div>
                     <?php if(isset($tours) && $tours!=NULL){ ?>
                     <div class="slider-popular slider1 active-p">
@@ -161,17 +154,16 @@
                                     <img src="/quan-ly-tour/<?=$value['thumbnail']?>">
                                 </a>
                                 <div class="desc">
-                                    <div id="province"><?= $value['destination'] ?></div><br>
-                                    <div id="dest"><?= $value['name']?></div><br>
-                                    <div id="price"><i class="fa fa-dollar"></i><?= number_format($value['price'])?> VNĐ
+                                    <div class="province"><?= $value['destination'] ?></div><br>
+                                    <div class="dest"><?= $value['name']?></div><br>
+                                    <div class="price"><i class="fa fa-dollar"></i><label><?= number_format($value['price'])?> VNĐ</label>
                                     </div><br>
-                                    <div id="date"><i class="fa-solid fa-calendar-days"></i><?= $value['duration']?>
+                                    <div class="date"><i class="fa-solid fa-calendar-days"></i><?= $value['duration']?>
                                     </div>
-                                    <a target="" href="product/detail/<?=$value['slug']?>">
+                                </div>
+                                <a target="" href="product/detail/<?=$value['slug']?>">
                                         <button class="xem-chi-tiet-btn">Xem chi tiết</button>
                                     </a>
-
-                                </div>
                             </div>
                         </div>
                         <?php }?>
@@ -190,7 +182,7 @@
                                 alt="Hà Nội - Hải Phòng - Nghệ An" />
                             <i class="fa-solid fa-heart"></i>
                             <div class="price-tag-db">Giá từ:<?= number_format($value_db['price'])?> VNĐ</div>
-                            <div class="desc">
+                            <div class="desc-special">
                                 <div style="font-weight: bold">
                                     <?= $value_db['name']?>
                                 </div>
@@ -270,3 +262,9 @@
                     </div>
                 </section>
             </div>
+
+
+
+
+
+            <script src="/quan-ly-tour/public/assets/js/header.js"></script>
