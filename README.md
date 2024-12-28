@@ -18,6 +18,8 @@ Hoặc tải folder Source Code trong link drive
 3. Truy cập http://localhost/phpmyadmin/, tạo database tên vietcharm và nhập file database.sql trong thư mục dự án
 3. Truy cập đường dẫn sau để vào trang chủ của web: http://localhost/quan-ly-tour/
 
+Lưu ý: chức năng chạy tốt nhất khi ở trình duyệt ẩn danh
+
 CÁC TÀI KHOẢN ĐĂNG NHẬP: (email - mật khẩu)
 - Admin: admin@gmail.com - admin123
 - Quản lý: managerN@gmail.com - managerN123
