@@ -1,0 +1,51 @@
+.sidebar {
+  position: fixed;
+  top: 90px;
+  height: 100vh;
+  width: 220px;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+}
+
+.sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #109cc3; 
+  color: white !important;
+}
+
+.nav-link {
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  /* Chữ đậm */
+}
+
+.nav-link.active {
+  color: #109cc3 !important;
+  background-color: #e9f5ff; 
+}
+
+.nav-link:not(.active) {
+  color: inherit; /* Giữ nguyên màu mặc định khi không active */
+  background-color: transparent; /* Màu nền trong suốt khi không active */
+}
+
+/* Đảm bảo chỉ mục được click mới chuyển màu */
+.nav-link.active {
+  color: #109cc3 !important;
+}
+
+.nav-link:not(.active) {
+  color: inherit; /* Giữ nguyên màu mặc định khi không active */
+}
