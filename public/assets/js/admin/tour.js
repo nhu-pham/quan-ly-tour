@@ -87,7 +87,7 @@ async function confirmDeleteTour(tourId) {
   $("#confirmDeleteModal").modal("hide");
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/delete/${tourId}`, // URL đúng
+      `http://localhost/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
       {
         method: "DELETE", // Sửa lỗi chính tả
         headers: {
@@ -129,8 +129,6 @@ function getRegionTypeName(categoryId) {
   return regionTypeMap[categoryId] || "Không xác định";
 }
 
-function createTourRow(data) {}
-
 async function updateTour(tourId) {
   const updatedName = document.getElementById("editTourName").value;
   const updatedRegion = document.getElementById("editRegion").value;
@@ -154,7 +152,7 @@ async function updateTour(tourId) {
   console.log("Request data:", data);
 
   const response = await fetch(
-    `http://localhost/quan-ly-tour/api/admin/tour/update/${tourId}`,
+    `http://localhost/quan-ly-tour/api/manager/tour/update/${tourId}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -168,33 +166,20 @@ async function updateTour(tourId) {
 
     const result = await response.json();
     console.log("Tour updated successfully:", result);
-    if (result && result.type === "Successfully") {
-      reloadTours();
-      // Đóng modal với Bootstrap 4
-      $("#editTourModal").modal("hide");
-      alert("Cập nhật tour thành công!");
+    reloadTours();
 
-      // Xóa các lớp modal-backdrop
+    if (result && result.type === "Successfully") {
+      $("#editTourModal").modal("hide");
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
-      window.location.reload();
+      alert("Cập nhật tour thành công!");
     }
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi:", error);
     alert("Lỗi: " + error.message);
   }
 }
-
-// Khi modal được hiển thị
-$("#editTourModal").on("shown.bs.modal", function () {
-  $(this).removeAttr("aria-hidden"); // Xóa bỏ nếu tồn tại thuộc tính không cần thiết
-  $("#editTourName").focus(); // Đưa focus vào input đầu tiên
-});
-
-// Khi modal bị ẩn
-$("#editTourModal").on("hidden.bs.modal", function () {
-  $(this).attr("aria-hidden", "true"); // Đặt lại nếu cần
-});
 
 // Khi modal được hiển thị
 $("#editTourModal").on("shown.bs.modal", function () {
@@ -257,7 +242,7 @@ async function addTour() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/add`,
+      `http://localhost/quan-ly-tour/api/manager/tour/add`,
       {
         method: "POST",
         headers: {
@@ -309,17 +294,13 @@ async function addTour() {
 
     // Thêm dòng mới vào bảng
     document.querySelector("#tourList").appendChild(newRow);
+    reloadTours();
     if (result && result.type === "Successfully") {
-      //reloadTours();
-      // Đóng modal với Bootstrap 4
       $("#addTourModal").modal("hide");
-      //alert("Cập nhật tour thành công!");
-
-      // Xóa các lớp modal-backdrop
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
-      window.location.reload();
     }
+    window.location.reload();
   } catch (error) {
     console.error(error);
     alert("Đã xảy ra lỗi khi thêm tour.");
@@ -349,7 +330,7 @@ async function search() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/searchByKeyword`,
+      `http://localhost/quan-ly-tour/api/manager/tour/searchByKeyword`,
       {
         method: "POST",
         headers: {
@@ -431,7 +412,7 @@ function renderTourRow(tour) {
 }
 
 function reloadTours() {
-  fetch("http://localhost/quan-ly-tour/api/admin/tour/fetchAll")
+  fetch("http://localhost/quan-ly-tour/api/manager/tour/fetchAll")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Lỗi khi tải danh sách tour.");
@@ -463,7 +444,7 @@ async function searchTour() {
   console.log(data);
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/admin/tour/search`,
+      `http://localhost/quan-ly-tour/api/manager/tour/search`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

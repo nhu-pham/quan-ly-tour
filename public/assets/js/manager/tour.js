@@ -129,8 +129,6 @@ function getRegionTypeName(categoryId) {
   return regionTypeMap[categoryId] || "Không xác định";
 }
 
-function createTourRow(data) {}
-
 async function updateTour(tourId) {
   const updatedName = document.getElementById("editTourName").value;
   const updatedRegion = document.getElementById("editRegion").value;
@@ -168,33 +166,20 @@ async function updateTour(tourId) {
 
     const result = await response.json();
     console.log("Tour updated successfully:", result);
-    if (result && result.type === "Successfully") {
-      reloadTours();
-      // Đóng modal với Bootstrap 4
-      $("#editTourModal").modal("hide");
-      alert("Cập nhật tour thành công!");
+    reloadTours();
 
-      // Xóa các lớp modal-backdrop
+    if (result && result.type === "Successfully") {
+      $("#editTourModal").modal("hide");
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
-      window.location.reload();
+      alert("Cập nhật tour thành công!");
     }
+    window.location.reload();
   } catch (error) {
     console.error("Lỗi:", error);
     alert("Lỗi: " + error.message);
   }
 }
-
-// Khi modal được hiển thị
-$("#editTourModal").on("shown.bs.modal", function () {
-  $(this).removeAttr("aria-hidden"); // Xóa bỏ nếu tồn tại thuộc tính không cần thiết
-  $("#editTourName").focus(); // Đưa focus vào input đầu tiên
-});
-
-// Khi modal bị ẩn
-$("#editTourModal").on("hidden.bs.modal", function () {
-  $(this).attr("aria-hidden", "true"); // Đặt lại nếu cần
-});
 
 // Khi modal được hiển thị
 $("#editTourModal").on("shown.bs.modal", function () {
@@ -309,17 +294,13 @@ async function addTour() {
 
     // Thêm dòng mới vào bảng
     document.querySelector("#tourList").appendChild(newRow);
+    reloadTours();
     if (result && result.type === "Successfully") {
-      //reloadTours();
-      // Đóng modal với Bootstrap 4
       $("#addTourModal").modal("hide");
-      //alert("Cập nhật tour thành công!");
-
-      // Xóa các lớp modal-backdrop
       document.querySelectorAll(".modal-backdrop").forEach((el) => el.remove());
       document.body.classList.remove("modal-open");
-      window.location.reload();
     }
+    window.location.reload();
   } catch (error) {
     console.error(error);
     alert("Đã xảy ra lỗi khi thêm tour.");
@@ -439,13 +420,11 @@ function reloadTours() {
       return response.json();
     })
     .then((data) => {
-      console.log("Dữ liệu JSON nhận được:", data);
       const tableBody = document.querySelector("#tourList");
       tableBody.innerHTML = "";
 
       data.forEach((tour) => {
         const row = renderTourRow(tour);
-        console.log("HTML của hàng:", row);
         tableBody.insertAdjacentHTML("beforeend", row);
       });
     })

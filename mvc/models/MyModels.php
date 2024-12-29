@@ -190,6 +190,32 @@ class MyModels extends Database {
         }
     }
 
+    protected function isForeignKey($column) {
+        // Lấy danh sách tất cả các khóa ngoại tham chiếu tới bảng hiện tại
+        $sql = "SELECT table_name, column_name 
+                FROM information_schema.key_column_usage 
+                WHERE table_schema = :database
+                  AND referenced_table_name = :referenced_table
+                  AND referenced_column_name = :column";
+        $query = $this->conn->prepare($sql);
+        $query->execute([
+            ':database' => $this->conn->query("SELECT DATABASE()")->fetchColumn(),
+            ':referenced_table' => $this->table,
+            ':column' => $column
+        ]);
+        
+        $foreignKeys = $query->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Nếu tìm thấy khóa ngoại
+        if (!empty($foreignKeys)) {
+            //echo "Foreign keys referencing '{$this->table}({$column})':\n";
+            //print_r($foreignKeys);
+            return true;
+        }
+        return false;
+    }
+    
+
     public function search_array($data = '*', 
     $searchFields = [], 
     $searchTerm = '', 

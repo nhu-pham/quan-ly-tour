@@ -142,11 +142,11 @@ class TourModels extends MyModels {
         if (isset($where['id'])) {
             $column = 'id';
             $value = $where['id'];
-            echo $column;
+            //echo $column;
 
             // Kiểm tra khóa ngoại cho tham số hiện tại
             $isForeignKey = $this->isForeignKey($column);
-            echo $isForeignKey;
+            //echo $isForeignKey;
 
             if ($isForeignKey) {
                 // Kiểm tra nếu giá trị không có trong bảng orders, tiến hành xóa cứng
