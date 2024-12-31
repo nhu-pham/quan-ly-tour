@@ -87,7 +87,7 @@ async function confirmDeleteTour(tourId) {
   $("#confirmDeleteModal").modal("hide");
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/manager/tour/delete/${tourId}`, // URL đúng
+      `http://localhost/quan-ly-tour/api/admin/tour/delete/${tourId}`, // URL đúng
       {
         method: "DELETE", // Sửa lỗi chính tả
         headers: {
@@ -152,7 +152,7 @@ async function updateTour(tourId) {
   console.log("Request data:", data);
 
   const response = await fetch(
-    `http://localhost/quan-ly-tour/api/manager/tour/update/${tourId}`,
+    `http://localhost/quan-ly-tour/api/admin/tour/update/${tourId}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -208,12 +208,16 @@ async function addTour() {
   const tourItinerary = document.getElementById("tourItinerary").value.trim();
   const tourDetail = document.getElementById("tourDetail").value.trim();
 
+  console.log("Tour from form: ", tourImage);
+
   // Nếu có đường dẫn của image, cắt bỏ phần đầu (C:\\fakepath\\) và chỉ lấy tên file
   let image = "";
   if (tourImage !== "") {
     const imageName = tourImage.split("\\").pop(); // Tách chuỗi và lấy phần cuối cùng (tên file)
     image = "public/uploads/images/tours/" + imageName;
   }
+
+  console.log(image);
 
   if (
     !tourName ||
@@ -239,10 +243,11 @@ async function addTour() {
     description: tourDetail,
     thumbnail: image,
   };
+  console.log(data);
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/manager/tour/add`,
+      `http://localhost/quan-ly-tour/api/admin/tour/add`,
       {
         method: "POST",
         headers: {
@@ -330,7 +335,7 @@ async function search() {
 
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/manager/tour/searchByKeyword`,
+      `http://localhost/quan-ly-tour/api/admin/tour/searchByKeyword`,
       {
         method: "POST",
         headers: {
@@ -412,7 +417,7 @@ function renderTourRow(tour) {
 }
 
 function reloadTours() {
-  fetch("http://localhost/quan-ly-tour/api/manager/tour/fetchAll")
+  fetch("http://localhost/quan-ly-tour/api/admin/tour/fetchAll")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Lỗi khi tải danh sách tour.");
@@ -444,7 +449,7 @@ async function searchTour() {
   console.log(data);
   try {
     const response = await fetch(
-      `http://localhost/quan-ly-tour/api/manager/tour/search`,
+      `http://localhost/quan-ly-tour/api/admin/tour/search`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -491,4 +496,37 @@ document.addEventListener("DOMContentLoaded", function () {
       link.classList.add("active");
     });
   });
+});
+
+// Lắng nghe sự kiện "change" khi người dùng chọn tệp
+document.getElementById("image").addEventListener("change", function () {
+  var file = this.files[0]; // Lấy file đã chọn
+
+  // Kiểm tra xem đã chọn tệp hay chưa
+  if (!file) {
+    document.getElementById("uploadStatus").innerHTML =
+      '<p style="color: red;">Hãy chọn một tệp!</p>';
+    return;
+  }
+
+  // Tạo FormData để gửi file
+  var formData = new FormData();
+  formData.append("file", file); // Đổi 'image' thành 'file'
+
+  // Gửi file qua fetch đến PHP
+  fetch("upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      // Hiển thị thông báo thành công
+      document.getElementById("uploadStatus").innerHTML =
+        '<p style="color: green;">' + data + "</p>";
+    })
+    .catch((error) => {
+      // Hiển thị lỗi nếu có
+      document.getElementById("uploadStatus").innerHTML =
+        '<p style="color: red;">Đã xảy ra lỗi khi tải lên.</p>';
+    });
 });

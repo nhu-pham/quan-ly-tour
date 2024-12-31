@@ -252,5 +252,79 @@ class TourController extends Controller
         echo json_encode(['amount' => $amount]); // Trả về JSON
     }
     
-    
+    public function upload()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405); 
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Only POST method is allowed'
+            ]);
+            return;
+        }
+
+        // Kiểm tra xem có file nào được upload không
+        if (!isset($_FILES['file']) || $_FILES['file']['error'] != UPLOAD_ERR_OK) {
+            http_response_code(400); // Bad Request
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'No file uploaded or upload error occurred'
+            ]);
+            return;
+        }
+
+        $file = $_FILES['file'];
+
+        // Kiểm tra loại file
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!in_array($file['type'], $allowedTypes)) {
+            http_response_code(415); // Unsupported Media Type
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Invalid file type. Only JPEG, PNG, and GIF are allowed'
+            ]);
+            return;
+        }
+
+        // Kiểm tra kích thước file (giới hạn 2MB)
+        $maxSize = 2 * 1024 * 1024; // 2MB
+        if ($file['size'] > $maxSize) {
+            http_response_code(413); // Payload Too Large
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'File size exceeds the limit of 2MB'
+            ]);
+            return;
+        }
+
+        // Đặt đường dẫn lưu file
+        $uploadDir = './public/uploads/images/tours/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true); // Tạo thư mục nếu chưa tồn tại
+        }
+
+        // Lấy tên file gốc
+        $fileName = basename($file['name']); // Lấy tên file gốc
+        $targetPath = $uploadDir . $fileName;
+
+        // Kiểm tra xem file đã tồn tại chưa, nếu có thì thêm số vào tên để tránh trùng
+        $i = 1;
+        while (file_exists($targetPath)) {
+            // Thêm hậu tố _1, _2... vào tên file
+            $fileName = pathinfo($file['name'], PATHINFO_FILENAME) . "_$i." . pathinfo($file['name'], PATHINFO_EXTENSION);
+            $targetPath = $uploadDir . $fileName;
+            $i++;
+        }
+
+        // Di chuyển file đến thư mục đích
+        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+            // s
+        } else {
+            http_response_code(500); // Internal Server Error
+            echo json_encode([
+                'type'    => 'Fail',
+                'message' => 'Failed to move uploaded file'
+            ]);
+        }
+    }
 }

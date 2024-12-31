@@ -361,3 +361,36 @@ async function searchDichVu() {
 document.querySelector("#searchBtn").onclick = function () {
   searchDichVu();
 };
+
+// Lắng nghe sự kiện "change" khi người dùng chọn tệp
+document.getElementById("image").addEventListener("change", function () {
+  var file = this.files[0]; // Lấy file đã chọn
+
+  // Kiểm tra xem đã chọn tệp hay chưa
+  if (!file) {
+    document.getElementById("uploadStatus").innerHTML =
+      '<p style="color: red;">Hãy chọn một tệp!</p>';
+    return;
+  }
+
+  // Tạo FormData để gửi file
+  var formData = new FormData();
+  formData.append("file", file); // Đổi 'image' thành 'file'
+
+  // Gửi file qua fetch đến PHP
+  fetch("upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      // Hiển thị thông báo thành công
+      document.getElementById("uploadStatus").innerHTML =
+        '<p style="color: green;">' + data + "</p>";
+    })
+    .catch((error) => {
+      // Hiển thị lỗi nếu có
+      document.getElementById("uploadStatus").innerHTML =
+        '<p style="color: red;">Đã xảy ra lỗi khi tải lên.</p>';
+    });
+});

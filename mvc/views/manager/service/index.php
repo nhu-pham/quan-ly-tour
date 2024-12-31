@@ -52,8 +52,11 @@
                             <input type="text" class="form-control" id="serviceName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="image" class="form-label">Hình ảnh</label>
-                            <input type="file" class="form-control" id="image" accept="image/*">
+                            <form id="uploadForm" action="/service/upload" method="POST" enctype="multipart/form-data">
+                                <label for="image" class="form-label">Hình ảnh</label>
+                                <input type="file" class="form-control" name="file" id="image" accept="image/*">
+                            </form>
+                            <div id="uploadStatus"></div>
                         </div>
                         <div class="mb-3">
                             <label for="servicePrice" class="form-label">Giá</label>

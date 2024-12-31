@@ -14,9 +14,11 @@ $tourRoutes = [
         '/api/manager/tour/add' => 'TourController/add',
         '/api/manager/tour/search/filters' => 'TourController/searchWithFilters',
         '/api/manager/tour/search/keyword' => 'TourController/searchByKeyword',
+        '/api/manager/tour/upload' => 'TourController/upload',
         '/api/admin/tour/add' => 'TourController/add',
         '/api/admin/tour/search/filters' => 'TourController/searchWithFilters',
-        '/api/admin/tour/search/keyword' => 'TourController/searchByKeyword'
+        '/api/admin/tour/search/keyword' => 'TourController/searchByKeyword',
+        '/api/admin/tour/upload' => 'TourController/upload',
     ],
     'POST' => [
         '/api/manager/tour/update/(:num)' => 'TourController/update/$1',

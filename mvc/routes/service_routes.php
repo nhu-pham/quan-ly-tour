@@ -16,7 +16,9 @@ $ServiceRoutes = [
     ],
     'POST' => [
         '/api/manager/service/add' => 'ServiceController/add',
+        '/api/manager/service/upload' => 'ServiceController/upload',
         '/api/admin/service/add' => 'ServiceController/add',
+        '/api/admin/service/upload' => 'ServiceController/upload',
     ],
     'POST' => [
         '/api/manager/service/update/(:num)' => 'ServiceController/update/$1',
